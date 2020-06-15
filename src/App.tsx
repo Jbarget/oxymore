@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import {
+  color,
+  space,
+  typography,
+  TypographyProps,
+  ColorProps,
+  SpaceProps,
+} from "styled-system";
+import theme from "./components/theme";
+
+import "./css/reset.css";
+
+type HeadingProps = ColorProps & SpaceProps & TypographyProps;
+
+const Title = styled.h1<HeadingProps>`
+  ${color}
+  ${space}
+  ${typography}
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <ThemeProvider theme={theme}>
+      <header>
+        <Title color="primary" bg="error" p={3} fontSize={3}>
+          Oxymore
+        </Title>
       </header>
-    </div>
+    </ThemeProvider>
   );
 }
 
