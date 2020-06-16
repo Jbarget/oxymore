@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import {
   color,
   space,
   typography,
+  border,
   TypographyProps,
   ColorProps,
   SpaceProps,
+  BorderProps,
 } from "styled-system";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 type HeadingProps = ColorProps & SpaceProps & TypographyProps;
 
@@ -17,11 +21,26 @@ const Title = styled.h1<HeadingProps>`
   ${typography}
 `;
 
+const LangButton = styled.button`
+  ${color}
+  ${space}
+  ${typography}
+  ${border}
+`;
+
 const Home = () => {
+  const onLangClick = useCallback(
+    (countryId: string) => () => i18next.changeLanguage(countryId),
+    []
+  );
   return (
-    <Title color="primary" bg="error" p={3} fontSize={3}>
-      Oxymore
-    </Title>
+    <main>
+      <Title color="primary" bg="error" p={3} fontSize={3}>
+        {onLangClick("home.header")}
+      </Title>
+      <LangButton onClick={onLangClick("en")}>EN</LangButton>
+      <LangButton onClick={onLangClick("es")}>ES</LangButton>
+    </main>
   );
 };
 
