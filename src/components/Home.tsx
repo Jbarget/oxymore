@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <main>
       <Title color="primary" bg="error" p={3} fontSize={3}>
-        {t("home.header")}
+        {onLangClick("home.header")}
       </Title>
       <LangButton onClick={onLangClick("en")}>EN</LangButton>
       <LangButton onClick={onLangClick("es")}>ES</LangButton>
