@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import {
   color,
@@ -21,7 +21,7 @@ const Title = styled.h1<HeadingProps>`
   ${typography}
 `;
 
-const LangButton = styled.button<HeadingProps>`
+const LangButton = styled.button`
   ${color}
   ${space}
   ${typography}
@@ -29,14 +29,17 @@ const LangButton = styled.button<HeadingProps>`
 `;
 
 const Home = () => {
-  const { t } = useTranslation();
+  const onLangClick = useCallback(
+    (countryId: string) => () => i18next.changeLanguage(countryId),
+    []
+  );
   return (
     <main>
       <Title color="primary" bg="error" p={3} fontSize={3}>
-        {t("home.header")}
+        {onLangClick("home.header")}
       </Title>
-      <LangButton onClick={() => i18next.changeLanguage("en")}>EN</LangButton>
-      <LangButton onClick={() => i18next.changeLanguage("es")}>ES</LangButton>
+      <LangButton onClick={onLangClick("en")}>EN</LangButton>
+      <LangButton onClick={onLangClick("es")}>ES</LangButton>
     </main>
   );
 };
