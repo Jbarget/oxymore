@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+
 import {
   color,
   space,
@@ -11,13 +11,6 @@ import {
   ColorProps,
   SpaceProps,
 } from "styled-system";
-
-type HeadingProps = ColorProps & SpaceProps & TypographyProps;
-
-const MenuButton = styled.button<HeadingProps>`
-${color}
-${space}
-${typography}`;
 
 const visibleStyles = css`
   display: flex;
@@ -33,6 +26,13 @@ const visibleStyles = css`
 const NavMenuOverlay = styled.dialog<{ expanded: boolean }>`
   display: none;
   ${(props) => props.expanded && visibleStyles}
+`;
+
+const menuButtonStyles = css`
+  float: right;
+`;
+const MenuButton = styled.button`
+  ${menuButtonStyles}
 `;
 
 const NavMenu = () => {

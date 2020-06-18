@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import {
   color,
@@ -21,11 +21,6 @@ const Title = styled.h1<HeadingProps>`
 `;
 
 const LangButton = styled.button``;
-
-const MenuButton = styled.button<HeadingProps>`
-${color}
-${space}
-${typography}`;
 
 const Home = () => {
   const { t } = useTranslation();
