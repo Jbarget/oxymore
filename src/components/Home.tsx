@@ -1,14 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import {
   color,
   space,
   typography,
-  border,
   TypographyProps,
   ColorProps,
   SpaceProps,
-  BorderProps,
 } from "styled-system";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
@@ -29,6 +27,7 @@ const Home = () => {
     (countryId: string) => () => i18next.changeLanguage(countryId),
     []
   );
+  const [expanded, setExpanded] = useState(false);
   return (
     <main>
       <Title color="primary" bg="error" p={3} fontSize={3}>
