@@ -10,6 +10,7 @@ import {
 } from "styled-system";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import NavMenu from "./NavMenu";
 
 type HeadingProps = ColorProps & SpaceProps & TypographyProps;
 
@@ -21,6 +22,11 @@ const Title = styled.h1<HeadingProps>`
 
 const LangButton = styled.button``;
 
+const MenuButton = styled.button<HeadingProps>`
+${color}
+${space}
+${typography}`;
+
 const Home = () => {
   const { t } = useTranslation();
   const onLangClick = useCallback(
@@ -28,10 +34,11 @@ const Home = () => {
     []
   );
   const [expanded, setExpanded] = useState(false);
+
   return (
     <main>
       <Title color="primary" bg="error" p={3} fontSize={3}>
-        {t("home.header")}
+        {t("home.header")} <NavMenu />
       </Title>
       <LangButton onClick={onLangClick("en")}>EN</LangButton>
       <LangButton onClick={onLangClick("es")}>ES</LangButton>
