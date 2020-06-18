@@ -28,6 +28,7 @@ const visibleStyles = css`
   font-size: 36px;
   justify-content: center;
   text-align: center;
+  width: 100%;
 `;
 const NavMenuOverlay = styled.dialog<{ expanded: boolean }>`
   display: none;
