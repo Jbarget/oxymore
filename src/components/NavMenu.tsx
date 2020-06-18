@@ -1,6 +1,8 @@
 import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import {
   color,
   space,
@@ -34,19 +36,21 @@ const NavMenuOverlay = styled.dialog<{ expanded: boolean }>`
 
 const NavMenu = () => {
   const [expanded, setExpanded] = useState(false);
+  const { t } = useTranslation();
+
   return (
     <Fragment>
       <MenuButton onClick={() => setExpanded(!expanded)}>click me</MenuButton>
       <NavMenuOverlay expanded={expanded}>
-        <NavLink to="/manifesto">MANIFESTO</NavLink>
+        <NavLink to="/manifesto">{t("nav.navLink1")} </NavLink>
 
-        <NavLink to="/advertising">ADVERTISING</NavLink>
+        <NavLink to="/advertising">{t("nav.navLink2")}</NavLink>
 
-        <NavLink to="/about-us">ABOUT US</NavLink>
+        <NavLink to="/about-us">{t("nav.navLink3")}</NavLink>
 
-        <NavLink to="/contact">CONTACT</NavLink>
+        <NavLink to="/contact">{t("nav.navLink4")}</NavLink>
 
-        <NavLink to="/buy">BUY</NavLink>
+        <NavLink to="/buy">{t("nav.navLink5")}</NavLink>
       </NavMenuOverlay>
     </Fragment>
   );

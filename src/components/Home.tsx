@@ -33,7 +33,6 @@ const Home = () => {
     (countryId: string) => () => i18next.changeLanguage(countryId),
     []
   );
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <main>
