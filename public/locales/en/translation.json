@@ -1,5 +1,12 @@
 {
   "home": {
     "header": "Weather forecast"
+  },
+  "nav": {
+    "navLink1": "MANIFESTO",
+    "navLink2": "ADVERTISING",
+    "navLink3": "ABOUT US",
+    "navLink4": "CONTACT",
+    "navLink5": "BUY"
   }
 }
