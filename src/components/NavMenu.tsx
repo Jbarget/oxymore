@@ -17,40 +17,35 @@ const visibleStyles = css`
   flex-direction: column;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
-  margin-top: 30px;
   font-size: 36px;
   justify-content: center;
   text-align: center;
   width: 100%;
 `;
-const NavMenuOverlay = styled.dialog<{ expanded: boolean }>`
+const NavMenuOverlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${(props) => props.expanded && visibleStyles}
+  ${(props) => props.isOpen && visibleStyles}
 `;
 
-const menuButtonStyles = css`
-  float: right;
-`;
 const MenuButton = styled.button`
-  ${menuButtonStyles}
+  position: absolute;
+  right: 1em;
+  top: 1em;
 `;
 
 const NavMenu = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const { t } = useTranslation();
 
   return (
     <Fragment>
-      <MenuButton onClick={() => setExpanded(!expanded)}>click me</MenuButton>
-      <NavMenuOverlay expanded={expanded}>
+      <MenuButton onClick={() => setIsOpen(!isOpen)}>click me</MenuButton>
+      <NavMenuOverlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <NavLink to="/manifesto">{t("nav.navLink1")} </NavLink>
-
         <NavLink to="/advertising">{t("nav.navLink2")}</NavLink>
-
         <NavLink to="/about-us">{t("nav.navLink3")}</NavLink>
-
         <NavLink to="/contact">{t("nav.navLink4")}</NavLink>
-
         <NavLink to="/buy">{t("nav.navLink5")}</NavLink>
       </NavMenuOverlay>
     </Fragment>

@@ -10,7 +10,6 @@ import {
 } from "styled-system";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import NavMenu from "./NavMenu";
 
 type HeadingProps = ColorProps & SpaceProps & TypographyProps;
 
@@ -32,7 +31,7 @@ const Home = () => {
   return (
     <main>
       <Title color="primary" bg="error" p={3} fontSize={3}>
-        {t("home.header")} <NavMenu />
+        {t("home.header")}
       </Title>
       <LangButton onClick={onLangClick("en")}>EN</LangButton>
       <LangButton onClick={onLangClick("es")}>ES</LangButton>
