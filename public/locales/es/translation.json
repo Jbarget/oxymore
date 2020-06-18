@@ -1,12 +1,12 @@
 {
   "home": {
-    "header": "forecastio weatherio"
+    "header": "ES"
   },
   "nav": {
     "navLink1": "MANIFIESTO",
     "navLink2": "PUBLICIDAD",
     "navLink3": "SOBRE NOSOTROS",
     "navLink4": "CONTACT0",
-    "navLink5": "COMPRA"
+    "navLink5": "COMPRAR"
   }
 }
