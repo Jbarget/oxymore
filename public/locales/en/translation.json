@@ -1,12 +1,16 @@
 {
-  "home": {
-    "header": "EN"
-  },
   "nav": {
-    "navLink1": "MANIFESTO",
-    "navLink2": "ADVERTISING",
-    "navLink3": "ABOUT US",
-    "navLink4": "CONTACT",
-    "navLink5": "BUY"
+    "manifesto": "MANIFESTO",
+    "advertising": "ADVERTISING",
+    "about": "ABOUT US",
+    "contact": "CONTACT",
+    "buy": "BUY"
+  },
+  "page": {
+    "manifesto": "MANIFESTO",
+    "advertising": "ADVERTISING",
+    "about": "ABOUT US",
+    "contact": "CONTACT",
+    "buy": "BUY"
   }
 }

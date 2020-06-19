@@ -59,7 +59,7 @@ const NavMenu = () => {
           <MenuItem>{t("nav.advertising")}</MenuItem>
         </NavLink>
         <NavLink to="/about-us" style={{ textDecoration: "none" }}>
-          <MenuItem>{t("nav.aboutUs")}</MenuItem>
+          <MenuItem>{t("nav.about")}</MenuItem>
         </NavLink>
         <NavLink to="/contact" style={{ textDecoration: "none" }}>
           <MenuItem>{t("nav.contact")}</MenuItem>
