@@ -6,14 +6,15 @@ import { useTranslation } from "react-i18next";
 const visibleStyles = css`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
   font-size: 36px;
   justify-content: center;
   text-align: center;
+  height: 100%;
   width: 100%;
-  font-family: SangBleu OG Serif Light Regular;
+  font-family: SangBleu OG Serif;
+  background-color: rgba(255, 255, 255, 0.5);
 `;
+
 const NavMenuOverlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
   ${(props) => props.isOpen && visibleStyles}
@@ -26,6 +27,7 @@ const MenuButton = styled.button`
   height: 50px;
   width: 50px;
   background-color: #555;
+  cursor: pointer;
 `;
 
 const MenuItem = styled.h1`
