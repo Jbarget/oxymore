@@ -4,7 +4,7 @@ import background from "./assets/fondo-web.jpg";
 const Home = () => {
   return (
     <main>
-      <img src={background}></img>
+      <img src={background}></img>{" "}
     </main>
   );
 };

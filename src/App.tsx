@@ -30,7 +30,19 @@ const Title = styled.h1<HeadingProps>`
   text-align: center;
 `;
 
-const LangButton = styled.button``;
+type ButtonProps = ColorProps & SpaceProps & TypographyProps;
+
+const LangButton = styled.button<ButtonProps>`
+  ${color}
+  ${typography}
+  font-family: SangBleu OG Serif;
+  background-color: transparent;
+  padding: 1em;
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+`;
 
 const App = () => {
   const onLangClick = useCallback(
@@ -42,14 +54,18 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Suspense fallback={<div>Loading</div>}>
-            <LangButton onClick={onLangClick("en")}>EN</LangButton>
-            <LangButton onClick={onLangClick("es")}>ES</LangButton>
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none" }}>
               <Title color="black" fontSize={5}>
                 OXYMORE
               </Title>
             </Link>
             <NavMenu />
+            <LangButton onClick={onLangClick("en")} fontSize={3}>
+              EN
+            </LangButton>
+            <LangButton onClick={onLangClick("es")} fontSize={3}>
+              ES
+            </LangButton>
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/manifesto" exact component={Manifesto} />

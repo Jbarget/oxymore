@@ -37,11 +37,6 @@ const MenuItem = styled.h1`
   &:hover {
     font-size: 40px;
   }
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
 `;
 
 const NavMenu = () => {
