@@ -2,6 +2,8 @@ import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
+import navButton from "./assets/placeholder-nav.jpeg";
+import { space, SpaceProps, TypographyProps, typography } from "styled-system";
 
 const visibleStyles = css`
   display: flex;
@@ -25,12 +27,15 @@ const MenuButton = styled.button`
   top: 1em;
   height: 50px;
   width: 50px;
-  background-color: #555;
 `;
 
-const MenuItem = styled.h1`
+type MenuItemProps = SpaceProps & TypographyProps;
+
+const MenuItem = styled.li<MenuItemProps>`
+  ${space};
+  ${typography};
+
   color: #000000;
-  padding: 0.5em;
   &:focus,
   &:hover {
     font-size: 40px;
@@ -48,23 +53,37 @@ const NavMenu = () => {
 
   return (
     <Fragment>
-      <MenuButton onClick={() => setIsOpen(!isOpen)}>click me</MenuButton>
+      <MenuButton onClick={() => setIsOpen(!isOpen)}>
+        <img src={navButton} />
+      </MenuButton>
       <NavMenuOverlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
-        <NavLink to="/manifesto" style={{ textDecoration: "none" }}>
-          <MenuItem>{t("nav.manifesto")} </MenuItem>
-        </NavLink>
-        <NavLink to="/advertising" style={{ textDecoration: "none" }}>
-          <MenuItem>{t("nav.advertising")}</MenuItem>
-        </NavLink>
-        <NavLink to="/about-us" style={{ textDecoration: "none" }}>
-          <MenuItem>{t("nav.aboutUs")}</MenuItem>
-        </NavLink>
-        <NavLink to="/contact" style={{ textDecoration: "none" }}>
-          <MenuItem>{t("nav.contact")}</MenuItem>
-        </NavLink>
-        <NavLink to="/buy" style={{ textDecoration: "none" }}>
-          <MenuItem>{t("nav.buy")}</MenuItem>
-        </NavLink>
+        <ul>
+          <NavLink to="/manifesto" style={{ textDecoration: "none" }}>
+            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
+              {t("nav.manifesto")}
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/advertising" style={{ textDecoration: "none" }}>
+            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
+              {t("nav.advertising")}
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/about-us" style={{ textDecoration: "none" }}>
+            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
+              {t("nav.about-us")}
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/contact" style={{ textDecoration: "none" }}>
+            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
+              {t("nav.contact")}
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/buy" style={{ textDecoration: "none" }}>
+            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
+              {t("nav.buy")}
+            </MenuItem>
+          </NavLink>
+        </ul>
       </NavMenuOverlay>
     </Fragment>
   );
