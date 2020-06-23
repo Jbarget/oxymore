@@ -1,14 +1,23 @@
 import React, { useCallback, Fragment } from "react";
-import styled, { css } from "styled-components";
-import { space, SpaceProps } from "styled-system";
+import styled from "styled-components";
+import {
+  color,
+  space,
+  typography,
+  TypographyProps,
+  ColorProps,
+  SpaceProps,
+} from "styled-system";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import Background from "./assets/fondo-web.jpg";
 
-type HeadingProps = SpaceProps;
+type HeadingProps = SpaceProps & ColorProps & TypographyProps;
 
 const Title = styled.h1<HeadingProps>`
   ${space}
+  ${color}
+  ${typography}
   display:flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +41,9 @@ const Home = () => {
         height: "100vh",
       }}
     >
-      <Title p={3}>OXYMORE</Title>
+      <Title p={7} color="athensGray" fontSize={5}>
+        OXYMORE
+      </Title>
       <LangButton onClick={onLangClick("en")}>EN</LangButton>
       <LangButton onClick={onLangClick("es")}>ES</LangButton>
     </div>
