@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
-import navButton from "./assets/placeholder-nav.jpeg";
+import navButton from "./assets/nav-button/placeholder-nav.jpeg";
 import { space, SpaceProps, TypographyProps, typography } from "styled-system";
 
 const visibleStyles = css`
