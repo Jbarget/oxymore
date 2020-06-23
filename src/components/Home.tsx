@@ -1,24 +1,17 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import {
-  color,
-  space,
-  typography,
-  border,
-  TypographyProps,
-  ColorProps,
-  SpaceProps,
-  BorderProps,
-} from "styled-system";
+import { space, SpaceProps } from "styled-system";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 
-type HeadingProps = ColorProps & SpaceProps & TypographyProps;
+type HeadingProps = SpaceProps;
 
 const Title = styled.h1<HeadingProps>`
-  ${color}
   ${space}
-  ${typography}
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: SangBleu OG Serif Light Regular;
 `;
 
 const LangButton = styled.button``;
@@ -30,13 +23,11 @@ const Home = () => {
     []
   );
   return (
-    <main>
-      <Title color="primary" bg="error" p={3} fontSize={3}>
-        {t("home.header")}
-      </Title>
+    <div>
+      <Title p={3}>OXYMORE</Title>
       <LangButton onClick={onLangClick("en")}>EN</LangButton>
       <LangButton onClick={onLangClick("es")}>ES</LangButton>
-    </main>
+    </div>
   );
 };
 
