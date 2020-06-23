@@ -34,7 +34,7 @@ type MenuItemProps = SpaceProps & TypographyProps;
 const MenuItem = styled.li<MenuItemProps>`
   ${space};
   ${typography};
-
+  height: 66px;
   color: #000000;
   &:focus,
   &:hover {
