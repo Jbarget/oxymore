@@ -8,7 +8,6 @@ import {
   ColorProps,
   SpaceProps,
 } from "styled-system";
-import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import Background from "./assets/fondo-web.jpg";
 
@@ -35,6 +34,12 @@ const Container = styled.div`
   float: right;
   right: 100px;
   display: flex;
+  cursor: pointer;
+  p:hover,
+  p:active {
+    color: black;
+    background-color: #f4f4f6;
+  }
 `;
 
 const LangButton = styled.p<HeadingProps>`
