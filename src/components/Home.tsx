@@ -1,4 +1,5 @@
-import React, { useCallback, Fragment } from "react";
+import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   color,
@@ -38,7 +39,6 @@ const Container = styled.div`
   p:hover,
   p:active {
     color: black;
-    background-color: #f4f4f6;
   }
 `;
 
@@ -65,9 +65,11 @@ const Home = () => {
     >
       {" "}
       <Header>
-        <Title p={7} color="athensGray" fontSize={5}>
-          OXYMORE
-        </Title>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Title p={7} color="athensGray" fontSize={5}>
+            OXYMORE
+          </Title>
+        </Link>
         <Container>
           <LangButton
             onClick={onLangClick("en")}
