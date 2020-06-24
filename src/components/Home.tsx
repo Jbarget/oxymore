@@ -14,20 +14,37 @@ import Background from "./assets/fondo-web.jpg";
 
 type HeadingProps = SpaceProps & ColorProps & TypographyProps;
 
+const Header = styled.div<HeadingProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+
 const Title = styled.h1<HeadingProps>`
   ${space}
   ${color}
   ${typography}
-  display:flex;
-  align-items: center;
-  justify-content: center;
   font-family: SangBleu OG Serif Light Regular;
 `;
 
-const LangButton = styled.button``;
+const Container = styled.div`
+  font-family: SangBleu OG Serif Light Regular;
+  height: auto;
+  position: absolute;
+  float: right;
+  right: 100px;
+  display: flex;
+`;
+
+const LangButton = styled.p<HeadingProps>`
+  ${typography}
+  ${color}
+  ${space}
+  font-family: SangBleu OG Serif Light Regular;
+`;
 
 const Home = () => {
-  const { t } = useTranslation();
   const onLangClick = useCallback(
     (countryId: string) => () => i18next.changeLanguage(countryId),
     []
@@ -41,11 +58,30 @@ const Home = () => {
         height: "100vh",
       }}
     >
-      <Title p={7} color="athensGray" fontSize={5}>
-        OXYMORE
-      </Title>
-      <LangButton onClick={onLangClick("en")}>EN</LangButton>
-      <LangButton onClick={onLangClick("es")}>ES</LangButton>
+      {" "}
+      <Header>
+        <Title p={7} color="athensGray" fontSize={5}>
+          OXYMORE
+        </Title>
+        <Container>
+          <LangButton
+            onClick={onLangClick("en")}
+            color="athensGray"
+            fontSize={3}
+            p={1}
+          >
+            EN
+          </LangButton>
+          <LangButton
+            onClick={onLangClick("es")}
+            color="athensGray"
+            fontSize={3}
+            p={1}
+          >
+            ES
+          </LangButton>
+        </Container>
+      </Header>
     </div>
   );
 };
