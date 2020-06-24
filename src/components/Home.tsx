@@ -11,15 +11,15 @@ import {
 } from "styled-system";
 import i18next from "i18next";
 import Background from "./assets/fondo-web.jpg";
-import icon1 from "./assets/escalera.png";
-import icon2 from "./assets/concha.png";
-import icon3 from "./assets/eye.png";
-import icon4 from "./assets/androginus.png";
-import icon5 from "./assets/dragon.png";
-import icon6 from "./assets/cuchillo.png";
-import icon7 from "./assets/mascara.png";
-import icon8 from "./assets/hormiga.png";
-import icon9 from "./assets/lupa.png";
+import stairs from "./assets/escalera.png";
+import shell from "./assets/concha.png";
+import eye from "./assets/eye.png";
+import statue from "./assets/androginus.png";
+import dragon from "./assets/dragon.png";
+import knife from "./assets/cuchillo.png";
+import mask from "./assets/mascara.png";
+import spider from "./assets/hormiga.png";
+import magnify from "./assets/lupa.png";
 
 type HeadingProps = SpaceProps & ColorProps & TypographyProps;
 
@@ -65,8 +65,9 @@ const IconContainer = styled.div`
 
 const Icon = styled.a`
   a:hover {
-    width: 210px;
-    height: 130px;
+    position: relative;
+    width: 500px;
+    height: auto;
   }
 `;
 
@@ -81,7 +82,7 @@ const Home = () => {
       style={{
         backgroundImage: "url(" + Background + ")",
         backgroundSize: "cover",
-        height: "100vh",
+        height: "140vh",
       }}
     >
       {" "}
@@ -113,15 +114,19 @@ const Home = () => {
       <IconContainer>
         <Icon>
           <img
-            src={icon1}
-            style={{ position: "relative", top: 100, left: 100 }}
+            src={stairs}
+            style={{
+              position: "relative",
+              top: 100,
+              left: 100,
+            }}
           ></img>
         </Icon>
       </IconContainer>
       <IconContainer>
         <Icon>
           <img
-            src={icon2}
+            src={shell}
             style={{ position: "relative", top: 240, left: 100 }}
           ></img>
         </Icon>
@@ -129,7 +134,7 @@ const Home = () => {
       <IconContainer>
         <Icon>
           <img
-            src={icon3}
+            src={eye}
             style={{ position: "relative", bottom: 240, left: 420 }}
           ></img>
         </Icon>
@@ -137,7 +142,7 @@ const Home = () => {
       <IconContainer>
         <Icon>
           <img
-            src={icon4}
+            src={statue}
             style={{ position: "relative", top: 54, left: 420 }}
           ></img>
         </Icon>
@@ -145,7 +150,7 @@ const Home = () => {
       <IconContainer>
         <Icon>
           <img
-            src={icon5}
+            src={dragon}
             style={{ position: "relative", bottom: 260, left: 720 }}
           ></img>
         </Icon>
@@ -153,7 +158,7 @@ const Home = () => {
       <IconContainer>
         <Icon>
           <img
-            src={icon6}
+            src={knife}
             style={{ position: "relative", bottom: 40, left: 680 }}
           ></img>
         </Icon>
@@ -161,7 +166,7 @@ const Home = () => {
       <IconContainer>
         <Icon>
           <img
-            src={icon7}
+            src={mask}
             style={{ position: "relative", bottom: 720, left: 1020 }}
           ></img>
         </Icon>
@@ -169,15 +174,15 @@ const Home = () => {
       <IconContainer>
         <Icon>
           <img
-            src={icon8}
-            style={{ position: "relative", bottom: 412, left: 1020 }}
+            src={spider}
+            style={{ position: "relative", bottom: 320, left: 1020 }}
           ></img>
         </Icon>
       </IconContainer>
       <IconContainer>
         <Icon>
           <img
-            src={icon9}
+            src={magnify}
             style={{ position: "relative", bottom: 660, left: 1210 }}
           ></img>
         </Icon>
