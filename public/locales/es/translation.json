@@ -1,5 +1,12 @@
 {
   "home": {
-    "header": "forecastio weatherio"
+    "header": "ES"
+  },
+  "nav": {
+    "manifesto": "MANIFIESTO",
+    "advertising": "PUBLICIDAD",
+    "about-us": "SOBRE NOSOTROS",
+    "contact": "CONTACTO",
+    "buy": "COMPRAR"
   }
 }

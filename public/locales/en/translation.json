@@ -1,5 +1,12 @@
 {
   "home": {
-    "header": "Weather forecast"
+    "header": "EN"
+  },
+  "nav": {
+    "manifesto": "MANIFESTO",
+    "advertising": "ADVERTISING",
+    "about-us": "ABOUT US",
+    "contact": "CONTACT",
+    "buy": "BUY"
   }
 }
