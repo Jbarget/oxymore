@@ -20,16 +20,12 @@ type HeadingProps = SpaceProps & ColorProps & TypographyProps;
 
 const Container = styled.div`
   font-family: SangBleu OG Serif Light Regular;
-  height: auto;
   position: absolute;
   float: right;
   right: 100px;
+  top: 28px;
   display: flex;
   cursor: pointer;
-  p:hover,
-  p:active {
-    color: black;
-  }
 `;
 
 const LangButton = styled.p<HeadingProps>`
@@ -37,6 +33,10 @@ const LangButton = styled.p<HeadingProps>`
   ${color}
   ${space}
   font-family: SangBleu OG Serif Light Regular;
+  p:hover,
+  p:active {
+    color: black;
+  }
 `;
 
 const App = () => {

@@ -1,94 +1,86 @@
-import React, { useCallback } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
+import Bg from "./assets/home-page/background.jpg";
+import Alpha from "./assets/home-page/360_alpha.png";
+import Oxymore from "./assets/home-page/oxymore.png";
+import Number from "./assets/home-page/number-one.png";
 import {
-  color,
   space,
+  SpaceProps,
+  layout,
+  LayoutProps,
+  background,
+  BackgroundProps,
   typography,
   TypographyProps,
-  ColorProps,
-  SpaceProps,
+  FlexboxProps,
+  flexbox,
+  PositionProps,
+  position,
 } from "styled-system";
-import i18next from "i18next";
-import Background from "./assets/home-page/background.jpg";
 
-type HeadingProps = SpaceProps & ColorProps & TypographyProps;
+type LogoProps = SpaceProps & LayoutProps & FlexboxProps & PositionProps;
 
-const Header = styled.div<HeadingProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+const Background = styled.div<BackgroundProps>`
+  ${background};
 `;
 
-const Title = styled.h1<HeadingProps>`
-  ${space}
-  ${color}
-  ${typography}
-  font-family: SangBleu OG Serif Light Regular;
+const AlphaContainer = styled.div<LogoProps>`
+  ${layout};
+  ${position};
+  ${flexbox};
 `;
 
-const Container = styled.div`
-  font-family: SangBleu OG Serif Light Regular;
-  height: auto;
-  position: absolute;
-  float: right;
-  right: 100px;
-  display: flex;
-  cursor: pointer;
-  p:hover,
-  p:active {
-    color: black;
-  }
+const BuyContainer = styled.div<LogoProps>`
+  ${layout};
+  ${position};
+  ${flexbox};
 `;
 
-const LangButton = styled.p<HeadingProps>`
-  ${typography}
-  ${color}
-  ${space}
-  font-family: SangBleu OG Serif Light Regular;
+const OxymoreContainer = styled.div<LogoProps>`
+  ${space};
+  ${layout};
+  ${position};
+`;
+
+const BuyButton = styled.button<LogoProps>`
+  ${space};
+  ${layout};
+  ${position};
+  ${typography};
 `;
 
 const Home = () => {
-  const onLangClick = useCallback(
-    (countryId: string) => () => i18next.changeLanguage(countryId),
-    []
-  );
   return (
     <div
       className="bg_image"
       style={{
-        backgroundImage: "url(" + Background + ")",
+        backgroundImage: "url(" + Bg + ")",
         backgroundSize: "cover",
-        height: "140vh",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      {" "}
-      <Header>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <Title p={7} color="athensGray" fontSize={5}>
-            OXYMORE
-          </Title>
-        </Link>
-        <Container>
-          <LangButton
-            onClick={onLangClick("en")}
-            color="athensGray"
-            fontSize={3}
-            p={1}
-          >
-            EN
-          </LangButton>
-          <LangButton
-            onClick={onLangClick("es")}
-            color="athensGray"
-            fontSize={3}
-            p={1}
-          >
-            ES
-          </LangButton>
-        </Container>
-      </Header>
+      <OxymoreContainer position="absolute" top={2} left={2} width="20%" p={5}>
+        {" "}
+        <img src={Oxymore} />
+      </OxymoreContainer>
+      <AlphaContainer width="25%">
+        <img src={Alpha} />
+      </AlphaContainer>
+      <BuyContainer
+        position="absolute"
+        left={100}
+        bottom={100}
+        size="10%"
+        p={5}
+      >
+        {" "}
+        <img src={Number} />
+        <BuyButton>BUY</BuyButton>
+      </BuyContainer>
     </div>
   );
 };

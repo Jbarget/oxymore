@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import stairs from "./assets/project-page/stairs.png";
 import shell from "./assets/project-page/knife.png";
@@ -9,6 +10,31 @@ import knife from "./assets/project-page/knife.png";
 import mask from "./assets/project-page/mask.png";
 import spider from "./assets/project-page/spider.png";
 import magnify from "./assets/project-page/magnify.png";
+import Background from "./assets/home-page/background.jpg";
+import {
+  color,
+  space,
+  typography,
+  TypographyProps,
+  ColorProps,
+  SpaceProps,
+} from "styled-system";
+
+type HeadingProps = SpaceProps & ColorProps & TypographyProps;
+
+const Header = styled.div<HeadingProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+
+const Title = styled.h1<HeadingProps>`
+  ${space}
+  ${color}
+  ${typography}
+  font-family: SangBleu OG Serif Light Regular;
+`;
 
 const IconContainer = styled.div`
   width: 200px;
@@ -25,7 +51,21 @@ const Icon = styled.a`
 
 const Projects = () => {
   return (
-    <Fragment>
+    <div
+      className="bg_image"
+      style={{
+        backgroundImage: "url(" + Background + ")",
+        backgroundSize: "cover",
+        height: "140vh",
+      }}
+    >
+      <Header>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Title p={7} color="athensGray" fontSize={5}>
+            OXYMORE
+          </Title>
+        </Link>
+      </Header>
       <IconContainer>
         <Icon>
           <img
@@ -102,7 +142,7 @@ const Projects = () => {
           ></img>
         </Icon>
       </IconContainer>
-    </Fragment>
+    </div>
   );
 };
 
