@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Bg from "./assets/home-page/background.jpg";
 import Alpha from "./assets/home-page/360_alpha.png";
 import Oxymore from "./assets/home-page/oxymore.png";
@@ -17,9 +17,16 @@ import {
   flexbox,
   PositionProps,
   position,
+  ColorProps,
+  color,
 } from "styled-system";
 
-type LogoProps = SpaceProps & LayoutProps & FlexboxProps & PositionProps;
+type LogoProps = SpaceProps &
+  LayoutProps &
+  FlexboxProps &
+  PositionProps &
+  ColorProps &
+  TypographyProps;
 
 const Background = styled.div<BackgroundProps>`
   ${background};
@@ -43,11 +50,19 @@ const OxymoreContainer = styled.div<LogoProps>`
   ${position};
 `;
 
-const BuyButton = styled.button<LogoProps>`
+const visibleStyles = css`
+  font-family: SangBleu OG Serif Light Regular;
+  outline-color: #f4f4f6;
+  outline-style: solid;
+  outline-width: thin;
+  text-align: center;
+`;
+
+const BuyButton = styled.div<LogoProps>`
   ${space};
   ${layout};
-  ${position};
-  ${typography};
+  ${color};
+  ${visibleStyles};
 `;
 
 const Home = () => {
@@ -70,16 +85,12 @@ const Home = () => {
       <AlphaContainer width="25%">
         <img src={Alpha} />
       </AlphaContainer>
-      <BuyContainer
-        position="absolute"
-        left={100}
-        bottom={100}
-        size="10%"
-        p={5}
-      >
+      <BuyContainer position="absolute" left={100} bottom={100} size="5%" p={5}>
         {" "}
         <img src={Number} />
-        <BuyButton>BUY</BuyButton>
+        <BuyButton width={1} p={1} color="athensGray" mt={4} py={1}>
+          BUY
+        </BuyButton>
       </BuyContainer>
     </div>
   );
