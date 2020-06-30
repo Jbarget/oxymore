@@ -4,6 +4,7 @@ import Bg from "./assets/home-page/background.jpg";
 import Alpha from "./assets/home-page/360_alpha.png";
 import Oxymore from "./assets/home-page/oxymore.png";
 import Number from "./assets/home-page/number-one.png";
+import Manifesto from "./assets/home-page/manifesto.png";
 import {
   space,
   SpaceProps,
@@ -11,88 +12,114 @@ import {
   LayoutProps,
   background,
   BackgroundProps,
-  typography,
-  TypographyProps,
   FlexboxProps,
   flexbox,
   PositionProps,
   position,
   ColorProps,
   color,
+  TypographyProps,
+  typography,
+  border,
+  BorderProps,
 } from "styled-system";
 
+// background
+type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
+
+const Background = styled.div<BgProps>`
+  ${background};
+  ${color};
+  ${layout};
+  ${flexbox};
+`;
+
+// logos and button
 type LogoProps = SpaceProps &
   LayoutProps &
   FlexboxProps &
   PositionProps &
   ColorProps &
-  TypographyProps;
+  SpaceProps &
+  TypographyProps &
+  BorderProps;
 
-const Background = styled.div<BackgroundProps>`
-  ${background};
-`;
-
-const AlphaContainer = styled.div<LogoProps>`
+const Logo = styled.a<LogoProps>`
   ${layout};
   ${position};
   ${flexbox};
-`;
-
-const BuyContainer = styled.div<LogoProps>`
-  ${layout};
-  ${position};
-  ${flexbox};
-`;
-
-const OxymoreContainer = styled.div<LogoProps>`
   ${space};
-  ${layout};
   ${position};
 `;
 
-const visibleStyles = css`
-  font-family: SangBleu OG Serif Light Regular;
-  outline-color: #f4f4f6;
-  outline-style: solid;
-  outline-width: thin;
-  text-align: center;
-`;
-
-const BuyButton = styled.div<LogoProps>`
+const BuyButton = styled.button<LogoProps>`
   ${space};
   ${layout};
   ${color};
-  ${visibleStyles};
+  ${typography};
+  ${flexbox};
+  ${border}
+  ${position};
 `;
 
 const Home = () => {
   return (
-    <div
-      className="bg_image"
-      style={{
-        backgroundImage: "url(" + Bg + ")",
-        backgroundSize: "cover",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+    <Background
+      backgroundSize="cover"
+      backgroundImage="url('./assets/home-page/background.jpg')"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      bg="black"
+      height="100vh"
+      display="flex"
+      justifyContent="center"
     >
-      <OxymoreContainer position="absolute" top={2} left={2} width="20%" p={5}>
-        {" "}
+      <Logo width="30%" position="absolute" left={30} top={30}>
         <img src={Oxymore} />
-      </OxymoreContainer>
-      <AlphaContainer width="25%">
+      </Logo>
+
+      <Logo
+        width={[100, 200, 300, 400]}
+        position="absolute"
+        top={[200, 180, 160, 120, 200]}
+      >
         <img src={Alpha} />
-      </AlphaContainer>
-      <BuyContainer position="absolute" left={100} bottom={100} size="5%" p={5}>
-        {" "}
+      </Logo>
+
+      <Logo
+        width={[40, 60, 80, 100]}
+        position="absolute"
+        left={30}
+        bottom={66}
+        marginBottom={1}
+      >
         <img src={Number} />
-        <BuyButton width={1} p={1} color="athensGray" mt={4} py={1}>
-          BUY
-        </BuyButton>
-      </BuyContainer>
-    </div>
+      </Logo>
+
+      <BuyButton
+        position="absolute"
+        fontFamily="SangBleu OG Serif Light Regular"
+        color="athensGray"
+        p={8}
+        py={1}
+        bg="transparent"
+        left={30}
+        bottom={30}
+        border={1}
+        borderColor="athensGray"
+        borderStyle="solid"
+      >
+        BUY
+      </BuyButton>
+      <Logo
+        width={[100, 120, 200, 280]}
+        position="absolute"
+        right={30}
+        bottom={28}
+      >
+        <img src={Manifesto} />
+      </Logo>
+    </Background>
   );
 };
 
