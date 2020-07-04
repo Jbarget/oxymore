@@ -1,10 +1,11 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import Bg from "./assets/home-page/background.jpg";
-import Alpha from "./assets/home-page/360_alpha.png";
-import Oxymore from "./assets/home-page/oxymore.png";
-import Number from "./assets/home-page/number-one.png";
-import Manifesto from "./assets/home-page/manifesto.png";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import bg from "./assets/home-page/background.jpg";
+import alpha from "./assets/home-page/360_alpha.png";
+import oxymore from "./assets/home-page/oxymore.png";
+import number from "./assets/home-page/number-one.png";
+import manifesto from "./assets/home-page/manifesto.png";
 import {
   space,
   SpaceProps,
@@ -49,7 +50,6 @@ const Logo = styled.a<LogoProps>`
   ${position};
   ${flexbox};
   ${space};
-  ${position};
 `;
 
 const BuyButton = styled.button<LogoProps>`
@@ -73,34 +73,34 @@ const Home = () => {
       height="100vh"
       display="flex"
       justifyContent="center"
+      alignItems="center"
     >
-      <Logo width="30%" position="absolute" left={30} top={30}>
-        <img src={Oxymore} />
+      <Logo width={[100, 120, 200, 280]} position="absolute" left={30} top={30}>
+        <img src={oxymore} />
       </Logo>
-
-      <Logo
-        width={[100, 200, 300, 400]}
-        position="absolute"
-        top={[200, 180, 160, 120, 200]}
-      >
-        <img src={Alpha} />
+      <Logo width={[100, 200, 300, 400, 500]}>
+        <Link to="/projects" style={{ textDecoration: "none" }}>
+          <img src={alpha} />
+        </Link>
       </Logo>
-
       <Logo
-        width={[40, 60, 80, 100]}
+        width={[40, 40, 60, 70, 80]}
         position="absolute"
         left={30}
-        bottom={66}
-        marginBottom={1}
+        bottom={60}
+        mb={[0, 0, 1, 2, 3]}
       >
-        <img src={Number} />
+        <img src={number} />
       </Logo>
 
       <BuyButton
+        width={[40, 60, 80, 100, 100]}
         position="absolute"
+        display="flex"
+        justifyContent="center"
         fontFamily="SangBleu OG Serif Light Regular"
+        fontSize={[12, 12, 12, 16, 16]}
         color="athensGray"
-        p={8}
         py={1}
         bg="transparent"
         left={30}
@@ -115,9 +115,9 @@ const Home = () => {
         width={[100, 120, 200, 280]}
         position="absolute"
         right={30}
-        bottom={28}
+        bottom={30}
       >
-        <img src={Manifesto} />
+        <img src={manifesto} />
       </Logo>
     </Background>
   );
