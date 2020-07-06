@@ -57,7 +57,7 @@ const App = () => {
               <LangButton
                 onClick={onLangClick("en")}
                 color="athensGray"
-                fontSize={3}
+                fontSize={[2, 2, 2, 3, 4]}
                 p={1}
               >
                 EN
@@ -65,7 +65,7 @@ const App = () => {
               <LangButton
                 onClick={onLangClick("es")}
                 color="athensGray"
-                fontSize={3}
+                fontSize={[2, 2, 2, 3, 4]}
                 p={1}
               >
                 ES
