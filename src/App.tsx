@@ -50,8 +50,8 @@ const App = () => {
           <Suspense fallback={<div>Loading</div>}>
             <Container
               position="absolute"
-              right={[75, 75, 75, 100, 100]}
-              top={28}
+              right={[60, 60, 60, 90, 90]}
+              top={30}
               display="flex"
             >
               <LangButton

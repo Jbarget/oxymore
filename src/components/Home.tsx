@@ -75,7 +75,13 @@ const Home = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Logo width={[100, 120, 200, 280]} position="absolute" left={30} top={30}>
+      <Logo
+        display="flex"
+        width={[100, 120, 200, 280]}
+        position="absolute"
+        left={30}
+        top={30}
+      >
         <img src={oxymore} />
       </Logo>
       <Logo width={[100, 200, 300, 400, 500]}>
@@ -112,6 +118,7 @@ const Home = () => {
         BUY
       </BuyButton>
       <Logo
+        display="flex"
         width={[100, 120, 200, 280]}
         position="absolute"
         right={30}
