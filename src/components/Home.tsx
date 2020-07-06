@@ -98,8 +98,8 @@ const Home = () => {
         position="absolute"
         display="flex"
         justifyContent="center"
-        fontFamily="SangBleu OG Serif Light Regular"
-        fontSize={[12, 12, 12, 16, 16]}
+        fontSize={[1, 1, 1, 3, 3]}
+        font-family="SangBleu OG Serif Light Regular"
         color="athensGray"
         py={1}
         bg="transparent"

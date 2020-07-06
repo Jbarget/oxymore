@@ -9,34 +9,33 @@ import i18next from "i18next";
 import "./css/reset.css";
 import {
   color,
+  ColorProps,
   space,
+  SpaceProps,
   typography,
   TypographyProps,
-  ColorProps,
-  SpaceProps,
+  layout,
+  LayoutProps,
+  position,
+  PositionProps,
 } from "styled-system";
 
-type HeadingProps = SpaceProps & ColorProps & TypographyProps;
+type LanguageButtonProps = SpaceProps &
+  ColorProps &
+  TypographyProps &
+  PositionProps &
+  LayoutProps;
 
-const Container = styled.div`
-  font-family: SangBleu OG Serif Light Regular;
-  position: absolute;
-  float: right;
-  right: 100px;
-  top: 28px;
-  display: flex;
+const Container = styled.div<LanguageButtonProps>`
+  ${position}
+  ${layout}
   cursor: pointer;
 `;
 
-const LangButton = styled.p<HeadingProps>`
+const LangButton = styled.p<LanguageButtonProps>`
   ${typography}
   ${color}
   ${space}
-  font-family: SangBleu OG Serif Light Regular;
-  p:hover,
-  p:active {
-    color: black;
-  }
 `;
 
 const App = () => {
@@ -49,7 +48,12 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Suspense fallback={<div>Loading</div>}>
-            <Container>
+            <Container
+              position="absolute"
+              right={[75, 75, 75, 100, 100]}
+              top={28}
+              display="flex"
+            >
               <LangButton
                 onClick={onLangClick("en")}
                 color="athensGray"
