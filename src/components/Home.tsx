@@ -10,6 +10,7 @@ import {
 } from "styled-system";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import BuyButton from "./BuyButton";
 
 type HeadingProps = ColorProps & SpaceProps & TypographyProps;
 
@@ -35,6 +36,7 @@ const Home = () => {
       </Title>
       <LangButton onClick={onLangClick("en")}>EN</LangButton>
       <LangButton onClick={onLangClick("es")}>ES</LangButton>
+      <BuyButton />
     </main>
   );
 };

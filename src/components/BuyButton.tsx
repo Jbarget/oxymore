@@ -2,9 +2,7 @@ import React, { useState, Fragment } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  process.env.REACT_APP_STRIPE_API_KEY as string
-);
+const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
 const BuyButton = () => {
   const [error, setError] = useState<string>();
@@ -16,16 +14,17 @@ const BuyButton = () => {
       if (!stripe) {
         return null;
       }
-      const transaction = await stripe.redirectToCheckout({
+
+      await stripe.redirectToCheckout({
         lineItems: [
           {
-            price: process.env.REACT_APP_STRIPE_PRICE_ID as string,
+            price: `${process.env.REACT_APP_STRIPE_PRICE_ID}`,
             quantity: 1,
           },
         ],
         mode: "payment",
-        successUrl: `${process.env.REACT_APP_BASE_URL as string}/projects`,
-        cancelUrl: `${process.env.REACT_APP_BASE_URL as string}/projects`,
+        successUrl: `${process.env.REACT_APP_BASE_URL}/projects`,
+        cancelUrl: `${process.env.REACT_APP_BASE_URL}/projects`,
         shippingAddressCollection: {
           allowedCountries: ["ES", "FR", "GB"],
         },
