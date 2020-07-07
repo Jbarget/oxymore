@@ -24,15 +24,6 @@ import {
   border,
   BorderProps,
 } from "styled-system";
-<<<<<<< HEAD
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-import BuyButton from "./BuyButton";
-||||||| merged common ancestors
-import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-=======
->>>>>>> develop
 
 // background
 type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
@@ -73,24 +64,6 @@ const BuyButton = styled.button<LogoProps>`
 
 const Home = () => {
   return (
-<<<<<<< HEAD
-    <main>
-      <Title color="primary" bg="error" p={3} fontSize={3}>
-        {t("home.header")}
-      </Title>
-      <LangButton onClick={onLangClick("en")}>EN</LangButton>
-      <LangButton onClick={onLangClick("es")}>ES</LangButton>
-      <BuyButton />
-    </main>
-||||||| merged common ancestors
-    <main>
-      <Title color="primary" bg="error" p={3} fontSize={3}>
-        {t("home.header")}
-      </Title>
-      <LangButton onClick={onLangClick("en")}>EN</LangButton>
-      <LangButton onClick={onLangClick("es")}>ES</LangButton>
-    </main>
-=======
     <Background
       backgroundSize="cover"
       backgroundImage="url('./assets/home-page/background.jpg')"
@@ -154,7 +127,6 @@ const Home = () => {
         <img src={manifesto} />
       </Logo>
     </Background>
->>>>>>> develop
   );
 };
 
