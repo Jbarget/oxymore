@@ -28,6 +28,7 @@ const visibleStyles = css`
   text-align: center;
   width: 100%;
   font-family: SangBleu OG Serif Light Regular;
+  border: none;
 `;
 const NavMenuOverlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
