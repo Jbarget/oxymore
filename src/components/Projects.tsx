@@ -87,7 +87,6 @@ const ProjectIcon = styled.a<LogoProps>`
   ${position};
   ${flexbox};
   ${space};
-  ${position};
   &:hover {
     transition: transform 0.2s;
     transform: scale(1.1);
@@ -95,6 +94,7 @@ const ProjectIcon = styled.a<LogoProps>`
 `;
 
 const Projects = () => {
+  const projectIconWidths = [50, 60, 80, 100, 120, 140];
   return (
     <Background
       backgroundSize="cover"
@@ -129,7 +129,7 @@ const Projects = () => {
       >
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[0, 0, 0, 80, 80]}
             left={[60, 60, 120, 20, 20, 40]}
@@ -139,7 +139,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[80, 80, 80, 240, 240, 300]}
             left={[20, 20, 20, 20, 20, 40]}
@@ -149,7 +149,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[100, 100, 100, 40, 20]}
             left={[120, 120, 220, 180, 240, 300]}
@@ -159,7 +159,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[200, 200, 200, 240, 240, 300]}
             left={[0, 0, 0, 160, 200, 300]}
@@ -169,7 +169,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[180, 180, 160, 160, 140]}
             left={[80, 80, 120, 300, 400, 520]}
@@ -179,7 +179,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[320, 320, 360, 340, 380]}
             left={[0, 0, 0, 260, 360, 460]}
@@ -189,7 +189,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[360, 360, 300, 40, 40]}
             left={[120, 120, 220, 400, 600, 760]}
@@ -199,7 +199,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[280, 280, 280, 320, 320]}
             left={[80, 80, 80, 400, 600, 760]}
@@ -209,7 +209,7 @@ const Projects = () => {
         </Link>
         <Link to="">
           <ProjectIcon
-            width={[50, 60, 80, 100, 120, 140]}
+            width={projectIconWidths}
             position="absolute"
             top={[420, 420, 400, 200, 200]}
             left={[40, 40, 120, 500, 780, 1000]}
