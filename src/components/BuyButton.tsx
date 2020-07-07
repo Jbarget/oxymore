@@ -1,7 +1,44 @@
 import React, { useState, Fragment } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+import {
+  SpaceProps,
+  LayoutProps,
+  FlexboxProps,
+  PositionProps,
+  ColorProps,
+  TypographyProps,
+  BorderProps,
+  space,
+  layout,
+  color,
+  typography,
+  flexbox,
+  border,
+  position,
+} from "styled-system";
+import styled from "styled-components";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
+
+type LogoProps = SpaceProps &
+  LayoutProps &
+  FlexboxProps &
+  PositionProps &
+  ColorProps &
+  SpaceProps &
+  TypographyProps &
+  BorderProps;
+
+const Button = styled.button<LogoProps>`
+  ${space};
+  ${layout};
+  ${color};
+  ${typography};
+  ${flexbox};
+  ${border}
+  ${position};
+`;
+
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
 const BuyButton = () => {
@@ -40,9 +77,26 @@ const BuyButton = () => {
   return (
     <Fragment>
       {error && <p>{error}</p>}
-      <button role="link" onClick={handleClick}>
+      <Button
+        role="link"
+        onClick={handleClick}
+        width={[40, 60, 80, 100, 100]}
+        position="absolute"
+        display="flex"
+        justifyContent="center"
+        fontSize={[1, 1, 1, 3, 3]}
+        font-family="SangBleu OG Serif Light Regular"
+        color="athensGray"
+        py={1}
+        bg="transparent"
+        left={30}
+        bottom={30}
+        border={1}
+        borderColor="athensGray"
+        borderStyle="solid"
+      >
         BUY
-      </button>
+      </Button>
     </Fragment>
   );
 };

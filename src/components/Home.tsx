@@ -19,11 +19,8 @@ import {
   position,
   ColorProps,
   color,
-  TypographyProps,
-  typography,
-  border,
-  BorderProps,
 } from "styled-system";
+import BuyButton from "./BuyButton";
 
 // background
 type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
@@ -41,25 +38,13 @@ type LogoProps = SpaceProps &
   FlexboxProps &
   PositionProps &
   ColorProps &
-  SpaceProps &
-  TypographyProps &
-  BorderProps;
+  SpaceProps;
 
 const Logo = styled.a<LogoProps>`
   ${layout};
   ${position};
   ${flexbox};
   ${space};
-`;
-
-const BuyButton = styled.button<LogoProps>`
-  ${space};
-  ${layout};
-  ${color};
-  ${typography};
-  ${flexbox};
-  ${border}
-  ${position};
 `;
 
 const Home = () => {
@@ -99,24 +84,7 @@ const Home = () => {
         <img src={number} />
       </Logo>
 
-      <BuyButton
-        width={[40, 60, 80, 100, 100]}
-        position="absolute"
-        display="flex"
-        justifyContent="center"
-        fontSize={[1, 1, 1, 3, 3]}
-        font-family="SangBleu OG Serif Light Regular"
-        color="athensGray"
-        py={1}
-        bg="transparent"
-        left={30}
-        bottom={30}
-        border={1}
-        borderColor="athensGray"
-        borderStyle="solid"
-      >
-        BUY
-      </BuyButton>
+      <BuyButton />
       <Logo
         display="flex"
         width={[100, 120, 200, 280]}
