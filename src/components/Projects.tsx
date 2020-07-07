@@ -53,7 +53,8 @@ type LogoProps = SpaceProps &
   SpaceProps &
   TypographyProps &
   BorderProps &
-  ColorProps;
+  ColorProps &
+  BorderProps;
 
 const HomeLink = styled.a<LogoProps>`
   ${space};
@@ -61,8 +62,8 @@ const HomeLink = styled.a<LogoProps>`
 
 const HomeLogo = styled.p<LogoProps>`
   ${flexbox};
-  ${typography}
-  ${color}
+  ${typography};
+  ${color};
 `;
 
 const BuyButton = styled.button<LogoProps>`
@@ -75,14 +76,21 @@ const BuyButton = styled.button<LogoProps>`
   ${position};
 `;
 
-const Icon = styled.a<LogoProps>`
+const ProjectIconContainer = styled.div<LogoProps>`
+  ${layout};
+  ${position};
+  ${flexbox};
+`;
+
+const ProjectIcon = styled.a<LogoProps>`
   ${layout};
   ${position};
   ${flexbox};
   ${space};
   ${position};
-  a:hover {
-    width: 2em;
+  &:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
   }
 `;
 
@@ -101,94 +109,115 @@ const Projects = () => {
       mx="auto"
     >
       <HomeLink p={30}>
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/">
           <HomeLogo
             fontFamily="SangBleu OG Serif Light Regular"
             color="athensGray"
-            fontSize={[3, 3, 3, 4, 5]}
+            fontSize={[3, 3, 4, 4, 5]}
+            display="flex"
           >
             OXYMORE
           </HomeLogo>
         </Link>
       </HomeLink>
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[80, 80, 80, 180, 180]}
-        left={[160, 160, 180, 120, 160]}
+      <ProjectIconContainer
+        width={[100, 200, 300, 600, 900, 1200]}
+        height={[100, 500, 500, 500, 500, 600]}
+        display="flex"
+        position="relative"
+        alignItems="center"
       >
-        <img src={stairs}></img>
-      </Icon>
-
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[140, 140, 140, 360, 360]}
-        left={[100, 100, 120, 120, 160]}
-      >
-        <img src={shell}></img>
-      </Icon>
-
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[160, 160, 160, 140, 140]}
-        left={[200, 200, 240, 280, 340]}
-      >
-        <img src={eye}></img>
-      </Icon>
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[260, 260, 260, 360, 400]}
-        left={[200, 200, 240, 280, 340]}
-      >
-        <img src={statue}></img>
-      </Icon>
-
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[240, 240, 240, 240, 280]}
-        left={[120, 120, 160, 400, 500]}
-      >
-        <img src={dragon}></img>
-      </Icon>
-
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[400, 400, 400, 440, 500, 500]}
-        left={[100, 100, 120, 380, 500]}
-      >
-        <img src={knife}></img>
-      </Icon>
-
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[380, 380, 380, 140, 140]}
-        left={[180, 180, 220, 500, 640]}
-      >
-        <img src={mask}></img>
-      </Icon>
-
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[320, 320, 320, 400, 440]}
-        left={[100, 100, 120, 500, 680]}
-      >
-        <img src={spider}></img>
-      </Icon>
-      <Icon
-        width={[50, 60, 60, 100, 120]}
-        position="absolute"
-        top={[480, 480, 480, 260, 300]}
-        left={[160, 160, 180, 600, 800]}
-      >
-        <img src={magnify}></img>
-      </Icon>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[0, 0, 0, 80, 80]}
+            left={[60, 60, 120, 20, 20, 40]}
+          >
+            <img src={stairs}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[80, 80, 80, 240, 240, 300]}
+            left={[20, 20, 20, 20, 20, 40]}
+          >
+            <img src={shell}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[100, 100, 100, 40, 20]}
+            left={[120, 120, 220, 180, 240, 300]}
+          >
+            <img src={eye}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[200, 200, 200, 240, 240, 300]}
+            left={[0, 0, 0, 160, 200, 300]}
+          >
+            <img src={statue}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[180, 180, 160, 160, 140]}
+            left={[80, 80, 120, 300, 400, 520]}
+          >
+            <img src={dragon}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[320, 320, 360, 340, 380]}
+            left={[0, 0, 0, 260, 360, 460]}
+          >
+            <img src={knife}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[360, 360, 300, 40, 40]}
+            left={[120, 120, 220, 400, 600, 760]}
+          >
+            <img src={mask}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[280, 280, 280, 320, 320]}
+            left={[80, 80, 80, 400, 600, 760]}
+          >
+            <img src={spider}></img>
+          </ProjectIcon>
+        </Link>
+        <Link to="">
+          <ProjectIcon
+            width={[50, 60, 80, 100, 120, 140]}
+            position="absolute"
+            top={[420, 420, 400, 200, 200]}
+            left={[40, 40, 120, 500, 780, 1000]}
+          >
+            <img src={magnify}></img>
+          </ProjectIcon>
+        </Link>
+      </ProjectIconContainer>
 
       <BuyButton
         position="absolute"
@@ -196,14 +225,14 @@ const Projects = () => {
         p={8}
         py={1}
         bg="transparent"
-        bottom={70}
         border={1}
         borderColor="athensGray"
         borderStyle="solid"
         fontSize={[1, 1, 2, 3, 3]}
         display="flex"
         justifyContent="center"
-        right={40}
+        right={[null, null, null, 30, 30]}
+        bottom={30}
       >
         BUY
       </BuyButton>

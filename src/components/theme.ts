@@ -52,7 +52,7 @@ const colors = {
   activeShading: "rgba(27, 26, 33, 0.16)",
 };
 
-const breakpoints: string[] = ["319px", "424px", "767px", "1023px"];
+const breakpoints: string[] = ["319px", "424px", "767px", "1023px", "1339"];
 
 const fontSizes = {
   0: 10,

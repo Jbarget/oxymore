@@ -3,6 +3,23 @@ body {
   font-family: "SangBleu OG Serif Light Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  font-family: "SangBleu OG Serif Light Regular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+}
+
+a {
+  margin: 0;
+  font-family: "SangBleu OG Serif Light Regular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
 }
 
 button {
