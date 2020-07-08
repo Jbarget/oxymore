@@ -61,7 +61,6 @@ type BuyButtonProps = SpaceProps &
   LayoutProps &
   ColorProps &
   TypographyProps &
-  FlexboxProps &
   BorderProps &
   PositionProps &
   SpaceProps &
