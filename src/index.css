@@ -1,26 +1,14 @@
 body {
   font-family: "SangBleu OG Serif Light Regular";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-decoration: none;
-}
-
-p {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-decoration: none;
-  cursor: pointer;
 }
 
 button {
   font-family: "SangBleu OG Serif Light Regular";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   cursor: pointer;
 }
 
