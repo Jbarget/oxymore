@@ -96,7 +96,7 @@ const ProjectIconLink = styled(Link)<ProjectIconProps>`
 `;
 
 const Projects = () => {
-  const projectIconWidths = [60, 70, 70, 80, 80, 100, 120, 180];
+  const projectIconWidths = [60, 70, 70, 80, 80, 100, 120, 180, 120];
   return (
     <Background
       backgroundSize="cover"
@@ -115,7 +115,7 @@ const Projects = () => {
           <HomeLogo
             fontFamily="SangBleu OG Serif Light Regular"
             color="athensGray"
-            fontSize={[3, 4, 4, 4, 5, 5, 5, 6]}
+            fontSize={[3, 4, 4, 4, 5, 5, 5, 6, 6]}
             display="flex"
           >
             OXYMORE
@@ -123,8 +123,8 @@ const Projects = () => {
         </Link>
       </HomeLink>
       <ProjectIconContainer
-        width={[300, 300, 300, 400, 400, 600, 700, 1000]}
-        height={[500, 600, 600, 800, 700, 500, 1000, 1300]}
+        width={[300, 300, 300, 400, 400, 600, 700, 1000, 1400]}
+        height={[500, 600, 600, 800, 700, 500, 1000, 1300, 900]}
         display="flex"
         position="relative"
         alignItems="center"
@@ -133,8 +133,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[0, 0, 0, 0, 0, 0, 120, 220]}
-          left={[120, 120, 120, 160, 160, 20, 40, 140]}
+          top={[0, 0, 0, 0, 0, 0, 120, 120, 40]}
+          left={[120, 120, 120, 160, 160, 20, 40, 140, 280]}
         >
           <img src={stairs} alt="stairs"></img>
         </ProjectIconLink>
@@ -143,8 +143,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[60, 80, 80, 80, 80, 240, 340, 540]}
-          left={[40, 20, 20, 60, 60, 20, 20, 120]}
+          top={[60, 80, 80, 80, 80, 240, 340, 340, 280]}
+          left={[40, 20, 20, 60, 60, 20, 40, 100, 280]}
         >
           <img src={shell} alt="shell"></img>
         </ProjectIconLink>
@@ -153,8 +153,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[60, 80, 80, 100, 100, 40, 60, 60]}
-          left={[200, 220, 220, 260, 260, 240, 280, 380]}
+          top={[60, 80, 80, 100, 100, 40, 60, 60, 0]}
+          left={[200, 220, 220, 260, 260, 240, 280, 400, 580]}
         >
           <img src={eye} alt="eye"></img>
         </ProjectIconLink>
@@ -163,8 +163,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[160, 200, 220, 220, 220, 240, 440, 800]}
-          left={[40, 20, 20, 60, 60, 200, 200, 300]}
+          top={[160, 200, 220, 220, 220, 240, 440, 600, 260]}
+          left={[40, 20, 20, 60, 60, 200, 200, 200, 500]}
         >
           <img src={statue} alt="statue"></img>
         </ProjectIconLink>
@@ -173,8 +173,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[100, 140, 160, 160, 160, 140, 240, 440]}
-          left={[120, 120, 120, 160, 160, 400, 300, 400]}
+          top={[100, 140, 140, 160, 160, 140, 240, 340, 220]}
+          left={[120, 120, 120, 160, 160, 400, 300, 400, 680]}
         >
           <img src={dragon} alt="dragon"></img>
         </ProjectIconLink>
@@ -183,8 +183,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[260, 320, 340, 380, 380, 380, 640, 940]}
-          left={[60, 40, 20, 60, 60, 360, 360, 500]}
+          top={[260, 320, 360, 380, 380, 380, 640, 740, 480]}
+          left={[60, 40, 40, 60, 60, 360, 360, 380, 620]}
         >
           <img src={knife} alt="knife"></img>
         </ProjectIconLink>
@@ -193,8 +193,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[160, 220, 220, 240, 240, 40, 120, 220]}
-          left={[200, 220, 220, 280, 280, 400, 500, 640]}
+          top={[160, 220, 220, 240, 240, 40, 120, 160, 60]}
+          left={[200, 220, 220, 280, 280, 400, 500, 660, 880]}
         >
           <img src={mask} alt="mask"></img>
         </ProjectIconLink>
@@ -203,8 +203,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[200, 260, 280, 300, 300, 320, 440, 700]}
-          left={[120, 120, 120, 160, 160, 400, 380, 540]}
+          top={[200, 260, 260, 300, 300, 320, 440, 540, 360]}
+          left={[120, 120, 120, 160, 160, 400, 380, 560, 840]}
         >
           <img src={spider} alt="spider"></img>
         </ProjectIconLink>
@@ -213,8 +213,8 @@ const Projects = () => {
           to=""
           width={projectIconWidths}
           position="absolute"
-          top={[300, 360, 400, 420, 420, 200, 380, 540]}
-          left={[140, 140, 140, 160, 180, 780, 560, 760]}
+          top={[300, 360, 380, 420, 420, 200, 380, 460, 220]}
+          left={[140, 140, 140, 160, 180, 780, 560, 760, 1040]}
         >
           <img src={magnify} alt="magnifying glass"></img>
         </ProjectIconLink>
@@ -229,11 +229,11 @@ const Projects = () => {
         border={1}
         borderColor="athensGray"
         borderStyle="solid"
-        fontSize={[1, 2, 2, 3, 3, 3, 4, 5]}
+        fontSize={[1, 2, 2, 3, 3, 3, 4, 5, 4]}
         display="flex"
         justifyContent="center"
-        right={[null, null, null, null, null, null, 40, 40]}
-        bottom={[50, 50, 30, 60, 60, 60, 60, 60]}
+        right={[null, null, null, null, null, null, 40, 60, 60]}
+        bottom={[50, 50, 30, 60, 60, 60, 60, 60, 60]}
       >
         BUY
       </BuyButton>
