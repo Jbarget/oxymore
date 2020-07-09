@@ -54,7 +54,7 @@ const NavMenu = () => {
   return (
     <Fragment>
       <MenuButton onClick={() => setIsOpen(!isOpen)}>
-        <img src={navButton} />
+        <img src={navButton} alt="menu button" />
       </MenuButton>
       <NavMenuOverlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <ul>
