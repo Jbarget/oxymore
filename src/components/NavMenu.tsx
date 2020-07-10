@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
-import navButton from "./menu-button.png";
+import navButton from "./assets/nav-button/menu-button.png";
 import {
   space,
   SpaceProps,
