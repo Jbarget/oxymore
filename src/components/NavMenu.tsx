@@ -2,8 +2,21 @@ import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
-import navButton from "./assets/nav-button/placeholder-nav.jpeg";
-import { space, SpaceProps, TypographyProps, typography } from "styled-system";
+import navButton from "./menu-button.png";
+import {
+  space,
+  SpaceProps,
+  TypographyProps,
+  typography,
+  layout,
+  LayoutProps,
+  position,
+  PositionProps,
+  color,
+  ColorProps,
+  border,
+  BorderProps,
+} from "styled-system";
 
 const visibleStyles = css`
   display: flex;
@@ -15,30 +28,35 @@ const visibleStyles = css`
   text-align: center;
   width: 100%;
   font-family: SangBleu OG Serif Light Regular;
+  border: none;
 `;
 const NavMenuOverlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
   ${(props) => props.isOpen && visibleStyles}
 `;
 
-const MenuButton = styled.button`
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  height: 50px;
-  width: 50px;
+type MenuProps = SpaceProps &
+  TypographyProps &
+  PositionProps &
+  LayoutProps &
+  ColorProps &
+  BorderProps;
+
+const MenuButton = styled.button<MenuProps>`
+  ${position}
+  ${layout}
+  ${border}
+  ${color}
 `;
 
-type MenuItemProps = SpaceProps & TypographyProps;
-
-const MenuItem = styled.li<MenuItemProps>`
-  ${space};
-  ${typography};
-  height: 66px;
-  color: #000000;
+const MenuItem = styled.li<MenuProps>`
+  ${space}
+  ${typography}
+  ${layout}
+  ${color}
   &:focus,
   &:hover {
-    font-size: 40px;
+    font-size: 32px;
   }
   &:visited,
   &:link,
@@ -53,36 +71,66 @@ const NavMenu = () => {
 
   return (
     <Fragment>
-      <MenuButton onClick={() => setIsOpen(!isOpen)}>
-        <img src={navButton} alt="menu button" />
+      <MenuButton
+        onClick={() => setIsOpen(!isOpen)}
+        position="absolute"
+        right={30}
+        top={30}
+        width={50}
+        border="none"
+        bg="transparent"
+        style={{ outline: "none" }}
+      >
+        <img src={navButton} />
       </MenuButton>
       <NavMenuOverlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
         <ul>
-          <NavLink to="/manifesto" style={{ textDecoration: "none" }}>
-            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
-              {t("nav.manifesto")}
-            </MenuItem>
-          </NavLink>
-          <NavLink to="/advertising" style={{ textDecoration: "none" }}>
-            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
-              {t("nav.advertising")}
-            </MenuItem>
-          </NavLink>
-          <NavLink to="/about-us" style={{ textDecoration: "none" }}>
-            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
-              {t("nav.about-us")}
-            </MenuItem>
-          </NavLink>
-          <NavLink to="/contact" style={{ textDecoration: "none" }}>
-            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
-              {t("nav.contact")}
-            </MenuItem>
-          </NavLink>
-          <NavLink to="/buy" style={{ textDecoration: "none" }}>
-            <MenuItem fontSize={[4, 4, 4, 5]} p={[1, 2, 4, 4]}>
-              {t("nav.buy")}
-            </MenuItem>
-          </NavLink>
+          <MenuItem
+            fontSize={[4, 4, 5, 5, 5]}
+            p={[1, 2, 4, 4]}
+            color="black"
+            height={[44, 44, 66, 66, 66]}
+          >
+            {t("nav.manifesto")} <NavLink to="/manifesto"></NavLink>
+          </MenuItem>
+
+          <MenuItem
+            fontSize={[4, 4, 5, 5, 5]}
+            p={[1, 2, 4, 4]}
+            color="black"
+            height={[44, 44, 66, 66, 66]}
+          >
+            {t("nav.advertising")}
+            <NavLink to="/advertising"></NavLink>
+          </MenuItem>
+
+          <MenuItem
+            fontSize={[4, 4, 5, 5, 5]}
+            p={[1, 2, 4, 4]}
+            color="black"
+            height={[44, 44, 66, 66, 66]}
+          >
+            {t("nav.about-us")}
+            <NavLink to="/about-us"></NavLink>
+          </MenuItem>
+
+          <MenuItem
+            fontSize={[4, 4, 5, 5, 5]}
+            p={[1, 2, 4, 4]}
+            color="black"
+            height={[44, 44, 66, 66, 66]}
+          >
+            {t("nav.contact")} <NavLink to="/contact"></NavLink>
+          </MenuItem>
+
+          <MenuItem
+            fontSize={[4, 4, 5, 5, 5]}
+            p={[1, 2, 4, 4]}
+            color="black"
+            height={[44, 44, 66, 66, 66]}
+          >
+            {t("nav.buy")} <NavLink to="/buy"></NavLink>
+          </MenuItem>
         </ul>
       </NavMenuOverlay>
     </Fragment>
