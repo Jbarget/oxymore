@@ -8,5 +8,12 @@
     "about-us": "ABOUT US",
     "contact": "CONTACT",
     "buy": "BUY"
+  },
+  "contact": {
+    "header": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Submit"
   }
 }

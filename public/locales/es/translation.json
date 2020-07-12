@@ -8,5 +8,12 @@
     "about-us": "SOBRE NOSOTROS",
     "contact": "CONTACTO",
     "buy": "COMPRAR"
+  },
+  "contact": {
+    "header": "Contacta con nostros",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send": "Enviar"
   }
 }
