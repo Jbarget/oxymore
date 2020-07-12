@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
+import Manifesto from "./components/Manifesto";
 import theme from "./components/theme";
 import styled from "styled-components";
 import i18next from "i18next";
@@ -74,6 +75,7 @@ const App = () => {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/projects" exact component={Projects} />
+              <Route path="/manifesto" exact component={Manifesto}></Route>
             </Switch>
           </Suspense>
         </div>
