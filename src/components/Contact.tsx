@@ -66,10 +66,6 @@ const ContactUs = () => {
   const textSizes = [1, 2, 3, 4];
 
   const { t } = useTranslation();
-  const handleClick = () => {
-    var email = "xyz@abc.com";
-    window.location.href = "mailto:" + email;
-  };
 
   return (
     <Main
@@ -95,13 +91,14 @@ const ContactUs = () => {
         <Email
           fontSize={textSizes}
           p={1}
-          onClick={handleClick}
           width={[70, 100]}
           backgroundColor="transparent"
           color="athensGray"
           border="none"
+          href="mailto:ox@oxymore.com"
+          target="_blank"
         >
-          oxymore@oxymore.com
+          ox@oxymore.com
         </Email>
       </Container>
     </Main>
