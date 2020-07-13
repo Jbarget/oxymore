@@ -73,7 +73,7 @@ const Manifesto = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <Container p={4} m={5}>
+      <Container p={4} m={2}>
         <H1 color="athensGray" fontSize={[2, 4, 5]} p={4}>
           {t("manifesto.header")}
         </H1>
@@ -94,7 +94,6 @@ const Manifesto = () => {
             fontSize={[1, 3, 4]}
             p={3}
             textAlign="justify"
-            m={5}
           >
             {t("manifesto.manifesto")}{" "}
           </Paragraph>
@@ -103,7 +102,6 @@ const Manifesto = () => {
             fontSize={[1, 3, 4]}
             p={4}
             textAlign="justify"
-            m={5}
           >
             {t("manifesto.manifesto")}{" "}
           </Paragraph>
