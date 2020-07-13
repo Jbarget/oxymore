@@ -83,6 +83,9 @@ const Manifesto = () => {
           gridRowGap={1}
           gridTemplateColumns={[
             "repeat(1, 100% [col-start])",
+            "repeat(1, 100% [col-start])",
+            "repeat(1, 100% [col-start])",
+            "repeat(2, 50% [col-start])",
             "repeat(2, 50% [col-start])",
           ]}
         >
