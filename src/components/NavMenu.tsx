@@ -2,72 +2,110 @@ import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
-import navButton from "./menu-button.png";
+import menuButton from "./assets/nav-menu/menu-button.png";
 import {
+  color,
+  layout,
   space,
+  typography,
+  position,
+  border,
+  background,
+  ColorProps,
+  LayoutProps,
   SpaceProps,
   TypographyProps,
-  typography,
-  layout,
-  LayoutProps,
-  position,
   PositionProps,
-  color,
-  ColorProps,
-  border,
   BorderProps,
+  BackgroundProps,
 } from "styled-system";
 
-const visibleStyles = css`
+const { t } = useTranslation();
+const Links: LinkProps[] = [
+  {
+    page: `${t("nav.about-us")}`,
+    url: "/",
+  },
+  {
+    page: `${t("nav.manifesto")}`,
+    url: "/manifesto",
+  },
+  {
+    page: `${t("nav.contact")}`,
+    url: "/contact-us",
+  },
+  {
+    page: `${t("nav.advertising")}`,
+    url: "/advertsing",
+  },
+  {
+    page: `${t("nav.buy")}`,
+    url: "/buy",
+  },
+];
+
+const overlayStyles = css`
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  font-size: 36px;
-  justify-content: center;
-  text-align: center;
   width: 100%;
-  font-family: SangBleu OG Serif Light Regular;
+  justify-content: center;
   border: none;
+  background-image: url("/assets/nav-menu/background-inverted.png");
+  background-size: cover;
+  background-color: pink;
+  opacity: 1;
 `;
-const NavMenuOverlay = styled.dialog<{ isOpen: boolean }>`
+
+const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${(props) => props.isOpen && visibleStyles}
+  ${(props) => props.isOpen && overlayStyles}
 `;
 
-type MenuProps = SpaceProps &
-  TypographyProps &
-  PositionProps &
-  LayoutProps &
-  ColorProps &
-  BorderProps;
-
-const MenuButton = styled.button<MenuProps>`
-  ${position}
-  ${layout}
-  ${border}
-  ${color}
+const MenuButton = styled.button<
+  PositionProps & LayoutProps & BorderProps & BackgroundProps
+>`
+${position}
+${layout}
+${border}
+${background}
 `;
 
-const MenuItem = styled.li<MenuProps>`
-  ${space}
-  ${typography}
-  ${layout}
-  ${color}
-  &:focus,
-  &:hover {
-    font-size: 32px;
-  }
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
+const LinkContainer = styled.div<LayoutProps & SpaceProps>`
+  ${layout};
+  ${space};
 `;
+
+const Page = styled.li<ColorProps & SpaceProps & TypographyProps>`
+  ${color};
+  ${space};
+  ${typography};
+  text-transform: uppercase;
+`;
+
+const PageLink = styled(NavLink)<ColorProps & SpaceProps>`
+  ${color};
+  ${space};
+`;
+
+interface LinkProps {
+  page: string;
+  url: string;
+}
+
+const Link = ({ page, url }: LinkProps) => {
+  return (
+    <LinkContainer key={page}>
+      <Page color="athensGray" fontSize={[4, 5, 6]}>
+        {page}
+      </Page>
+      <PageLink to={url}></PageLink>
+    </LinkContainer>
+  );
+};
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation();
 
   return (
     <Fragment>
@@ -78,61 +116,14 @@ const NavMenu = () => {
         top={30}
         width={50}
         border="none"
-        bg="transparent"
+        background="transparent"
         style={{ outline: "none" }}
       >
-        <img src={navButton} />
+        <img src={menuButton} />
       </MenuButton>
-      <NavMenuOverlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
-        <ul>
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.manifesto")} <NavLink to="/manifesto"></NavLink>
-          </MenuItem>
-
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.advertising")}
-            <NavLink to="/advertising"></NavLink>
-          </MenuItem>
-
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.about-us")}
-            <NavLink to="/about-us"></NavLink>
-          </MenuItem>
-
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.contact")} <NavLink to="/contact"></NavLink>
-          </MenuItem>
-
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.buy")} <NavLink to="/buy"></NavLink>
-          </MenuItem>
-        </ul>
-      </NavMenuOverlay>
+      <Overlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
+        <ul>{Links.map(Link)}</ul>
+      </Overlay>
     </Fragment>
   );
 };
