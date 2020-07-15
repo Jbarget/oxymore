@@ -13,11 +13,6 @@ button {
   font: "favorit";
 }
 
-span {
-  cursor: pointer;
-  font: "favorit";
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
