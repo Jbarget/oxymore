@@ -107,7 +107,7 @@ const NavMenu = () => {
   const Links: LinkProps[] = [
     {
       page: `${t("nav.about-us")}`,
-      url: "/",
+      url: "/about-us",
     },
     {
       page: `${t("nav.manifesto")}`,
