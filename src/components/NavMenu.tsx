@@ -122,7 +122,7 @@ const NavMenu = () => {
     },
     {
       page: `${t("nav.advertising")}`,
-      url: "/advertsing",
+      url: "/advertising",
     },
     {
       page: `${t("nav.buy")}`,
@@ -154,18 +154,20 @@ const NavMenu = () => {
         >
           OXYMORE
         </Logo>
-        <MenuButton
-          onClick={() => setIsOpen(false)}
-          position="absolute"
-          right={30}
-          top={30}
-          border="none"
-          background="transparent"
-          style={{ outline: "none" }}
-          fontSize={3}
-        >
-          BACK
-        </MenuButton>
+        <NavLink to="/">
+          <MenuButton
+            onClick={() => setIsOpen(false)}
+            position="absolute"
+            right={30}
+            top={30}
+            border="none"
+            background="transparent"
+            style={{ outline: "none" }}
+            fontSize={3}
+          >
+            BACK
+          </MenuButton>
+        </NavLink>
         <Grid
           gridColumnGap={5}
           gridRowGap={4}
@@ -177,6 +179,7 @@ const NavMenu = () => {
           ]}
         >
           <Menu
+            onClick={() => setIsOpen(!isOpen)}
             textAlign={["center", null, null, "justify"]}
             gridColumn={["2/3", null, null, "1/2"]}
           >
