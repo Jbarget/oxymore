@@ -39,10 +39,11 @@ const H1 = styled.h1<ColorProps & TypographyProps & SpaceProps>`
   ${space};
 `;
 
-const Grid = styled.div<GridProps & FlexboxProps>`
+const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
   display: grid;
   ${grid};
   ${flexbox};
+  ${space};
 `;
 
 const Container = styled.div<
@@ -73,8 +74,8 @@ const Manifesto = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <Container p={4} m={2}>
-        <H1 color="athensGray" fontSize={[2, 4, 5]} p={4}>
+      <Container p={4} display="block">
+        <H1 color="athensGray" fontSize={[2, 4, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
         <Grid
@@ -85,25 +86,26 @@ const Manifesto = () => {
             "repeat(1, 100% [col-start])",
             "repeat(1, 100% [col-start])",
             "repeat(1, 100% [col-start])",
-            "repeat(2, 50% [col-start])",
-            "repeat(2, 50% [col-start])",
+            "repeat(1, 100% [col-start])",
+            "repeat(2, 49% [col-start])",
+            "repeat(2, 49% [col-start])",
           ]}
         >
           <Paragraph
             color="athensGray"
             fontSize={[1, 3, 4]}
-            p={3}
             textAlign="justify"
+            pb={5}
           >
-            {t("manifesto.manifesto")}{" "}
+            {t("manifesto.manifesto")}
           </Paragraph>
           <Paragraph
             color="athensGray"
             fontSize={[1, 3, 4]}
-            p={4}
             textAlign="justify"
+            pb={5}
           >
-            {t("manifesto.manifesto")}{" "}
+            {t("manifesto.manifesto")}
           </Paragraph>
         </Grid>
       </Container>
