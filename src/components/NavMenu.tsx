@@ -69,20 +69,18 @@ const Menu = styled.ul<GridProps & TypographyProps>`
   ${typography};
 `;
 
-const MenuItem = styled.li<ColorProps & SpaceProps & TypographyProps>`
+const MenuLink = styled(NavLink)<ColorProps & SpaceProps & TypographyProps>`
   ${color};
   ${space};
   ${typography};
-  text-transform: uppercase;
+  }
+`;
+
+const MenuText = styled.li`
   &:hover {
     transition: transform 0.2s;
     transform: scale(1.01);
   }
-`;
-
-const MenuLink = styled(NavLink)<ColorProps & SpaceProps>`
-  ${color};
-  ${space};
 `;
 
 interface LinkProps {
@@ -93,10 +91,15 @@ interface LinkProps {
 const Link = ({ page, url }: LinkProps) => {
   return (
     <MenuContainer key={page} p={1}>
-      <MenuItem color="black" fontSize={[3, 4, 5, 6, null, 7, null, 8]}>
-        {page}
-      </MenuItem>
-      <MenuLink to={url}></MenuLink>
+      <MenuText>
+        <MenuLink
+          to={url}
+          color="black"
+          fontSize={[3, 4, 5, 6, null, 7, null, 8]}
+        >
+          {page}
+        </MenuLink>
+      </MenuText>
     </MenuContainer>
   );
 };
