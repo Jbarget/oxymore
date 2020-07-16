@@ -3,40 +3,39 @@ import { loadStripe } from "@stripe/stripe-js";
 import {
   SpaceProps,
   LayoutProps,
-  FlexboxProps,
   PositionProps,
   ColorProps,
   TypographyProps,
   BorderProps,
+  GridProps,
   space,
   layout,
   color,
   typography,
-  flexbox,
   border,
   position,
+  grid,
 } from "styled-system";
 import styled from "styled-components";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
-type LogoProps = SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  ColorProps &
+const Button = styled.button<
   SpaceProps &
-  TypographyProps &
-  BorderProps;
-
-const Button = styled.button<LogoProps>`
+    LayoutProps &
+    ColorProps &
+    TypographyProps &
+    BorderProps &
+    PositionProps &
+    GridProps
+>`
   ${space};
   ${layout};
   ${color};
   ${typography};
-  ${flexbox};
   ${border}
   ${position};
+  ${grid};
 `;
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
@@ -81,19 +80,17 @@ const BuyButton = () => {
         role="link"
         onClick={handleClick}
         width={[40, 60, 80, 100, 100]}
-        position="absolute"
-        display="flex"
-        justifyContent="center"
+        height="fit-content"
+        display="grid"
         fontSize={[1, 1, 1, 3, 3]}
-        font-family="SangBleu OG Serif Light Regular"
         color="athensGray"
         py={1}
         bg="transparent"
-        left={30}
-        bottom={30}
         border={1}
         borderColor="athensGray"
         borderStyle="solid"
+        gridColumn="1"
+        gridRow="5"
       >
         BUY
       </Button>
