@@ -16,6 +16,8 @@ import {
   ColorProps,
   border,
   BorderProps,
+  grid,
+  GridProps,
 } from "styled-system";
 
 const visibleStyles = css`
@@ -40,13 +42,14 @@ type MenuProps = SpaceProps &
   PositionProps &
   LayoutProps &
   ColorProps &
-  BorderProps;
+  BorderProps &
+  GridProps;
 
 const MenuButton = styled.button<MenuProps>`
-  ${position}
-  ${layout}
+  display: grid;
   ${border}
   ${color}
+  ${grid}
 `;
 
 const MenuItem = styled.li<MenuProps>`
@@ -73,10 +76,8 @@ const NavMenu = () => {
     <Fragment>
       <MenuButton
         onClick={() => setIsOpen(!isOpen)}
-        position="absolute"
-        right={30}
-        top={30}
-        width={50}
+        gridColumn="4"
+        gridRow="1"
         border="none"
         bg="transparent"
         style={{ outline: "none" }}

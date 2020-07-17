@@ -13,7 +13,6 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Suspense fallback={<div>Loading</div>}>
-            <NavMenu />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/projects" exact component={Projects} />

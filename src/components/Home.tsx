@@ -9,13 +9,11 @@ import {
   space,
   layout,
   background,
-  flexbox,
   color,
   grid,
   SpaceProps,
   LayoutProps,
   BackgroundProps,
-  FlexboxProps,
   ColorProps,
   GridProps,
 } from "styled-system";
@@ -33,9 +31,9 @@ const Main = styled.main<GridProps & ColorProps & SpaceProps & BackgroundProps>`
   ${background}
 `;
 
-const Logo = styled.img<LayoutProps & FlexboxProps & GridProps>`
+const Logo = styled.img<LayoutProps & GridProps>`
+  width: 100%;
   ${layout};
-  ${flexbox};
   ${grid};
 `;
 
@@ -47,14 +45,24 @@ const Home = () => {
       gridTemplateColumns="repeat(4, 1fr)"
       gridTemplateRows="repeat(4, 1fr)"
     >
-      <Logo src={oxymore} width="100%" gridColumn="1" gridRow="1"></Logo>
+      <Logo src={oxymore} alt="oxymore" gridColumn="1" gridRow="1"></Logo>
       <NavMenu />
       <Link to="/projects">
-        <Logo src={alpha} width="100%" gridColumn="2/4" gridRow="2"></Logo>
+        <Logo
+          src={alpha}
+          alt="decorative image"
+          gridColumn="2/4"
+          gridRow="2"
+        ></Logo>
       </Link>
-      <Logo src={number} width="100%" gridColumn="1" gridRow="3"></Logo>
+      <Logo
+        src={number}
+        alt="hashtag number one"
+        gridColumn="1"
+        gridRow="3"
+      ></Logo>
       <BuyButton />
-      <Logo src={manifesto} width="100%" gridColumn="1" gridRow="3"></Logo>
+      <Logo src={manifesto} alt="manifesto" gridColumn="1" gridRow="3"></Logo>
     </Main>
   );
 };
