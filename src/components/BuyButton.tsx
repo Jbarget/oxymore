@@ -95,7 +95,7 @@ const BuyButton = () => {
         borderColor="athensGray"
         borderStyle="solid"
       >
-        BUY
+        BUY THE MAG
       </Button>
     </Fragment>
   );
