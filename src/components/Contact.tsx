@@ -27,23 +27,20 @@ const Main = styled.main<
   ${typography};
 `;
 
-const H1 = styled.h1<ColorProps & SpaceProps & FlexboxProps & TypographyProps>`
+const H1 = styled.h1<ColorProps & SpaceProps & TypographyProps>`
   ${color};
   ${space};
-  ${flexbox};
   ${typography};
 `;
 
-const H2 = styled.h2<ColorProps & SpaceProps & FlexboxProps & TypographyProps>`
+const H2 = styled.h2<ColorProps & SpaceProps & TypographyProps>`
   ${color};
   ${space};
-  ${flexbox};
   ${typography};
 `;
 
-const ContactInfo = styled.p<SpaceProps & FlexboxProps & TypographyProps>`
+const ContactInfo = styled.p<SpaceProps & TypographyProps>`
   ${space};
-  ${flexbox};
   ${typography};
 `;
 
