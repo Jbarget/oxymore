@@ -8,5 +8,11 @@
     "about-us": "SOBRE NOSOTROS",
     "contact": "CONTACTO",
     "buy": "COMPRAR"
+  },
+  "contact": {
+    "header": "Contácto",
+    "subheader": "Oxymore es una publicación bianual bla bla bla bla",
+    "email": "ox@oxymore.com",
+    "location": "Barcelona"
   }
 }
