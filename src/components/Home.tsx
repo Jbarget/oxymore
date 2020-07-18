@@ -20,7 +20,7 @@ import {
   color,
 } from "styled-system";
 import BuyButton from "./BuyButton";
-import MenuButton from "./NavMenu";
+import NavMenu from "./NavMenu";
 
 // background
 type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
@@ -69,7 +69,7 @@ const Home = () => {
       >
         <img src={oxymore} />
       </Logo>
-      <MenuButton />
+      <NavMenu />
       <Logo width={[100, 200, 300, 400, 500]}>
         <Link to="/projects" style={{ textDecoration: "none" }}>
           <img src={alpha} />
