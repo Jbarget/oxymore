@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import bg from "./assets/home-page/background.jpg";
 import alpha from "./assets/home-page/360_alpha.png";
 import oxymore from "./assets/home-page/oxymore.png";
 import number from "./assets/home-page/number-one.png";
@@ -21,6 +20,7 @@ import {
   color,
 } from "styled-system";
 import BuyButton from "./BuyButton";
+import NavMenu from "./NavMenu";
 
 // background
 type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
@@ -69,6 +69,7 @@ const Home = () => {
       >
         <img src={oxymore} />
       </Logo>
+      <NavMenu />
       <Logo width={[100, 200, 300, 400, 500]}>
         <Link to="/projects" style={{ textDecoration: "none" }}>
           <img src={alpha} />
