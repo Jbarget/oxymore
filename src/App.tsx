@@ -37,6 +37,10 @@ const LangButton = styled.p<LanguageButtonProps>`
   ${typography}
   ${color}
   ${space}
+  &:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+  }	  
 `;
 
 const App = () => {
