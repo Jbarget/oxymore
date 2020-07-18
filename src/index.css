@@ -9,12 +9,8 @@ a {
 }
 
 button {
+  font-family: "Helvetica Neue";
   cursor: pointer;
-  font: "favorit";
-}
-
-p {
-  font: "favorit";
 }
 
 code {
