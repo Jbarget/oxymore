@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
-  color,
   layout,
   space,
   typography,
@@ -10,7 +9,6 @@ import {
   flexbox,
   border,
   grid,
-  ColorProps,
   LayoutProps,
   SpaceProps,
   TypographyProps,
@@ -21,43 +19,35 @@ import {
 } from "styled-system";
 
 const Main = styled.main<
-  ColorProps & SpaceProps & BackgroundProps & LayoutProps & FlexboxProps
+  SpaceProps & BackgroundProps & LayoutProps & FlexboxProps
 >`
   min-height: 100vh;
   overflow: hidden;
-  ${color};
   ${space};
   ${background};
   ${layout};
   ${flexbox}
 `;
 
-const H1 = styled.h1<ColorProps & TypographyProps & SpaceProps>`
+const H1 = styled.h1<TypographyProps & SpaceProps>`
   text-transform: uppercase;
-  ${color};
   ${typography};
   ${space};
 `;
 
-const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
+const Grid = styled.div<GridProps & FlexboxProps>`
   display: grid;
   ${grid};
   ${flexbox};
-  ${space};
 `;
 
-const Container = styled.div<
-  ColorProps & SpaceProps & BorderProps & LayoutProps
->`
-  ${color};
+const Container = styled.div<SpaceProps & LayoutProps>`
   ${space};
-  ${border}
   ${layout};
 `;
 
-const Paragraph = styled.p<ColorProps & TypographyProps & SpaceProps>`
+const Paragraph = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
-  ${color};
   ${typography};
   ${space};
 `;
@@ -67,7 +57,7 @@ const Manifesto = () => {
 
   return (
     <Main
-      bg="black"
+      background="black"
       px={[1, 4, 6]}
       pt={5}
       display="flex"
@@ -75,36 +65,26 @@ const Manifesto = () => {
       justifyContent="center"
     >
       <Container p={4} display="block">
-        <H1 color="athensGray" fontSize={[2, 4, 5]} pb={5}>
+        <H1 fontSize={[2, 4, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
         <Grid
           justifyContent="center"
-          gridColumnGap={5}
+          gridColumnGap={10}
           gridRowGap={1}
           gridTemplateColumns={[
             "repeat(1, 100% [col-start])",
             "repeat(1, 100% [col-start])",
             "repeat(1, 100% [col-start])",
             "repeat(1, 100% [col-start])",
-            "repeat(2, 49% [col-start])",
-            "repeat(2, 49% [col-start])",
+            "repeat(2, 48% [col-start])",
+            "repeat(2, 48% [col-start])",
           ]}
         >
-          <Paragraph
-            color="athensGray"
-            fontSize={[1, 3, 4]}
-            textAlign="justify"
-            pb={5}
-          >
+          <Paragraph fontSize={[1, 3, 4]} textAlign="justify" pb={5}>
             {t("manifesto.manifesto")}
           </Paragraph>
-          <Paragraph
-            color="athensGray"
-            fontSize={[1, 3, 4]}
-            textAlign="justify"
-            pb={5}
-          >
+          <Paragraph fontSize={[1, 3, 4]} textAlign="justify" pb={5}>
             {t("manifesto.manifesto")}
           </Paragraph>
         </Grid>

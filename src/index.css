@@ -1,19 +1,22 @@
 body {
-  font-family: "SangBleu OG Serif Light Regular";
+  font-family: "helvetica neue";
   text-decoration: none;
+  color: #f4f4f6;
+}
+
+button {
+  cursor: pointer;
+  color: #f4f4f6;
 }
 
 a {
   text-decoration: none;
-  cursor: pointer;
-}
-
-button {
-  font-family: "SangBleu OG Serif Light Regular";
-  cursor: pointer;
+  color: #f4f4f6;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* "SangBleu OG Serif Light Regular"; */
