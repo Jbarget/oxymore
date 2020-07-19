@@ -22,7 +22,6 @@ import {
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
 
-// background
 type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
 
 const Background = styled.div<BgProps>`
@@ -32,7 +31,6 @@ const Background = styled.div<BgProps>`
   ${flexbox};
 `;
 
-// logos and button
 type LogoProps = SpaceProps &
   LayoutProps &
   FlexboxProps &
