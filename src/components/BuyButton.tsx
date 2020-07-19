@@ -3,40 +3,27 @@ import { loadStripe } from "@stripe/stripe-js";
 import {
   SpaceProps,
   LayoutProps,
-  FlexboxProps,
-  PositionProps,
-  ColorProps,
   TypographyProps,
   BorderProps,
+  BackgroundProps,
   space,
   layout,
-  color,
   typography,
-  flexbox,
   border,
-  position,
+  background,
 } from "styled-system";
 import styled from "styled-components";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
-type LogoProps = SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  ColorProps &
-  SpaceProps &
-  TypographyProps &
-  BorderProps;
-
-const Button = styled.button<LogoProps>`
+const Button = styled.button<
+  SpaceProps & TypographyProps & BorderProps & BackgroundProps
+>`
+  width: max-content;
   ${space};
-  ${layout};
-  ${color};
   ${typography};
-  ${flexbox};
-  ${border}
-  ${position};
+  ${border};
+  ${background};
 `;
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
@@ -80,19 +67,11 @@ const BuyButton = () => {
       <Button
         role="link"
         onClick={handleClick}
-        width={[40, 60, 80, 100, 100]}
-        position="absolute"
-        display="flex"
-        justifyContent="center"
-        fontSize={[1, 1, 1, 3, 3]}
-        font-family="SangBleu OG Serif Light Regular"
-        color="athensGray"
+        fontSize={[1, 2, 3]}
         py={1}
-        bg="transparent"
-        left={30}
-        bottom={30}
+        px={2}
+        background="transparent"
         border={1}
-        borderColor="athensGray"
         borderStyle="solid"
       >
         BUY THE MAG

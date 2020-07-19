@@ -10,12 +10,10 @@ import {
   typography,
   layout,
   LayoutProps,
-  position,
-  PositionProps,
-  color,
-  ColorProps,
   border,
   BorderProps,
+  background,
+  BackgroundProps,
 } from "styled-system";
 
 const visibleStyles = css`
@@ -35,25 +33,22 @@ const NavMenuOverlay = styled.dialog<{ isOpen: boolean }>`
   ${(props) => props.isOpen && visibleStyles}
 `;
 
-type MenuProps = SpaceProps &
-  TypographyProps &
-  PositionProps &
-  LayoutProps &
-  ColorProps &
-  BorderProps;
-
-const MenuButton = styled.button<MenuProps>`
-  ${position}
+const MenuButton = styled.button<
+  TypographyProps & LayoutProps & BorderProps & BackgroundProps
+>`
+${typography}
   ${layout}
   ${border}
-  ${color}
+${background}
+  
 `;
 
-const MenuItem = styled.li<MenuProps>`
+const MenuItem = styled.li<SpaceProps & TypographyProps & LayoutProps>`
+  color: black;
   ${space}
   ${typography}
   ${layout}
-  ${color}
+
   &:focus,
   &:hover {
     font-size: 32px;
@@ -73,14 +68,11 @@ const NavMenu = () => {
     <Fragment>
       <MenuButton
         onClick={() => setIsOpen(!isOpen)}
-        position="absolute"
-        right={30}
-        top={30}
         width={50}
         border="none"
-        bg="transparent"
+        background="transparent"
         style={{ outline: "none" }}
-        color="athensGray"
+        fontSize={[1, 2, 3]}
       >
         MENU
       </MenuButton>

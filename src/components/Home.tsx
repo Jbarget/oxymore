@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import alpha from "./assets/home-page/360_alpha.png";
 import oxymore from "./assets/home-page/oxymore.png";
@@ -7,94 +7,75 @@ import number from "./assets/home-page/number-one.png";
 import manifesto from "./assets/home-page/manifesto.png";
 import {
   space,
-  SpaceProps,
   layout,
-  LayoutProps,
-  background,
-  BackgroundProps,
-  FlexboxProps,
   flexbox,
-  PositionProps,
-  position,
-  ColorProps,
-  color,
+  grid,
+  SpaceProps,
+  LayoutProps,
+  FlexboxProps,
+  GridProps,
 } from "styled-system";
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
+import backgroundImage from ".assets/home-page/background-inverted.png";
 
-// background
-type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
-
-const Background = styled.div<BgProps>`
-  ${background};
-  ${color};
-  ${layout};
-  ${flexbox};
+const Main = styled.main<SpaceProps & GridProps>`
+  background-color: black;
+  display: grid;
+  min-height: 100vh;
+  ${space};
+  ${grid};
 `;
 
-// logos and button
-type LogoProps = SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  ColorProps &
-  SpaceProps;
+const Grid = styled.div<GridProps>`
+  display: grid;
+  ${grid};
+`;
 
-const Logo = styled.a<LogoProps>`
+const PageLink = styled(NavLink)<LayoutProps & FlexboxProps & GridProps>`
   ${layout};
-  ${position};
+  ${flexbox};
+  ${grid};
+`;
+
+const Container = styled.div<LayoutProps & FlexboxProps & GridProps>`
+  display: grid;
+  ${layout};
+  ${flexbox};
+  ${grid};
+`;
+
+const Img = styled.img<LayoutProps & GridProps & FlexboxProps & SpaceProps>`
+  width: 100%;
+  ${layout};
+  ${grid};
   ${flexbox};
   ${space};
 `;
 
 const Home = () => {
   return (
-    <Background
-      backgroundSize="cover"
-      backgroundImage="url('./assets/home-page/background.jpg')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      bg="black"
-      height="100vh"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Logo
-        display="flex"
-        width={[100, 120, 200, 280]}
-        position="absolute"
-        left={30}
-        top={30}
+    <Main p={6}>
+      <Grid
+        gridTemplateColumns="repeat(3, 1fr)"
+        gridTemplateRows="repeat(3, 1fr)"
       >
-        <img src={oxymore} />
-      </Logo>
-      <NavMenu />
-      <Logo width={[100, 200, 300, 400, 500]}>
-        <Link to="/projects" style={{ textDecoration: "none" }}>
-          <img src={alpha} />
-        </Link>
-      </Logo>
-      <Logo
-        width={[40, 40, 60, 70, 80]}
-        position="absolute"
-        left={30}
-        bottom={60}
-        mb={[0, 0, 1, 2, 3]}
-      >
-        <img src={number} />
-      </Logo>
-      <BuyButton />
-      <Logo
-        display="flex"
-        width={[100, 120, 200, 280]}
-        position="absolute"
-        right={30}
-        bottom={30}
-      >
-        <img src={manifesto} />
-      </Logo>
-    </Background>
+        <Img src={oxymore} gridColumn={1}></Img>
+        <Container gridColumn={3} justifySelf="end" alignSelf="flex-start">
+          <NavMenu />
+        </Container>
+        <PageLink to="/projects" gridColumn={2} alignSelf="center">
+          <Img src={alpha}></Img>
+        </PageLink>
+        <Container gridColumn={1} alignSelf="end" width="min-content">
+          <Img src={number} alignSelf="center" mb={3}></Img>
+          <BuyButton />
+        </Container>
+        <PageLink to="/manifesto" gridColumn={3} alignSelf="end">
+          <Img src={manifesto}></Img>
+        </PageLink>
+      </Grid>
+    </Main>
   );
 };
 
