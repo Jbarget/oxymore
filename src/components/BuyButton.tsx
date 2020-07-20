@@ -2,12 +2,10 @@ import React, { useState, Fragment } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   SpaceProps,
-  LayoutProps,
   TypographyProps,
   BorderProps,
   BackgroundProps,
   space,
-  layout,
   typography,
   border,
   background,
@@ -19,7 +17,8 @@ import styled from "styled-components";
 const Button = styled.button<
   SpaceProps & TypographyProps & BorderProps & BackgroundProps
 >`
-  width: max-content;
+  width: auto;
+  white-space: nowrap;
   ${space};
   ${typography};
   ${border};
