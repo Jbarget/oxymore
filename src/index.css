@@ -1,16 +1,19 @@
 body {
-  font-family: "helvetica neue";
+  font-family: "helvetica neue", sans-serif;
   text-decoration: none;
   color: #f4f4f6;
 }
 
 button {
   cursor: pointer;
+  color: #f4f4f6;
+  outline: none;
 }
 
 a {
   text-decoration: none;
   color: #f4f4f6;
+  font-family: "helvetica neue";
 }
 
 code {
