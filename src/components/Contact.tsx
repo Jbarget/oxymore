@@ -3,106 +3,75 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
   color,
-  layout,
   space,
   typography,
-  border,
+  layout,
   flexbox,
-  background,
   ColorProps,
-  LayoutProps,
   SpaceProps,
   TypographyProps,
-  BorderProps,
+  LayoutProps,
   FlexboxProps,
-  BackgroundProps,
 } from "styled-system";
 
 const Main = styled.main<
-  ColorProps & SpaceProps & BackgroundProps & FlexboxProps & LayoutProps
+  LayoutProps & FlexboxProps & SpaceProps & TypographyProps
 >`
+  background-color: black;
+  display: flex;
   min-height: 100vh;
-  overflow: hidden;
-  ${color};
-  ${space};
-  ${background};
-  ${flexbox};
-  ${layout};
-`;
-
-const Container = styled.div<
-  SpaceProps & BorderProps & LayoutProps & FlexboxProps & TypographyProps
->`
-  ${space};
-  ${border};
+  text-transform: uppercase;
   ${layout};
   ${flexbox};
-  ${typography}
+  ${space};
+  ${typography};
 `;
 
 const H1 = styled.h1<ColorProps & SpaceProps & TypographyProps>`
-  text-transform: uppercase;
   ${color};
   ${space};
   ${typography};
 `;
 
-const Email = styled.a<
-  ColorProps & SpaceProps & TypographyProps & BorderProps & LayoutProps
->`
+const H2 = styled.h2<ColorProps & SpaceProps & TypographyProps>`
   ${color};
   ${space};
   ${typography};
-  ${border};
-  ${layout};
-  &:hover {
-    background-color: #f4f4f6;
-    color: #000000;
-    transition-duration: 0.4s;
-  }
 `;
 
-const ContactUs = () => {
-  const textSizes = [1, 2, 3, 4];
+const ContactInfo = styled.p<SpaceProps & TypographyProps>`
+  ${space};
+  ${typography};
+`;
 
+const Contact = () => {
   const { t } = useTranslation();
 
   return (
     <Main
-      bg="black"
-      px={[1, 4, 6]}
-      pt={5}
+      p={6}
       display="flex"
       alignItems="center"
-      justifyContent="center"
+      textAlign={["center", "start"]}
     >
-      <Container
-        width={[200, 200, 300, 600]}
-        height={[200, 300, 400]}
-        borderWidth={1}
-        borderStyle="solid"
-        borderColor="athensGray"
-        p={5}
-      >
-        <H1 color="athensGray" fontSize={textSizes} pb={4}>
+      <ul>
+        <H1 fontSize={[4, 5, 6, 7]} py={3}>
           {t("contact.header")}
         </H1>
-
-        <Email
-          fontSize={textSizes}
-          p={1}
-          width={[70, 100]}
-          backgroundColor="transparent"
-          color="athensGray"
-          border="none"
-          href="mailto:ox@oxymore.com"
-          target="_blank"
-        >
-          ox@oxymore.com
-        </Email>
-      </Container>
+        <H2 fontSize={[2, 3, 4, 5]} py={3}>
+          {t("contact.subheader")}
+        </H2>
+        <ContactInfo fontSize={[2, 3, 4, 5]} py={1}>
+          <a href="mailto:ox@oxymore.com" target="_blank">
+            {t("contact.email")}
+          </a>
+        </ContactInfo>
+        <ContactInfo fontSize={[2, 3, 4, 5]}>
+          {t("contact.location")}
+        </ContactInfo>
+      </ul>
     </Main>
   );
 };
 
-export default ContactUs;
+export default Contact;

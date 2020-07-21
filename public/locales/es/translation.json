@@ -10,10 +10,9 @@
     "buy": "COMPRAR"
   },
   "contact": {
-    "header": "Contacta con nostros",
-    "name": "Nombre",
-    "email": "Correo",
-    "message": "Mensaje",
-    "send": "Enviar"
+    "header": "Contácto",
+    "subheader": "Oxymore es una publicación bianual bla bla bla bla",
+    "email": "ox@oxymore.com",
+    "location": "Barcelona"
   }
 }
