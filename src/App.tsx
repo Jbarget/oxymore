@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import GlobalStyle from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
@@ -22,6 +23,7 @@ const App = () => {
             </Switch>
           </Suspense>
         </div>
+        <GlobalStyle />
       </ThemeProvider>
     </Router>
   );
