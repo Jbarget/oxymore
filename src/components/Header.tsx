@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import {
   space,
@@ -6,25 +6,26 @@ import {
   layout,
   flexbox,
   grid,
+  position,
   SpaceProps,
   TypographyProps,
   LayoutProps,
   FlexboxProps,
   GridProps,
+  PositionProps,
 } from "styled-system";
 import NavMenu from "./NavMenu";
 import i18next from "i18next";
+import { NavLink } from "react-router-dom";
 
-const Container = styled.div<
-  LayoutProps & FlexboxProps & SpaceProps & TypographyProps & GridProps
+const HeaderContainer = styled.div<
+  LayoutProps & SpaceProps & GridProps & PositionProps
 >`
-  background-color: black;
   width: 100%;
   ${layout};
-  ${flexbox};
   ${space};
-  ${typography};
   ${grid};
+  ${position};
 `;
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
@@ -33,26 +34,24 @@ const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${grid};
 `;
 
-const LangButton = styled.button<SpaceProps & TypographyProps & GridProps>`
+const LangButtonContainer = styled.div<FlexboxProps & GridProps & LayoutProps>`
+  background-color: black;
+  width: 100%;
+  ${flexbox};
+  ${grid};
+  ${layout};
+`;
+
+const LangButton = styled.button<SpaceProps & TypographyProps>`
   background: transparent;
   border: none;
   ${typography};
   ${space};
-  ${grid};
   transition: transform 0.2s;
   transform-origin: left;
   transform-origin: right;
   &:hover {
     transform: scale(1.05);
-`;
-
-const MenuButton = styled.button<SpaceProps & TypographyProps & GridProps>`
-  textdecoration: none;
-  background: transparent;
-  border: none;
-  ${typography};
-  ${space};
-  ${grid};
 `;
 
 const Header = () => {
@@ -62,44 +61,50 @@ const Header = () => {
   );
 
   return (
-    <Fragment>
-      <Container
-        p={6}
-        gridTemplateColumns={["repeat(4, 1fr)", "repeat(3, 1fr)"]}
-        display="grid"
-      >
+    <HeaderContainer
+      gridTemplateColumns={["repeat(4, 1fr)", "repeat(3, 1fr)"]}
+      display="grid"
+      position="absolute"
+      top={4}
+      px={7}
+    >
+      <NavLink to="/">
         <H1
-          fontSize={[1, 2, 3, 4]}
           py={3}
           px={3}
           gridColumn={1}
           textAlign="start"
+          fontSize={[1, 2, 3, 4]}
         >
           OXYMORE
         </H1>
-        <Container gridColumn={3} display="flex" justifyContent="center">
-          <LangButton
-            onClick={onLangClick("en")}
-            fontSize={[1, 2, 3, 4]}
-            py={3}
-            px={[1, 2]}
-            style={{ transformOrigin: "right" }}
-          >
-            EN
-          </LangButton>
-          <LangButton
-            onClick={onLangClick("es")}
-            fontSize={[1, 2, 3, 4]}
-            py={3}
-            px={[1, 2]}
-            style={{ transformOrigin: "left" }}
-          >
-            ES
-          </LangButton>
-        </Container>
-        <NavMenu />
-      </Container>
-    </Fragment>
+      </NavLink>
+      <LangButtonContainer
+        gridColumn={3}
+        display="flex"
+        justifyContent="center"
+      >
+        <LangButton
+          onClick={onLangClick("en")}
+          py={3}
+          px={[1, 2]}
+          style={{ transformOrigin: "right" }}
+          fontSize={[1, 2, 3, 4]}
+        >
+          EN
+        </LangButton>
+        <LangButton
+          onClick={onLangClick("es")}
+          py={3}
+          px={[1, 2]}
+          style={{ transformOrigin: "left" }}
+          fontSize={[1, 2, 3, 4]}
+        >
+          ES
+        </LangButton>
+      </LangButtonContainer>
+      <NavMenu />
+    </HeaderContainer>
   );
 };
 

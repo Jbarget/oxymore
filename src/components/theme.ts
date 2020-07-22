@@ -99,7 +99,7 @@ const borders = {
   primaryThin: `1px solid ${colors.azure}`,
 };
 
-const theme: Theme = {
+const theme = {
   space: {
     ...space,
   },

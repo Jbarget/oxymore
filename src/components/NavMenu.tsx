@@ -20,7 +20,7 @@ import {
 const overlayStyles = css`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   justify-content: center;
   border: none;
@@ -34,10 +34,33 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${(props) => props.isOpen && overlayStyles}
 `;
 
-const Logo = styled.p<PositionProps & LayoutProps & TypographyProps>`
-${position}
-${layout}
-${typography}
+const MenuContainer = styled.div<SpaceProps>`
+  ${space};
+`;
+
+const Grid = styled.div<GridProps>`
+  display: grid;
+  ${grid};
+`;
+
+const Menu = styled.ul<GridProps & TypographyProps>`
+  ${grid};
+  ${typography};
+`;
+
+const MenuText = styled.li`
+  transition: transform 2s;
+  &:hover {
+    transform: scale(1.01);
+    transform-origin: left;
+  }
+`;
+
+const MenuLink = styled(NavLink)<ColorProps & SpaceProps & TypographyProps>`
+  ${color};
+  ${space};
+  ${typography};
+  }
 `;
 
 const MenuButton = styled.button<
@@ -53,33 +76,10 @@ const MenuButton = styled.button<
   ${position}
 `;
 
-const Grid = styled.div<GridProps>`
-  display: grid;
-  ${grid};
-`;
-
-const MenuContainer = styled.div<SpaceProps>`
-  ${space};
-`;
-
-const Menu = styled.ul<GridProps & TypographyProps>`
-  ${grid};
-  ${typography};
-`;
-
-const MenuLink = styled(NavLink)<ColorProps & SpaceProps & TypographyProps>`
-  ${color};
-  ${space};
-  ${typography};
-  }
-`;
-
-const MenuText = styled.li`
-  transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.01);
-    transform-origin: left;
-  }
+const Logo = styled.p<PositionProps & LayoutProps & TypographyProps>`
+${position}
+${layout}
+${typography}
 `;
 
 interface LinkProps {
@@ -134,28 +134,29 @@ const NavMenu = () => {
       <MenuButton
         onClick={() => setIsOpen(!isOpen)}
         fontSize={[1, 2, 3, 4]}
-        py={3}
-        px={[1, 2]}
         gridColumn={4}
+        py={3}
+        px={3}
       >
         MENU
       </MenuButton>
       <Overlay isOpen={isOpen}>
-        <Logo fontSize={3} position="absolute" left={30} top={30}>
-          OXYMORE
-        </Logo>
-        <NavLink to="/projects">
-          <MenuButton
-            onClick={() => setIsOpen(false)}
-            style={{ outline: "none" }}
-            fontSize={3}
-            position="absolute"
-            right={30}
-            top={30}
-          >
-            BACK
-          </MenuButton>
+        <NavLink to="/">
+          <Logo position="absolute" left={30} top={30} fontSize={[1, 2, 3, 4]}>
+            OXYMORE
+          </Logo>
         </NavLink>
+        <MenuButton
+          onClick={() => setIsOpen(false)}
+          style={{ outline: "none" }}
+          fontSize={[1, 2, 3, 4]}
+          position="absolute"
+          right={30}
+          top={30}
+        >
+          BACK
+        </MenuButton>
+
         <Grid
           gridColumnGap={5}
           gridRowGap={4}
