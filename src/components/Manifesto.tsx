@@ -15,22 +15,17 @@ import {
 } from "styled-system";
 import Header from "./Header";
 
-const Main = styled.main<SpaceProps & LayoutProps & FlexboxProps>`
+const Main = styled.main<SpaceProps & FlexboxProps>`
   min-height: 100vh;
   background: black;
   display: flex;
   ${space};
-  ${layout};
   ${flexbox}
 `;
 
-const Container = styled.div<
-  SpaceProps & LayoutProps & GridProps & FlexboxProps
->`
+const Container = styled.div<SpaceProps & LayoutProps>`
   ${space};
   ${layout};
-  ${grid};
-  ${flexbox};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps>`
@@ -46,14 +41,10 @@ const H1 = styled.h1<TypographyProps & SpaceProps & GridProps>`
   ${grid};
 `;
 
-const Paragraph = styled.p<
-  TypographyProps & SpaceProps & FlexboxProps & GridProps
->`
+const Paragraph = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
   ${typography};
   ${space};
-  ${flexbox};
-  ${grid};
 `;
 
 const Manifesto = () => {
@@ -65,9 +56,9 @@ const Manifesto = () => {
       <Container
         display="block"
         px={4}
-        mt={["20%", null, null, null, null, null, "0%"]}
+        mt={["20%", null, null, null, null, null, "10%"]}
       >
-        <H1 fontSize={[2, 4, 5]} pb={5}>
+        <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
         <Grid
@@ -86,10 +77,18 @@ const Manifesto = () => {
             "repeat(2, 49% [col-start])",
           ]}
         >
-          <Paragraph fontSize={[1, 3, 4]} textAlign="justify" pb={5}>
+          <Paragraph
+            fontSize={[1, null, null, null, 2, 3, 4]}
+            textAlign="justify"
+            pb={5}
+          >
             {t("manifesto.manifesto")}
           </Paragraph>
-          <Paragraph fontSize={[1, 3, 4]} textAlign="justify" pb={5}>
+          <Paragraph
+            fontSize={[1, null, null, null, 2, 3, 4]}
+            textAlign="justify"
+            pb={5}
+          >
             {t("manifesto.manifesto")}
           </Paragraph>
         </Grid>
