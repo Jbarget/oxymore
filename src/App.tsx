@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Manifesto from "./components/Manifesto";
 import theme from "./components/theme";
 import "./css/reset.css";
+import GlobalStyle from "./GlobalStyle";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             </Switch>
           </Suspense>
         </div>
+        <GlobalStyle />
       </ThemeProvider>
     </Router>
   );

@@ -72,6 +72,8 @@ const fontSizes = {
   4: 20,
   5: 30,
   6: 40,
+  7: 50,
+  8: 60,
 };
 
 const space = {
@@ -97,7 +99,7 @@ const borders = {
   primaryThin: `1px solid ${colors.azure}`,
 };
 
-const theme: Theme = {
+const theme = {
   space: {
     ...space,
   },

@@ -5,34 +5,32 @@ import {
   layout,
   space,
   typography,
-  background,
   flexbox,
-  border,
   grid,
   LayoutProps,
   SpaceProps,
   TypographyProps,
-  BackgroundProps,
   FlexboxProps,
-  BorderProps,
   GridProps,
 } from "styled-system";
+import Header from "./Header";
 
-const Main = styled.main<
-  SpaceProps & BackgroundProps & LayoutProps & FlexboxProps
->`
+const Main = styled.main<SpaceProps & LayoutProps & FlexboxProps>`
   min-height: 100vh;
-  overflow: hidden;
+  background: black;
+  display: flex;
   ${space};
-  ${background};
   ${layout};
   ${flexbox}
 `;
 
-const H1 = styled.h1<TypographyProps & SpaceProps>`
-  text-transform: uppercase;
-  ${typography};
+const Container = styled.div<
+  SpaceProps & LayoutProps & GridProps & FlexboxProps
+>`
   ${space};
+  ${layout};
+  ${grid};
+  ${flexbox};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps>`
@@ -41,44 +39,51 @@ const Grid = styled.div<GridProps & FlexboxProps>`
   ${flexbox};
 `;
 
-const Container = styled.div<SpaceProps & LayoutProps>`
-  ${space};
-  ${layout};
-`;
-
-const Paragraph = styled.p<TypographyProps & SpaceProps>`
+const H1 = styled.h1<TypographyProps & SpaceProps & GridProps>`
   text-transform: uppercase;
   ${typography};
   ${space};
+  ${grid};
+`;
+
+const Paragraph = styled.p<
+  TypographyProps & SpaceProps & FlexboxProps & GridProps
+>`
+  text-transform: uppercase;
+  ${typography};
+  ${space};
+  ${flexbox};
+  ${grid};
 `;
 
 const Manifesto = () => {
   const { t } = useTranslation();
 
   return (
-    <Main
-      background="black"
-      px={[1, 4, 6]}
-      pt={5}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Container p={4} display="block">
+    <Main p={7} alignItems="center" justifyContent="center">
+      <Header />
+      <Container
+        display="block"
+        px={4}
+        mt={["20%", null, null, null, null, null, "0%"]}
+      >
         <H1 fontSize={[2, 4, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
         <Grid
           justifyContent="center"
           gridColumnGap={10}
-          gridRowGap={1}
           gridTemplateColumns={[
             "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(2, 48% [col-start])",
-            "repeat(2, 48% [col-start])",
+            null,
+            null,
+            null,
+            null,
+            null,
+            "repeat(2, 47% [col-start])",
+            "repeat(2, 47.5% [col-start])",
+            "repeat(2, 48.5% [col-start])",
+            "repeat(2, 49% [col-start])",
           ]}
         >
           <Paragraph fontSize={[1, 3, 4]} textAlign="justify" pb={5}>
