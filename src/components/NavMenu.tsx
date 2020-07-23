@@ -2,138 +2,170 @@ import React, { useState, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
-import menuButton from "./assets/nav-menu/menu-button.png";
 import {
+  color,
+  layout,
   space,
+  typography,
+  position,
+  grid,
+  ColorProps,
+  LayoutProps,
   SpaceProps,
   TypographyProps,
-  typography,
-  layout,
-  LayoutProps,
-  position,
   PositionProps,
-  color,
-  ColorProps,
-  border,
-  BorderProps,
+  GridProps,
 } from "styled-system";
 
-const visibleStyles = css`
+const overlayStyles = css`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  font-size: 36px;
-  justify-content: center;
-  text-align: center;
+  height: 100vh;
   width: 100%;
-  font-family: SangBleu OG Serif Light Regular;
+  justify-content: center;
   border: none;
+  background-image: url("/assets/nav-menu/background-inverted.png");
+  background-size: cover;
+  opacity: 1;
 `;
-const NavMenuOverlay = styled.dialog<{ isOpen: boolean }>`
+
+const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${(props) => props.isOpen && visibleStyles}
+  ${(props) => props.isOpen && overlayStyles}
 `;
 
-type MenuProps = SpaceProps &
-  TypographyProps &
-  PositionProps &
-  LayoutProps &
-  ColorProps &
-  BorderProps;
-
-const MenuButton = styled.button<MenuProps>`
+const Logo = styled.p<PositionProps & TypographyProps>`
   ${position}
-  ${layout}
-  ${border}
-  ${color}
+  ${typography}
 `;
 
-const MenuItem = styled.li<MenuProps>`
-  ${space}
+const MenuButton = styled.button<TypographyProps & GridProps & PositionProps>`
+  display: grid;
+  border: none;
+  background: transparent;
   ${typography}
-  ${layout}
-  ${color}
-  &:focus,
-  &:hover {
-    font-size: 32px;
-  }
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
+  ${grid}
+  ${position}
+`;
+
+const Grid = styled.div<GridProps>`
+  display: grid;
+  ${grid};
+`;
+
+const MenuContainer = styled.div<SpaceProps>`
+  ${space};
+`;
+
+const Menu = styled.ul<GridProps & TypographyProps>`
+  ${grid};
+  ${typography};
+`;
+
+const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
+  ${color};
+  ${typography};
   }
 `;
+
+const MenuText = styled.li`
+  transition: transform 2s;
+  &:hover {
+    transform: scale(1.01);
+    transform-origin: left;
+  }
+`;
+
+interface LinkProps {
+  page: string;
+  url: string;
+}
+
+const Link = ({ page, url }: LinkProps) => {
+  return (
+    <MenuContainer key={page} p={1}>
+      <MenuText>
+        <MenuLink
+          to={url}
+          color="black"
+          fontSize={[3, 4, 5, 6, null, 7, null, 8]}
+        >
+          {page}
+        </MenuLink>
+      </MenuText>
+    </MenuContainer>
+  );
+};
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
+  const Links: LinkProps[] = [
+    {
+      page: `${t("nav.about-us")}`,
+      url: "/about-us",
+    },
+    {
+      page: `${t("nav.manifesto")}`,
+      url: "/manifesto",
+    },
+    {
+      page: `${t("nav.contact")}`,
+      url: "/contact-us",
+    },
+    {
+      page: `${t("nav.advertising")}`,
+      url: "/advertising",
+    },
+    {
+      page: `${t("nav.buy")}`,
+      url: "/buy",
+    },
+  ];
 
   return (
     <Fragment>
       <MenuButton
         onClick={() => setIsOpen(!isOpen)}
-        position="absolute"
-        right={30}
-        top={30}
-        width={50}
-        border="none"
-        bg="transparent"
-        style={{ outline: "none" }}
-        color="athensGray"
+        fontSize={[0, null, null, null, null, 1, 4, null, null, 5]}
+        gridColumn={4}
       >
         MENU
       </MenuButton>
-      <NavMenuOverlay isOpen={isOpen} onClick={() => setIsOpen(false)}>
-        <ul>
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.manifesto")} <NavLink to="/manifesto"></NavLink>
-          </MenuItem>
+      <Overlay isOpen={isOpen}>
+        <Logo fontSize={3} position="absolute" left={30} top={30}>
+          OXYMORE
+        </Logo>
+        <MenuButton
+          onClick={() => setIsOpen(false)}
+          style={{ outline: "none" }}
+          fontSize={3}
+          position="absolute"
+          right={30}
+          top={30}
+        >
+          BACK
+        </MenuButton>
 
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
+        <Grid
+          gridColumnGap={5}
+          gridRowGap={4}
+          gridTemplateColumns={[
+            "20px 1fr 20px",
+            "10px 1fr 10px",
+            "10px 1fr 10px",
+            "1fr 10px 10px",
+          ]}
+        >
+          <Menu
+            onClick={() => setIsOpen(!isOpen)}
+            textAlign={["center", null, null, "start"]}
+            gridColumn={["2/3", null, null, "1/2"]}
           >
-            {t("nav.advertising")}
-            <NavLink to="/advertising"></NavLink>
-          </MenuItem>
-
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.about-us")}
-            <NavLink to="/about-us"></NavLink>
-          </MenuItem>
-
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.contact")} <NavLink to="/contact"></NavLink>
-          </MenuItem>
-
-          <MenuItem
-            fontSize={[4, 4, 5, 5, 5]}
-            p={[1, 2, 4, 4]}
-            color="black"
-            height={[44, 44, 66, 66, 66]}
-          >
-            {t("nav.buy")} <NavLink to="/buy"></NavLink>
-          </MenuItem>
-        </ul>
-      </NavMenuOverlay>
+            {Links.map(Link)}
+          </Menu>
+        </Grid>
+      </Overlay>
     </Fragment>
   );
 };
