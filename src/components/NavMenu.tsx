@@ -4,17 +4,19 @@ import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
   color,
-  layout,
   space,
   typography,
   position,
   grid,
+  flexbox,
   ColorProps,
-  LayoutProps,
   SpaceProps,
   TypographyProps,
   PositionProps,
   GridProps,
+  FlexboxProps,
+  LayoutProps,
+  layout,
 } from "styled-system";
 
 const overlayStyles = css`
@@ -34,13 +36,25 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${(props) => props.isOpen && overlayStyles}
 `;
 
-const MenuContainer = styled.div<SpaceProps>`
-  ${space};
+const Logo = styled.p<PositionProps & TypographyProps>`
+  ${position}
+  ${typography}
 `;
 
-const Grid = styled.div<GridProps>`
-  display: grid;
-  ${grid};
+const MenuButton = styled.button<
+  TypographyProps & PositionProps & FlexboxProps & SpaceProps & LayoutProps
+>`
+  border: none;
+  background: transparent;
+  ${typography}
+  ${position}
+  ${flexbox}
+  ${space}
+  ${layout}
+`;
+
+const MenuContainer = styled.div<SpaceProps>`
+  ${space};
 `;
 
 const Menu = styled.ul<GridProps & TypographyProps>`
@@ -48,38 +62,18 @@ const Menu = styled.ul<GridProps & TypographyProps>`
   ${typography};
 `;
 
-const MenuText = styled.li`
-  transition: transform 2s;
-  &:hover {
-    transform: scale(1.01);
-    transform-origin: left;
-  }
-`;
-
-const MenuLink = styled(NavLink)<ColorProps & SpaceProps & TypographyProps>`
+const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
   ${color};
-  ${space};
   ${typography};
   }
 `;
 
-const MenuButton = styled.button<
-  LayoutProps & TypographyProps & SpaceProps & GridProps & PositionProps
->`
-  display: grid;
-  border: none;
-  background: transparent;
-  ${layout}
-  ${typography}
-  ${space}
-  ${grid}
-  ${position}
-`;
-
-const Logo = styled.p<PositionProps & LayoutProps & TypographyProps>`
-${position}
-${layout}
-${typography}
+const MenuText = styled.li`
+  transition: transform 0.4s;
+  &:hover {
+    transform: scale(1.01);
+    transform-origin: left;
+  }
 `;
 
 interface LinkProps {
@@ -94,7 +88,7 @@ const Link = ({ page, url }: LinkProps) => {
         <MenuLink
           to={url}
           color="black"
-          fontSize={[3, 4, 5, 6, null, 7, null, 8]}
+          fontSize={[3, 4, 5, 6, null, 7, 9, 10]}
         >
           {page}
         </MenuLink>
@@ -106,6 +100,7 @@ const Link = ({ page, url }: LinkProps) => {
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
+  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
   const Links: LinkProps[] = [
     {
       page: `${t("nav.about-us")}`,
@@ -133,48 +128,36 @@ const NavMenu = () => {
     <Fragment>
       <MenuButton
         onClick={() => setIsOpen(!isOpen)}
-        fontSize={[1, 2, 3, 4]}
-        gridColumn={4}
-        py={3}
-        px={3}
+        fontSize={fontSizes}
+        display="flex"
+        justifyContent="flex-end"
+        px={6}
       >
         MENU
       </MenuButton>
       <Overlay isOpen={isOpen}>
-        <NavLink to="/">
-          <Logo position="absolute" left={30} top={30} fontSize={[1, 2, 3, 4]}>
-            OXYMORE
-          </Logo>
-        </NavLink>
+        <Logo fontSize={fontSizes} position="absolute" left={30} top={24}>
+          OXYMORE
+        </Logo>
+
         <MenuButton
           onClick={() => setIsOpen(false)}
-          style={{ outline: "none" }}
-          fontSize={[1, 2, 3, 4]}
+          style={{ outline: "none", color: "black" }}
+          fontSize={fontSizes}
           position="absolute"
           right={30}
-          top={30}
+          top={24}
         >
           BACK
         </MenuButton>
 
-        <Grid
-          gridColumnGap={5}
-          gridRowGap={4}
-          gridTemplateColumns={[
-            "20px 1fr 20px",
-            "10px 1fr 10px",
-            "10px 1fr 10px",
-            "1fr 10px 10px",
-          ]}
+        <Menu
+          onClick={() => setIsOpen(!isOpen)}
+          textAlign={["center", null, null, "start"]}
+          gridColumn={["2/3", null, null, "1/2"]}
         >
-          <Menu
-            onClick={() => setIsOpen(!isOpen)}
-            textAlign={["center", null, null, "start"]}
-            gridColumn={["2/3", null, null, "1/2"]}
-          >
-            {Links.map(Link)}
-          </Menu>
-        </Grid>
+          {Links.map(Link)}
+        </Menu>
       </Overlay>
     </Fragment>
   );

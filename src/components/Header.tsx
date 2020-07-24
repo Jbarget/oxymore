@@ -19,13 +19,14 @@ import i18next from "i18next";
 import { NavLink } from "react-router-dom";
 
 const HeaderContainer = styled.div<
-  LayoutProps & SpaceProps & GridProps & PositionProps
+  LayoutProps & SpaceProps & GridProps & PositionProps & FlexboxProps
 >`
   width: 100%;
   ${layout};
   ${space};
   ${grid};
   ${position};
+  ${flexbox};
 `;
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
@@ -34,12 +35,16 @@ const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${grid};
 `;
 
-const LangButtonContainer = styled.div<FlexboxProps & GridProps & LayoutProps>`
+const Container = styled.div<
+  FlexboxProps & GridProps & LayoutProps & SpaceProps & TypographyProps
+>`
   background-color: black;
   width: 100%;
   ${flexbox};
   ${grid};
   ${layout};
+  ${space};
+  ${typography};
 `;
 
 const LangButton = styled.button<SpaceProps & TypographyProps>`
@@ -55,6 +60,7 @@ const LangButton = styled.button<SpaceProps & TypographyProps>`
 `;
 
 const Header = () => {
+  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
   const onLangClick = useCallback(
     (countryId: string) => () => i18next.changeLanguage(countryId),
     []
@@ -62,48 +68,41 @@ const Header = () => {
 
   return (
     <HeaderContainer
-      gridTemplateColumns={["repeat(4, 1fr)", "repeat(3, 1fr)"]}
+      gridTemplateColumns={["repeat(3, 1fr)"]}
       display="grid"
       position="absolute"
       top={4}
-      px={7}
+      alignItems="center"
     >
       <NavLink to="/">
-        <H1
-          py={3}
-          px={3}
-          gridColumn={1}
-          textAlign="start"
-          fontSize={[1, 2, 3, 4]}
-        >
-          OXYMORE
-        </H1>
+        <Container gridColumn={1}>
+          <H1 py={3} px={6} fontSize={fontSizes} style={{ zIndex: 2 }}>
+            OXYMORE
+          </H1>
+        </Container>
       </NavLink>
-      <LangButtonContainer
-        gridColumn={3}
-        display="flex"
-        justifyContent="center"
-      >
-        <LangButton
-          onClick={onLangClick("en")}
-          py={3}
-          px={[1, 2]}
-          style={{ transformOrigin: "right" }}
-          fontSize={[1, 2, 3, 4]}
-        >
-          EN
-        </LangButton>
-        <LangButton
-          onClick={onLangClick("es")}
-          py={3}
-          px={[1, 2]}
-          style={{ transformOrigin: "left" }}
-          fontSize={[1, 2, 3, 4]}
-        >
-          ES
-        </LangButton>
-      </LangButtonContainer>
-      <NavMenu />
+      <Container display="flex" flexDirection="row" gridColumn={3}>
+        <Container display="flex" py={3} px={3} justifyContent="flex-end">
+          <LangButton
+            onClick={onLangClick("en")}
+            style={{ transformOrigin: "right" }}
+            fontSize={fontSizes}
+            px={1}
+          >
+            EN
+          </LangButton>
+          <LangButton
+            onClick={onLangClick("es")}
+            style={{ transformOrigin: "left" }}
+            fontSize={fontSizes}
+            px={1}
+          >
+            ES
+          </LangButton>
+
+          <NavMenu />
+        </Container>
+      </Container>
     </HeaderContainer>
   );
 };
