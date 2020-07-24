@@ -9,14 +9,12 @@ import {
   position,
   grid,
   flexbox,
-  layout,
   ColorProps,
   SpaceProps,
   TypographyProps,
   PositionProps,
   GridProps,
   FlexboxProps,
-  LayoutProps,
 } from "styled-system";
 
 const overlayStyles = css`
@@ -29,7 +27,6 @@ const overlayStyles = css`
   background-image: url("/assets/nav-menu/background-inverted.png");
   background-size: cover;
   opacity: 1;
-  margin: 0px;
 `;
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
@@ -43,13 +40,12 @@ const Logo = styled.p<PositionProps & TypographyProps>`
 `;
 
 const MenuButton = styled.button<
-  TypographyProps & GridProps & PositionProps & FlexboxProps & SpaceProps
+  TypographyProps & PositionProps & FlexboxProps & SpaceProps
 >`
   display: grid;
   border: none;
   background: transparent;
   ${typography}
-  ${grid}
   ${position}
   ${flexbox}
   ${space}
@@ -71,7 +67,7 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
 `;
 
 const MenuText = styled.li`
-  transition: transform 2s;
+  transition: transform 0.4s;
   &:hover {
     transform: scale(1.01);
     transform-origin: left;
