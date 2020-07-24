@@ -74,6 +74,8 @@ const fontSizes = {
   6: 40,
   7: 50,
   8: 60,
+  9: 70,
+  10: 80,
 };
 
 const space = {
