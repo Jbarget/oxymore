@@ -133,7 +133,7 @@ const NavMenu = () => {
         MENU
       </MenuButton>
       <Overlay isOpen={isOpen}>
-        <Logo fontSize={fontSizes} position="absolute" left={30} top={30}>
+        <Logo fontSize={fontSizes} position="absolute" left={30} top={24}>
           OXYMORE
         </Logo>
 
@@ -143,7 +143,7 @@ const NavMenu = () => {
           fontSize={fontSizes}
           position="absolute"
           right={30}
-          top={30}
+          top={24}
         >
           BACK
         </MenuButton>
