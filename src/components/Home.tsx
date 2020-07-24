@@ -69,7 +69,6 @@ const Home = () => {
       >
         <img src={oxymore} />
       </Logo>
-      <NavMenu />
       <Logo width={[100, 200, 300, 400, 500]}>
         <Link to="/projects" style={{ textDecoration: "none" }}>
           <img src={alpha} />

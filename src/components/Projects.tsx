@@ -28,6 +28,7 @@ import knife from "./assets/project-page/knife.png";
 import mask from "./assets/project-page/mask.png";
 import spider from "./assets/project-page/spider.png";
 import magnify from "./assets/project-page/magnify.png";
+import Header from "./Header";
 
 type BgProps = BackgroundProps &
   ColorProps &
@@ -110,6 +111,7 @@ const Projects = () => {
       alignItems="center"
       mx="auto"
     >
+      <Header />
       <HomeLink p={30}>
         <Link to="/">
           <HomeLogo
