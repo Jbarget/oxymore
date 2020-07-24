@@ -55,10 +55,11 @@ const Manifesto = () => {
 
   return (
     <Main p={6} alignItems="center" justifyContent="center">
+      <Header />
       <Container
         display="block"
         px={4}
-        mt={["20%", null, null, null, null, null, null, "10%", "0"]}
+        mt={["20%", null, null, "15%", null, null, null, "10%", "0"]}
       >
         <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
           {t("manifesto.header")}

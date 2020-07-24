@@ -1,99 +1,91 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import alpha from "./assets/home-page/360_alpha.png";
-import oxymore from "./assets/home-page/oxymore.png";
-import number from "./assets/home-page/number-one.png";
-import manifesto from "./assets/home-page/manifesto.png";
 import {
-  space,
-  SpaceProps,
   layout,
-  LayoutProps,
-  background,
-  BackgroundProps,
-  FlexboxProps,
+  space,
   flexbox,
+  grid,
+  LayoutProps,
+  SpaceProps,
+  FlexboxProps,
+  GridProps,
   PositionProps,
   position,
-  ColorProps,
-  color,
 } from "styled-system";
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
+import oxymore from "./assets/home-page/oxymore.png";
+import manifesto from "./assets/home-page/manifesto.png";
+import number from "./assets/home-page/number-one.png";
+import alpha from "./assets/home-page/360_alpha.png";
+import Header from "./Header";
 
-// background
-type BgProps = BackgroundProps & ColorProps & LayoutProps & FlexboxProps;
-
-const Background = styled.div<BgProps>`
-  ${background};
-  ${color};
-  ${layout};
-  ${flexbox};
+const Main = styled.main<SpaceProps & FlexboxProps & GridProps>`
+  background: black;
+  display: grid;
+  height: 100vh;
+  overflow: hidden;
+  ${space};
+  ${flexbox}
+  ${grid};
 `;
 
-// logos and button
-type LogoProps = SpaceProps &
-  LayoutProps &
-  FlexboxProps &
-  PositionProps &
-  ColorProps &
-  SpaceProps;
-
-const Logo = styled.a<LogoProps>`
+const Container = styled.div<
+  LayoutProps & FlexboxProps & GridProps & SpaceProps & PositionProps
+>`
+  display: grid;
   ${layout};
-  ${position};
   ${flexbox};
+  ${grid};
   ${space};
+  ${position}
+`;
+
+const PageLink = styled(NavLink)``;
+
+const Img = styled.img<LayoutProps & FlexboxProps>`
+  ${layout};
+  ${flexbox};
 `;
 
 const Home = () => {
   return (
-    <Background
-      backgroundSize="cover"
-      backgroundImage="url('./assets/home-page/background.jpg')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      bg="black"
-      height="100vh"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Logo
-        display="flex"
-        width={[100, 120, 200, 280]}
-        position="absolute"
-        left={30}
-        top={30}
+    <Main gridTemplateRows="repeat(3, 1fr)" gridTemplateColumns="25% 50% 25%">
+      <Header />
+      <Container gridRow={1} gridColumn={1} p={6}>
+        <PageLink to="/">
+          <Img src={oxymore} style={{ zIndex: 1 }}></Img>
+        </PageLink>
+      </Container>
+
+      <Container
+        gridRow={2}
+        gridColumn={2}
+        alignSelf="center"
+        justifySelf="center"
+        width={["fit-content", null, null, null, null, null, null, null, "60%"]}
       >
-        <img src={oxymore} />
-      </Logo>
-      <Logo width={[100, 200, 300, 400, 500]}>
-        <Link to="/projects" style={{ textDecoration: "none" }}>
-          <img src={alpha} />
-        </Link>
-      </Logo>
-      <Logo
-        width={[40, 40, 60, 70, 80]}
-        position="absolute"
-        left={30}
-        bottom={60}
-        mb={[0, 0, 1, 2, 3]}
+        <PageLink to="/projects">
+          <Img src={alpha}></Img>
+        </PageLink>
+      </Container>
+      <Container
+        gridRow={3}
+        gridColumn={1}
+        alignSelf="end"
+        width="min-content"
+        p={6}
       >
-        <img src={number} />
-      </Logo>
-      <BuyButton />
-      <Logo
-        display="flex"
-        width={[100, 120, 200, 280]}
-        position="absolute"
-        right={30}
-        bottom={30}
-      >
-        <img src={manifesto} />
-      </Logo>
-    </Background>
+        <Img src={number} alignSelf="center" width="40%"></Img>
+        <BuyButton />
+      </Container>
+      <Container gridRow={3} gridColumn={3} alignSelf="end" p={6}>
+        <PageLink to="/manifesto">
+          <Img src={manifesto}></Img>
+        </PageLink>
+      </Container>
+    </Main>
   );
 };
 

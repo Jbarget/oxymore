@@ -19,13 +19,14 @@ import i18next from "i18next";
 import { NavLink } from "react-router-dom";
 
 const HeaderContainer = styled.div<
-  LayoutProps & SpaceProps & GridProps & PositionProps
+  LayoutProps & SpaceProps & GridProps & PositionProps & FlexboxProps
 >`
   width: 100%;
   ${layout};
   ${space};
   ${grid};
   ${position};
+  ${flexbox};
 `;
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
@@ -71,20 +72,22 @@ const Header = () => {
       display="grid"
       position="absolute"
       top={4}
-      px={6}
+      alignItems="center"
     >
       <NavLink to="/">
-        <H1 py={3} px={3} gridColumn={1} fontSize={fontSizes}>
-          OXYMORE
-        </H1>
+        <Container gridColumn={1}>
+          <H1 py={3} px={6} fontSize={fontSizes} style={{ zIndex: 2 }}>
+            OXYMORE
+          </H1>
+        </Container>
       </NavLink>
       <Container display="flex" flexDirection="row" gridColumn={3}>
-        <Container display="flex" py={3} px={3} fontSize={fontSizes}>
+        <Container display="flex" py={3} px={3} justifyContent="flex-end">
           <LangButton
             onClick={onLangClick("en")}
             style={{ transformOrigin: "right" }}
             fontSize={fontSizes}
-            mr={1}
+            px={1}
           >
             EN
           </LangButton>
@@ -92,19 +95,11 @@ const Header = () => {
             onClick={onLangClick("es")}
             style={{ transformOrigin: "left" }}
             fontSize={fontSizes}
-            ml={1}
+            px={1}
           >
             ES
           </LangButton>
-        </Container>
-        <Container
-          display="flex"
-          justifyContent="flex-end"
-          py={3}
-          px={3}
-          gridColumn={3}
-          fontSize={fontSizes}
-        >
+
           <NavMenu />
         </Container>
       </Container>

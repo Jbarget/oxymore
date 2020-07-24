@@ -15,6 +15,8 @@ import {
   PositionProps,
   GridProps,
   FlexboxProps,
+  LayoutProps,
+  layout,
 } from "styled-system";
 
 const overlayStyles = css`
@@ -40,15 +42,16 @@ const Logo = styled.p<PositionProps & TypographyProps>`
 `;
 
 const MenuButton = styled.button<
-  TypographyProps & PositionProps & FlexboxProps & SpaceProps
+  TypographyProps & PositionProps & FlexboxProps & SpaceProps & LayoutProps
 >`
-  display: grid;
+  
   border: none;
   background: transparent;
   ${typography}
   ${position}
   ${flexbox}
   ${space}
+  ${layout}
 `;
 
 const MenuContainer = styled.div<SpaceProps>`
@@ -127,7 +130,9 @@ const NavMenu = () => {
       <MenuButton
         onClick={() => setIsOpen(!isOpen)}
         fontSize={fontSizes}
-        justifySelf="end"
+        display="flex"
+        justifyContent="flex-end"
+        px={6}
       >
         MENU
       </MenuButton>
