@@ -55,7 +55,6 @@ const Manifesto = () => {
 
   return (
     <Main p={6} alignItems="center" justifyContent="center">
-      <Header />
       <Container
         display="block"
         px={4}
