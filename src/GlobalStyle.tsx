@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     color: ${theme.colors.athensGray};
+    outline: none;
   }
   a {
     text-decoration: none;
