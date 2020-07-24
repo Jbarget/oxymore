@@ -2,111 +2,86 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
-  color,
   layout,
   space,
   typography,
-  background,
   flexbox,
-  border,
   grid,
-  ColorProps,
   LayoutProps,
   SpaceProps,
   TypographyProps,
-  BackgroundProps,
   FlexboxProps,
-  BorderProps,
   GridProps,
 } from "styled-system";
+import Header from "./Header";
 
-const Main = styled.main<
-  ColorProps & SpaceProps & BackgroundProps & LayoutProps & FlexboxProps
->`
+const Main = styled.main<SpaceProps & FlexboxProps>`
   min-height: 100vh;
-  overflow: hidden;
-  ${color};
+  background: black;
+  display: flex;
   ${space};
-  ${background};
-  ${layout};
   ${flexbox}
 `;
 
-const H1 = styled.h1<ColorProps & TypographyProps & SpaceProps>`
-  text-transform: uppercase;
-  ${color};
-  ${typography};
+const Container = styled.div<SpaceProps & LayoutProps>`
   ${space};
-`;
-
-const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
-  display: grid;
-  ${grid};
-  ${flexbox};
-  ${space};
-`;
-
-const Container = styled.div<
-  ColorProps & SpaceProps & BorderProps & LayoutProps
->`
-  ${color};
-  ${space};
-  ${border}
   ${layout};
 `;
 
-const Paragraph = styled.p<ColorProps & TypographyProps & SpaceProps>`
+const Grid = styled.div<GridProps & FlexboxProps>`
+  display: grid;
+  ${grid};
+  ${flexbox};
+`;
+
+const H1 = styled.h1<TypographyProps & SpaceProps & GridProps>`
   text-transform: uppercase;
-  ${color};
   ${typography};
   ${space};
+  ${grid};
+`;
+
+const Paragraph = styled.p<TypographyProps & SpaceProps>`
+  text-transform: uppercase;
+  ${typography};
+  ${space};
+  padding-bottom: 20px;
+  text-align: justify;
 `;
 
 const Manifesto = () => {
   const { t } = useTranslation();
+  const fontSizes = [1, 2, null, null, 2, 3, 4];
 
   return (
-    <Main
-      bg="black"
-      px={[1, 4, 6]}
-      pt={5}
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <Container p={4} display="block">
-        <H1 color="athensGray" fontSize={[2, 4, 5]} pb={5}>
+    <Main p={6} alignItems="center" justifyContent="center">
+      <Header />
+      <Container
+        display="block"
+        px={4}
+        mt={["20%", null, null, "15%", null, null, null, "10%", "0"]}
+      >
+        <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
         <Grid
           justifyContent="center"
-          gridColumnGap={5}
-          gridRowGap={1}
+          gridColumnGap={10}
           gridTemplateColumns={[
             "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(2, 49% [col-start])",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "repeat(2, 47.5% [col-start])",
+            "repeat(2, 48.5% [col-start])",
             "repeat(2, 49% [col-start])",
           ]}
         >
-          <Paragraph
-            color="athensGray"
-            fontSize={[1, 3, 4]}
-            textAlign="justify"
-            pb={5}
-          >
-            {t("manifesto.manifesto")}
-          </Paragraph>
-          <Paragraph
-            color="athensGray"
-            fontSize={[1, 3, 4]}
-            textAlign="justify"
-            pb={5}
-          >
-            {t("manifesto.manifesto")}
-          </Paragraph>
+          <Paragraph fontSize={fontSizes}>{t("manifesto.manifesto")}</Paragraph>
+          <Paragraph fontSize={fontSizes}>{t("manifesto.manifesto")}</Paragraph>
         </Grid>
       </Container>
     </Main>
