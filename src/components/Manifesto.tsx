@@ -45,10 +45,13 @@ const Paragraph = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
   ${typography};
   ${space};
+  padding-bottom: 20px;
+  text-align: justify;
 `;
 
 const Manifesto = () => {
   const { t } = useTranslation();
+  const fontSizes = [1, null, null, null, 2, 3, 4];
 
   return (
     <Main p={7} alignItems="center" justifyContent="center">
@@ -73,26 +76,12 @@ const Manifesto = () => {
             null,
             null,
             "repeat(2, 47.5% [col-start])",
-
             "repeat(2, 48.5% [col-start])",
-
             "repeat(2, 49% [col-start])",
           ]}
         >
-          <Paragraph
-            fontSize={[1, null, null, null, 2, 3, 4]}
-            textAlign="justify"
-            pb={5}
-          >
-            {t("manifesto.manifesto")}
-          </Paragraph>
-          <Paragraph
-            fontSize={[1, null, null, null, 2, 3, 4]}
-            textAlign="justify"
-            pb={5}
-          >
-            {t("manifesto.manifesto")}
-          </Paragraph>
+          <Paragraph fontSize={fontSizes}>{t("manifesto.manifesto")}</Paragraph>
+          <Paragraph fontSize={fontSizes}>{t("manifesto.manifesto")}</Paragraph>
         </Grid>
       </Container>
     </Main>
