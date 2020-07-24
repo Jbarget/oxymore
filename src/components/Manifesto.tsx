@@ -51,15 +51,15 @@ const Paragraph = styled.p<TypographyProps & SpaceProps>`
 
 const Manifesto = () => {
   const { t } = useTranslation();
-  const fontSizes = [1, null, null, null, 2, 3, 4];
+  const fontSizes = [1, 2, null, null, 2, 3, 4];
 
   return (
-    <Main p={7} alignItems="center" justifyContent="center">
+    <Main p={6} alignItems="center" justifyContent="center">
       <Header />
       <Container
         display="block"
         px={4}
-        mt={["20%", null, null, null, null, null, null, "10%", "0%"]}
+        mt={["20%", null, null, null, null, null, null, "10%", "0"]}
       >
         <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
           {t("manifesto.header")}
