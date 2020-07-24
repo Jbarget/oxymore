@@ -21,20 +21,11 @@ import { NavLink } from "react-router-dom";
 const HeaderContainer = styled.div<
   LayoutProps & SpaceProps & GridProps & PositionProps
 >`
-  background-color: black;
   width: 100%;
   ${layout};
   ${space};
   ${grid};
   ${position};
-`;
-
-const LangButtonContainer = styled.div<FlexboxProps & GridProps & LayoutProps>`
-  background-color: black;
-  width: 100%;
-  ${flexbox};
-  ${grid};
-  ${layout};
 `;
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
@@ -43,12 +34,23 @@ const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${grid};
 `;
 
-const LangButton = styled.button<SpaceProps & TypographyProps & GridProps>`
+const Container = styled.div<
+  FlexboxProps & GridProps & LayoutProps & SpaceProps & TypographyProps
+>`
+  background-color: black;
+  width: 100%;
+  ${flexbox};
+  ${grid};
+  ${layout};
+  ${space};
+  ${typography};
+`;
+
+const LangButton = styled.button<SpaceProps & TypographyProps>`
   background: transparent;
   border: none;
   ${typography};
   ${space};
-  ${grid};
   transition: transform 0.2s;
   transform-origin: left;
   transform-origin: right;
@@ -57,6 +59,7 @@ const LangButton = styled.button<SpaceProps & TypographyProps & GridProps>`
 `;
 
 const Header = () => {
+  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
   const onLangClick = useCallback(
     (countryId: string) => () => i18next.changeLanguage(countryId),
     []
@@ -64,48 +67,47 @@ const Header = () => {
 
   return (
     <HeaderContainer
-      gridTemplateColumns={["repeat(4, 1fr)", "repeat(3, 1fr)"]}
+      gridTemplateColumns={["repeat(3, 1fr)"]}
       display="grid"
       position="absolute"
       top={4}
-      px={7}
+      px={6}
     >
       <NavLink to="/">
-        <H1
-          fontSize={[1, 2, 3, 4]}
-          py={3}
-          px={3}
-          gridColumn={1}
-          textAlign="start"
-        >
+        <H1 py={3} px={3} gridColumn={1} fontSize={fontSizes}>
           OXYMORE
         </H1>
       </NavLink>
-      <LangButtonContainer
-        gridColumn={3}
-        display="flex"
-        justifyContent="center"
-      >
-        <LangButton
-          onClick={onLangClick("en")}
-          fontSize={[1, 2, 3, 4]}
+      <Container display="flex" flexDirection="row" gridColumn={3}>
+        <Container display="flex" py={3} px={3} fontSize={fontSizes}>
+          <LangButton
+            onClick={onLangClick("en")}
+            style={{ transformOrigin: "right" }}
+            fontSize={fontSizes}
+            mr={1}
+          >
+            EN
+          </LangButton>
+          <LangButton
+            onClick={onLangClick("es")}
+            style={{ transformOrigin: "left" }}
+            fontSize={fontSizes}
+            ml={1}
+          >
+            ES
+          </LangButton>
+        </Container>
+        <Container
+          display="flex"
+          justifyContent="flex-end"
           py={3}
-          px={[1, 2]}
-          style={{ transformOrigin: "right" }}
+          px={3}
+          gridColumn={3}
+          fontSize={fontSizes}
         >
-          EN
-        </LangButton>
-        <LangButton
-          onClick={onLangClick("es")}
-          fontSize={[1, 2, 3, 4]}
-          py={3}
-          px={[1, 2]}
-          style={{ transformOrigin: "left" }}
-        >
-          ES
-        </LangButton>
-      </LangButtonContainer>
-      <NavMenu />
+          <NavMenu />
+        </Container>
+      </Container>
     </HeaderContainer>
   );
 };
