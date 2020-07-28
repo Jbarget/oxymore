@@ -68,9 +68,9 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
 
 const MenuText = styled.li`
   transition: transform 0.4s;
+  transform-origin: left;
   &:hover {
     transform: scale(1.01);
-    transform-origin: left;
   }
 `;
 
