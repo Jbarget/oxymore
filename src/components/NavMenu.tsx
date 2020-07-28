@@ -35,8 +35,8 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
 `;
 
 const Logo = styled.p<PositionProps & TypographyProps>`
-  ${position}
-  ${typography}
+  ${position};
+  ${typography};
 `;
 
 const MenuButton = styled.button<
@@ -45,14 +45,15 @@ const MenuButton = styled.button<
   display: grid;
   border: none;
   background: transparent;
-  ${typography}
-  ${position}
-  ${flexbox}
-  ${space}
+  ${typography};
+  ${position};
+  ${flexbox};
+  ${space};
 `;
 
-const MenuContainer = styled.div<SpaceProps>`
+const MenuContainer = styled.div<SpaceProps & GridProps>`
   ${space};
+  ${grid};
 `;
 
 const Menu = styled.ul<GridProps & TypographyProps>`
@@ -81,7 +82,11 @@ interface LinkProps {
 
 const Link = ({ page, url }: LinkProps) => {
   return (
-    <MenuContainer key={page} p={1}>
+    <MenuContainer
+      key={page}
+      gridTemplateRows="max-content"
+      gridTemplateColumns="max-content"
+    >
       <MenuText>
         <MenuLink
           to={url}
@@ -128,7 +133,6 @@ const NavMenu = () => {
         onClick={() => setIsOpen(!isOpen)}
         fontSize={fontSizes}
         justifySelf="end"
-        p={6}
       >
         MENU
       </MenuButton>
