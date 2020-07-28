@@ -19,7 +19,6 @@ import number from "./assets/home-page/number-one.png";
 import alpha from "./assets/home-page/360_alpha.png";
 
 const Main = styled.main<SpaceProps & FlexboxProps & GridProps>`
-  background: black;
   display: grid;
   height: 100vh;
   overflow: hidden;
