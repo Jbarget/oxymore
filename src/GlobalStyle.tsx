@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "helvetica neue";
     text-decoration: none;
     color: ${theme.colors.athensGray};
+    background: ${theme.colors.black};
   }
   button {
     cursor: pointer;
