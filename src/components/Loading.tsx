@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Main = styled.main`
-  background: black;
   display: flex;
   height: 100vh;
   overflow: hidden;
@@ -24,11 +23,10 @@ const Loading = () => {
         seconds: Math.floor((difference / 1000) % 60),
       };
     }
-
     return timeLeft;
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<any>(calculateTimeLeft());
   const [year] = useState(new Date().getFullYear());
 
   useEffect(() => {
@@ -37,7 +35,7 @@ const Loading = () => {
     }, 1000);
   });
 
-  const timerComponents = [];
+  const timerComponents: {} | null | any = [];
 
   Object.keys(timeLeft).forEach((interval) => {
     if (!timeLeft[interval]) {
@@ -46,11 +44,19 @@ const Loading = () => {
 
     timerComponents.push(
       <span>
-        {timeLeft[interval]} {interval}{" "}
+        {timeLeft[interval]} {interval}
       </span>
     );
   });
-  return <Main></Main>;
+  return (
+    <Main>
+      <div>
+        <h1>Oxymore Launch Countdown</h1>
+        <h2>With React Hooks!</h2>
+        {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+      </div>
+    </Main>
+  );
 };
 
 export default Loading;
