@@ -19,6 +19,7 @@ import number from "./assets/home-page/number-one.png";
 import alpha from "./assets/home-page/360_alpha.png";
 
 const Main = styled.main<SpaceProps & FlexboxProps & GridProps>`
+  background: black;
   display: grid;
   height: 100vh;
   overflow: hidden;
@@ -37,7 +38,15 @@ const Container = styled.div<
   ${space};
 `;
 
-const PageLink = styled(NavLink)``;
+const PageLink = styled(NavLink)<
+  LayoutProps & FlexboxProps & GridProps & SpaceProps
+>`
+  display: grid;
+  ${layout};
+  ${flexbox};
+  ${grid};
+  ${space};
+`;
 
 const Img = styled.img<LayoutProps & FlexboxProps>`
   ${layout};
@@ -47,12 +56,24 @@ const Img = styled.img<LayoutProps & FlexboxProps>`
 const Home = () => {
   return (
     <Main gridTemplateRows="repeat(3, 1fr)" gridTemplateColumns="25% 50% 25%">
-      <Container gridRow={1} gridColumn={1} p={6}>
+      <Container
+        gridRow={1}
+        gridColumn={1}
+        p={6}
+        gridTemplateRows="max-content"
+      >
         <PageLink to="/">
           <Img src={oxymore}></Img>
         </PageLink>
       </Container>
-      <Container gridRow={1} gridColumn={3}>
+      <Container
+        gridRow={1}
+        gridColumn={3}
+        gridTemplateRows="max-content"
+        gridTemplateColumns="max-content"
+        justifyContent="flex-end"
+        p={6}
+      >
         <NavMenu />
       </Container>
       <Container
