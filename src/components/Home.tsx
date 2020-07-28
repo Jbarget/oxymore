@@ -72,7 +72,6 @@ const Home = () => {
         gridTemplateRows="max-content"
         gridTemplateColumns="max-content"
         justifyContent="flex-end"
-        p={6}
       >
         <NavMenu />
       </Container>
