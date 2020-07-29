@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Manifesto from "./components/Manifesto";
 import theme from "./components/theme";
 import "./css/reset.css";
 
@@ -18,6 +19,7 @@ const App = () => {
               <Route path="/" exact component={Home} />
               <Route path="/projects" exact component={Projects} />
               <Route path="/contact-us" exact component={Contact} />
+              <Route path="/manifesto" exact component={Manifesto} />
             </Switch>
           </Suspense>
         </div>
