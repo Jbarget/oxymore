@@ -65,7 +65,7 @@ const Timer = () => {
   return (
     <Fragment>
       <Container alignItems="center" textAlign="center" p={6}>
-        <H1 fontSize={6}>
+        <H1 fontSize={6} fontFamily="SangBleu OG Serif Light">
           {" "}
           {timerComponents.length ? timerComponents : <span>Time's up!</span>}
         </H1>
