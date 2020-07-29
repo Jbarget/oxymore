@@ -96,7 +96,7 @@ const Header = () => {
             onClick={onLangClick("es")}
             style={{ transformOrigin: "left" }}
             fontSize={fontSizes}
-            px={2}
+            pr={4}
           >
             ES
           </LangButton>
