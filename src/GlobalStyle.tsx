@@ -3,7 +3,7 @@ import theme from "./components/theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-family: "helvetica neue";
+    font-family: "Helvetica Neue";
     text-decoration: none;
     color: ${theme.colors.athensGray};
     background: ${theme.colors.black};
