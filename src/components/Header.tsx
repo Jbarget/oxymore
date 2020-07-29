@@ -71,23 +71,24 @@ const Header = () => {
       gridTemplateColumns={["repeat(3, 1fr)"]}
       display="grid"
       position="absolute"
-      top={4}
+      top={6}
       alignItems="center"
+      px={8}
     >
       <NavLink to="/">
         <Container gridColumn={1}>
-          <H1 py={3} px={6} fontSize={fontSizes} style={{ zIndex: 2 }}>
+          <H1 fontSize={fontSizes} style={{ zIndex: 2 }}>
             OXYMORE
           </H1>
         </Container>
       </NavLink>
-      <Container display="flex" flexDirection="row" gridColumn={3}>
-        <Container display="flex" py={3} px={3} justifyContent="flex-end">
+      <Container display="flex" gridColumn={3}>
+        <Container display="flex" flexDirection="row" justifyContent="flex-end">
           <LangButton
             onClick={onLangClick("en")}
             style={{ transformOrigin: "right" }}
             fontSize={fontSizes}
-            px={1}
+            px={2}
           >
             EN
           </LangButton>
@@ -95,11 +96,12 @@ const Header = () => {
             onClick={onLangClick("es")}
             style={{ transformOrigin: "left" }}
             fontSize={fontSizes}
-            px={1}
+            px={2}
           >
             ES
           </LangButton>
-
+        </Container>
+        <Container display="flex" justifyContent="flex-end">
           <NavMenu />
         </Container>
       </Container>

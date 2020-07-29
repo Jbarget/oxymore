@@ -132,7 +132,6 @@ const NavMenu = () => {
         fontSize={fontSizes}
         display="flex"
         justifyContent="flex-end"
-        px={6}
       >
         MENU
       </MenuButton>

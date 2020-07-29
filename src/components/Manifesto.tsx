@@ -58,8 +58,8 @@ const Manifesto = () => {
       <Header />
       <Container
         display="block"
-        px={4}
         mt={["20%", null, null, "15%", null, null, null, "10%", "0"]}
+        px={2}
       >
         <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
           {t("manifesto.header")}
