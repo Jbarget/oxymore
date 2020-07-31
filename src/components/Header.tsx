@@ -16,7 +16,6 @@ import {
 } from "styled-system";
 import NavMenu from "./NavMenu";
 import LanguageButton from "./LanguageButton";
-import i18next from "i18next";
 import { NavLink } from "react-router-dom";
 
 const HeaderContainer = styled.div<
@@ -31,9 +30,7 @@ const HeaderContainer = styled.div<
 `;
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
-  ${space};
   ${typography};
-  ${grid};
 `;
 
 const Container = styled.div<
