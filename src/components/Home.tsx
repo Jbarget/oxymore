@@ -55,13 +55,12 @@ const Img = styled.img<LayoutProps & FlexboxProps>`
 
 const Home = () => {
   return (
-    <Main gridTemplateRows="repeat(3, 1fr)" gridTemplateColumns="25% 50% 25%">
-      <Container
-        gridRow={1}
-        gridColumn={1}
-        p={6}
-        gridTemplateRows="max-content"
-      >
+    <Main
+      gridTemplateRows="repeat(3, 1fr)"
+      gridTemplateColumns="25% 50% 25%"
+      p={6}
+    >
+      <Container gridRow={1} gridColumn={1} gridTemplateRows="max-content">
         <PageLink to="/">
           <Img src={oxymore}></Img>
         </PageLink>
@@ -86,17 +85,11 @@ const Home = () => {
           <Img src={alpha}></Img>
         </PageLink>
       </Container>
-      <Container
-        gridRow={3}
-        gridColumn={1}
-        alignSelf="end"
-        width="min-content"
-        p={6}
-      >
+      <Container gridRow={3} gridColumn={1} alignSelf="end" width="min-content">
         <Img src={number} alignSelf="center" width="40%"></Img>
         <BuyButton />
       </Container>
-      <Container gridRow={3} gridColumn={3} alignSelf="end" p={6}>
+      <Container gridRow={3} gridColumn={3} alignSelf="end">
         <PageLink to="/manifesto">
           <Img src={manifesto}></Img>
         </PageLink>
