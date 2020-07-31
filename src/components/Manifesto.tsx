@@ -19,6 +19,7 @@ import {
   BorderProps,
   GridProps,
 } from "styled-system";
+import Header from "./Header";
 
 const Main = styled.main<
   ColorProps & SpaceProps & BackgroundProps & LayoutProps & FlexboxProps
@@ -74,6 +75,7 @@ const Manifesto = () => {
       alignItems="center"
       justifyContent="center"
     >
+      <Header />
       <Container p={4} display="block">
         <H1 color="athensGray" fontSize={[2, 4, 5]} pb={5}>
           {t("manifesto.header")}

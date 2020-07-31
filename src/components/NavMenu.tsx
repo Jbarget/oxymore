@@ -15,6 +15,8 @@ import {
   PositionProps,
   GridProps,
   FlexboxProps,
+  LayoutProps,
+  layout,
 } from "styled-system";
 
 const overlayStyles = css`
@@ -35,25 +37,25 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
 `;
 
 const Logo = styled.p<PositionProps & TypographyProps>`
-  ${position};
-  ${typography};
+  ${position}
+  ${typography}
 `;
 
 const MenuButton = styled.button<
-  TypographyProps & PositionProps & FlexboxProps & SpaceProps
+  TypographyProps & PositionProps & FlexboxProps & SpaceProps & LayoutProps
 >`
-  display: grid;
+  
   border: none;
   background: transparent;
-  ${typography};
-  ${position};
-  ${flexbox};
-  ${space};
+  ${typography}
+  ${position}
+  ${flexbox}
+  ${space}
+  ${layout}
 `;
 
-const MenuContainer = styled.div<SpaceProps & GridProps>`
+const MenuContainer = styled.div<SpaceProps>`
   ${space};
-  ${grid};
 `;
 
 const Menu = styled.ul<GridProps & TypographyProps>`
@@ -69,9 +71,9 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
 
 const MenuText = styled.li`
   transition: transform 0.4s;
-  transform-origin: left;
   &:hover {
     transform: scale(1.01);
+    transform-origin: left;
   }
 `;
 
@@ -82,11 +84,7 @@ interface LinkProps {
 
 const Link = ({ page, url }: LinkProps) => {
   return (
-    <MenuContainer
-      key={page}
-      gridTemplateRows="max-content"
-      gridTemplateColumns="max-content"
-    >
+    <MenuContainer key={page} p={1}>
       <MenuText>
         <MenuLink
           to={url}
@@ -132,8 +130,8 @@ const NavMenu = () => {
       <MenuButton
         onClick={() => setIsOpen(!isOpen)}
         fontSize={fontSizes}
-        justifySelf="end"
-        p={6}
+        display="flex"
+        justifyContent="flex-end"
       >
         MENU
       </MenuButton>
