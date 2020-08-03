@@ -15,7 +15,7 @@ import {
   PositionProps,
 } from "styled-system";
 import NavMenu from "./NavMenu";
-import LanguageButton from "./LanguageButton";
+import LanguageButtons from "./LanguageButtons";
 import { NavLink } from "react-router-dom";
 
 const HeaderContainer = styled.div<
@@ -59,7 +59,7 @@ const Header = () => {
         </Container>
       </NavLink>
       <Container display="flex" gridColumn={3} justifyContent="space-between">
-        <LanguageButton />
+        <LanguageButtons />
         <NavMenu />
       </Container>
     </HeaderContainer>
