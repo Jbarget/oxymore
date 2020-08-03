@@ -53,7 +53,7 @@ const Header = () => {
       alignItems="center"
       px={8}
     >
-      <NavLink to="/">
+      <NavLink to="/oxymore">
         <Container gridColumn={1}>
           <H1 fontSize={fontSizes}>OXYMORE</H1>
         </Container>
