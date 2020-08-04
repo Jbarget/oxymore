@@ -29,7 +29,8 @@ const HeaderContainer = styled.div<
   ${flexbox};
 `;
 
-const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
+const H1 = styled.h1<SpaceProps & TypographyProps>`
+  ${space};
   ${typography};
 `;
 
@@ -49,13 +50,15 @@ const Header = () => {
       gridTemplateColumns={["repeat(3, 1fr)"]}
       display="grid"
       position="absolute"
-      top={6}
+      top={0}
       alignItems="center"
       px={8}
     >
-      <NavLink to="/">
+      <NavLink to="/oxymore">
         <Container gridColumn={1}>
-          <H1 fontSize={fontSizes}>OXYMORE</H1>
+          <H1 fontSize={fontSizes} pt={6}>
+            OXYMORE
+          </H1>
         </Container>
       </NavLink>
       <Container display="flex" gridColumn={3} justifyContent="space-between">

@@ -34,13 +34,14 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${(props) => props.isOpen && overlayStyles}
 `;
 
-const Logo = styled.p<PositionProps & TypographyProps>`
+const Logo = styled(NavLink)<PositionProps & TypographyProps & ColorProps>`
   ${position};
   ${typography};
+  ${color};
 `;
 
 const MenuButton = styled.button<
-  TypographyProps & PositionProps & FlexboxProps & SpaceProps
+  TypographyProps & PositionProps & FlexboxProps & SpaceProps & ColorProps
 >`
   display: grid;
   border: none;
@@ -49,6 +50,7 @@ const MenuButton = styled.button<
   ${position};
   ${flexbox};
   ${space};
+  ${color}
 `;
 
 const MenuContainer = styled.div<SpaceProps & GridProps>`
@@ -86,13 +88,10 @@ const Link = ({ page, url }: LinkProps) => {
       key={page}
       gridTemplateRows="max-content"
       gridTemplateColumns="max-content"
+      px={4}
     >
       <MenuText>
-        <MenuLink
-          to={url}
-          color="black"
-          fontSize={[3, 4, 5, 6, null, 7, 9, 10]}
-        >
+        <MenuLink to={url} color="black" fontSize={[3, 4, 5, 6, null, 7, 8]}>
           {page}
         </MenuLink>
       </MenuText>
@@ -133,17 +132,25 @@ const NavMenu = () => {
         onClick={() => setIsOpen(!isOpen)}
         fontSize={fontSizes}
         justifySelf="end"
+        pt={6}
       >
         MENU
       </MenuButton>
       <Overlay isOpen={isOpen}>
-        <Logo fontSize={fontSizes} position="absolute" left={30} top={24}>
+        <Logo
+          to="/oxymore"
+          fontSize={fontSizes}
+          position="absolute"
+          left={30}
+          top={24}
+          color="black"
+        >
           OXYMORE
         </Logo>
 
         <MenuButton
           onClick={() => setIsOpen(false)}
-          style={{ outline: "none", color: "black" }}
+          color="black"
           fontSize={fontSizes}
           position="absolute"
           right={30}
