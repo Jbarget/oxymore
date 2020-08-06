@@ -27,6 +27,7 @@ const overlayStyles = css`
   background-image: url("/assets/nav-menu/background-inverted.png");
   background-size: cover;
   opacity: 1;
+  top: 0;
 `;
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   space,
@@ -16,11 +16,12 @@ import {
 } from "styled-system";
 import NavMenu from "./NavMenu";
 import LanguageButtons from "./LanguageButtons";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
-const HeaderContainer = styled.div<
+const HeaderContainer = styled.header<
   LayoutProps & SpaceProps & GridProps & PositionProps & FlexboxProps
 >`
+  display: flex;
   width: 100%;
   ${layout};
   ${space};
@@ -41,24 +42,33 @@ const Container = styled.div<
   ${layout};
 `;
 
-const Header = () => {
+const HeaderLogo = () => {
   const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
 
   return (
+    <NavLink to="/oxymore">
+      <H1 fontSize={fontSizes}>OXYMORE</H1>
+    </NavLink>
+  );
+};
+
+const Header = () => {
+  const location = useLocation();
+  const hideHeaderViews = ["/", "/oxymore"];
+
+  if (hideHeaderViews.includes(location.pathname)) {
+    return null;
+  }
+
+  return (
     <HeaderContainer
-      gridTemplateColumns={["repeat(3, 1fr)"]}
-      display="grid"
-      position="absolute"
-      top={6}
       alignItems="center"
+      justifyContent="space-between"
+      py={6}
       px={8}
     >
-      <NavLink to="/oxymore">
-        <Container gridColumn={1}>
-          <H1 fontSize={fontSizes}>OXYMORE</H1>
-        </Container>
-      </NavLink>
-      <Container display="flex" gridColumn={3} justifyContent="space-between">
+      <HeaderLogo />
+      <Container display="flex">
         <LanguageButtons />
         <NavMenu />
       </Container>

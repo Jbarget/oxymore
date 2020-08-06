@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import theme from "./components/theme";
 import "./css/reset.css";
 import Manifesto from "./components/Manifesto";
+import Header from "./components/Header";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Suspense fallback={<div>Loading</div>}>
+            <Header />
             <Switch>
               <Route path="/oxymore" exact component={Home} />
               <Route path="/projects" exact component={Projects} />

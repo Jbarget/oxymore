@@ -13,7 +13,6 @@ import {
   FlexboxProps,
   GridProps,
 } from "styled-system";
-import Header from "./Header";
 
 const Main = styled.main<SpaceProps & FlexboxProps>`
   min-height: 100vh;
@@ -53,7 +52,6 @@ const Manifesto = () => {
 
   return (
     <Main p={6} alignItems="center" justifyContent="center">
-      <Header />
       <Container
         display="block"
         mt={["20%", null, null, "15%", null, null, null, "10%", "0"]}
