@@ -30,7 +30,7 @@ const LangButton = styled.button<SpaceProps & TypographyProps>`
 `;
 
 const LanguageButton = () => {
-  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
+  const fontSizes = [1, 2, 3, 4];
   const onLangClick = useCallback(
     (countryId: string) => () => i18next.changeLanguage(countryId),
     []
