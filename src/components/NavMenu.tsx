@@ -43,7 +43,6 @@ const Logo = styled.p<PositionProps & TypographyProps>`
 const MenuButton = styled.button<
   TypographyProps & PositionProps & FlexboxProps & SpaceProps
 >`
-  display: grid;
   border: none;
   background: transparent;
   ${typography};
@@ -89,7 +88,7 @@ const Link = ({ page, url }: LinkProps) => {
       gridTemplateColumns="max-content"
     >
       <MenuText>
-        <MenuLink to={url} color="black">
+        <MenuLink to={url} color="black" fontSize={[5, 6, 7, 8]}>
           {page}
         </MenuLink>
       </MenuText>
@@ -126,11 +125,7 @@ const NavMenu = () => {
 
   return (
     <Fragment>
-      <MenuButton
-        onClick={() => setIsOpen(!isOpen)}
-        fontSize={fontSizes}
-        justifySelf="end"
-      >
+      <MenuButton onClick={() => setIsOpen(!isOpen)} fontSize={fontSizes}>
         MENU
       </MenuButton>
       <Overlay isOpen={isOpen}>
