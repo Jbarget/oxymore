@@ -2,29 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
-  layout,
   space,
   typography,
   flexbox,
   grid,
-  LayoutProps,
   SpaceProps,
   TypographyProps,
   FlexboxProps,
   GridProps,
 } from "styled-system";
-import Header from "./Header";
 
 const Main = styled.main<SpaceProps & FlexboxProps>`
   min-height: 100vh;
-  display: flex;
   ${space};
-  ${flexbox}
-`;
-
-const Container = styled.div<SpaceProps & LayoutProps>`
-  ${space};
-  ${layout};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps>`
@@ -52,40 +42,31 @@ const Manifesto = () => {
   const fontSizes = [1, 2, null, null, 2, 3, 4];
 
   return (
-    <Main p={6} alignItems="center" justifyContent="center">
-      <Header />
-      <Container
-        display="block"
-        mt={["20%", null, null, "15%", null, null, null, "10%", "0"]}
-        px={2}
+    <Main p={8} mt={5}>
+      <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
+        {t("manifesto.header")}
+      </H1>
+      <Grid
+        justifyContent="center"
+        gridColumnGap="2%"
+        gridTemplateColumns={[
+          "repeat(1, 100% [col-start])",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "repeat(2, 49% [col-start])",
+        ]}
       >
-        <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
-          {t("manifesto.header")}
-        </H1>
-        <Grid
-          justifyContent="center"
-          gridColumnGap={10}
-          gridTemplateColumns={[
-            "repeat(1, 100% [col-start])",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            "repeat(2, 47.5% [col-start])",
-            "repeat(2, 48.5% [col-start])",
-            "repeat(2, 49% [col-start])",
-          ]}
-        >
-          <Paragraph pb={5} fontSize={fontSizes}>
-            {t("manifesto.manifesto")}
-          </Paragraph>
-          <Paragraph pb={5} fontSize={fontSizes}>
-            {t("manifesto.manifesto")}
-          </Paragraph>
-        </Grid>
-      </Container>
+        <Paragraph pb={5} fontSize={fontSizes}>
+          {t("manifesto.manifesto")}
+        </Paragraph>
+        <Paragraph pb={5} fontSize={fontSizes}>
+          {t("manifesto.manifesto")}
+        </Paragraph>
+      </Grid>
     </Main>
   );
 };
