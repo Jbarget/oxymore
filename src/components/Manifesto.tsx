@@ -44,7 +44,6 @@ const Paragraph = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
   ${typography};
   ${space};
-  padding-bottom: 20px;
   text-align: justify;
 `;
 
@@ -79,8 +78,12 @@ const Manifesto = () => {
             "repeat(2, 49% [col-start])",
           ]}
         >
-          <Paragraph fontSize={fontSizes}>{t("manifesto.manifesto")}</Paragraph>
-          <Paragraph fontSize={fontSizes}>{t("manifesto.manifesto")}</Paragraph>
+          <Paragraph pb={5} fontSize={fontSizes}>
+            {t("manifesto.manifesto")}
+          </Paragraph>
+          <Paragraph pb={5} fontSize={fontSizes}>
+            {t("manifesto.manifesto")}
+          </Paragraph>
         </Grid>
       </Container>
     </Main>
