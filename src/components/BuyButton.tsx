@@ -70,13 +70,12 @@ const BuyButton = () => {
         role="link"
         onClick={handleClick}
         fontSize={[1, 2, 3, 4]}
-        py={[1, null, null, null, null, null, null, null, null, 2]}
-        px={[2, null, 3, 4, null, 4, null, null, null, 5]}
-        mt={[2, null, null, null, 3, null, null, null, null, 4]}
         background="transparent"
         border={1}
         borderStyle="solid"
         height="fit-content"
+        py={1}
+        px={2}
       >
         BUY THE MAG
       </Button>
