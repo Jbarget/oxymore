@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import theme from "./components/theme";
 import "./css/reset.css";
+import Manifesto from "./components/Manifesto";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
               <Route path="/oxymore" exact component={Home} />
               <Route path="/projects" exact component={Projects} />
               <Route path="/contact-us" exact component={Contact} />
+              <Route path="/manifesto" exact component={Manifesto} />
             </Switch>
           </Suspense>
         </div>

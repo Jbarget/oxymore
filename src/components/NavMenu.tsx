@@ -133,7 +133,6 @@ const NavMenu = () => {
         onClick={() => setIsOpen(!isOpen)}
         fontSize={fontSizes}
         justifySelf="end"
-        p={6}
       >
         MENU
       </MenuButton>
