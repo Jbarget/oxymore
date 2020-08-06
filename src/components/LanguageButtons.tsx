@@ -29,15 +29,15 @@ const LangButton = styled.button<SpaceProps & TypographyProps>`
 
 `;
 
-const LanguageButton = () => {
-  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
+const LanguageButtons = () => {
+  const fontSizes = [1, 2, 3, 4];
   const onLangClick = useCallback(
     (countryId: string) => () => i18next.changeLanguage(countryId),
     []
   );
 
   return (
-    <Container display="flex" flexDirection="row" mr={5}>
+    <Container display="flex" flexDirection="row" mr={8}>
       <LangButton onClick={onLangClick("en")} fontSize={fontSizes} mr={1}>
         EN
       </LangButton>
@@ -48,4 +48,4 @@ const LanguageButton = () => {
   );
 };
 
-export default LanguageButton;
+export default LanguageButtons;

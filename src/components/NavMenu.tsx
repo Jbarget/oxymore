@@ -89,11 +89,7 @@ const Link = ({ page, url }: LinkProps) => {
       gridTemplateColumns="max-content"
     >
       <MenuText>
-        <MenuLink
-          to={url}
-          color="black"
-          fontSize={[3, 4, 5, 6, null, 7, 9, 10]}
-        >
+        <MenuLink to={url} color="black">
           {page}
         </MenuLink>
       </MenuText>
@@ -103,8 +99,8 @@ const Link = ({ page, url }: LinkProps) => {
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const fontSizes = [1, 2, 3, 4];
   const { t } = useTranslation();
-  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
   const Links: LinkProps[] = [
     {
       page: `${t("nav.about-us")}`,
