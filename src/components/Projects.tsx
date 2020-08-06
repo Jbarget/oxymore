@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
-  space,
-  SpaceProps,
   layout,
-  LayoutProps,
-  background,
-  BackgroundProps,
-  FlexboxProps,
+  space,
   flexbox,
-  PositionProps,
+  grid,
+  LayoutProps,
+  SpaceProps,
+  FlexboxProps,
+  GridProps,
   position,
-  ColorProps,
-  color,
-  TypographyProps,
+  PositionProps,
   typography,
-  border,
-  BorderProps,
+  TypographyProps,
+  BackgroundProps,
+  background,
 } from "styled-system";
 import stairs from "./assets/project-page/stairs.png";
 import shell from "./assets/project-page/shell.png";
@@ -28,216 +26,90 @@ import knife from "./assets/project-page/knife.png";
 import mask from "./assets/project-page/mask.png";
 import spider from "./assets/project-page/spider.png";
 import magnify from "./assets/project-page/magnify.png";
+import Header from "./Header";
+import BuyButton from "./BuyButton";
 
-type BgProps = BackgroundProps &
-  ColorProps &
-  LayoutProps &
-  FlexboxProps &
-  SpaceProps;
-
-const Background = styled.div<BgProps>`
-  ${color};
-  ${layout};
+const Main = styled.main<PositionProps & FlexboxProps>`
+  display: flex;
+  height: 100vh;
+  ${position};
   ${flexbox};
+`;
+
+const Container = styled.div<
+  LayoutProps & FlexboxProps & GridProps & SpaceProps & PositionProps
+>`
+  ${layout}
+  ${flexbox};
+  ${grid};
+  ${space};
+  ${position};
+  overflow: hidden;
+`;
+
+const Img = styled.img<GridProps>`
+  ${grid};
+`;
+
+const Scrollback = styled.button<
+  PositionProps & TypographyProps & BackgroundProps
+>`
+  ${position};
+  ${typography};
   ${background};
-  ${space};
-`;
-
-type HomeLinkProps = SpaceProps;
-
-const HomeLink = styled.a<HomeLinkProps>`
-  ${space};
-`;
-
-type HomeLogoProps = LayoutProps & TypographyProps & ColorProps;
-
-const HomeLogo = styled.p<HomeLogoProps>`
-  ${layout};
-  ${typography};
-  ${color};
-`;
-
-type BuyButtonProps = LayoutProps &
-  ColorProps &
-  TypographyProps &
-  BorderProps &
-  PositionProps &
-  SpaceProps &
-  FlexboxProps;
-
-const BuyButton = styled.button<BuyButtonProps>`
-  ${color};
-  ${typography};
-  ${border}
-  ${position};
-  ${space};
-  ${flexbox};
-`;
-
-type ProjectIconContainerProps = LayoutProps & PositionProps & FlexboxProps;
-
-const ProjectIconContainer = styled.div<ProjectIconContainerProps>`
-  ${layout};
-  ${position};
-  ${flexbox};
-`;
-
-type ProjectIconProps = LayoutProps & PositionProps & FlexboxProps & SpaceProps;
-
-const ProjectIconLink = styled(Link)<ProjectIconProps>`
-  ${layout};
-  ${position};
-  ${flexbox};
-  ${space};
-  &:hover {
-    transition: transform 0.2s;
-    transform: scale(1.1);
-  }
+  border: none;
 `;
 
 const Projects = () => {
-  const projectIconWidths = [60, 70, 70, 80, 80, 100, 120, 180, 120];
+  const [showScroll, setShowScroll] = useState(false);
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  window.addEventListener("scroll", checkScrollTop);
+
   return (
-    <Background
-      backgroundSize="cover"
-      backgroundImage="url('./assets/home-page/background.jpg')"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      bg="black"
-      height="100vh"
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      mx="auto"
-    >
-      <HomeLink p={30}>
-        <Link to="/">
-          <HomeLogo
-            fontFamily="SangBleu OG Serif Light Regular"
-            color="athensGray"
-            fontSize={[3, 4, 4, 4, 5, 5, 5, 6, 6]}
-            display="flex"
-          >
-            OXYMORE
-          </HomeLogo>
-        </Link>
-      </HomeLink>
-      <ProjectIconContainer
-        width={[300, 300, 300, 400, 400, 600, 700, 1000, 1400]}
-        height={[500, 600, 600, 800, 700, 500, 1000, 1300, 900]}
-        display="flex"
-        position="relative"
-        alignItems="center"
-      >
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[0, 0, 0, 0, 0, 0, 120, 120, 40]}
-          left={[120, 120, 120, 160, 160, 20, 40, 140, 280]}
-        >
-          <img src={stairs} alt="stairs"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[60, 80, 80, 80, 80, 240, 340, 340, 280]}
-          left={[40, 20, 20, 60, 60, 20, 40, 100, 280]}
-        >
-          <img src={shell} alt="shell"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[60, 80, 80, 100, 100, 40, 60, 60, 0]}
-          left={[200, 220, 220, 260, 260, 240, 280, 400, 580]}
-        >
-          <img src={eye} alt="eye"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[160, 200, 220, 220, 220, 240, 440, 600, 260]}
-          left={[40, 20, 20, 60, 60, 200, 200, 200, 500]}
-        >
-          <img src={statue} alt="statue"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[100, 140, 140, 160, 160, 140, 240, 340, 220]}
-          left={[120, 120, 120, 160, 160, 400, 300, 400, 680]}
-        >
-          <img src={dragon} alt="dragon"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[260, 320, 360, 380, 380, 380, 640, 740, 480]}
-          left={[60, 40, 40, 60, 60, 360, 360, 380, 620]}
-        >
-          <img src={knife} alt="knife"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[160, 220, 220, 240, 240, 40, 120, 160, 60]}
-          left={[200, 220, 220, 280, 280, 400, 500, 660, 880]}
-        >
-          <img src={mask} alt="mask"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[200, 260, 260, 300, 300, 320, 440, 540, 360]}
-          left={[120, 120, 120, 160, 160, 400, 380, 560, 840]}
-        >
-          <img src={spider} alt="spider"></img>
-        </ProjectIconLink>
-
-        <ProjectIconLink
-          to=""
-          width={projectIconWidths}
-          position="absolute"
-          top={[300, 360, 380, 420, 420, 200, 380, 460, 220]}
-          left={[140, 140, 140, 160, 180, 780, 560, 760, 1040]}
-        >
-          <img src={magnify} alt="magnifying glass"></img>
-        </ProjectIconLink>
-      </ProjectIconContainer>
-
-      <BuyButton
+    <Main justifyContent="center" alignItems="center" position="relative">
+      <Header />
+      <Container
+        gridTemplateColumns="repeat(3, 1fr)"
         position="absolute"
-        color="athensGray"
-        p={8}
-        py={1}
-        bg="transparent"
-        border={1}
-        borderColor="athensGray"
-        borderStyle="solid"
-        fontSize={[1, 2, 2, 3, 3, 3, 4, 5, 4]}
-        display="flex"
-        justifyContent="center"
-        right={[null, null, null, null, null, null, 40, 60, 60]}
-        bottom={[50, 50, 30, 60, 60, 60, 60, 60, 60]}
+        top="10%"
+        style={{ zIndex: 1 }}
+        display="grid"
       >
-        BUY
-      </BuyButton>
-    </Background>
+        <Img src={stairs} gridColumn={2}></Img>
+        <Img src={shell} gridColumn={2}></Img>
+        <Img src={eye} gridColumn={2}></Img>
+        <Img src={statue} gridColumn={2}></Img>
+        <Img src={dragon} gridColumn={2}></Img>
+        <Img src={knife} gridColumn={2}></Img>
+        <Img src={mask} gridColumn={2}></Img>
+        <Img src={spider} gridColumn={2}></Img>
+        <Img src={magnify} gridColumn={2}></Img>
+      </Container>
+      <Container style={{ zIndex: 2 }} position="fixed">
+        <BuyButton />
+      </Container>
+
+      <Scrollback
+        position="fixed"
+        bottom={6}
+        left={6}
+        fontSize={[0, null, null, null, null, 1, 4, null, null, 5]}
+        background="transparent"
+      >
+        UP
+      </Scrollback>
+    </Main>
   );
 };
 
