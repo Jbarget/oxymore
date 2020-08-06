@@ -12,9 +12,10 @@ import {
 } from "styled-system";
 import i18next from "i18next";
 
-const Container = styled.div<FlexboxProps & LayoutProps>`
+const Container = styled.div<FlexboxProps & LayoutProps & SpaceProps>`
   ${flexbox};
   ${layout};
+  ${space};
 `;
 
 const LangButton = styled.button<SpaceProps & TypographyProps>`
@@ -25,7 +26,7 @@ const LangButton = styled.button<SpaceProps & TypographyProps>`
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.05);
-   
+
 `;
 
 const LanguageButton = () => {
@@ -36,7 +37,7 @@ const LanguageButton = () => {
   );
 
   return (
-    <Container display="flex" flexDirection="row">
+    <Container display="flex" flexDirection="row" mr={5}>
       <LangButton onClick={onLangClick("en")} fontSize={fontSizes} mr={1}>
         EN
       </LangButton>
