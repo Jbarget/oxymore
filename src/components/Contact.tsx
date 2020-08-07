@@ -2,12 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
-  color,
   space,
   typography,
   layout,
   flexbox,
-  ColorProps,
   SpaceProps,
   TypographyProps,
   LayoutProps,
@@ -17,24 +15,21 @@ import {
 const Main = styled.main<
   LayoutProps & FlexboxProps & SpaceProps & TypographyProps
 >`
-  background-color: black;
   display: flex;
-  min-height: 100vh;
   text-transform: uppercase;
+  height: 80vh;
   ${layout};
   ${flexbox};
   ${space};
   ${typography};
 `;
 
-const H1 = styled.h1<ColorProps & SpaceProps & TypographyProps>`
-  ${color};
+const H1 = styled.h1<SpaceProps & TypographyProps>`
   ${space};
   ${typography};
 `;
 
-const H2 = styled.h2<ColorProps & SpaceProps & TypographyProps>`
-  ${color};
+const H2 = styled.h2<SpaceProps & TypographyProps>`
   ${space};
   ${typography};
 `;
@@ -46,29 +41,22 @@ const ContactInfo = styled.p<SpaceProps & TypographyProps>`
 
 const Contact = () => {
   const { t } = useTranslation();
-
+  const fontSizes = [2, 3, 4, 5];
   return (
-    <Main
-      p={6}
-      display="flex"
-      alignItems="center"
-      textAlign={["center", "start"]}
-    >
+    <Main p={6} alignItems="center" textAlign={["center", "start"]}>
       <ul>
         <H1 fontSize={[4, 5, 6, 7]} py={3}>
           {t("contact.header")}
         </H1>
-        <H2 fontSize={[2, 3, 4, 5]} py={3}>
+        <H2 fontSize={fontSizes} py={3}>
           {t("contact.subheader")}
         </H2>
-        <ContactInfo fontSize={[2, 3, 4, 5]} py={1}>
+        <ContactInfo fontSize={fontSizes} py={1}>
           <a href="mailto:ox@oxymore.com" target="_blank">
             {t("contact.email")}
           </a>
         </ContactInfo>
-        <ContactInfo fontSize={[2, 3, 4, 5]}>
-          {t("contact.location")}
-        </ContactInfo>
+        <ContactInfo fontSize={fontSizes}>{t("contact.location")}</ContactInfo>
       </ul>
     </Main>
   );

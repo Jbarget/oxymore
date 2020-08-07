@@ -13,8 +13,10 @@ import {
 } from "styled-system";
 
 const Main = styled.main<SpaceProps & FlexboxProps>`
-  min-height: 100vh;
+  display: flex;
+  height: 80vh;
   ${space};
+  ${flexbox};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps>`
@@ -23,11 +25,10 @@ const Grid = styled.div<GridProps & FlexboxProps>`
   ${flexbox};
 `;
 
-const H1 = styled.h1<TypographyProps & SpaceProps & GridProps>`
+const H1 = styled.h1<TypographyProps & SpaceProps>`
   text-transform: uppercase;
   ${typography};
   ${space};
-  ${grid};
 `;
 
 const Paragraph = styled.p<TypographyProps & SpaceProps>`
@@ -39,11 +40,11 @@ const Paragraph = styled.p<TypographyProps & SpaceProps>`
 
 const Manifesto = () => {
   const { t } = useTranslation();
-  const fontSizes = [1, 2, null, null, 2, 3, 4];
+  const fontSizes = [1, 2, 3, 4];
 
   return (
-    <Main p={8} mt={5}>
-      <H1 fontSize={[2, null, null, null, 3, 4, 5]} pb={5}>
+    <Main p={8} flexDirection="column" justifyContent="center">
+      <H1 fontSize={[2, 3, 4, 5]} pb={5}>
         {t("manifesto.header")}
       </H1>
       <Grid
@@ -51,10 +52,6 @@ const Manifesto = () => {
         gridColumnGap="2%"
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           "repeat(2, 49% [col-start])",

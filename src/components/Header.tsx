@@ -18,15 +18,10 @@ import NavMenu from "./NavMenu";
 import LanguageButtons from "./LanguageButtons";
 import { NavLink, useLocation } from "react-router-dom";
 
-const HeaderContainer = styled.header<
-  LayoutProps & SpaceProps & GridProps & PositionProps & FlexboxProps
->`
+const HeaderContainer = styled.header<SpaceProps & FlexboxProps>`
   display: flex;
   width: 100%;
-  ${layout};
   ${space};
-  ${grid};
-  ${position};
   ${flexbox};
 `;
 
@@ -34,16 +29,12 @@ const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${typography};
 `;
 
-const Container = styled.div<
-  FlexboxProps & GridProps & LayoutProps & SpaceProps & TypographyProps
->`
-  ${flexbox};
-  ${grid};
+const Container = styled.div<LayoutProps>`
   ${layout};
 `;
 
 const HeaderLogo = () => {
-  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
+  const fontSizes = [1, 2, 3, 4];
 
   return (
     <NavLink to="/oxymore">
