@@ -10,6 +10,8 @@ import {
   SpaceProps,
   FlexboxProps,
   GridProps,
+  TypographyProps,
+  typography,
 } from "styled-system";
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
@@ -18,82 +20,63 @@ import manifesto from "./assets/home-page/manifesto.png";
 import number from "./assets/home-page/number-one.png";
 import alpha from "./assets/home-page/360_alpha.png";
 
-const Main = styled.main<SpaceProps & FlexboxProps & GridProps>`
-  background: black;
-  display: grid;
+import LanguageButtons from "./LanguageButtons";
+
+const Main = styled.main<SpaceProps & FlexboxProps>`
+  display: flex;
   height: 100vh;
-  overflow: hidden;
   ${space};
-  ${flexbox}
-  ${grid};
+  ${flexbox};
 `;
 
-const Container = styled.div<
-  LayoutProps & FlexboxProps & GridProps & SpaceProps
->`
-  display: grid;
-  ${layout};
+const Row = styled.div<FlexboxProps & LayoutProps>`
+  display: flex;
   ${flexbox};
-  ${grid};
-  ${space};
+  ${layout};
 `;
 
-const PageLink = styled(NavLink)<
-  LayoutProps & FlexboxProps & GridProps & SpaceProps
->`
-  display: grid;
-  ${layout};
-  ${flexbox};
-  ${grid};
-  ${space};
+const PageLink = styled(NavLink)<TypographyProps>`
+  ${typography};
 `;
 
-const Img = styled.img<LayoutProps & FlexboxProps>`
+const Img = styled.img<LayoutProps & SpaceProps>`
+  max-width: 30%;
   ${layout};
-  ${flexbox};
+  ${space};
 `;
 
 const Home = () => {
   return (
-    <Main
-      gridTemplateRows="repeat(3, 1fr)"
-      gridTemplateColumns="25% 50% 25%"
-      p={6}
-    >
-      <Container gridRow={1} gridColumn={1} gridTemplateRows="max-content">
-        <PageLink to="/">
-          <Img src={oxymore}></Img>
-        </PageLink>
-      </Container>
-      <Container
-        gridRow={1}
-        gridColumn={3}
-        gridTemplateRows="max-content"
-        gridTemplateColumns="max-content"
-        justifyContent="flex-end"
+    <Main p={6} flexDirection="column" justifyContent="space-between">
+      <Row
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="flex-start"
       >
-        <NavMenu />
-      </Container>
-      <Container
-        gridRow={2}
-        gridColumn={2}
-        alignSelf="center"
-        justifySelf="center"
-        width={["fit-content", null, null, null, null, null, null, null, "60%"]}
-      >
-        <PageLink to="/projects">
+        <Img src={oxymore}></Img>
+        <Row flexDirection="row" justifyContent="space-between">
+          <LanguageButtons />
+          <NavMenu />
+        </Row>
+      </Row>
+      <Row flexDirection="row">
+        <PageLink to="/projects" textAlign="center">
           <Img src={alpha}></Img>
         </PageLink>
-      </Container>
-      <Container gridRow={3} gridColumn={1} alignSelf="end" width="min-content">
-        <Img src={number} alignSelf="center" width="40%"></Img>
-        <BuyButton />
-      </Container>
-      <Container gridRow={3} gridColumn={3} alignSelf="end">
-        <PageLink to="/manifesto">
-          <Img src={manifesto}></Img>
+      </Row>
+      <Row
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="flex-end"
+      >
+        <Row flexDirection="column">
+          <Img src={number} mb={3}></Img>
+          <BuyButton />
+        </Row>
+        <PageLink to="/manifesto" textAlign="end">
+          <Img src={manifesto} minWidth="50%"></Img>
         </PageLink>
-      </Container>
+      </Row>
     </Main>
   );
 };

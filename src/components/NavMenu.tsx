@@ -35,25 +35,14 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${(props) => props.isOpen && overlayStyles}
 `;
 
-const Logo = styled.p<PositionProps & TypographyProps>`
-  ${position};
-  ${typography};
-`;
-
-const MenuButton = styled.button<
-  TypographyProps & PositionProps & FlexboxProps & SpaceProps
->`
-  display: grid;
+const MenuButton = styled.button<TypographyProps & PositionProps>`
   border: none;
   background: transparent;
   ${typography};
   ${position};
-  ${flexbox};
-  ${space};
 `;
 
-const MenuContainer = styled.div<SpaceProps & GridProps>`
-  ${space};
+const MenuContainer = styled.div<GridProps>`
   ${grid};
 `;
 
@@ -62,10 +51,10 @@ const Menu = styled.ul<GridProps & TypographyProps>`
   ${typography};
 `;
 
-const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
+const MenuLink = styled(NavLink)<ColorProps & TypographyProps & PositionProps>`
   ${color};
   ${typography};
-  }
+  ${position};
 `;
 
 const MenuText = styled.li`
@@ -89,11 +78,7 @@ const Link = ({ page, url }: LinkProps) => {
       gridTemplateColumns="max-content"
     >
       <MenuText>
-        <MenuLink
-          to={url}
-          color="black"
-          fontSize={[3, 4, 5, 6, null, 7, 9, 10]}
-        >
+        <MenuLink to={url} color="black" fontSize={[5, 6, 7, 8]}>
           {page}
         </MenuLink>
       </MenuText>
@@ -103,8 +88,8 @@ const Link = ({ page, url }: LinkProps) => {
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const fontSizes = [1, 2, 3, 4];
   const { t } = useTranslation();
-  const fontSizes = [0, null, null, null, null, 1, 4, null, null, 5];
   const Links: LinkProps[] = [
     {
       page: `${t("nav.about-us")}`,
@@ -130,17 +115,21 @@ const NavMenu = () => {
 
   return (
     <Fragment>
-      <MenuButton
-        onClick={() => setIsOpen(!isOpen)}
-        fontSize={fontSizes}
-        justifySelf="end"
-      >
+      <MenuButton onClick={() => setIsOpen(!isOpen)} fontSize={fontSizes}>
         MENU
       </MenuButton>
       <Overlay isOpen={isOpen}>
-        <Logo fontSize={fontSizes} position="absolute" left={30} top={24}>
+        <MenuLink
+          to="/oxymore"
+          fontSize={fontSizes}
+          position="absolute"
+          left={30}
+          top={24}
+          color="black"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           OXYMORE
-        </Logo>
+        </MenuLink>
 
         <MenuButton
           onClick={() => setIsOpen(false)}
