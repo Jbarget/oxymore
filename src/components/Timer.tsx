@@ -36,11 +36,16 @@ const Span = styled.span<SpaceProps>`
 const calculateTimeLeft = () => {
   let year = new Date().getFullYear();
   const difference = +new Date(`${year}-09-1`) - +new Date();
+  const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
+  const secondsLeft = Math.floor((difference / 1000) % 60);
+
   const timeLeft = {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((difference / 1000 / 60) % 60),
-    seconds: Math.floor((difference / 1000) % 60),
+    days: daysLeft < 0 ? 0 : daysLeft,
+    hours: hoursLeft < 0 ? 0 : hoursLeft,
+    minutes: minutesLeft < 0 ? 0 : minutesLeft,
+    seconds: secondsLeft < 0 ? 0 : secondsLeft,
   };
 
   return timeLeft;
