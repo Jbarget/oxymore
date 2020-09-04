@@ -6,6 +6,7 @@ import Loading from "./components/Loading";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import AboutUs from "./components/AboutUs";
 import theme from "./components/theme";
 import "./css/reset.css";
 import Manifesto from "./components/Manifesto";
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/projects" exact component={Projects} />
               <Route path="/contact-us" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
+              <Route path="/about-us" exact component={AboutUs} />
             </Switch>
           </Suspense>
         </AppContent>
