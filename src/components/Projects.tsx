@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import { Link, NavLink } from "react-router-dom";
 import {
   layout,
   space,
@@ -58,19 +57,13 @@ const Scrollback = styled.button<
   ${typography};
   ${background};
   border: none;
+  z-index: 1;
 `;
 
 const Projects = () => {
-  const [showScroll, setShowScroll] = useState(false);
-  const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 400) {
-      setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 400) {
-      setShowScroll(false);
-    }
-  };
-
-  window.addEventListener("scroll", checkScrollTop);
+  const scrollToTop = useCallback(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Main justifyContent="center" alignItems="center" position="relative">
@@ -100,8 +93,9 @@ const Projects = () => {
         position="fixed"
         bottom={6}
         left={6}
-        fontSize={[0, null, null, null, null, 1, 4, null, null, 5]}
+        fontSize={[3, 4]}
         background="transparent"
+        onClick={scrollToTop}
       >
         UP
       </Scrollback>
