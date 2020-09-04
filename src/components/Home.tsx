@@ -5,11 +5,9 @@ import {
   layout,
   space,
   flexbox,
-  grid,
   LayoutProps,
   SpaceProps,
   FlexboxProps,
-  GridProps,
   TypographyProps,
   typography,
 } from "styled-system";
@@ -29,10 +27,9 @@ const Main = styled.main<SpaceProps & FlexboxProps>`
   ${flexbox};
 `;
 
-const Row = styled.div<FlexboxProps & LayoutProps>`
+const Flex = styled.div<FlexboxProps>`
   display: flex;
   ${flexbox};
-  ${layout};
 `;
 
 const PageLink = styled(NavLink)<TypographyProps>`
@@ -48,35 +45,27 @@ const Img = styled.img<LayoutProps & SpaceProps>`
 const Home = () => {
   return (
     <Main p={6} flexDirection="column" justifyContent="space-between">
-      <Row
-        flexDirection="row"
-        justifyContent="space-between"
-        alignItems="flex-start"
-      >
+      <Flex justifyContent="space-between" alignItems="flex-start">
         <Img src={oxymore}></Img>
-        <Row flexDirection="row" justifyContent="space-between">
+        <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
-        </Row>
-      </Row>
-      <Row flexDirection="row">
-        <PageLink to="/projects" textAlign="center">
-          <Img src={alpha}></Img>
-        </PageLink>
-      </Row>
-      <Row
-        flexDirection="row"
-        justifyContent="space-between"
-        alignItems="flex-end"
-      >
-        <Row flexDirection="column">
+        </Flex>
+      </Flex>
+
+      <PageLink to="/projects" textAlign="center">
+        <Img src={alpha} width={500}></Img>
+      </PageLink>
+
+      <Flex justifyContent="space-between" alignItems="flex-end">
+        <Flex flexDirection="column">
           <Img src={number} mb={3}></Img>
           <BuyButton />
-        </Row>
+        </Flex>
         <PageLink to="/manifesto" textAlign="end">
           <Img src={manifesto} minWidth="50%"></Img>
         </PageLink>
-      </Row>
+      </Flex>
     </Main>
   );
 };
