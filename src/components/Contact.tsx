@@ -52,7 +52,11 @@ const Contact = () => {
           {t("contact.subheader")}
         </H2>
         <ContactInfo fontSize={fontSizes} py={1}>
-          <a href="mailto:ox@oxymore.com" target="_blank">
+          <a
+            href="mailto:ox@oxymore.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {t("contact.email")}
           </a>
         </ContactInfo>

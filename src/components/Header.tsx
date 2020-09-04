@@ -5,14 +5,11 @@ import {
   typography,
   layout,
   flexbox,
-  grid,
-  position,
   SpaceProps,
   TypographyProps,
   LayoutProps,
   FlexboxProps,
   GridProps,
-  PositionProps,
 } from "styled-system";
 import NavMenu from "./NavMenu";
 import LanguageButtons from "./LanguageButtons";
