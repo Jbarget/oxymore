@@ -1,5 +1,3 @@
-import { Theme } from "styled-system";
-
 export type Colors =
   | keyof typeof colorCodes
   | {

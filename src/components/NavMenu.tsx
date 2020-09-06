@@ -4,17 +4,13 @@ import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
   color,
-  space,
   typography,
   position,
   grid,
-  flexbox,
   ColorProps,
-  SpaceProps,
   TypographyProps,
   PositionProps,
   GridProps,
-  FlexboxProps,
 } from "styled-system";
 
 const overlayStyles = css`

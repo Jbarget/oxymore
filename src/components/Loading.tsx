@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Timer from "./Timer";
 import { FlexboxProps, flexbox } from "styled-system";
@@ -9,8 +9,6 @@ const Main = styled.main<FlexboxProps>`
   overflow: hidden;
   ${flexbox}
 `;
-
-const Container = styled.div``;
 
 const Loading = () => {
   return (
