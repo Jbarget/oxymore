@@ -21,6 +21,7 @@ const Button = styled.button<
 >`
   width: auto;
   white-space: nowrap;
+  z-index: 2;
   ${space};
   ${typography};
   ${border};
@@ -69,7 +70,8 @@ const BuyButton = () => {
       <Button
         role="link"
         onClick={handleClick}
-        fontSize={[1, 2, 3, 4]}
+        fontSize={[0, 1, 3]}
+        p={[2, 3]}
         background="transparent"
         border={1}
         borderStyle="solid"
