@@ -16,7 +16,8 @@
     "location": "Barcelona"
   },
   "about": {
-    "header": "About us"
+    "header": "About",
+    "subheader": "Oxymore is a biannual publication bla bla bla bla"
   },
   "manifesto": {
     "header": "Manifesto",
