@@ -33,7 +33,12 @@ const Button = styled.button<
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
-const BuyButton = () => {
+interface BuyButtonProps {
+  successUrl: string;
+  cancelUrl: string;
+}
+const BuyButton: React.FC<BuyButtonProps> = (props) => {
+  const { successUrl, cancelUrl } = props;
   const [error, setError] = useState<string>();
 
   const handleClick = async () => {
@@ -52,8 +57,8 @@ const BuyButton = () => {
           },
         ],
         mode: "payment",
-        successUrl: `${process.env.REACT_APP_BASE_URL}/projects`,
-        cancelUrl: `${process.env.REACT_APP_BASE_URL}/projects`,
+        successUrl,
+        cancelUrl,
         shippingAddressCollection: {
           allowedCountries: ["ES", "FR", "GB"],
         },

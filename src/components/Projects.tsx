@@ -143,7 +143,10 @@ const Projects = () => {
         />
       </Container>
       <BuyButtonContainer position="fixed" top="50%" zIndex={zIndexes.inFront}>
-        <BuyButton />
+        <BuyButton
+          successUrl={`${process.env.REACT_APP_BASE_URL}/projects`}
+          cancelUrl={`${process.env.REACT_APP_BASE_URL}/projects`}
+        />
       </BuyButtonContainer>
 
       <Scrollback
