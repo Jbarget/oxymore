@@ -22,7 +22,7 @@ import LanguageButtons from "./LanguageButtons";
 
 const Main = styled.main<SpaceProps & FlexboxProps>`
   display: flex;
-  height: 100vh;
+  height: 100%;
   ${space};
   ${flexbox};
 `;
@@ -32,12 +32,28 @@ const Flex = styled.div<FlexboxProps>`
   ${flexbox};
 `;
 
-const PageLink = styled(NavLink)<TypographyProps>`
+const ManifestoLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${typography};
+
+  display: flex;
+  ${flexbox}
 `;
 
 const Img = styled.img<LayoutProps & SpaceProps>`
-  max-width: 30%;
+  height: 8vw;
+  align-self: flex-start;
+  ${layout};
+  ${space};
+`;
+
+const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
+  ${typography};
+
+  display: flex;
+  align-self: center;
+  ${flexbox}
+`;
+const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
 `;
@@ -46,28 +62,25 @@ const Home = () => {
   return (
     <Main p={6} flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <Img src={oxymore}></Img>
+        <Img src={oxymore} />
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
 
-      <PageLink to="/projects" textAlign="center">
-        <Img src={alpha} width={500}></Img>
-      </PageLink>
+      <ProjectsLink to="/projects" textAlign="center">
+        <ProjectsImg src={alpha} width={500} />
+      </ProjectsLink>
 
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column">
-          <Img src={number} mb={3}></Img>
-          <BuyButton
-            successUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
-            cancelUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
-          />
+          <Img src={number} mb={3} height="4vw" />
+          <BuyButton />
         </Flex>
-        <PageLink to="/manifesto" textAlign="end">
-          <Img src={manifesto} minWidth="50%"></Img>
-        </PageLink>
+        <ManifestoLink to="/manifesto" alignItems="flex-end">
+          <Img src={manifesto} />
+        </ManifestoLink>
       </Flex>
     </Main>
   );
