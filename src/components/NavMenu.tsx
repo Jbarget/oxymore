@@ -12,6 +12,7 @@ import {
   PositionProps,
   GridProps,
 } from "styled-system";
+import { zIndexes } from "./theme";
 
 const overlayStyles = css`
   display: flex;
@@ -24,6 +25,8 @@ const overlayStyles = css`
   background-size: cover;
   opacity: 1;
   top: 0;
+  position: fixed;
+  z-index: ${zIndexes.overlay};
 `;
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`

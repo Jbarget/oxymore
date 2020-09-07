@@ -13,6 +13,8 @@ import {
   layout,
 } from "styled-system";
 import styled from "styled-components";
+
+import { zIndexes } from "./theme";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
@@ -21,7 +23,7 @@ const Button = styled.button<
 >`
   width: auto;
   white-space: nowrap;
-  z-index: 2;
+  z-index: ${zIndexes.inFront};
   ${space};
   ${typography};
   ${border};
