@@ -14,13 +14,14 @@ import {
 
 const Main = styled.main<SpaceProps & FlexboxProps>`
   display: flex;
-  height: 80vh;
+  min-height: 100vh;
   ${space};
   ${flexbox};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps>`
   display: grid;
+  height: 90%;
   ${grid};
   ${flexbox};
 `;
@@ -36,6 +37,7 @@ const Paragraph = styled.p<TypographyProps & SpaceProps>`
   ${typography};
   ${space};
   text-align: justify;
+  line-height: 1.5;
 `;
 
 const Manifesto = () => {
@@ -44,17 +46,17 @@ const Manifesto = () => {
 
   return (
     <Main p={8} flexDirection="column" justifyContent="center">
-      <H1 fontSize={[2, 3, 4, 5]} pb={5}>
+      <H1 fontSize={[2, 5]} pb={5}>
         {t("manifesto.header")}
       </H1>
       <Grid
         justifyContent="center"
-        gridColumnGap="2%"
+        gridColumnGap="4%"
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
-          null,
-          null,
-          "repeat(2, 49% [col-start])",
+          "repeat(1, 100% [col-start])",
+          "repeat(2, 48% [col-start])",
+          "repeat(2, 48% [col-start])",
         ]}
       >
         <Paragraph pb={5} fontSize={fontSizes}>
