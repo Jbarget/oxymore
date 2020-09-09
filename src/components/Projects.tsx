@@ -26,6 +26,7 @@ import mask from "./assets/project-page/mask-720.png";
 import spider from "./assets/project-page/spider-720.png";
 import magnify from "./assets/project-page/magnify-720.png";
 import BuyButton from "./BuyButton";
+import { zIndexes } from "./theme";
 
 const Main = styled.main<PositionProps & FlexboxProps & LayoutProps>`
   display: flex;
@@ -141,7 +142,7 @@ const Projects = () => {
           justifySelf={["center", "center"]}
         />
       </Container>
-      <BuyButtonContainer position="fixed" top="50%" zIndex={1}>
+      <BuyButtonContainer position="fixed" top="50%" zIndex={zIndexes.inFront}>
         <BuyButton />
       </BuyButtonContainer>
 

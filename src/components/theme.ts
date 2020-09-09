@@ -9,6 +9,12 @@ export type Colors =
       accentPrimary: string;
     };
 
+export const zIndexes = {
+  behind: -1,
+  inFront: 1,
+  overlay: 1300,
+};
+
 const colorCodes = {
   // Core colors
   azure: "#306fb6",
