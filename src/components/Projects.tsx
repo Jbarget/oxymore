@@ -16,15 +16,15 @@ import {
   BackgroundProps,
   background,
 } from "styled-system";
-import stairs from "./assets/project-page/stairs.png";
-import shell from "./assets/project-page/shell.png";
-import eye from "./assets/project-page/eye.png";
-import statue from "./assets/project-page/statue.png";
-import dragon from "./assets/project-page/dragon.png";
-import knife from "./assets/project-page/knife.png";
-import mask from "./assets/project-page/mask.png";
-import spider from "./assets/project-page/spider.png";
-import magnify from "./assets/project-page/magnify.png";
+import stairs from "./assets/project-page/stairs-720.png";
+import shell from "./assets/project-page/shell-720.png";
+import eye from "./assets/project-page/eye-720.png";
+import statue from "./assets/project-page/statue-720.png";
+import dragon from "./assets/project-page/dragon-720.png";
+import knife from "./assets/project-page/knife-720.png";
+import mask from "./assets/project-page/mask-720.png";
+import spider from "./assets/project-page/spider-720.png";
+import magnify from "./assets/project-page/magnify-720.png";
 import BuyButton from "./BuyButton";
 
 const Main = styled.main<PositionProps & FlexboxProps & LayoutProps>`
