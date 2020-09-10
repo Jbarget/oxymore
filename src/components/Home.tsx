@@ -60,7 +60,10 @@ const Home = () => {
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column">
           <Img src={number} mb={3}></Img>
-          <BuyButton />
+          <BuyButton
+            successUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
+            cancelUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
+          />
         </Flex>
         <PageLink to="/manifesto" textAlign="end">
           <Img src={manifesto} minWidth="50%"></Img>
