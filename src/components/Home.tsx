@@ -39,10 +39,14 @@ const ManifestoLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${flexbox}
 `;
 
-const Img = styled.img<LayoutProps & SpaceProps>`
-  height: 8vw;
-  align-self: flex-start;
-  ${layout};
+const DoubleLineTextImage = styled.img`
+  height: 10vw;
+  max-height: 88px;
+`;
+const SingleLineTextImage = styled.img<SpaceProps>`
+  height: 5vw;
+  max-height: 44px;
+
   ${space};
 `;
 
@@ -51,35 +55,41 @@ const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
 
   display: flex;
   align-self: center;
+  align-items: center;
+  justify-content: center;
   ${flexbox}
 `;
 const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
+
+  max-width: 40vw;
+  max-height: 60vh;
 `;
 
 const Home = () => {
   return (
     <Main p={6} flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <Img src={oxymore} />
+        <DoubleLineTextImage src={oxymore} />
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
-
-      <ProjectsLink to="/projects" textAlign="center">
-        <ProjectsImg src={alpha} width={500} />
+      <ProjectsLink to="/projects">
+        <ProjectsImg src={alpha} />
       </ProjectsLink>
-
       <Flex justifyContent="space-between" alignItems="flex-end">
-        <Flex flexDirection="column">
-          <Img src={number} mb={3} height="4vw" />
-          <BuyButton />
+        <Flex flexDirection="column" alignItems="flex-start">
+          <SingleLineTextImage src={number} mb={3} />
+          <BuyButton
+            successUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
+            cancelUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
+          />
         </Flex>
         <ManifestoLink to="/manifesto" alignItems="flex-end">
-          <Img src={manifesto} />
+          <DoubleLineTextImage src={manifesto} />
         </ManifestoLink>
       </Flex>
     </Main>
