@@ -53,6 +53,9 @@ const Img = styled.img<LayoutProps & GridProps & FlexboxProps>`
   ${layout};
   ${grid};
   ${flexbox};
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.05);
 `;
 type ScrollbackProps = PositionProps &
   TypographyProps &
