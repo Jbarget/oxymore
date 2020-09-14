@@ -55,8 +55,8 @@ const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
 
   display: flex;
   align-self: center;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   ${flexbox}
 `;
 const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
