@@ -35,7 +35,7 @@ const Span = styled.span<SpaceProps>`
 `;
 const calculateTimeLeft = () => {
   let year = new Date().getFullYear();
-  const difference = +new Date(`${year}-09-1`) - +new Date();
+  const difference = +new Date(`${year}-10-2`) - +new Date();
   const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
   const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
   const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
@@ -71,16 +71,7 @@ const Timer = () => {
         <H1
           fontSize={6}
           fontFamily="SangBleu OG Serif Light"
-          flexDirection={[
-            "column",
-            "column",
-            "column",
-            "column",
-            "column",
-            "column",
-            "column",
-            "row",
-          ]}
+          flexDirection={["column", "column", "column", "column", "row"]}
         >
           <Span mr={3}>{getInterval(timeLeft.days, "day")}</Span>
           <Span mr={3}>{getInterval(timeLeft.hours, "hour")}</Span>
