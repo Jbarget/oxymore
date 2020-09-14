@@ -20,6 +20,7 @@ import micaela from "./assets/about-page/micaela-720.jpg";
 import nil from "./assets/about-page/nil-720.jpg";
 import olga from "./assets/about-page/olga-720.jpg";
 import rodri from "./assets/about-page/rodri-720.jpg";
+import gloria from "./assets/about-page/gloria-720.jpg";
 
 const teamMembers: TeamMemberProps[] = [
   {
@@ -41,6 +42,11 @@ const teamMembers: TeamMemberProps[] = [
     name: "3 Aitor",
 
     img: olga,
+  },
+  {
+    name: "Gloria",
+
+    img: gloria,
   },
   {
     name: "Juancamilo",
@@ -79,10 +85,12 @@ const H2 = styled.h1<TypographyProps & SpaceProps>`
 `;
 
 const Img = styled.img<LayoutProps>`
+  height: 100%;
   ${layout};
 `;
 
 const TeamMemberContainer = styled.div<LayoutProps>`
+  object-fit: contain;
   ${layout};
 `;
 
