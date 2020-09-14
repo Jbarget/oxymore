@@ -52,7 +52,7 @@ const calculateTimeLeft = () => {
 };
 
 const getInterval = (number: number, intervalType: string) => {
-  const label = number === 1 ? intervalType : `${intervalType}s`;
+  const label = number === 1 ? intervalType : `${intervalType}`;
 
   return `${number} ${label}`;
 };
@@ -73,10 +73,10 @@ const Timer = () => {
           fontFamily="SangBleu OG Serif Light"
           flexDirection={["column", "column", "column", "column", "row"]}
         >
-          <Span mr={3}>{getInterval(timeLeft.days, "day")}</Span>
-          <Span mr={3}>{getInterval(timeLeft.hours, "hour")}</Span>
-          <Span mr={3}>{getInterval(timeLeft.minutes, "minute")}</Span>
-          <Span>{getInterval(timeLeft.seconds, "second")}</Span>
+          <Span mr={3}>{getInterval(timeLeft.days, "D")}</Span>
+          <Span mr={3}>{getInterval(timeLeft.hours, "H")}</Span>
+          <Span mr={3}>{getInterval(timeLeft.minutes, "M")}</Span>
+          <Span>{getInterval(timeLeft.seconds, "S")}</Span>
         </H1>
       </Container>
     </Fragment>
