@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
+import Advertising from "./components/Advertising";
 import theme from "./components/theme";
 import "./css/reset.css";
 import Manifesto from "./components/Manifesto";
@@ -31,6 +32,7 @@ const App = () => {
               <Route path="/contact-us" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
               <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/advertising" exact component={Advertising} />
             </Switch>
           </Suspense>
         </AppContent>
