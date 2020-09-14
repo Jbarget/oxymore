@@ -78,14 +78,13 @@ const BuyButton: React.FC<BuyButtonProps> = (props) => {
         role="link"
         onClick={handleClick}
         fontSize={[0, 1, 3]}
-        p={[2, 3]}
         background="transparent"
         border={1}
         borderStyle="solid"
         height="fit-content"
         width="fit-content"
-        py={1}
-        px={2}
+        py={[1, 1, 2, 3]}
+        px={[1, 1, 2, 3]}
       >
         BUY THE MAG
       </Button>

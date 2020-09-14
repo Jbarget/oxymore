@@ -22,7 +22,7 @@ import LanguageButtons from "./LanguageButtons";
 
 const Main = styled.main<SpaceProps & FlexboxProps>`
   display: flex;
-  height: 100vh;
+  height: 100%;
   ${space};
   ${flexbox};
 `;
@@ -32,42 +32,65 @@ const Flex = styled.div<FlexboxProps>`
   ${flexbox};
 `;
 
-const PageLink = styled(NavLink)<TypographyProps>`
+const ManifestoLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${typography};
+
+  display: flex;
+  ${flexbox}
 `;
 
-const Img = styled.img<LayoutProps & SpaceProps>`
-  max-width: 30%;
+const DoubleLineTextImage = styled.img`
+  height: 10vw;
+  max-height: 88px;
+`;
+const SingleLineTextImage = styled.img<SpaceProps>`
+  height: 5vw;
+  max-height: 44px;
+
+  ${space};
+`;
+
+const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
+  ${typography};
+
+  display: flex;
+  align-self: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  ${flexbox}
+`;
+const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
+
+  max-width: 40vw;
+  max-height: 60vh;
 `;
 
 const Home = () => {
   return (
     <Main p={6} flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <Img src={oxymore}></Img>
+        <DoubleLineTextImage src={oxymore} />
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
-
-      <PageLink to="/projects" textAlign="center">
-        <Img src={alpha} width={500}></Img>
-      </PageLink>
-
+      <ProjectsLink to="/projects">
+        <ProjectsImg src={alpha} />
+      </ProjectsLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
-        <Flex flexDirection="column">
-          <Img src={number} mb={3}></Img>
+        <Flex flexDirection="column" alignItems="flex-start">
+          <SingleLineTextImage src={number} mb={3} />
           <BuyButton
             successUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
             cancelUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
           />
         </Flex>
-        <PageLink to="/manifesto" textAlign="end">
-          <Img src={manifesto} minWidth="50%"></Img>
-        </PageLink>
+        <ManifestoLink to="/manifesto" alignItems="flex-end">
+          <DoubleLineTextImage src={manifesto} />
+        </ManifestoLink>
       </Flex>
     </Main>
   );
