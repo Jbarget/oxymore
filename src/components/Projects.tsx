@@ -45,13 +45,17 @@ const Container = styled.div<
   overflow: hidden;
 `;
 
-const BuyButtonContainer = styled.div<PositionProps>`
+const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${position};
+  ${space};
 `;
 const Img = styled.img<LayoutProps & GridProps & FlexboxProps>`
   ${layout};
   ${grid};
   ${flexbox};
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.05);
 `;
 type ScrollbackProps = PositionProps &
   TypographyProps &
@@ -142,7 +146,12 @@ const Projects = () => {
           justifySelf={["center", "center"]}
         />
       </Container>
-      <BuyButtonContainer position="fixed" top="50%" zIndex={zIndexes.inFront}>
+      <BuyButtonContainer
+        position="fixed"
+        bottom={["40%", "40%", "0%", "0%"]}
+        p={6}
+        zIndex={zIndexes.inFront}
+      >
         <BuyButton
           successUrl={`${process.env.REACT_APP_BASE_URL}/projects`}
           cancelUrl={`${process.env.REACT_APP_BASE_URL}/projects`}
