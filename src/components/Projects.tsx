@@ -158,7 +158,7 @@ const Projects = () => {
       </BuyButtonContainer>
 
       <Scrollback
-        display={["block", "block", "block", "none"]}
+        display={["block", "block", "block", "block", "none"]}
         position="fixed"
         bottom={6}
         left={6}
