@@ -89,6 +89,7 @@ const Projects = () => {
         display="grid"
         justifyItems="center"
         alignItems="center"
+        height="90vh"
       >
         <Img
           src={stairs}
