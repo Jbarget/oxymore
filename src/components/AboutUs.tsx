@@ -86,11 +86,13 @@ const H2 = styled.h1<TypographyProps & SpaceProps>`
 
 const Img = styled.img<LayoutProps>`
   height: 100%;
+  width: 100%;
   ${layout};
 `;
 
 const TeamMemberContainer = styled.div<LayoutProps>`
   object-fit: contain;
+  height: 100%;
   ${layout};
 `;
 
@@ -111,7 +113,7 @@ interface TeamMemberProps {
 const TeamMember = ({ name, img }: TeamMemberProps) => {
   return (
     <TeamMemberContainer key={name}>
-      <Img alt={name} src={img} width="100%" />
+      <Img alt={name} src={img} />
     </TeamMemberContainer>
   );
 };
@@ -128,6 +130,7 @@ const AboutUs = () => {
         {t("about.subheader")}
       </H2>
       <Grid
+        gridRowGap={[1, 1, 1, 0]}
         justifyContent="center"
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
