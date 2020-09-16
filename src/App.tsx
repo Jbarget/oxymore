@@ -11,6 +11,7 @@ import theme from "./components/theme";
 import "./css/reset.css";
 import Manifesto from "./components/Manifesto";
 import Header from "./components/Header";
+import Advertising from "./components/Advertising";
 
 const AppContent = styled.div`
   height: 100%;
@@ -31,6 +32,7 @@ const App = () => {
               <Route path="/contact-us" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
               <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/advertising" exact component={Advertising} />
             </Switch>
           </Suspense>
         </AppContent>
