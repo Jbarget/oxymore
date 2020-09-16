@@ -37,16 +37,12 @@ const AdvertContainer = styled.div<LayoutProps & SpaceProps>`
 `;
 
 const ImgContainer = styled.div<LayoutProps & SpaceProps>`
-  object-fit: contain;
-  height: 100%;
   ${layout};
   ${space};
 `;
 
 const Img = styled.img<LayoutProps>`
   ${layout};
-  width: 100%;
-  height: 100%;
 `;
 
 const P = styled.p<TypographyProps & SpaceProps>`
@@ -68,22 +64,21 @@ const Advertising = () => {
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
           "repeat(2, 50% [col-start])",
-          "repeat(2, 50% [col-start])",
         ]}
       >
-        <AdvertContainer>
-          <ImgContainer mb={6}>
+        <AdvertContainer p={4}>
+          <ImgContainer mb={4}>
             <Img src={salazraki} alt="voltrova advert"></Img>
           </ImgContainer>
-          <P p={6} fontSize={fontSizes} textAlign="justify">
+          <P fontSize={fontSizes} textAlign="justify">
             {t("advertising.salazraki")}
           </P>
         </AdvertContainer>
-        <AdvertContainer>
-          <ImgContainer mb={6}>
+        <AdvertContainer p={4}>
+          <ImgContainer mb={4}>
             <Img src={voltrova} alt="voltrova advert"></Img>
           </ImgContainer>
-          <P p={6} fontSize={fontSizes} textAlign="justify">
+          <P fontSize={fontSizes} textAlign="justify">
             {t("advertising.voltrova")}
           </P>
         </AdvertContainer>
