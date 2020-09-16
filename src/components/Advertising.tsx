@@ -2,83 +2,91 @@ import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
+  layout,
   space,
-  typography,
-  flexbox,
   grid,
+  typography,
+  LayoutProps,
   SpaceProps,
+  GridProps,
   TypographyProps,
   FlexboxProps,
-  GridProps,
+  flexbox,
 } from "styled-system";
-import salazraki from "./assets/advertising-page/salazraki-720.jpg";
-import voltrova from "./assets/advertising-page/voltrova-720.jpg";
 
-const Main = styled.main<SpaceProps & FlexboxProps>`
-  display: flex;
+import voltrova from "./assets/advertising-page/voltrova-720.jpg";
+import salazraki from "./assets/advertising-page/salazraki-720.jpg";
+
+const Main = styled.main<SpaceProps>`
   min-height: 100vh;
   ${space};
-  ${flexbox};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
   display: grid;
-  height: 90%;
   ${grid};
   ${flexbox};
   ${space};
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const ImgContainer = styled.div<SpaceProps>`
+const AdvertContainer = styled.div<LayoutProps & SpaceProps>`
+  object-fit: contain;
+  height: 100%;
+  ${layout};
   ${space};
 `;
 
-const Paragraph = styled.p<TypographyProps & SpaceProps>`
+const ImgContainer = styled.div<LayoutProps & SpaceProps>`
+  object-fit: contain;
+  height: 100%;
+  ${layout};
+  ${space};
+`;
+
+const Img = styled.img<LayoutProps>`
+  ${layout};
+  width: 100%;
+  height: 100%;
+`;
+
+const P = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
-  ${typography};
   ${space};
-  text-align: justify;
-  line-height: 1.5;
+  ${typography};
 `;
 
 const Advertising = () => {
   const { t } = useTranslation();
   const fontSizes = [1, 2, 3, 4];
-
   return (
-    <Main p={8} flexDirection="column">
+    <Main p={8} pt={5}>
       <Grid
+        gridRowGap={[1, 1, 1, 0]}
         justifyContent="center"
-        p={6}
-        gridColumnGap="4%"
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
           "repeat(2, 50% [col-start])",
+          "repeat(2, 50% [col-start])",
         ]}
       >
-        <Container>
-          <ImgContainer mb={3}>
-            <img src={salazraki} alt="salazraki" />
+        <AdvertContainer>
+          <ImgContainer mb={6}>
+            <Img src={salazraki} alt="voltrova advert"></Img>
           </ImgContainer>
-          <Paragraph pb={5} fontSize={fontSizes}>
+          <P p={6} fontSize={fontSizes} textAlign="justify">
             {t("advertising.salazraki")}
-          </Paragraph>
-        </Container>
-        <Container>
-          <ImgContainer mb={3}>
-            <img src={voltrova} alt="voltrova" />
+          </P>
+        </AdvertContainer>
+        <AdvertContainer>
+          <ImgContainer mb={6}>
+            <Img src={voltrova} alt="voltrova advert"></Img>
           </ImgContainer>
-          <Paragraph pb={5} fontSize={fontSizes}>
+          <P p={6} fontSize={fontSizes} textAlign="justify">
             {t("advertising.voltrova")}
-          </Paragraph>
-        </Container>
+          </P>
+        </AdvertContainer>
       </Grid>
     </Main>
   );
