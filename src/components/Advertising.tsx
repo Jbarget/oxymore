@@ -68,7 +68,7 @@ const Advertising = () => {
       >
         <AdvertContainer p={4}>
           <ImgContainer mb={4}>
-            <Img src={salazraki} alt="voltrova advert"></Img>
+            <Img src={salazraki} alt="salazraki advert"></Img>
           </ImgContainer>
           <P fontSize={fontSizes} textAlign="justify">
             {t("advertising.salazraki")}
@@ -76,7 +76,7 @@ const Advertising = () => {
         </AdvertContainer>
         <AdvertContainer p={4}>
           <ImgContainer mb={4}>
-            <Img src={voltrova} alt="voltrova advert"></Img>
+            <Img src={voltrova} alt="voltrova advert" maxWidth="70%"></Img>
           </ImgContainer>
           <P fontSize={fontSizes} textAlign="justify">
             {t("advertising.voltrova")}
