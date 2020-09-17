@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import {
   TypographyProps,
@@ -33,9 +34,67 @@ const H1 = styled.h1<TypographyProps & FlexboxProps>`
 const Span = styled.span<SpaceProps>`
   ${space}
 `;
+
+const launchDates: LaunchDateProps[] = [
+  {
+    date: "-10-2",
+    url: "/",
+  },
+  {
+    date: "-10-9",
+    url: "/conscious-shopping",
+  },
+  {
+    date: "-10-16",
+    url: "/marc-medina",
+  },
+  {
+    date: "-10-23",
+    url: "/erotic-stories",
+  },
+  {
+    date: "-10-30",
+    url: "/editorial",
+  },
+  {
+    date: "-11-6",
+    url: "/the-map",
+  },
+  {
+    date: "-11-13",
+    url: "/eyes",
+  },
+  {
+    date: "-11-20",
+    url: "/belledejour",
+  },
+  {
+    date: "-11-27",
+    url: "/leo-adef",
+  },
+  {
+    date: "-11-27",
+    url: "/kai-landre",
+  },
+];
+
+interface LaunchDateProps {
+  date: string;
+  url: string;
+}
+
+const GetDate = () => {
+  const location = useLocation();
+  launchDates.forEach((launchDate) => {
+    if (launchDate.url.includes(location.pathname)) {
+      return launchDate.date;
+    }
+  });
+};
+
 const calculateTimeLeft = () => {
   let year = new Date().getFullYear();
-  const difference = +new Date(`${year}-10-2`) - +new Date();
+  const difference = +new Date(`${year}${GetDate}`) - +new Date();
   const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
   const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
   const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
@@ -53,7 +112,6 @@ const calculateTimeLeft = () => {
 
 const getInterval = (number: number, intervalType: string) => {
   const label = number === 1 ? intervalType : `${intervalType}`;
-
   return `${number} ${label}`;
 };
 
