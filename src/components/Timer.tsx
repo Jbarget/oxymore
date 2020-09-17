@@ -73,9 +73,9 @@ const Timer = () => {
           fontFamily="SangBleu OG Serif Light"
           flexDirection={["column", "column", "column", "column", "row"]}
         >
-          <Span mr={3}>{getInterval(timeLeft.days, "D")}</Span>
-          <Span mr={3}>{getInterval(timeLeft.hours, "H")}</Span>
-          <Span mr={3}>{getInterval(timeLeft.minutes, "M")}</Span>
+          <Span mr={[0, 3]}>{getInterval(timeLeft.days, "D")}</Span>
+          <Span mr={[0, 3]}>{getInterval(timeLeft.hours, "H")}</Span>
+          <Span mr={[0, 3]}>{getInterval(timeLeft.minutes, "M")}</Span>
           <Span>{getInterval(timeLeft.seconds, "S")}</Span>
         </H1>
       </Container>
