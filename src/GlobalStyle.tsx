@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100%;
     height: 100%;
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", Sans-Serif;
     text-decoration: none;
     color: ${theme.colors.athensGray};
     background: ${theme.colors.black};
