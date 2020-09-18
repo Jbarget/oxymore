@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: ${theme.colors.athensGray};
     background: ${theme.colors.black};
+    padding: 24px;
+
   }
   #root {
     height: 100%;
@@ -20,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     color: ${theme.colors.athensGray};
     outline: none;
+    background: transparent;
   }
   a {
     text-decoration: none;
