@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     color: ${theme.colors.athensGray};
     outline: none; 
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", Sans-Serif;
   }
   a {
     text-decoration: none;
