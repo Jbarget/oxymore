@@ -8,12 +8,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100%;
     height: 100%;
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", Sans-Serif;
     text-decoration: none;
     color: ${theme.colors.athensGray};
     background: ${theme.colors.black};
-    padding: 24px;
-
   }
   #root {
     height: 100%;
@@ -21,8 +19,8 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     color: ${theme.colors.athensGray};
-    outline: none;
-    background: transparent;
+    outline: none; 
+    font-family: "Helvetica Neue", Sans-Serif;
   }
   a {
     text-decoration: none;
