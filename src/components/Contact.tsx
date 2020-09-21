@@ -43,7 +43,7 @@ const Contact = () => {
   const { t } = useTranslation();
   const fontSizes = [2, 3, 4, 5];
   return (
-    <Main p={6} alignItems="center" textAlign={["center", "start"]}>
+    <Main alignItems="center" textAlign={["center", "start"]}>
       <ul>
         <H1 fontSize={[4, 5, 6, 7]} py={3}>
           {t("contact.header")}

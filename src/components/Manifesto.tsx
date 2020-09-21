@@ -45,7 +45,7 @@ const Manifesto = () => {
   const fontSizes = [1, 2, 3, 4];
 
   return (
-    <Main p={8} flexDirection="column" justifyContent="center">
+    <Main flexDirection="column" justifyContent="center">
       <H1 fontSize={[2, 5]} pb={5}>
         {t("manifesto.header")}
       </H1>

@@ -122,7 +122,7 @@ const AboutUs = () => {
   const { t } = useTranslation();
 
   return (
-    <Main p={8} pt={5}>
+    <Main>
       <H1 fontSize={5} mb={4}>
         {t("about.header")}
       </H1>
