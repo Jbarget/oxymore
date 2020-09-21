@@ -19,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     color: ${theme.colors.athensGray};
-    outline: none;
+    outline: none; 
+    font-family: "Helvetica Neue", Sans-Serif;
   }
   a {
     text-decoration: none;
