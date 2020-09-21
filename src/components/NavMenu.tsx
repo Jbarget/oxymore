@@ -17,7 +17,7 @@ import {
 import { zIndexes } from "./theme";
 
 const overlayStyles = css`
-  display: -webkit-flex;
+  display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100%;
