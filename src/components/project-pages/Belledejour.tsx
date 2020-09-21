@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Timer from "../Timer";
-import { endDate } from "../Timer";
+import Timer, { endDate } from "../Timer";
 import { FlexboxProps, flexbox } from "styled-system";
 
 const Main = styled.main<FlexboxProps>`
