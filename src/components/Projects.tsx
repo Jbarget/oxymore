@@ -30,6 +30,7 @@ import { zIndexes } from "./theme";
 
 const Main = styled.main<PositionProps & FlexboxProps & LayoutProps>`
   display: flex;
+  height: 100%;
   ${position};
   ${flexbox};
 `;
@@ -86,7 +87,7 @@ const Projects = () => {
       <Container
         gridTemplateColumns="repeat(3, 1fr)"
         display="grid"
-        height="100%"
+        height="80%"
       >
         <Img
           src={stairs}

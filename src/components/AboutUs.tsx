@@ -61,7 +61,6 @@ const teamMembers: TeamMemberProps[] = [
 ];
 
 const Main = styled.main<SpaceProps>`
-  min-height: 100vh;
   ${space};
 `;
 

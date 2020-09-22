@@ -5,8 +5,8 @@ import { FlexboxProps, flexbox } from "styled-system";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
-  height: 100vh;
   overflow: hidden;
+  height: 100%;
   ${flexbox}
 `;
 
