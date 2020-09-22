@@ -27,6 +27,7 @@ const overlayStyles = css`
   background-size: cover;
   opacity: 1;
   top: 0;
+  right: 0;
   position: fixed;
   background-color: white;
   z-index: ${zIndexes.overlay};
