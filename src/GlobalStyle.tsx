@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: ${theme.colors.athensGray};
     background: ${theme.colors.black};
+    padding: ${theme.space[6]}px;
   }
   #root {
     height: 100%;
