@@ -17,9 +17,9 @@ import {
 import voltrova from "./assets/advertising-page/voltrova-720.jpg";
 import salazraki from "./assets/advertising-page/salazraki-720.jpg";
 
-const Main = styled.main<SpaceProps>`
-  min-height: 100vh;
-  ${space};
+const Main = styled.main`
+  height: 100%;
+  object-fit: contain;
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
@@ -30,21 +30,27 @@ const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
 `;
 
 const AdvertContainer = styled.div<LayoutProps & SpaceProps>`
-  object-fit: contain;
+  display: flex;
   height: 100%;
+  object-fit: contain;
   ${layout};
   ${space};
 `;
 
 const ImgContainer = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
   display: flex;
+  flex-direction: column;
+  height: 100%;
+  object-fit: contain;
   ${layout};
   ${space};
   ${flexbox};
 `;
 
-const Img = styled.img<LayoutProps>`
+const Img = styled.img<LayoutProps & SpaceProps>`
+  height: 100%;
   ${layout};
+  ${space};
 `;
 
 const P = styled.p<TypographyProps & SpaceProps>`
@@ -57,7 +63,7 @@ const Advertising = () => {
   const { t } = useTranslation();
   const fontSizes = [1, 2, 3, 4];
   return (
-    <Main p={8} pt={5}>
+    <Main>
       <Grid
         gridRowGap={[1, 1, 1, 0]}
         justifyContent="center"
@@ -65,7 +71,7 @@ const Advertising = () => {
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
-          "repeat(1, 100% [col-start])",
+          "repeat(2, 50% [col-start])",
           "repeat(2, 50% [col-start])",
         ]}
       >
@@ -74,22 +80,22 @@ const Advertising = () => {
             mb={4}
             justifyContent={["left", "left", "left", "center"]}
           >
-            <Img src={salazraki} alt="salazraki advert"></Img>
+            <Img src={salazraki} alt="salazraki advert" mb={4}></Img>
+            <P fontSize={fontSizes} textAlign="justify">
+              {t("advertising.salazraki")}
+            </P>
           </ImgContainer>
-          <P fontSize={fontSizes} textAlign="justify" p={4}>
-            {t("advertising.salazraki")}
-          </P>
         </AdvertContainer>
         <AdvertContainer p={4}>
           <ImgContainer
             mb={4}
             justifyContent={["left", "left", "left", "center"]}
           >
-            <Img src={voltrova} alt="voltrova advert" maxWidth="70%"></Img>
+            <Img src={voltrova} alt="voltrova advert" mb={4}></Img>
+            <P fontSize={fontSizes} textAlign="justify">
+              {t("advertising.voltrova")}
+            </P>
           </ImgContainer>
-          <P fontSize={fontSizes} textAlign="justify" p={4}>
-            {t("advertising.voltrova")}
-          </P>
         </AdvertContainer>
       </Grid>
     </Main>
