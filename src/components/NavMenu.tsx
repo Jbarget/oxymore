@@ -19,7 +19,7 @@ import { zIndexes } from "./theme";
 const overlayStyles = css`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   justify-content: center;
   border: none;
@@ -27,6 +27,7 @@ const overlayStyles = css`
   background-size: cover;
   opacity: 1;
   top: 0;
+  right: 0;
   position: fixed;
   background-color: white;
   z-index: ${zIndexes.overlay};
