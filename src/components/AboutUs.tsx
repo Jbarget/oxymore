@@ -61,8 +61,8 @@ const teamMembers: TeamMemberProps[] = [
 ];
 
 const Main = styled.main<SpaceProps>`
-  min-height: 100vh;
   ${space};
+  height: 100%;
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
