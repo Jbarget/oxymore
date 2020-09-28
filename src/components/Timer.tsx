@@ -44,10 +44,12 @@ interface TimerProps {
 }
 
 const Timer: React.FC<TimerProps> = (props) => {
-  const endDate = props;
+  const { endDate } = props;
 
   const calculateTimeLeft = () => {
-    const difference = Number(new Date(`${endDate}`)) - Number(new Date());
+    const difference =
+      Number(new Date(endDate).getTime()) - Number(new Date().getTime());
+
     const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
     const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
