@@ -13,7 +13,7 @@ const Main = styled.main<FlexboxProps>`
 const MarcMedina = () => {
   return (
     <Main justifyContent="center">
-      <Timer />
+      <Timer endDate="2020-11-20" />
     </Main>
   );
 };

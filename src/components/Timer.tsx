@@ -34,33 +34,34 @@ const Span = styled.span<SpaceProps>`
   ${space}
 `;
 
-const endDate = (endDate: string) => {
-  return endDate;
-};
-
-const calculateTimeLeft = () => {
-  const difference = Number(new Date(`${endDate}`)) - Number(new Date());
-  const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
-  const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
-  const secondsLeft = Math.floor((difference / 1000) % 60);
-
-  const timeLeft = {
-    days: daysLeft < 0 ? 0 : daysLeft,
-    hours: hoursLeft < 0 ? 0 : hoursLeft,
-    minutes: minutesLeft < 0 ? 0 : minutesLeft,
-    seconds: secondsLeft < 0 ? 0 : secondsLeft,
-  };
-
-  return timeLeft;
-};
-
 const getInterval = (number: number, intervalType: string) => {
   const label = number === 1 ? intervalType : `${intervalType}`;
   return `${number} ${label}`;
 };
 
-const Timer = () => {
+interface TimerProps {
+  endDate: string;
+}
+
+const Timer: React.FC<TimerProps> = (props) => {
+  const endDate = props;
+
+  const calculateTimeLeft = () => {
+    const difference = Number(new Date(`${endDate}`)) - Number(new Date());
+    const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
+    const secondsLeft = Math.floor((difference / 1000) % 60);
+
+    const timeLeft = {
+      days: daysLeft < 0 ? 0 : daysLeft,
+      hours: hoursLeft < 0 ? 0 : hoursLeft,
+      minutes: minutesLeft < 0 ? 0 : minutesLeft,
+      seconds: secondsLeft < 0 ? 0 : secondsLeft,
+    };
+    return timeLeft;
+  };
+
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
   useEffect(() => {
     setTimeout(() => {
