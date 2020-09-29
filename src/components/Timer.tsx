@@ -27,7 +27,6 @@ const H1 = styled.h1<TypographyProps & FlexboxProps>`
   ${typography};
   ${flexbox};
   display: flex;
-  text-transform: uppercase;
 `;
 
 const Span = styled.span<SpaceProps>`
@@ -75,14 +74,14 @@ const Timer: React.FC<TimerProps> = (props) => {
     <Fragment>
       <Container alignItems="center" textAlign="center" p={6}>
         <H1
-          fontSize={6}
+          fontSize={8}
           fontFamily="SangBleu OG Serif Light"
           flexDirection={["column", "column", "column", "column", "row"]}
         >
-          <Span mr={[0, 3]}>{getInterval(timeLeft.days, "D")}</Span>
-          <Span mr={[0, 3]}>{getInterval(timeLeft.hours, "H")}</Span>
-          <Span mr={[0, 3]}>{getInterval(timeLeft.minutes, "M")}</Span>
-          <Span>{getInterval(timeLeft.seconds, "S")}</Span>
+          <Span>{getInterval(timeLeft.days, "d")}</Span>
+          <Span>{getInterval(timeLeft.hours, "h")}</Span>
+          <Span>{getInterval(timeLeft.minutes, "m")}</Span>
+          <Span>{getInterval(timeLeft.seconds, "s")}</Span>
         </H1>
       </Container>
     </Fragment>
