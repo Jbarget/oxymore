@@ -28,30 +28,26 @@ import magnify from "./assets/project-page/magnify-720.png";
 import BuyButton from "./BuyButton";
 import { zIndexes } from "./theme";
 
-const Main = styled.main<PositionProps & FlexboxProps & LayoutProps>`
+const Main = styled.main<FlexboxProps & LayoutProps>`
   display: flex;
-  ${position};
+  height: 100%;
   ${flexbox};
+  ${layout}
 `;
 
-const Container = styled.div<
-  LayoutProps & FlexboxProps & GridProps & SpaceProps & PositionProps
->`
+const Container = styled.div<LayoutProps & FlexboxProps & GridProps>`
   ${layout}
   ${flexbox};
   ${grid};
-  ${space};
-  ${position};
 `;
 
 const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${position};
   ${space};
 `;
-const Img = styled.img<LayoutProps & GridProps & FlexboxProps>`
+const Img = styled.img<LayoutProps & GridProps>`
   ${layout};
   ${grid};
-  ${flexbox};
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.05);
@@ -67,7 +63,6 @@ const Scrollback = styled.button<ScrollbackProps>`
   ${background};
   ${layout};
   border: none;
-  z-index: 1;
 `;
 
 const Projects = () => {
@@ -76,19 +71,14 @@ const Projects = () => {
   }, []);
 
   return (
-    <Main
-      justifyContent="center"
-      alignItems="center"
-      position="relative"
-      flexGrow={1}
-    >
+    <Main justifyContent="center" alignItems="center">
       <Container
         gridTemplateColumns="repeat(3, 1fr)"
         gridTemplateRows="repeat(4, 1fr)"
         display="grid"
         justifyItems="center"
         alignItems="center"
-        height="90vh"
+        height="85%"
       >
         <Img
           src={stairs}
@@ -147,7 +137,7 @@ const Projects = () => {
       </Container>
       <BuyButtonContainer
         position="fixed"
-        bottom={["40%", "40%", "40%", "40%", "5%"]}
+        bottom={["40%", "40%", "40%", "40%", "10%"]}
         p={6}
         zIndex={zIndexes.inFront}
       >
@@ -165,6 +155,7 @@ const Projects = () => {
         fontSize={[3, 4]}
         background="transparent"
         onClick={scrollToTop}
+        zIndex={zIndexes.inFront}
       >
         UP
       </Scrollback>
