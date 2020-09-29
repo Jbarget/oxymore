@@ -11,6 +11,14 @@ import theme from "./components/theme";
 import "./css/reset.css";
 import Manifesto from "./components/Manifesto";
 import Header from "./components/Header";
+import ConsciousShopping from "./components/project-pages/ConsciousShopping";
+import MarcMedina from "./components/project-pages/MarcMedina";
+import Belledejour from "./components/project-pages/Belledejour";
+import Eye from "./components/project-pages/Eye";
+import LeoAdef from "./components/project-pages/LeoAdef";
+import EroticStories from "./components/project-pages/EroticStories";
+import Map from "./components/project-pages/Map";
+import KaiLandre from "./components/project-pages/KaiLandre";
 
 const AppContent = styled.div`
   height: 100%;
@@ -31,6 +39,18 @@ const App = () => {
               <Route path="/contact-us" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
               <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/marc-medina" exact component={MarcMedina} />
+              <Route path="/erotic-stories" exact component={EroticStories} />
+              <Route path="/eyes" exact component={Eye} />
+              <Route path="/belledejour" exact component={Belledejour} />
+              <Route path="/leo-adef" exact component={LeoAdef} />
+              <Route path="/the-map" exact component={Map} />
+              <Route path="/kai-landre" exact component={KaiLandre} />
+              <Route
+                path="/conscious-shopping"
+                exact
+                component={ConsciousShopping}
+              />
             </Switch>
           </Suspense>
         </AppContent>

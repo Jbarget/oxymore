@@ -20,6 +20,7 @@ import micaela from "./assets/about-page/micaela-720.jpg";
 import nil from "./assets/about-page/nil-720.jpg";
 import olga from "./assets/about-page/olga-720.jpg";
 import rodri from "./assets/about-page/rodri-720.jpg";
+import gloria from "./assets/about-page/gloria-720.jpg";
 
 const teamMembers: TeamMemberProps[] = [
   {
@@ -43,6 +44,11 @@ const teamMembers: TeamMemberProps[] = [
     img: olga,
   },
   {
+    name: "Gloria",
+
+    img: gloria,
+  },
+  {
     name: "Juancamilo",
 
     img: juancamilo,
@@ -55,8 +61,8 @@ const teamMembers: TeamMemberProps[] = [
 ];
 
 const Main = styled.main<SpaceProps>`
-  min-height: 100vh;
   ${space};
+  height: 100%;
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
@@ -79,10 +85,14 @@ const H2 = styled.h1<TypographyProps & SpaceProps>`
 `;
 
 const Img = styled.img<LayoutProps>`
+  height: 100%;
+  width: 100%;
   ${layout};
 `;
 
 const TeamMemberContainer = styled.div<LayoutProps>`
+  object-fit: contain;
+  height: 100%;
   ${layout};
 `;
 
@@ -103,7 +113,7 @@ interface TeamMemberProps {
 const TeamMember = ({ name, img }: TeamMemberProps) => {
   return (
     <TeamMemberContainer key={name}>
-      <Img alt={name} src={img} width="100%" />
+      <Img alt={name} src={img} />
     </TeamMemberContainer>
   );
 };
@@ -112,7 +122,7 @@ const AboutUs = () => {
   const { t } = useTranslation();
 
   return (
-    <Main p={8} pt={5}>
+    <Main>
       <H1 fontSize={5} mb={4}>
         {t("about.header")}
       </H1>
@@ -120,6 +130,7 @@ const AboutUs = () => {
         {t("about.subheader")}
       </H2>
       <Grid
+        gridRowGap={[1, 1, 1, 0]}
         justifyContent="center"
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
