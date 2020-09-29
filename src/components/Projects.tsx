@@ -42,7 +42,6 @@ const Container = styled.div<
   ${grid};
   ${space};
   ${position};
-  overflow: hidden;
 `;
 
 const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
