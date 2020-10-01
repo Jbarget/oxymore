@@ -39,7 +39,7 @@ const ActiveLang = css`
 const LanguageButtons = () => {
   const fontSizes = [1, 2, 3, 4];
 
-  const [activeLang, setActiveLang] = useState<String>();
+  const [activeLang, setActiveLang] = useState<string>();
 
   const onLangClick = useCallback(
     (countryId: string) => () => {
