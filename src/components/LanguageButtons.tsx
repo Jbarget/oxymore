@@ -39,12 +39,12 @@ const ActiveLang = css`
 const LanguageButtons = () => {
   const fontSizes = [1, 2, 3, 4];
 
-  const [activeLang, setActiveLang] = useState();
+  const [activeLang, setActiveLang] = useState<String>();
 
   const onLangClick = useCallback(
     (countryId: string) => () => {
       i18next.changeLanguage(countryId);
-      setActiveLang(activeLang);
+      setActiveLang(countryId);
     },
     []
   );
