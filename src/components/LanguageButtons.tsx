@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import styled from "styled-components";
+import React, { useCallback, useState } from "react";
+import styled, { css } from "styled-components";
 import {
   space,
   typography,
@@ -18,29 +18,53 @@ const Container = styled.div<FlexboxProps & LayoutProps & SpaceProps>`
   ${space};
 `;
 
-const LangButton = styled.button<SpaceProps & TypographyProps>`
+const LangButton = styled.button<
+  SpaceProps & TypographyProps & { isActive: boolean }
+>`
   background: transparent;
   border: none;
   ${typography};
   ${space};
   transition: transform 0.2s;
+  ${(props) => props.isActive && ActiveLang}
   &:hover {
     transform: scale(1.05);
+  
+`;
+
+const ActiveLang = css`
+  text-decoration-line: underline;
 `;
 
 const LanguageButtons = () => {
   const fontSizes = [1, 2, 3, 4];
+
+  const [activeLang, setActiveLang] = useState<string>();
+
   const onLangClick = useCallback(
-    (countryId: string) => () => i18next.changeLanguage(countryId),
+    (countryId: string) => () => {
+      i18next.changeLanguage(countryId);
+      setActiveLang(countryId);
+    },
     []
   );
 
   return (
     <Container display="flex" flexDirection="row" mr={8}>
-      <LangButton onClick={onLangClick("en")} fontSize={fontSizes} mr={1}>
+      <LangButton
+        onClick={onLangClick("en")}
+        fontSize={fontSizes}
+        mr={1}
+        isActive={activeLang === "en"}
+      >
         EN
       </LangButton>
-      <LangButton onClick={onLangClick("es")} fontSize={fontSizes} ml={1}>
+      <LangButton
+        onClick={onLangClick("es")}
+        fontSize={fontSizes}
+        ml={1}
+        isActive={activeLang === "es"}
+      >
         ES
       </LangButton>
     </Container>

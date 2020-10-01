@@ -69,7 +69,7 @@ const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
 
 const Home = () => {
   return (
-    <Main p={6} flexDirection="column" justifyContent="space-between">
+    <Main flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
         <DoubleLineTextImage src={oxymore} />
         <Flex justifyContent="space-between">

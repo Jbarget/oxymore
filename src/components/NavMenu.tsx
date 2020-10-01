@@ -7,17 +7,19 @@ import {
   typography,
   position,
   grid,
+  space,
   ColorProps,
   TypographyProps,
   PositionProps,
   GridProps,
+  SpaceProps,
 } from "styled-system";
 import { zIndexes } from "./theme";
 
 const overlayStyles = css`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   justify-content: center;
   border: none;
@@ -25,7 +27,9 @@ const overlayStyles = css`
   background-size: cover;
   opacity: 1;
   top: 0;
+  right: 0;
   position: fixed;
+  background-color: white;
   z-index: ${zIndexes.overlay};
 `;
 
@@ -45,9 +49,10 @@ const MenuContainer = styled.div<GridProps>`
   ${grid};
 `;
 
-const Menu = styled.ul<GridProps & TypographyProps>`
+const Menu = styled.ul<GridProps & TypographyProps & SpaceProps>`
   ${grid};
   ${typography};
+  ${space};
 `;
 
 const MenuLink = styled(NavLink)<ColorProps & TypographyProps & PositionProps>`
@@ -145,6 +150,7 @@ const NavMenu = () => {
           onClick={() => setIsOpen(!isOpen)}
           textAlign={["center", null, null, "start"]}
           gridColumn={["2/3", null, null, "1/2"]}
+          p={4}
         >
           {Links.map(Link)}
         </Menu>

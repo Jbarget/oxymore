@@ -49,12 +49,7 @@ const Header = () => {
   }
 
   return (
-    <HeaderContainer
-      alignItems="center"
-      justifyContent="space-between"
-      py={6}
-      px={8}
-    >
+    <HeaderContainer alignItems="center" justifyContent="space-between" pb={6}>
       <HeaderLogo />
       <Container display="flex">
         <LanguageButtons />

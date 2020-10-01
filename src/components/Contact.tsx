@@ -12,16 +12,16 @@ import {
   FlexboxProps,
 } from "styled-system";
 
-const Main = styled.main<
-  LayoutProps & FlexboxProps & SpaceProps & TypographyProps
->`
+const Main = styled.main<FlexboxProps>`
   display: flex;
-  text-transform: uppercase;
-  height: 80vh;
-  ${layout};
+  height: 100%;
   ${flexbox};
-  ${space};
+`;
+
+const Container = styled.div<TypographyProps & LayoutProps>`
   ${typography};
+  ${layout};
+  text-transform: uppercase;
 `;
 
 const H1 = styled.h1<SpaceProps & TypographyProps>`
@@ -43,25 +43,32 @@ const Contact = () => {
   const { t } = useTranslation();
   const fontSizes = [2, 3, 4, 5];
   return (
-    <Main p={6} alignItems="center" textAlign={["center", "start"]}>
-      <ul>
-        <H1 fontSize={[4, 5, 6, 7]} py={3}>
-          {t("contact.header")}
-        </H1>
-        <H2 fontSize={fontSizes} py={3}>
-          {t("contact.subheader")}
-        </H2>
-        <ContactInfo fontSize={fontSizes} py={1}>
-          <a
-            href="mailto:ox@oxymore.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t("contact.email")}
-          </a>
-        </ContactInfo>
-        <ContactInfo fontSize={fontSizes}>{t("contact.location")}</ContactInfo>
-      </ul>
+    <Main alignItems="center">
+      <Container
+        textAlign={["center", "center", "center", "justify"]}
+        height="50%"
+      >
+        <ul>
+          <H1 fontSize={[4, 5, 6, 7]} py={3}>
+            {t("contact.header")}
+          </H1>
+          <H2 fontSize={fontSizes} py={3}>
+            {t("contact.subheader")}
+          </H2>
+          <ContactInfo fontSize={fontSizes} py={1}>
+            <a
+              href="mailto:ox@oxymore.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("contact.email")}
+            </a>
+          </ContactInfo>
+          <ContactInfo fontSize={fontSizes}>
+            {t("contact.location")}
+          </ContactInfo>
+        </ul>
+      </Container>
     </Main>
   );
 };

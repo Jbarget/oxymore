@@ -28,31 +28,26 @@ import magnify from "./assets/project-page/magnify-720.png";
 import BuyButton from "./BuyButton";
 import { zIndexes } from "./theme";
 
-const Main = styled.main<PositionProps & FlexboxProps & LayoutProps>`
+const Main = styled.main<FlexboxProps & LayoutProps>`
   display: flex;
-  ${position};
+  height: 100%;
   ${flexbox};
+  ${layout}
 `;
 
-const Container = styled.div<
-  LayoutProps & FlexboxProps & GridProps & SpaceProps & PositionProps
->`
+const Container = styled.div<LayoutProps & FlexboxProps & GridProps>`
   ${layout}
   ${flexbox};
   ${grid};
-  ${space};
-  ${position};
-  overflow: hidden;
 `;
 
 const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${position};
   ${space};
 `;
-const Img = styled.img<LayoutProps & GridProps & FlexboxProps>`
+const Img = styled.img<LayoutProps & GridProps>`
   ${layout};
   ${grid};
-  ${flexbox};
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.05);
@@ -68,7 +63,6 @@ const Scrollback = styled.button<ScrollbackProps>`
   ${background};
   ${layout};
   border: none;
-  z-index: 1;
 `;
 
 const Projects = () => {
@@ -77,78 +71,73 @@ const Projects = () => {
   }, []);
 
   return (
-    <Main
-      justifyContent="center"
-      alignItems="center"
-      position="relative"
-      flexGrow={1}
-    >
+    <Main justifyContent="center" alignItems="center">
       <Container
         gridTemplateColumns="repeat(3, 1fr)"
+        gridTemplateRows="repeat(4, 1fr)"
         display="grid"
-        height="100%"
+        justifyItems="center"
+        alignItems="center"
+        height="85%"
       >
         <Img
           src={stairs}
-          gridColumn={[2, 2, 1]}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center", "end"]}
+          gridColumn={[2, 2, 2, 2, 3]}
+          gridRow={[1, 1, 1, 1, "1/3"]}
+          maxWidth={["100%", "100%", "100%", "100%", "30%"]}
         />
         <Img
           src={shell}
-          gridColumn={2}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center"]}
-          alignSelf={["initial", "initial", "center"]}
+          gridColumn={[2, 2, 2, 2, "2/4"]}
+          gridRow={[2, 2, 2, 2, 1]}
+          maxWidth={["100%", "100%", "100%", "100%", "15%"]}
         />
         <Img
           src={eye}
-          gridColumn={[2, 2, 3]}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center"]}
+          gridColumn={[2, 2, 2, 2, 1]}
+          gridRow={[3, 3, 3, 3, 1]}
+          maxWidth={["100%", "100%", "100%", "100%", "30%"]}
         />
         <Img
           src={statue}
-          gridColumn={[2, 2, 1]}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center"]}
+          gridColumn={[2, 2, 2, 2, 1]}
+          gridRow={[4, 4, 4, 4, "2/4"]}
+          maxWidth={["100%", "100%", "100%", "100%", "30%"]}
         />
         <Img
           src={dragon}
-          gridColumn={2}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center", "start"]}
-          alignSelf={["initial", "initial", "end"]}
+          gridColumn={[2, 2, 2, 2]}
+          gridRow={[5, 5, 5, 5, 2]}
+          maxWidth={["100%", "100%", "100%", "100%", "30%"]}
         />
         <Img
           src={knife}
-          gridColumn={[2, 2, 3]}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center", "start"]}
+          gridColumn={[2, 2, 2, 2, 3]}
+          gridRow={[6, 6, 6, 6, 3]}
+          maxWidth={["100%", "100%", "100%", "100%", "30%"]}
         />
         <Img
           src={mask}
-          gridColumn={[2, 2, 1]}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center"]}
+          gridColumn={[2, 2, 2, 2, "1/3"]}
+          gridRow={[7, 7, 7, 7, "1/3"]}
+          maxWidth={["100%", "100%", "100%", "100%", "15%"]}
         />
         <Img
           src={spider}
-          gridColumn={[2, 2, 2]}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center"]}
-          alignSelf={["initial", "initial", "center"]}
+          gridColumn={[2, 2, 2, 2, "1/3"]}
+          gridRow={[8, 8, 8, 8, 3]}
+          maxWidth={["100%", "100%", "100%", "100%", "15%"]}
         />
         <Img
           src={magnify}
-          gridColumn={[2, 2, 3]}
-          maxWidth={["75%", "75%", "50%", "30%"]}
-          justifySelf={["center", "center"]}
+          gridColumn={[2, 2, 2, 2, "2/4"]}
+          gridRow={[9, 9, 9, 9, 3]}
+          maxWidth={["100%", "100%", "100%", "100%", "15%"]}
         />
       </Container>
       <BuyButtonContainer
         position="fixed"
-        bottom={["40%", "40%", "0%", "0%"]}
+        bottom={["40%", "40%", "40%", "40%", "10%"]}
         p={6}
         zIndex={zIndexes.inFront}
       >
@@ -159,13 +148,14 @@ const Projects = () => {
       </BuyButtonContainer>
 
       <Scrollback
-        display={["block", "block", "none"]}
+        display={["block", "block", "block", "block", "none"]}
         position="fixed"
         bottom={6}
         left={6}
         fontSize={[3, 4]}
         background="transparent"
         onClick={scrollToTop}
+        zIndex={zIndexes.inFront}
       >
         UP
       </Scrollback>
