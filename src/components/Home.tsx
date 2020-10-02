@@ -57,6 +57,9 @@ const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   align-self: center;
   align-items: flex-start;
   justify-content: flex-start;
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.01);
   ${flexbox}
 `;
 const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
