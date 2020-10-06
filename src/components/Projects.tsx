@@ -157,7 +157,7 @@ const Projects = () => {
         <ProjectLink
           to="leo-adef"
           gridColumn={[2, 2, 2, 2, 2]}
-          gridRow={[8, 8, 8, 8, 3]}
+          gridRow={[8, 8, 8, 8, "2/4"]}
           maxWidth={iconSizes}
           justifySelf="center"
         >
@@ -175,7 +175,7 @@ const Projects = () => {
       </Container>
       <BuyButtonContainer
         position="fixed"
-        bottom={["40%", "40%", "40%", "40%", "10%"]}
+        bottom={["40%", "40%", "40%", "40%", "15%"]}
         zIndex={zIndexes.inFront}
       >
         <BuyButton
