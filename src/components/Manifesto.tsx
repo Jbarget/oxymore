@@ -21,8 +21,9 @@ const Main = styled.main<SpaceProps & FlexboxProps>`
   ${flexbox};
 `;
 
-const Container = styled.div<LayoutProps>`
+const Container = styled.div<LayoutProps & SpaceProps>`
   ${layout};
+  ${space};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps>`
@@ -47,31 +48,18 @@ const Paragraph = styled.p<TypographyProps & SpaceProps>`
 
 const Manifesto = () => {
   const { t } = useTranslation();
-  const fontSizes = [1, 2, 3, 4];
+  const fontSizes = [3, 4, 5, 5];
 
   return (
     <Main flexDirection="column" justifyContent="center">
-      <Container height="75%">
-        <H1 fontSize={[2, 5]} pb={5}>
+      <Container minHeight="50%" maxHeight="80%">
+        <H1 fontSize={[4, 5, 6, 6]} pb={5}>
           {t("manifesto.header")}
         </H1>
-        <Grid
-          justifyContent="center"
-          gridColumnGap="4%"
-          gridTemplateColumns={[
-            "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(1, 100% [col-start])",
-            "repeat(2, 48% [col-start])",
-          ]}
-        >
-          <Paragraph pb={5} fontSize={fontSizes}>
-            {t("manifesto.manifesto")}
-          </Paragraph>
-          <Paragraph pb={5} fontSize={fontSizes}>
-            {t("manifesto.manifesto")}
-          </Paragraph>
-        </Grid>
+
+        <Paragraph pb={5} fontSize={fontSizes}>
+          {t("manifesto.manifesto")}
+        </Paragraph>
       </Container>
     </Main>
   );
