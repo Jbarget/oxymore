@@ -79,6 +79,8 @@ const Projects = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const iconSizes = ["100%", "100%", "100%", "100%", "30%"];
+
   return (
     <Main justifyContent="center" alignItems="center">
       <Container
@@ -93,93 +95,87 @@ const Projects = () => {
           to="/editorial"
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[1, 1, 1, 1, 1]}
+          justifySelf="start"
+          maxWidth={iconSizes}
         >
-          <Img
-            src={stairs}
-            maxWidth={["100%", "100%", "100%", "100%", "30%"]}
-          />
+          <Img src={stairs} />
         </ProjectLink>
         <ProjectLink
           to="/conscious-shopping"
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[2, 2, 2, 2, "1/3"]}
-          justifyContent="center"
+          justifySelf="start"
+          maxWidth={iconSizes}
         >
-          <Img src={shell} maxWidth={["100%", "100%", "100%", "100%", "30%"]} />
+          <Img src={shell} />
         </ProjectLink>
         <ProjectLink
           to="/eyes"
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[3, 3, 3, 3, 1]}
-          justifyContent="center"
+          justifySelf="center"
+          maxWidth={iconSizes}
         >
-          <Img src={eye} maxWidth={["100%", "100%", "100%", "100%", "30%"]} />
+          <Img src={eye} />
         </ProjectLink>
         <ProjectLink
           to="/erotic-stories"
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[4, 4, 4, 4, 3]}
-          justifyContent="center"
+          justifySelf="center"
+          maxWidth={iconSizes}
         >
-          <Img
-            src={statue}
-            maxWidth={["100%", "100%", "100%", "100%", "30%"]}
-          />
+          <Img src={statue} />
         </ProjectLink>
         <ProjectLink
           to="kai-landre"
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[5, 5, 5, 5, "2/4"]}
-          alignSelf="start"
-          justifyContent="flex-end"
+          justifySelf="end"
+          maxWidth={iconSizes}
         >
-          <Img
-            src={dragon}
-            maxWidth={["100%", "100%", "100%", "100%", "30%"]}
-          />
+          <Img src={dragon} />
         </ProjectLink>
         <ProjectLink
           to="/belledejour"
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[6, 6, 6, 6, 3]}
+          maxWidth={iconSizes}
+          justifySelf="start"
         >
-          <Img src={knife} maxWidth={["100%", "100%", "100%", "100%", "30%"]} />
+          <Img src={knife} />
         </ProjectLink>
         <ProjectLink
           to="marc-medina"
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[7, 7, 7, 7, 2]}
-          alignSelf="flex-end"
-          justifyContent="center"
+          justifySelf="center"
+          maxWidth={iconSizes}
         >
-          <Img src={mask} maxWidth={["100%", "100%", "100%", "100%", "30%"]} />
+          <Img src={mask} />
         </ProjectLink>
         <ProjectLink
           to="leo-adef"
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[8, 8, 8, 8, 3]}
+          maxWidth={iconSizes}
+          justifySelf="center"
         >
-          <Img
-            src={spider}
-            maxWidth={["100%", "100%", "100%", "100%", "30%"]}
-          />
+          <Img src={spider} />
         </ProjectLink>
         <ProjectLink
           to="/the-map"
           gridColumn={[2, 2, 2, 2, 2]}
-          gridRow={[9, 9, 9, 9, "2/4"]}
-          justifyContent="flex-end"
+          gridRow={[9, 9, 9, 9, 2]}
+          justifySelf="end"
+          maxWidth={iconSizes}
         >
-          <Img
-            src={magnify}
-            maxWidth={["100%", "100%", "100%", "100%", "30%"]}
-          />
+          <Img src={magnify} />
         </ProjectLink>
       </Container>
       <BuyButtonContainer
         position="fixed"
         bottom={["40%", "40%", "40%", "40%", "10%"]}
-        p={6}
         zIndex={zIndexes.inFront}
       >
         <BuyButton
