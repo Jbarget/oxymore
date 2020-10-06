@@ -14,22 +14,15 @@ import {
   layout,
 } from "styled-system";
 
-const Main = styled.main<SpaceProps & FlexboxProps>`
+const Main = styled.main<FlexboxProps>`
   display: flex;
   height: 100%;
-  ${space};
   ${flexbox};
 `;
 
 const Container = styled.div<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
-`;
-
-const Grid = styled.div<GridProps & FlexboxProps>`
-  display: grid;
-  ${grid};
-  ${flexbox};
 `;
 
 const H1 = styled.h1<TypographyProps & SpaceProps>`
