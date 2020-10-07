@@ -19,6 +19,7 @@ import LeoAdef from "./components/project-pages/LeoAdef";
 import EroticStories from "./components/project-pages/EroticStories";
 import Map from "./components/project-pages/Map";
 import KaiLandre from "./components/project-pages/KaiLandre";
+import Advertising from "./components/Advertising";
 
 const AppContent = styled.div`
   height: 100%;
@@ -39,6 +40,7 @@ const App = () => {
               <Route path="/contact-us" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
               <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/advertising" exact component={Advertising} />
               <Route path="/marc-medina" exact component={MarcMedina} />
               <Route path="/erotic-stories" exact component={EroticStories} />
               <Route path="/eyes" exact component={Eye} />
