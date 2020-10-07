@@ -20,6 +20,7 @@ import EroticStories from "./components/project-pages/EroticStories";
 import Map from "./components/project-pages/Map";
 import KaiLandre from "./components/project-pages/KaiLandre";
 import Advertising from "./components/Advertising";
+import FashionEditorial from "./components/project-pages/FashionEditorial";
 
 const AppContent = styled.div`
   height: 100%;
@@ -48,6 +49,7 @@ const App = () => {
               <Route path="/leo-adef" exact component={LeoAdef} />
               <Route path="/the-map" exact component={Map} />
               <Route path="/kai-landre" exact component={KaiLandre} />
+              <Route path="/editorial" exact component={FashionEditorial} />
               <Route
                 path="/conscious-shopping"
                 exact

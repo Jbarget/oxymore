@@ -23,19 +23,13 @@ const Container = styled.div<FlexboxProps & SpaceProps & TypographyProps>`
   display: flex;
 `;
 
-const H1 = styled.h1<TypographyProps & FlexboxProps>`
+const H1 = styled.h1<TypographyProps>`
   ${typography};
-  ${flexbox};
-  display: flex;
-`;
-
-const Span = styled.span<SpaceProps>`
-  ${space}
 `;
 
 const getInterval = (number: number, intervalType: string) => {
   const label = number === 1 ? intervalType : `${intervalType}`;
-  return `${number} ${label}`;
+  return `${number}${label}`;
 };
 
 interface TimerProps {
@@ -73,15 +67,13 @@ const Timer: React.FC<TimerProps> = (props) => {
   return (
     <Fragment>
       <Container alignItems="center" textAlign="center" p={6}>
-        <H1
-          fontSize={8}
-          fontFamily="SangBleu OG Serif Light"
-          flexDirection={["column", "column", "column", "column", "row"]}
-        >
-          <Span>{getInterval(timeLeft.days, "d")}</Span>
-          <Span>{getInterval(timeLeft.hours, "h")}</Span>
-          <Span>{getInterval(timeLeft.minutes, "m")}</Span>
-          <Span>{getInterval(timeLeft.seconds, "s")}</Span>
+        <H1 fontSize={[4, 5, 6, 8]} fontFamily="SangBleu OG Serif Light">
+          <span>
+            {getInterval(timeLeft.days, "d")}
+            {getInterval(timeLeft.hours, "h")}
+            {getInterval(timeLeft.minutes, "m")}
+            {getInterval(timeLeft.seconds, "s")}
+          </span>
         </H1>
       </Container>
     </Fragment>
