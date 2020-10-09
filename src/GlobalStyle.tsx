@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import theme from "./components/theme";
+import mainBackground from "./components/assets/backgrounds/background.jpg";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -11,7 +12,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Helvetica Neue", Sans-Serif;
     text-decoration: none;
     color: ${theme.colors.athensGray};
-    background: ${theme.colors.black};
+    background-image: url(${mainBackground});
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: ${theme.space[6]}px;
   }
   #root {

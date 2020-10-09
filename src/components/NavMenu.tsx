@@ -15,6 +15,7 @@ import {
   SpaceProps,
 } from "styled-system";
 import { zIndexes } from "./theme";
+import secondaryBackground from "./assets/backgrounds/background.jpg";
 
 const overlayStyles = css`
   display: flex;
@@ -29,7 +30,7 @@ const overlayStyles = css`
   top: 0;
   right: 0;
   position: fixed;
-  background-color: white;
+  background-image: url(${secondaryBackground});
   z-index: ${zIndexes.overlay};
 `;
 
@@ -82,7 +83,7 @@ const Link = ({ page, url }: LinkProps) => {
       gridTemplateColumns="max-content"
     >
       <MenuText>
-        <MenuLink to={url} color="black" fontSize={[5, 6, 7, 8]}>
+        <MenuLink to={url} fontSize={[5, 6, 7, 8]}>
           {page}
         </MenuLink>
       </MenuText>
@@ -129,7 +130,6 @@ const NavMenu = () => {
           position="absolute"
           left={30}
           top={24}
-          color="black"
           onClick={() => setIsOpen(!isOpen)}
         >
           OXYMORE
@@ -137,7 +137,6 @@ const NavMenu = () => {
 
         <MenuButton
           onClick={() => setIsOpen(false)}
-          style={{ outline: "none", color: "black" }}
           fontSize={fontSizes}
           position="absolute"
           right={30}
