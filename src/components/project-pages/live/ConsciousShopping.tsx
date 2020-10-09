@@ -18,8 +18,6 @@ import trex from "../../assets/conscious-shopping/t-rex.jpg";
 const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;
   height: 100%;
-  overflow: hidden;
-  flex-direction: column;
   ${flexbox}
   ${typography};
 `;
@@ -94,12 +92,15 @@ const ConsciousShopping = () => {
       alignItems="center"
       fontFamily="SangBleuOGSerif-Light"
     >
-      <Container height="100%">
-        <FirstColumn width="30%">
+      <Container
+        height="100%"
+        flexDirection={["column", "column", "column", "column", "row"]}
+      >
+        <FirstColumn width={["100%", "100%", "100%", "100%", "30%"]}>
           <ProjectIcon
             alt="shell"
             src={shell}
-            maxWidth={["50%", "50%", "50%", "50%", "15%"]}
+            maxWidth={["25%", "25%", "25%", "25%", "15%"]}
             alignSelf="center"
           ></ProjectIcon>
           <H1 my={4}>Conscious Shopping:</H1>
@@ -108,10 +109,10 @@ const ConsciousShopping = () => {
             {t("conscious-shopping.scrollable-text")}
           </ScrollableText>
         </FirstColumn>
-        <SecondColumn width="40%">
+        <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]}>
           <MainImgCarousel alt="mijal" src={mijal} />
         </SecondColumn>
-        <ThirdColumn width="30%">
+        <ThirdColumn width={["100%", "100%", "100%", "100%", "30%"]}>
           <SecondaryImgCarousel
             alt="t-rex"
             src={trex}
