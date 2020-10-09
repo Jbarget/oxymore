@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Timer from "../Timer";
-import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import dragon from "../assets/project-page/dragon-720.png";
+import { FlexboxProps, flexbox } from "styled-system";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   flex-direction: column;
   ${flexbox}
@@ -17,17 +15,10 @@ const Container = styled.div<FlexboxProps>`
   ${flexbox};
 `;
 
-const Img = styled.img<LayoutProps>`
-  ${layout};
-`;
-
 const KaiLandre = () => {
   return (
     <Main justifyContent="center" alignItems="center">
-      <Container justifyContent="center" alignItems="center">
-        <Img src={dragon} maxWidth="30%" />
-      </Container>
-      <Timer endDate="2020-11-20" />
+      <Container justifyContent="center" alignItems="center"></Container>
     </Main>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Timer from "../Timer";
+import Timer from "../../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import spider from "../assets/project-page/spider-720.png";
+import spider from "../../assets/project-page/spider-720.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
@@ -21,7 +21,7 @@ const Img = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const LeoAdef = () => {
+const LeoAdefLoading = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
@@ -32,4 +32,4 @@ const LeoAdef = () => {
   );
 };
 
-export default LeoAdef;
+export default LeoAdefLoading;

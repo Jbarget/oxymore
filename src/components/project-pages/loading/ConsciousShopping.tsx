@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Timer from "../Timer";
+import Timer from "../../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import statue from "../assets/project-page/statue-720.png";
+import shell from "../../assets/project-page/shell-720.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
@@ -21,15 +21,15 @@ const Img = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const EroticStories = () => {
+const ConsciousShoppingLoading = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
-        <Img src={statue} maxWidth="30%" />
+        <Img src={shell} maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>
   );
 };
 
-export default EroticStories;
+export default ConsciousShoppingLoading;

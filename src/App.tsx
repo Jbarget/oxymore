@@ -11,15 +11,24 @@ import theme from "./components/theme";
 import "./css/reset.css";
 import Manifesto from "./components/Manifesto";
 import Header from "./components/Header";
-import ConsciousShopping from "./components/project-pages/ConsciousShopping";
-import MarcMedina from "./components/project-pages/MarcMedina";
-import Belledejour from "./components/project-pages/Belledejour";
-import Eye from "./components/project-pages/Eye";
-import LeoAdef from "./components/project-pages/LeoAdef";
-import EroticStories from "./components/project-pages/EroticStories";
-import Map from "./components/project-pages/Map";
-import KaiLandre from "./components/project-pages/KaiLandre";
-import FashionEditorial from "./components/project-pages/FashionEditorial";
+import ConsciousShoppingLoading from "./components/project-pages/loading/ConsciousShopping";
+import MarcMedinaLoading from "./components/project-pages/loading/MarcMedina";
+import BelledejourLoading from "./components/project-pages/loading/Belledejour";
+import EyeLoading from "./components/project-pages/loading/Eye";
+import LeoAdefLoading from "./components/project-pages/loading/LeoAdef";
+import EroticStoriesLoading from "./components/project-pages/loading/EroticStories";
+import MapLoading from "./components/project-pages/loading/Map";
+import KaiLandreLoading from "./components/project-pages/loading/KaiLandre";
+import FashionEditorialLoading from "./components/project-pages/loading/FashionEditorial";
+import ConsciousShopping from "./components/project-pages/live/ConsciousShopping";
+import MarcMedina from "./components/project-pages/live/MarcMedina";
+import Belledejour from "./components/project-pages/live/Belledejour";
+import Eye from "./components/project-pages/live/Eye";
+import LeoAdef from "./components/project-pages/live/LeoAdef";
+import EroticStories from "./components/project-pages/live/EroticStories";
+import Map from "./components/project-pages/live/Map";
+import KaiLandre from "./components/project-pages/live/KaiLandre";
+import FashionEditorial from "./components/project-pages/live/FashionEditorial";
 
 const AppContent = styled.div`
   height: 100%;
@@ -40,6 +49,48 @@ const App = () => {
               <Route path="/contact-us" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
               <Route path="/about-us" exact component={AboutUs} />
+              <Route
+                path="/loading/marc-medina"
+                exact
+                component={MarcMedinaLoading}
+              />
+              <Route
+                path="/loading/erotic-stories"
+                exact
+                component={EroticStoriesLoading}
+              />
+              <Route path="/loading/eyes" exact component={EyeLoading} />
+              <Route
+                path="/loading/belledejour"
+                exact
+                component={BelledejourLoading}
+              />
+              <Route
+                path="/loading/leo-adef"
+                exact
+                component={LeoAdefLoading}
+              />
+              <Route path="/loading/the-map" exact component={MapLoading} />
+              <Route
+                path="/loading/kai-landre"
+                exact
+                component={KaiLandreLoading}
+              />
+              <Route
+                path="/loading/editorial"
+                exact
+                component={FashionEditorialLoading}
+              />
+              <Route
+                path="/loading/conscious-shopping"
+                exact
+                component={ConsciousShoppingLoading}
+              />
+              <Route
+                path="/conscious-shopping"
+                exact
+                component={ConsciousShopping}
+              />
               <Route path="/marc-medina" exact component={MarcMedina} />
               <Route path="/erotic-stories" exact component={EroticStories} />
               <Route path="/eyes" exact component={Eye} />
@@ -48,11 +99,6 @@ const App = () => {
               <Route path="/the-map" exact component={Map} />
               <Route path="/kai-landre" exact component={KaiLandre} />
               <Route path="/editorial" exact component={FashionEditorial} />
-              <Route
-                path="/conscious-shopping"
-                exact
-                component={ConsciousShopping}
-              />
             </Switch>
           </Suspense>
         </AppContent>
