@@ -15,7 +15,7 @@ import {
   SpaceProps,
 } from "styled-system";
 import { zIndexes } from "./theme";
-import secondaryBackground from "./assets/backgrounds/background-reversed.png";
+import secondaryBackground from "./assets/backgrounds/background-reversed.jpg";
 
 const overlayStyles = css`
   display: flex;
