@@ -141,7 +141,7 @@ const ConsciousShopping = () => {
    // Similar to componentDidMount and componentDidUpdate:
    useEffect(() => {
     // Update the main carousel image using the browser API
-   
+    console.log('this works')
   });
   
   return (
