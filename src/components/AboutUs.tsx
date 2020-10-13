@@ -13,14 +13,13 @@ import {
   FlexboxProps,
   flexbox,
 } from "styled-system";
-
-import aitor from "./assets/about-page/aitor-720.jpg";
-import juancamilo from "./assets/about-page/juancamilo-720.jpg";
-import micaela from "./assets/about-page/micaela-720.jpg";
-import nil from "./assets/about-page/nil-720.jpg";
-import olga from "./assets/about-page/olga-720.jpg";
-import rodri from "./assets/about-page/rodri-720.jpg";
-import gloria from "./assets/about-page/gloria-720.jpg";
+import aitor from "./assets/about-page/aitor.jpg";
+import juancamilo from "./assets/about-page/juancamilo.jpg";
+import micaela from "./assets/about-page/micaela.jpg";
+import nil from "./assets/about-page/nil.jpg";
+import olga from "./assets/about-page/olga.jpg";
+import rodri from "./assets/about-page/rodri.jpg";
+import gloria from "./assets/about-page/gloria.jpg";
 
 const teamMembers: TeamMemberProps[] = [
   {

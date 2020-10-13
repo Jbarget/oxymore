@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import mask from "../assets/project-page/mask-720.png";
+import mask from "../assets/project-page/mask.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
