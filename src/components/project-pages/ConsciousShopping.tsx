@@ -12,7 +12,7 @@ import {
   TypographyProps,
 } from "styled-system";
 import mijal from "../assets/conscious-shopping/mijal.jpg";
-import shell from "../assets/project-page/shell-720.png";
+import shell from "../assets/project-page/shell.png";
 import trex from "../assets/conscious-shopping/t-rex.jpg";
 import lydia from "../assets/conscious-shopping/lydia.jpg";
 import boots from "../assets/conscious-shopping/boots.jpg";
@@ -106,28 +106,28 @@ const carouselImages: CarouselImageProps[] = [
     mainImg: mijal,
     secondaryImg: trex,
     interviewText: "",
-    alt: "mijal"
+    alt: "Mijal image"
   }, {
     mainImg: lydia,
     secondaryImg: boots,
     interviewText: "",
-    alt:"lydia"
+    alt:"Lydia image"
   }, {
     mainImg: leSwing,
     secondaryImg: sunglasses,
     interviewText: "",
-    alt:"le-swing"
+    alt:"Le Swing image"
   }, {
     mainImg: laia,
     secondaryImg: concha,
     interviewText: "",
-    alt:"laia"
+    alt:"Laia image"
   }, 
   {
     mainImg: nadia,
     secondaryImg: concha,
     interviewText: "",
-    alt:"nadia"
+    alt:"Nadia image"
   },
 ];
 
@@ -164,7 +164,7 @@ const ConsciousShopping = () => {
           </ScrollableText>
         </FirstColumn>
         <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]}>
-        <MainImgCarousel src={mainImg} onClick={() => setCurrent(current + 1)}/>
+        <MainImgCarousel src={mainImg}  onClick={() => setCurrent(current + 1)}/>
         </SecondColumn>
         <ThirdColumn width={["100%", "100%", "100%", "100%", "30%"]}>
           <SecondaryImgCarousel

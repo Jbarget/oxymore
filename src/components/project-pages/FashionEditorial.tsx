@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import stairs from "../assets/project-page/stairs-720.png";
+import stairs from "../assets/project-page/stairs.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
@@ -25,7 +25,7 @@ const FashionEditorial = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
-        <Img src={stairs} maxWidth="30%" />
+        <Img src={stairs} alt="stairs icon" maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>

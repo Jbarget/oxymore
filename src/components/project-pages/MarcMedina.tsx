@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import mask from "../assets/project-page/mask-720.png";
+import mask from "../assets/project-page/mask.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
@@ -25,7 +25,7 @@ const MarcMedina = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
-        <Img src={mask} maxWidth="30%" />
+        <Img src={mask} alt="mask icon" maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>

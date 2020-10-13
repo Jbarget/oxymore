@@ -16,14 +16,12 @@ import NavMenu from "./NavMenu";
 import oxymore from "./assets/home-page/oxymore-720.png";
 import manifesto from "./assets/home-page/manifesto-720.png";
 import number from "./assets/home-page/number-one-720.png";
-import alpha from "./assets/home-page/360_alpha-720.png";
-
+import alpha from "./assets/home-page/360-alpha-compressed.png";
 import LanguageButtons from "./LanguageButtons";
 
-const Main = styled.main<SpaceProps & FlexboxProps>`
+const Main = styled.main<FlexboxProps>`
   display: flex;
   height: 100%;
-  ${space};
   ${flexbox};
 `;
 
@@ -34,7 +32,6 @@ const Flex = styled.div<FlexboxProps>`
 
 const ManifestoLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${typography};
-
   display: flex;
   ${flexbox}
 `;
@@ -46,13 +43,11 @@ const DoubleLineTextImage = styled.img`
 const SingleLineTextImage = styled.img<SpaceProps>`
   height: 5vw;
   max-height: 44px;
-
   ${space};
 `;
 
 const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${typography};
-
   display: flex;
   align-self: center;
   align-items: flex-start;
@@ -65,7 +60,6 @@ const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
 const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
-
   max-width: 40vw;
   max-height: 60vh;
 `;
@@ -74,14 +68,14 @@ const Home = () => {
   return (
     <Main flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <DoubleLineTextImage src={oxymore} />
+        <DoubleLineTextImage src={oxymore} alt="oxymore image"/>
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
       <ProjectsLink to="/projects">
-        <ProjectsImg src={alpha} />
+        <ProjectsImg src={alpha} alt="alpha image"/>
       </ProjectsLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
@@ -92,7 +86,7 @@ const Home = () => {
           />
         </Flex>
         <ManifestoLink to="/manifesto" alignItems="flex-end">
-          <DoubleLineTextImage src={manifesto} />
+          <DoubleLineTextImage src={manifesto} alt="manifesto image"/>
         </ManifestoLink>
       </Flex>
     </Main>
