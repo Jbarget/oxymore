@@ -16,15 +16,15 @@ import {
   BackgroundProps,
   background,
 } from "styled-system";
-import stairs from "./assets/project-page/stairs-720.png";
-import shell from "./assets/project-page/shell-720.png";
-import eye from "./assets/project-page/eye-720.png";
-import statue from "./assets/project-page/statue-720.png";
-import dragon from "./assets/project-page/dragon-720.png";
-import knife from "./assets/project-page/knife-720.png";
-import mask from "./assets/project-page/mask-720.png";
-import spider from "./assets/project-page/spider-720.png";
-import magnify from "./assets/project-page/magnify-720.png";
+import stairs from "./assets/project-page/stairs-compressed.png";
+import shell from "./assets/project-page/shell-compressed.png";
+import eye from "./assets/project-page/eye-compressed.png";
+import statue from "./assets/project-page/statue-compressed.png";
+import dragon from "./assets/project-page/dragon-compressed.png";
+import knife from "./assets/project-page/knife-compressed.png";
+import mask from "./assets/project-page/mask-compressed.png";
+import spider from "./assets/project-page/spider-compressed.png";
+import magnify from "./assets/project-page/magnify-compressed.png";
 import BuyButton from "./BuyButton";
 import { zIndexes } from "./theme";
 import { Link } from "react-router-dom";
