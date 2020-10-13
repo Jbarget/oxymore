@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import stairs from "../assets/project-page/stairs-compressed.png";
+import stairs from "../assets/project-page/stairs.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;

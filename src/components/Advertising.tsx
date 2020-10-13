@@ -14,8 +14,8 @@ import {
   flexbox,
 } from "styled-system";
 
-import voltrova from "./assets/advertising-page/voltrova-720.jpg";
-import salazraki from "./assets/advertising-page/salazraki-720.jpg";
+import voltrova from "./assets/advertising-page/voltrova.jpg";
+import salazraki from "./assets/advertising-page/salazraki.jpg";
 
 const Main = styled.main`
   height: 100%;

@@ -15,7 +15,7 @@ import {
   SpaceProps,
 } from "styled-system";
 import { zIndexes } from "./theme";
-import mainBackground from "./assets/backgrounds/background-reversed.png";
+import background from "./assets/backgrounds/background.png";
 
 const overlayStyles = css`
   display: flex;
@@ -30,7 +30,7 @@ const overlayStyles = css`
   top: 0;
   right: 0;
   position: fixed;
-  background-image: url(${mainBackground});
+  background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
   z-index: ${zIndexes.overlay};

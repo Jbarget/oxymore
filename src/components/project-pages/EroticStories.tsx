@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import statue from "../assets/project-page/statue-compressed.png";
+import statue from "../assets/project-page/statue.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;

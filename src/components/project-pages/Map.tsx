@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import magnify from "../assets/project-page/magnify-compressed.png";
+import magnify from "../assets/project-page/magnify.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;

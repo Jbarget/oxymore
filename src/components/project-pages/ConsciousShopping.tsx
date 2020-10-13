@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import shell from "../assets/project-page/shell-compressed.png";
+import shell from "../assets/project-page/shell.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;

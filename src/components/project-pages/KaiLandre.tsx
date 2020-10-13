@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import dragon from "../assets/project-page/dragon-compressed.png";
+import dragon from "../assets/project-page/dragon.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;

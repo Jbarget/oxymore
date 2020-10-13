@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import theme from "./components/theme";
-import mainBackground from "./components/assets/backgrounds/background-reversed.png";
+import background from "./components/assets/backgrounds/background.png";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Helvetica Neue", Sans-Serif;
     text-decoration: none;
     color: ${theme.colors.athensGray};
-    background-image: url(${mainBackground});
+    background-image: url(${background});
     background-repeat: repeat-y;
     background-size: cover;
     padding: ${theme.space[6]}px;
