@@ -25,7 +25,7 @@ const Map = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
-        <Img src={magnify} maxWidth="30%" />
+        <Img src={magnify} alt="magnify" maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>

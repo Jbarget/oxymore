@@ -80,7 +80,7 @@ const Advertising = () => {
             mb={4}
             justifyContent={["left", "left", "left", "center"]}
           >
-            <Img src={salazraki} alt="salazraki advert" mb={4}></Img>
+            <Img src={salazraki} alt="Salazraki advert" mb={4}></Img>
             <P fontSize={fontSizes} textAlign="justify">
               {t("advertising.salazraki")}
             </P>
@@ -91,7 +91,7 @@ const Advertising = () => {
             mb={4}
             justifyContent={["left", "left", "left", "center"]}
           >
-            <Img src={voltrova} alt="voltrova advert" mb={4}></Img>
+            <Img src={voltrova} alt="Voltrova advert" mb={4}></Img>
             <P fontSize={fontSizes} textAlign="justify">
               {t("advertising.voltrova")}
             </P>

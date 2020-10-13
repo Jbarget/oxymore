@@ -25,7 +25,7 @@ const ConsciousShopping = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
-        <Img src={shell} maxWidth="30%" />
+        <Img src={shell} alt="shell" maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>
