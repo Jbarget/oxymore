@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, LayoutProps, layout } from "styled-system";
-import knife from "../assets/project-page/knife-720.png";
+import knife from "../assets/project-page/knife.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
