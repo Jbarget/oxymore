@@ -26,7 +26,7 @@ const Belledejour = () => {
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
         {" "}
-        <Img src={knife} maxWidth="30%" />
+        <Img src={knife} alt="knife icon" maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>

@@ -13,7 +13,6 @@ import {
   FlexboxProps,
   flexbox,
 } from "styled-system";
-
 import voltrova from "./assets/advertising-page/voltrova.jpg";
 import salazraki from "./assets/advertising-page/salazraki.jpg";
 
@@ -80,7 +79,7 @@ const Advertising = () => {
             mb={4}
             justifyContent={["left", "left", "left", "center"]}
           >
-            <Img src={salazraki} alt="salazraki advert" mb={4}></Img>
+            <Img src={salazraki} alt="Salazraki image" mb={4}></Img>
             <P fontSize={fontSizes} textAlign="justify">
               {t("advertising.salazraki")}
             </P>
@@ -91,7 +90,7 @@ const Advertising = () => {
             mb={4}
             justifyContent={["left", "left", "left", "center"]}
           >
-            <Img src={voltrova} alt="voltrova advert" mb={4}></Img>
+            <Img src={voltrova} alt="Voltrova image" mb={4}></Img>
             <P fontSize={fontSizes} textAlign="justify">
               {t("advertising.voltrova")}
             </P>
