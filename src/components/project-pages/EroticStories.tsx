@@ -25,7 +25,7 @@ const EroticStories = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
-        <Img src={statue} alt="statue" maxWidth="30%" />
+        <Img src={statue} alt="statue icon" maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>

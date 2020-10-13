@@ -25,7 +25,7 @@ const Eye = () => {
   return (
     <Main justifyContent="center" alignItems="center">
       <Container justifyContent="center" alignItems="center">
-        <Img src={eye} alt="eye" maxWidth="30%" />
+        <Img src={eye} alt="eye icon" maxWidth="30%" />
       </Container>
       <Timer endDate="2020-11-20" />
     </Main>

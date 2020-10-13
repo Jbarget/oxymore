@@ -68,14 +68,14 @@ const Home = () => {
   return (
     <Main flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <DoubleLineTextImage src={oxymore} alt="Oxymore Magazine"/>
+        <DoubleLineTextImage src={oxymore} alt="oxymore image"/>
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
       <ProjectsLink to="/projects">
-        <ProjectsImg src={alpha} alt="Alpha 360 logo"/>
+        <ProjectsImg src={alpha} alt="alpha image"/>
       </ProjectsLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
@@ -86,7 +86,7 @@ const Home = () => {
           />
         </Flex>
         <ManifestoLink to="/manifesto" alignItems="flex-end">
-          <DoubleLineTextImage src={manifesto} alt="Manifesto"/>
+          <DoubleLineTextImage src={manifesto} alt="manifesto image"/>
         </ManifestoLink>
       </Flex>
     </Main>

@@ -25,38 +25,38 @@ import gloria from "./assets/about-page/gloria-720.jpg";
 const teamMembers: TeamMemberProps[] = [
   {
     name: "Aitor",
-
     img: aitor,
+    alt: "Aitor image",
   },
   {
     name: "Micaela",
-
     img: micaela,
+    alt: "Micaela image",
   },
   {
     name: "Rodri",
-
     img: rodri,
+    alt: "Rodri image",
   },
   {
-    name: "3 Aitor",
-
+    name: "Olga",
     img: olga,
+    alt: "Olga image",
   },
   {
     name: "Gloria",
-
     img: gloria,
+    alt: "Gloria image",
   },
   {
     name: "Juancamilo",
-
     img: juancamilo,
+    alt: "Juancamilo image",
   },
   {
     name: "Nil",
-
     img: nil,
+    alt: "Nil image",
   },
 ];
 
@@ -108,12 +108,13 @@ const GridCell = styled.div<
 interface TeamMemberProps {
   name: string;
   img: string;
+  alt: string;
 }
 
-const TeamMember = ({ name, img }: TeamMemberProps) => {
+const TeamMember = ({ name, img, alt }: TeamMemberProps) => {
   return (
     <TeamMemberContainer key={name}>
-      <Img alt={name} src={img} />
+      <Img alt={alt} src={img} />
     </TeamMemberContainer>
   );
 };
