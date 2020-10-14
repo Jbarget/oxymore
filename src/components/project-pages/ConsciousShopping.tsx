@@ -22,6 +22,7 @@ import nadia from "../assets/conscious-shopping/nadia.jpg";
 import concha from "../assets/conscious-shopping/concha.jpg";
 import laia from "../assets/conscious-shopping/laia.jpg";
 import { useTranslation } from "react-i18next";
+import theme from "../theme";
 
 const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;
@@ -94,14 +95,14 @@ ${layout};
 ${flexbox};
 `;
 
-interface CarouselImageProps {
+interface CarouselProps {
   mainImg: string;
   secondaryImg: string;
   interviewText: string;
   alt: string;
 }
 
-const carouselImages: CarouselImageProps[] = [
+const carousel: CarouselProps[] = [
   {
     mainImg: mijal,
     secondaryImg: trex,
@@ -134,15 +135,21 @@ const carouselImages: CarouselImageProps[] = [
 
 const ConsciousShopping = () => {
   const { t } = useTranslation();
-  const mainImg = carouselImages[0].mainImg
 
-  const [current, setCurrent] = useState(0);
+  const startingImage = carousel[0].mainImg
+  const [current, setCurrent] = useState(startingImage);
+  let mainImage = current;
+
+  function handleClick() {
+    setCurrent(current + 1);
+  } 
 
    // Similar to componentDidMount and componentDidUpdate:
    useEffect(() => {
     // Update the main carousel image using the browser API
-    console.log('this works')
+   
   });
+
   
   return (
     <Main justifyContent="center" alignItems="center"  fontFamily="SangBleuOGSerif-Light"
@@ -164,7 +171,7 @@ const ConsciousShopping = () => {
           </ScrollableText>
         </FirstColumn>
         <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]}>
-        <MainImgCarousel src={mainImg}  onClick={() => setCurrent(current + 1)}/>
+        <MainImgCarousel src={mainImage} onClick={() => handleClick()}/>
         </SecondColumn>
         <ThirdColumn width={["100%", "100%", "100%", "100%", "30%"]}>
           <SecondaryImgCarousel
