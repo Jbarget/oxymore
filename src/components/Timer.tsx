@@ -67,7 +67,7 @@ const Timer: React.FC<TimerProps> = (props) => {
   return (
     <Fragment>
       <Container alignItems="center" textAlign="center" p={6}>
-        <H1 fontSize={[4, 5, 6, 8]} fontFamily="SangBleu OG Serif Light">
+        <H1 fontSize={[4, 5, 6, 8]} fontFamily="secondary">
           <span>
             {getInterval(timeLeft.days, "d")}
             {getInterval(timeLeft.hours, "h")}

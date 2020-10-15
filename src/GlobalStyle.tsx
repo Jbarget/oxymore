@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100%;
     height: 100%;
-    font-family: "Helvetica Neue", Sans-Serif;
+    font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.athensGray};
     background-image: url(${background});
@@ -28,8 +28,8 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
     color: ${theme.colors.athensGray};
-    outline: none; 
-    font-family: "Helvetica Neue", Sans-Serif;
+    outline: none;
+    font-family: ${theme.fonts.primary};
   }
   a {
     text-decoration: none;
