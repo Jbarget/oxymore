@@ -16,44 +16,14 @@ export const zIndexes = {
 };
 
 const colorCodes = {
-  // Core colors
-  azure: "#306fb6",
-  danube: "#739CD6",
-  flamenco: "#FF7E07",
-  mirage: "#181c34",
-  shark: "#222224",
-  rhino: "#293653",
-  thunderbird: "#C51111",
-  deco: "#cae09c",
-  springSun: "#F5FFE1",
-  blackSqueeze: "#f2f7fa",
-  silver: "#cccccc",
-  parisDaisy: "#FDF674",
-  atlantis: "#67D543",
-
-  // Greyscale
   black: "#000000",
-  waterloo: "#858597",
-  santasGray: "#969baa",
-  suitGray: "#b9b9ca",
-  botticelli: "#d0dee7",
-  mercury: "#e8e8ef",
   athensGray: "#f4f4f6",
-  titanWhite: "#FCFCFF",
-  white: "#FFFFFF",
 };
 
 const colors = {
   ...colorCodes,
-  copyOne: colorCodes["mirage"],
-  copyTwo: colorCodes["shark"],
-  error: colorCodes["thunderbird"],
-  primary: colorCodes["azure"],
-  secondary: colorCodes["flamenco"],
-  accentPrimary: colorCodes["danube"],
-
-  // Colors which include opacity
-  activeShading: "rgba(27, 26, 33, 0.16)",
+  copyOne: colorCodes["athensGray"],
+  copyTwo: colorCodes["black"],
 };
 
 const breakpoints: string[] = ["319px", "424px", "767px", "1023px"];
@@ -86,14 +56,11 @@ const space = {
 };
 
 const fonts = {
-  regular: "MetropolisRegular, sans-serif",
-  medium: "MetropolisMedium, sans-serif",
-  bold: "MetropolisBold, sans-serif",
+  primary: "Helvetica Neue, sans-serif",
+  secondary: "SangBleu, sans-serif",
 };
 
-const borders = {
-  primaryThin: `1px solid ${colors.azure}`,
-};
+const borders = {};
 
 const theme = {
   space: {
