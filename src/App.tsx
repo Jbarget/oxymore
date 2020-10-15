@@ -5,22 +5,22 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading";
 import theme from "./components/theme";
 import "./css/reset.css";
-// import Header from "./components/Header";
-// import Home from "./components/Home";
-// import Projects from "./components/Projects";
-// import Contact from "./components/Contact";
-// import AboutUs from "./components/AboutUs";
-// import Manifesto from "./components/Manifesto";
-// import ConsciousShopping from "./components/project-pages/ConsciousShopping";
-// import MarcMedina from "./components/project-pages/MarcMedina";
-// import Belledejour from "./components/project-pages/Belledejour";
-// import Eye from "./components/project-pages/Eye";
-// import LeoAdef from "./components/project-pages/LeoAdef";
-// import EroticStories from "./components/project-pages/EroticStories";
-// import Map from "./components/project-pages/Map";
-// import KaiLandre from "./components/project-pages/KaiLandre";
-// import Advertising from "./components/Advertising";
-// import FashionEditorial from "./components/project-pages/FashionEditorial";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import AboutUs from "./components/AboutUs";
+import Manifesto from "./components/Manifesto";
+import ConsciousShopping from "./components/project-pages/ConsciousShopping";
+import MarcMedina from "./components/project-pages/MarcMedina";
+import Belledejour from "./components/project-pages/Belledejour";
+import Eye from "./components/project-pages/Eye";
+import LeoAdef from "./components/project-pages/LeoAdef";
+import EroticStories from "./components/project-pages/EroticStories";
+import Map from "./components/project-pages/Map";
+import KaiLandre from "./components/project-pages/KaiLandre";
+import Advertising from "./components/Advertising";
+import FashionEditorial from "./components/project-pages/FashionEditorial";
 
 const AppContent = styled.div`
   height: 100%;
@@ -33,13 +33,13 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <AppContent>
           <Suspense fallback={<div>Loading</div>}>
-            {/* <Header /> */}
+            <Header />
             <Switch>
               <Route path="/" exact component={Loading} />
-              {/* <Route path="/oxymore" exact component={Home} />
-              <Route path="/contactus" exact component={Contact} />
+              <Route path="/oxymore" exact component={Home} />
+              <Route path="/contact" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
-              <Route path="/aboutus" exact component={AboutUs} />
+              <Route path="/about" exact component={AboutUs} />
               <Route path="/advertising" exact component={Advertising} />
               <Route path="/projects" exact component={Projects} />
               <Route path="/projects/marcmedina" exact component={MarcMedina} />
@@ -54,7 +54,7 @@ const App = () => {
                 path="/projects/consciousshopping"
                 exact
                 component={ConsciousShopping}
-              /> */}
+              />
             </Switch>
           </Suspense>
         </AppContent>
