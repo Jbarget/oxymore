@@ -2,7 +2,12 @@ import { createGlobalStyle } from "styled-components";
 import theme from "./components/theme";
 import background from "./components/assets/backgrounds/background.png";
 
+
 const GlobalStyle = createGlobalStyle`
+@font-face{
+  font-family: SangBleu;
+  src: url(SangBleuOGSerif-Light.otf)
+}
   html {
     height: 100%;
   }
