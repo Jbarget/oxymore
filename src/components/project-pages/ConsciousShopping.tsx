@@ -49,11 +49,12 @@ const FirstColumn = styled.div<FlexboxProps & LayoutProps>`
   ${flexbox};
 `;
 
-const SecondColumn = styled.div<FlexboxProps & LayoutProps>`
+const SecondColumn = styled.div<FlexboxProps & LayoutProps & SpaceProps>`
   display: flex;
   flex-direction: column;
   ${flexbox};
   ${layout};
+  ${space};
 `;
 
 const ThirdColumn = styled.div<FlexboxProps & LayoutProps>`
@@ -102,54 +103,66 @@ interface CarouselProps {
   alt: string;
 }
 
-const carousel: CarouselProps[] = [
-  {
-    mainImg: mijal,
-    secondaryImg: trex,
-    interviewText: "",
-    alt: "Mijal image"
-  }, {
-    mainImg: lydia,
-    secondaryImg: boots,
-    interviewText: "",
-    alt:"Lydia image"
-  }, {
-    mainImg: leSwing,
-    secondaryImg: sunglasses,
-    interviewText: "",
-    alt:"Le Swing image"
-  }, {
-    mainImg: laia,
-    secondaryImg: concha,
-    interviewText: "",
-    alt:"Laia image"
-  }, 
-  {
-    mainImg: nadia,
-    secondaryImg: concha,
-    interviewText: "",
-    alt:"Nadia image"
-  },
-];
-
 
 const ConsciousShopping = () => {
   const { t } = useTranslation();
+  const carousel: CarouselProps[] = [
+    {
+      mainImg: mijal,
+      secondaryImg: trex,
+      interviewText: t("conscious-shopping.mijal"),
+      alt: "Mijal image"
+    }, {
+      mainImg: lydia,
+      secondaryImg: boots,
+      interviewText:  t("conscious-shopping.lydia"),
+      alt:"Lydia image"
+    }, {
+      mainImg: leSwing,
+      secondaryImg: sunglasses,
+      interviewText:  t("conscious-shopping.le-swing"),
+      alt:"Le Swing image"
+    }, {
+      mainImg: laia,
+      secondaryImg: concha,
+      interviewText:  t("conscious-shopping.laia"),
+      alt:"Laia image"
+    }, 
+    {
+      mainImg: nadia,
+      secondaryImg: concha,
+      interviewText: t("conscious-shopping.nadia"),
+      alt:"Nadia image"
+    },
+  ];
 
-  const startingImage = carousel[0].mainImg
-  const [current, setCurrent] = useState(startingImage);
-  let mainImage = current;
+  const [current, setCurrent] = useState(0);
+  const next = (current + 1) % carousel.length;
+  const mainImage = carousel[current].mainImg
+  const secondaryImage = carousel[current].secondaryImg
+  const interviewText = carousel[current].interviewText
 
-  function handleClick() {
-    setCurrent(current + 1);
-  } 
+  var Keys = {
+    left: false,
+    right: false
+};
 
-   // Similar to componentDidMount and componentDidUpdate:
-  //  useEffect(() => {
-    // Update the main carousel image using the browser API
-  // });
+function onKeyDown(key: { which: number; }) {
+  if (key.which == 37){Keys.left = true;}
+  if (key.which == 39){Keys.right = true;}
+} 
 
-  
+function onKeyUp(key: { which: number; }) {
+  if (key.which == 37){Keys.left = false;}
+  if (key.which == 39){Keys.right = false;}
+} 
+
+function handleClick() {
+  setCurrent(next);
+  onKeyDown({which: 0});
+  onKeyUp({which: 0});
+} 
+
   return (
     <Main justifyContent="center" alignItems="center"  fontFamily="SangBleuOGSerif-Light"
     >
@@ -166,21 +179,21 @@ const ConsciousShopping = () => {
           <H1 my={4}>Conscious Shopping:</H1>
           <H2 mb={4}>{t("conscious-shopping.subheader")}</H2>
           <ScrollableText>
-            {t("conscious-shopping.scrollable-text")}
+          {interviewText}
           </ScrollableText>
         </FirstColumn>
-        <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]}>
+        <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]} mx={4}>
         <MainImgCarousel src={mainImage} onClick={() => handleClick()}/>
         </SecondColumn>
         <ThirdColumn width={["100%", "100%", "100%", "100%", "30%"]}>
           <SecondaryImgCarousel
             alt="t-rex"
-            src={trex}
+            src={secondaryImage}
             maxWidth={["75%", "75%", "75%", "75%", "50%"]}
             justifySelf="start"
           />
           <ScrollableText>
-            {t("conscious-shopping.scrollable-text")}
+         {interviewText}
           </ScrollableText>
         </ThirdColumn>
       </Container>
