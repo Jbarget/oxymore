@@ -1,0 +1,30 @@
+{
+  "home": {
+    "header": "EN"
+  },
+  "nav": {
+    "manifesto": "MANIFESTO",
+    "advertising": "ADVERTISING",
+    "about-us": "ABOUT US",
+    "contact": "CONTACT",
+    "buy": "BUY"
+  },
+  "contact": {
+    "header": "Contact",
+    "subheader": "Oxymore is a biannual publication bla bla bla bla",
+    "email": "ox@oxymore.com",
+    "location": "Barcelona"
+  },
+  "manifesto": {
+    "header": "Manifesto",
+    "manifesto": "Classy anarchist connections make for genuinely diverse utopias in which noble social fights by minorities educate the ignorant and empower the humble and naïf. An oniric queer love revolution, elegantly kitsch and subtly absurd. An anti design dystopia created by aesthetic oxymorons."
+  },
+  "about": {
+    "header": "About",
+    "subheader": "Oxymore is a biannual publication bla bla bla bla"
+  },	
+  "advertising": {	
+    "salazraki": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",	
+    "voltrova": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+}
+}

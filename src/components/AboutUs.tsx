@@ -1,0 +1,163 @@
+import React from "react";
+import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import {
+  layout,
+  space,
+  grid,
+  typography,
+  LayoutProps,
+  SpaceProps,
+  GridProps,
+  TypographyProps,
+  FlexboxProps,
+  flexbox,
+} from "styled-system";
+import aitor from "./assets/about-page/aitor.jpg";
+import juancamilo from "./assets/about-page/juancamilo.jpg";
+import micaela from "./assets/about-page/micaela.jpg";
+import nil from "./assets/about-page/nil.jpg";
+import olga from "./assets/about-page/olga.jpg";
+import rodri from "./assets/about-page/rodri.jpg";
+import gloria from "./assets/about-page/gloria.jpg";
+
+const teamMembers: TeamMemberProps[] = [
+  {
+    name: "Aitor",
+    img: aitor,
+    alt: "Aitor image",
+  },
+  {
+    name: "Micaela",
+    img: micaela,
+    alt: "Micaela image",
+  },
+  {
+    name: "Rodri",
+    img: rodri,
+    alt: "Rodri image",
+  },
+  {
+    name: "Olga",
+    img: olga,
+    alt: "Olga image",
+  },
+  {
+    name: "Gloria",
+    img: gloria,
+    alt: "Gloria image",
+  },
+  {
+    name: "Juancamilo",
+    img: juancamilo,
+    alt: "Juancamilo image",
+  },
+  {
+    name: "Nil",
+    img: nil,
+    alt: "Nil image",
+  },
+];
+
+const Main = styled.main<SpaceProps>`
+  ${space};
+  height: 100%;
+`;
+
+const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
+  display: grid;
+  ${grid};
+  ${flexbox};
+  ${space};
+`;
+
+const H1 = styled.h1<TypographyProps & SpaceProps>`
+  text-transform: uppercase;
+  ${space};
+  ${typography};
+`;
+
+const H2 = styled.h1<TypographyProps & SpaceProps>`
+  text-transform: uppercase;
+  ${space};
+  ${typography};
+`;
+
+const Img = styled.img<LayoutProps>`
+  height: 100%;
+  width: 100%;
+  ${layout};
+`;
+
+const TeamMemberContainer = styled.div<LayoutProps>`
+  object-fit: contain;
+  height: 100%;
+  ${layout};
+`;
+
+const GridCell = styled.div<
+  LayoutProps & SpaceProps & FlexboxProps & TypographyProps
+>`
+  ${layout};
+  ${space};
+  ${flexbox};
+  ${typography}
+`;
+
+interface TeamMemberProps {
+  name: string;
+  img: string;
+  alt: string;
+}
+
+const TeamMember = ({ name, img, alt }: TeamMemberProps) => {
+  return (
+    <TeamMemberContainer key={name}>
+      <Img alt={alt} src={img} />
+    </TeamMemberContainer>
+  );
+};
+
+const AboutUs = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Main>
+      <H1 fontSize={5} mb={4}>
+        {t("about.header")}
+      </H1>
+      <H2 fontSize={5} mb={4}>
+        {t("about.subheader")}
+      </H2>
+      <Grid
+        gridRowGap={[1, 1, 1, 0]}
+        justifyContent="center"
+        gridTemplateColumns={[
+          "repeat(1, 100% [col-start])",
+          "repeat(1, 100% [col-start])",
+          "repeat(1, 100% [col-start])",
+          "repeat(2, 50% [col-start])",
+          "repeat(4, 25% [col-start])",
+        ]}
+      >
+        {teamMembers.map(TeamMember)}
+        <GridCell
+          display="flex"
+          justifyContent="center"
+          p={6}
+          lineHeight={1.5}
+          textAlign="justify"
+        >
+          <p>
+            OUR TEAM AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR
+            RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN
+            CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL
+            FERNÁNDEZ GRAPHIC DESIGNER
+          </p>
+        </GridCell>
+      </Grid>
+    </Main>
+  );
+};
+
+export default AboutUs;
