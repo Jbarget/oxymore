@@ -22,7 +22,6 @@ import nadia from "../assets/conscious-shopping/nadia.jpg";
 import concha from "../assets/conscious-shopping/concha.jpg";
 import laia from "../assets/conscious-shopping/laia.jpg";
 import { useTranslation } from "react-i18next";
-import theme from "../theme";
 
 const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;
