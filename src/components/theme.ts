@@ -1,3 +1,5 @@
+import marble from "./assets/backgrounds/marble.png";
+
 export type Colors =
   | keyof typeof colorCodes
   | {
@@ -13,6 +15,10 @@ export const zIndexes = {
   behind: -1,
   inFront: 1,
   overlay: 1300,
+};
+
+export const backgrounds = {
+  marble: `url(${marble})`,
 };
 
 const colorCodes = {
@@ -57,7 +63,7 @@ const space = {
 
 const fonts = {
   primary: "Helvetica Neue, sans-serif",
-  secondary: "SangBleu, sans-serif",
+  secondary: "SangBleuOGSerif-Light, sans-serif",
 };
 
 const borders = {};
@@ -76,6 +82,9 @@ const theme = {
   breakpoints,
   colors: {
     ...colors,
+  },
+  backgrounds: {
+    ...backgrounds,
   },
 };
 
