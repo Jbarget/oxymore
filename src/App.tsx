@@ -37,21 +37,21 @@ const App = () => {
             <Switch>
               <Route path="/" exact component={Loading} />
               {/* <Route path="/oxymore" exact component={Home} />
-              <Route path="/projects" exact component={Projects} />
-              <Route path="/contact-us" exact component={Contact} />
+              <Route path="/contact" exact component={Contact} />
               <Route path="/manifesto" exact component={Manifesto} />
-              <Route path="/about-us" exact component={AboutUs} />
+              <Route path="/about" exact component={AboutUs} />
               <Route path="/advertising" exact component={Advertising} />
-              <Route path="/marc-medina" exact component={MarcMedina} />
-              <Route path="/erotic-stories" exact component={EroticStories} />
-              <Route path="/eyes" exact component={Eye} />
-              <Route path="/belledejour" exact component={Belledejour} />
-              <Route path="/leo-adef" exact component={LeoAdef} />
-              <Route path="/the-map" exact component={Map} />
-              <Route path="/kai-landre" exact component={KaiLandre} />
-              <Route path="/editorial" exact component={FashionEditorial} />
+              <Route path="/projects" exact component={Projects} />
+              <Route path="/projects/marcmedina" exact component={MarcMedina} />
+              <Route path="/projects/eroticstories" exact component={EroticStories} />
+              <Route path="/projects/eyes" exact component={Eye} />
+              <Route path="/projects/belledejour" exact component={Belledejour} />
+              <Route path="/projects/leoadef" exact component={LeoAdef} />
+              <Route path="/projects/themap" exact component={Map} />
+              <Route path="/projects/kailandre" exact component={KaiLandre} />
+              <Route path="/projects/editorial" exact component={FashionEditorial} />
               <Route
-                path="/conscious-shopping"
+                path="/projects/consciousshopping"
                 exact
                 component={ConsciousShopping}
               /> */}

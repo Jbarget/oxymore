@@ -100,7 +100,7 @@ const NavMenu = () => {
   const Links: LinkProps[] = [
     {
       page: `${t("nav.about-us")}`,
-      url: "/about-us",
+      url: "/about",
     },
     {
       page: `${t("nav.manifesto")}`,
@@ -108,7 +108,7 @@ const NavMenu = () => {
     },
     {
       page: `${t("nav.contact")}`,
-      url: "/contact-us",
+      url: "/contact",
     },
     {
       page: `${t("nav.advertising")}`,

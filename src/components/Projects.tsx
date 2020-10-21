@@ -92,7 +92,7 @@ const Projects = () => {
         height={["90%", "100%"]}
       >
         <ProjectLink
-          to="/editorial"
+          to="/projects/editorial"
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[1, 1, 1, 1, 1]}
           justifySelf="start"
@@ -101,7 +101,7 @@ const Projects = () => {
           <Img src={stairs} alt="stairs icon"/>
         </ProjectLink>
         <ProjectLink
-          to="/conscious-shopping"
+          to="/projects/consciousshopping"
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[2, 2, 2, 2, "1/3"]}
           justifySelf="start"
@@ -110,7 +110,7 @@ const Projects = () => {
           <Img src={shell} alt="shell icon"/>
         </ProjectLink>
         <ProjectLink
-          to="/eyes"
+          to="/projects/eyes"
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[3, 3, 3, 3, 1]}
           justifySelf="center"
@@ -119,7 +119,7 @@ const Projects = () => {
           <Img src={eye} alt="eye icon"/>
         </ProjectLink>
         <ProjectLink
-          to="/erotic-stories"
+          to="/projects/eroticstories"
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[4, 4, 4, 4, 3]}
           justifySelf="center"
@@ -128,7 +128,7 @@ const Projects = () => {
           <Img src={statue} alt="statue icon"/>
         </ProjectLink>
         <ProjectLink
-          to="kai-landre"
+          to="/projects/kailandre"
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[5, 5, 5, 5, "2/4"]}
           justifySelf="end"
@@ -137,7 +137,7 @@ const Projects = () => {
           <Img src={dragon} alt="dragon icon"/>
         </ProjectLink>
         <ProjectLink
-          to="/belledejour"
+          to="/projects/belledejour"
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[6, 6, 6, 6, 3]}
           maxWidth={iconSizes}
@@ -146,7 +146,7 @@ const Projects = () => {
           <Img src={knife} alt="knife icon"/>
         </ProjectLink>
         <ProjectLink
-          to="marc-medina"
+          to="/projects/marcmedina"
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[7, 7, 7, 7, 2]}
           justifySelf="center"
@@ -155,7 +155,7 @@ const Projects = () => {
           <Img src={mask} alt="mask icon"/>
         </ProjectLink>
         <ProjectLink
-          to="leo-adef"
+          to="/projects/leoadef"
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[8, 8, 8, 8, "2/4"]}
           maxWidth={iconSizes}
@@ -164,7 +164,7 @@ const Projects = () => {
           <Img src={spider} alt="spider icon"/>
         </ProjectLink>
         <ProjectLink
-          to="/the-map"
+          to="/projects/themap"
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[9, 9, 9, 9, 2]}
           justifySelf="end"
