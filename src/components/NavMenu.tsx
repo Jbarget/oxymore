@@ -24,7 +24,6 @@ const overlayStyles = css`
   width: 100%;
   justify-content: center;
   border: none;
-  background-image: url("/assets/nav-menu/background-inverted-720.png");
   background-size: cover;
   opacity: 1;
   top: 0;
