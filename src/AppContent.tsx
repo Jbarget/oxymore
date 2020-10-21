@@ -1,11 +1,24 @@
 import React, { Fragment } from "react";
 import { useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
+import { background } from "styled-system";
 import theme from "./components/theme";
 
 interface PageProps {
     url: string[];
+    background: any;
   }
+
+const marbleBackground = css`
+background-image: url(${theme.backgrounds.marble}); 
+background-repeat: repeat-y;
+background-size: cover;
+`;
+
+const blackBackground = css`
+background-color: ${theme.colors.black};
+`;
+
 
 const pages: PageProps[] = [
     {
@@ -16,7 +29,8 @@ const pages: PageProps[] = [
       "/about", 
       "/contact", 
       "/buy"
-     ]
+     ], 
+     background: marbleBackground
     },
     {
     url: [
@@ -28,28 +42,20 @@ const pages: PageProps[] = [
     "/projects/themap", 
     "/projects/belledejour", 
     "/projects/leoadef"
-     ]
+     ], 
+     background: blackBackground
     },
   ];
 
-  const marbleBackground = css`
-  background-image: url(${theme.backgrounds.marble}); 
-  background-repeat: repeat-y;
-  background-size: cover;
-`;
-
-  const blackBackground = css`
-  background-color: ${theme.colors.black};
-`;
+ 
 
   const GetBackground = () => {
+    const background = pages[0].background;
     const location = useLocation();
     pages.forEach((page) => {
-      if (location.pathname.includes(`${page.url}/projects`)) {
-        return blackBackground;
-      } else {
-          return marbleBackground;
-        }
+      if (page.url.includes(location.pathname)) {
+        return background;
+      }
     });
   };
 
@@ -58,7 +64,6 @@ const pages: PageProps[] = [
   display: flex;
   flex-direction: column;
 `;
-
 
 const AppContent = () => {
     return (
