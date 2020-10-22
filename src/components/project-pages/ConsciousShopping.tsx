@@ -182,7 +182,7 @@ function handleClick() {
           <ScrollableText textAlign="justify" mb={6}>
          {interviewText}
           </ScrollableText>
-        </ThirdColumn>
+        </ThirdColumn> 
       </Container>
        {/* <ConsciousShoppingPreview/>  */}
     </Main>

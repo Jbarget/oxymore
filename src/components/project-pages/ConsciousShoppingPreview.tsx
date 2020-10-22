@@ -20,6 +20,7 @@ import sunglasses from "../assets/conscious-shopping/sunglasses.jpg";
 import concha from "../assets/conscious-shopping/concha.jpg";
 import Timer from "../Timer";
 import { zIndexes } from "../theme";
+import { Link } from "react-router-dom";
 
 type GridLayoutProps = FlexboxProps &
 LayoutProps &
@@ -54,7 +55,7 @@ const ConsciousShoppingPreview = () => {
   return (
     <Fragment>
      <Grid display={["flex", "flex", "flex", "grid"]} flexDirection={["column", "column", "column", "row"]} gridTemplateColumns="repeat(3, 1fr)" gridTemplateRows="repeat(5, 20%)"  height="100%" alignItems="center">
-    <ProjectIconShell src={shell}  alt="icon image" maxWidth="20%" gridColumn={1} gridRow={1} /> 
+      <Link to="/projects"> <ProjectIconShell src={shell}  alt="icon image" maxWidth="20%" gridColumn={1} gridRow={1} /></Link>
       <Illustration  src={boots} alt="illustration image"  maxWidth="50%"  gridColumn={1} gridRow={2} justifySelf="flex-end" alignSelf="center"/> 
       <Illustration src={bag} alt="illustration image"  maxWidth="50%" gridColumn={2} justifySelf="center" alignSelf="center"/> 
     <Grid  zIndex={zIndexes.inFront} gridColumn={2} gridRow="2/4" justifySelf="center" alignSelf="center">
