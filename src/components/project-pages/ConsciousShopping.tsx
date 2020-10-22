@@ -22,6 +22,7 @@ import concha from "../assets/conscious-shopping/concha.jpg";
 import laia from "../assets/conscious-shopping/laia.jpg";
 import { useTranslation } from "react-i18next";
 import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
+import { Link } from "react-router-dom";
 
 const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;
@@ -157,12 +158,14 @@ function handleClick() {
     <Main justifyContent="center" alignItems="center"  fontFamily="secondary">
       <Container height="100%" flexDirection={["column", "column", "column", "column", "row"]}>
         <FirstColumn width={["100%", "100%", "100%", "100%", "30%"]}>
+        <Link to="/projects">
           <ProjectIcon
             alt="icon image"
             src={shell}
             maxWidth={["25%", "25%", "25%", "25%", "15%"]}
             alignSelf="center"
           ></ProjectIcon>
+          </Link>
           <H1 my={4}>Conscious Shopping:</H1>
           <H2 mb={4}>{t("conscious-shopping.subheader")}</H2>
           <ScrollableText textAlign="justify" mb={6}>
