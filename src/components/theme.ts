@@ -1,5 +1,3 @@
-import marble from "./assets/backgrounds/marble.png";
-
 export type Colors =
   | keyof typeof colorCodes
   | {
@@ -15,10 +13,6 @@ export const zIndexes = {
   behind: -1,
   inFront: 1,
   overlay: 1300,
-};
-
-export const backgrounds = {
-  marble: `url(${marble})`,
 };
 
 const colorCodes = {
@@ -82,9 +76,6 @@ const theme = {
   breakpoints,
   colors: {
     ...colors,
-  },
-  backgrounds: {
-    ...backgrounds,
   },
 };
 

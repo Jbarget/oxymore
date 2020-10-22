@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   FlexboxProps,
@@ -7,73 +7,184 @@ import {
   LayoutProps,
   space,
   SpaceProps,
-  position,
-  PositionProps,
-  GridProps,
-  grid,
+  typography,
+  TypographyProps,
 } from "styled-system";
-import bag from "../assets/conscious-shopping/bag.jpg";
+import mijal from "../assets/conscious-shopping/mijal.jpg";
 import shell from "../assets/project-page/shell.png";
 import trex from "../assets/conscious-shopping/t-rex.jpg";
+import lydia from "../assets/conscious-shopping/lydia.jpg";
 import boots from "../assets/conscious-shopping/boots.jpg";
+import leSwing from "../assets/conscious-shopping/le-swing.jpg";
 import sunglasses from "../assets/conscious-shopping/sunglasses.jpg";
+import nadia from "../assets/conscious-shopping/nadia.jpg";
 import concha from "../assets/conscious-shopping/concha.jpg";
-import Timer from "../Timer";
-import { zIndexes } from "../theme";
+import laia from "../assets/conscious-shopping/laia.jpg";
+import { useTranslation } from "react-i18next";
+import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
 
-const Main = styled.main<FlexboxProps>`
+const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;
   height: 100%;
   ${flexbox}
+  ${typography};
 `;
 
-const Container = styled.div<FlexboxProps & LayoutProps & PositionProps & SpaceProps & GridProps>`
+const Container = styled.div<FlexboxProps & LayoutProps>`
   display: flex;
   ${flexbox};
   ${layout};
-  ${position};
+`;
+
+const FirstColumn = styled.div< LayoutProps>`
+  display: flex;
+  flex-direction: column;
+  ${layout};
+`;
+
+const SecondColumn = styled.div<LayoutProps>`
+  display: flex;
+  flex-direction: column;
+  ${layout};
+`;
+
+const ThirdColumn = styled.div<LayoutProps>`
+  display: flex;
+  flex-direction: column;
+  ${layout};
+`;
+
+const H1 = styled.h1<SpaceProps>`
+  text-transform: uppercase;
   ${space};
-  ${grid};
 `;
 
-const ProjectIconShell = styled.img<LayoutProps & FlexboxProps & GridProps>`
-  ${layout};
-  ${flexbox};
-  ${grid};
+const H2 = styled.h2<SpaceProps>`
+  ${space};
 `;
 
-const Illustration = styled.img<LayoutProps & FlexboxProps & PositionProps & GridProps>`
+const BigImage = styled.img<SpaceProps>`
+  ${space};
+  cursor: pointer;
+`;
+
+const SmallImage = styled.img<LayoutProps & FlexboxProps>`
   ${layout};
   ${flexbox};
-  ${position};
-  ${grid};
-  opacity: 0.5;
 `;
+
+const ScrollableText = styled.p<TypographyProps & SpaceProps>`
+  ${typography};
+  ${space};
+  overflow: scroll;
+`;
+
+const ProjectIcon = styled.img<LayoutProps & FlexboxProps>`
+${layout};
+${flexbox};
+`;
+
+interface CarouselProps {
+  bigImage: string;
+  smallImage: string;
+  interviewText: string;
+  alt: string;
+}
 
 
 const ConsciousShopping = () => {
+  const { t } = useTranslation();
+  const carousel: CarouselProps[] = [
+    {
+      bigImage: mijal,
+      smallImage: trex,
+      interviewText: t("conscious-shopping.mijal"),
+      alt: "Mijal image"
+    }, {
+      bigImage: lydia,
+      smallImage: boots,
+      interviewText:  t("conscious-shopping.lydia"),
+      alt:"Lydia image"
+    }, {
+      bigImage: leSwing,
+      smallImage: sunglasses,
+      interviewText:  t("conscious-shopping.le-swing"),
+      alt:"Le Swing image"
+    }, {
+      bigImage: laia,
+      smallImage: concha,
+      interviewText:  t("conscious-shopping.laia"),
+      alt:"Laia image"
+    }, 
+    {
+      bigImage: nadia,
+      smallImage: concha,
+      interviewText: t("conscious-shopping.nadia"),
+      alt:"Nadia image"
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+  const next = (current + 1) % carousel.length;
+  const mainImage = carousel[current].bigImage
+  const secondaryImage = carousel[current].smallImage
+  const interviewText = carousel[current].interviewText
+  const altTags = carousel[current].alt
+
+//   var Keys = {
+//     left: false,
+//     right: false
+// };
+
+// function onKeyDown(key: { which: number; }) {
+//   if (key.which == 37){Keys.left = true;}
+//   if (key.which == 39){Keys.right = true;}
+// } 
+
+// function onKeyUp(key: { which: number; }) {
+//   if (key.which == 37){Keys.left = false;}
+//   if (key.which == 39){Keys.right = false;}
+// } 
+
+function handleClick() {
+  setCurrent(next);
+  // onKeyDown({which: 0});
+  // onKeyUp({which: 0});
+} 
+
   return (
-    <Main justifyContent="center" alignItems="center">
-     <Container gridTemplateColumns="repeat(3, 1fr)"
-        gridTemplateRows="repeat(5, 20%)"
-        display={["flex", "flex", "flex", "grid"]}
-        flexDirection={["column", "column", "column", "row"]}
-        height="100%"
-        alignItems="center"
-        >
-    <ProjectIconShell alt="icon image" src={shell} maxWidth="20%" gridColumn={1} gridRow={1} /> 
-      <Illustration alt="illustration image" src={boots} maxWidth="50%"  gridColumn={1} gridRow={2} justifySelf="flex-end" alignSelf="center"/> 
-    <Illustration alt="illustration image" src={bag} maxWidth="50%" gridColumn={2} justifySelf="center" alignSelf="center"/> 
-    <Container  zIndex={zIndexes.inFront} gridColumn={2} gridRow="2/4" justifySelf="center" alignSelf="center">
-      <Timer endDate="2020-11-20"/> 
+    <Main justifyContent="center" alignItems="center"  fontFamily="secondary">
+      <Container height="100%" flexDirection={["column", "column", "column", "column", "row"]}>
+        <FirstColumn width={["100%", "100%", "100%", "100%", "30%"]}>
+          <ProjectIcon
+            alt="icon image"
+            src={shell}
+            maxWidth={["25%", "25%", "25%", "25%", "15%"]}
+            alignSelf="center"
+          ></ProjectIcon>
+          <H1 my={4}>Conscious Shopping:</H1>
+          <H2 mb={4}>{t("conscious-shopping.subheader")}</H2>
+          <ScrollableText textAlign="justify" mb={4}>
+          {interviewText}
+          </ScrollableText>
+        </FirstColumn>
+        <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]}>
+        <BigImage src={mainImage} alt={altTags} onClick={() => handleClick()} p={4}/>
+        </SecondColumn>
+        <ThirdColumn width={["100%", "100%", "100%", "100%", "30%"]}>
+          <SmallImage
+            src={secondaryImage}  alt={altTags}
+            maxWidth={["75%", "75%", "75%", "75%", "50%"]}
+            justifySelf="start"
+          />
+          <ScrollableText textAlign="justify" mb={4}>
+         {interviewText}
+          </ScrollableText>
+        </ThirdColumn>
       </Container>
-      <Illustration alt="illustration image" src={concha} maxWidth="50%" gridColumn={2} gridRow={4} justifySelf="flex-start" alignSelf="center"/> 
-      <Illustration  alt="illustration image" src={trex} maxWidth="50%" gridColumn={2} gridRow={4} justifySelf="flex-end" alignSelf="center"/>
-      <Illustration alt="illustration image" src={sunglasses} maxWidth="50%"  gridColumn={3} gridRow={2} alignSelf="center"/> 
-     </Container>
+       {/* <ConsciousShoppingPreview/>  */}
     </Main>
   );
 };
 
 export default ConsciousShopping;
-

@@ -1,6 +1,6 @@
-import React, { Fragment, Suspense } from "react";
+import React, { Suspense } from "react";
 import GlobalStyle from "./GlobalStyle";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./components/theme";
 import "./css/reset.css";
@@ -13,7 +13,6 @@ import AboutUs from "./components/AboutUs";
 import Manifesto from "./components/Manifesto";
 import Advertising from "./components/Advertising";
 import ConsciousShopping from "./components/project-pages/ConsciousShopping";
-import AppContent from "./AppContent";
 // import MarcMedina from "./components/project-pages/MarcMedina";
 // import Belledejour from "./components/project-pages/Belledejour";
 // import Eye from "./components/project-pages/Eye";
@@ -23,15 +22,17 @@ import AppContent from "./AppContent";
 // import KaiLandre from "./components/project-pages/KaiLandre";
 // import FashionEditorial from "./components/project-pages/FashionEditorial";
 
-
-
+const AppContent = styled.div`
+height: 100%;
+display: flex;
+flex-direction: column;
+`;
 
 const App = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Fragment>
-          {AppContent}
+        <AppContent>
           <Suspense fallback={<div>Loading</div>}>
              <Header /> 
             <Switch>
@@ -57,7 +58,7 @@ const App = () => {
               />
             </Switch>
           </Suspense>
-        </Fragment>
+        </AppContent>
         <GlobalStyle />
       </ThemeProvider>
     </Router>
