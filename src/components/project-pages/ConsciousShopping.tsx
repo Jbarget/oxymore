@@ -68,9 +68,10 @@ const BigImage = styled.img<SpaceProps>`
   cursor: pointer;
 `;
 
-const SmallImage = styled.img<LayoutProps & FlexboxProps>`
+const SmallImage = styled.img<LayoutProps & FlexboxProps & SpaceProps>`
   ${layout};
   ${flexbox};
+  ${space};
 `;
 
 const ScrollableText = styled.p<TypographyProps & SpaceProps>`
@@ -164,7 +165,7 @@ function handleClick() {
           ></ProjectIcon>
           <H1 my={4}>Conscious Shopping:</H1>
           <H2 mb={4}>{t("conscious-shopping.subheader")}</H2>
-          <ScrollableText textAlign="justify" mb={4}>
+          <ScrollableText textAlign="justify" mb={6}>
           {interviewText}
           </ScrollableText>
         </FirstColumn>
@@ -176,8 +177,9 @@ function handleClick() {
             src={secondaryImage}  alt={altTags}
             maxWidth={["75%", "75%", "75%", "75%", "50%"]}
             justifySelf="start"
+            pb={4}
           />
-          <ScrollableText textAlign="justify" mb={4}>
+          <ScrollableText textAlign="justify" mb={6}>
          {interviewText}
           </ScrollableText>
         </ThirdColumn>
