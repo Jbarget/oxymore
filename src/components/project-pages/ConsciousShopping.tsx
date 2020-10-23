@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 import React, { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
   FlexboxProps,
@@ -10,19 +12,17 @@ import {
   typography,
   TypographyProps,
 } from "styled-system";
-import mijal from "../assets/conscious-shopping/mijal.jpg";
-import shell from "../assets/project-page/shell.png";
-import trex from "../assets/conscious-shopping/t-rex.jpg";
-import lydia from "../assets/conscious-shopping/lydia.jpg";
-import boots from "../assets/conscious-shopping/boots.jpg";
-import leSwing from "../assets/conscious-shopping/le-swing.jpg";
-import sunglasses from "../assets/conscious-shopping/sunglasses.jpg";
-import nadia from "../assets/conscious-shopping/nadia.jpg";
-import concha from "../assets/conscious-shopping/concha.jpg";
-import laia from "../assets/conscious-shopping/laia.jpg";
-import { useTranslation } from "react-i18next";
+import shellIcon from "../assets/project-page/shell.png";
+import mijalImg from "../assets/conscious-shopping/mijal.jpg";
+import trexImg from "../assets/conscious-shopping/t-rex.jpg";
+import lydiaImg from "../assets/conscious-shopping/lydia.jpg";
+import bootsImg from "../assets/conscious-shopping/boots.jpg";
+import leSwingImg from "../assets/conscious-shopping/le-swing.jpg";
+import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
+import nadiaImg from "../assets/conscious-shopping/nadia.jpg";
+import conchaImg from "../assets/conscious-shopping/concha.jpg";
+import laiaImg from "../assets/conscious-shopping/laia.jpg";
 import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
-import { Link } from "react-router-dom";
 
 const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;
@@ -98,29 +98,29 @@ const ConsciousShopping = () => {
   const { t } = useTranslation();
   const carousel: CarouselProps[] = [
     {
-      bigImage: mijal,
-      smallImage: trex,
+      bigImage: mijalImg,
+      smallImage: trexImg,
       interviewText: t("conscious-shopping.mijal"),
       alt: "Mijal image"
     }, {
-      bigImage: lydia,
-      smallImage: boots,
+      bigImage: lydiaImg,
+      smallImage: bootsImg,
       interviewText:  t("conscious-shopping.lydia"),
       alt:"Lydia image"
     }, {
-      bigImage: leSwing,
-      smallImage: sunglasses,
+      bigImage: leSwingImg,
+      smallImage: sunglassesImg,
       interviewText:  t("conscious-shopping.le-swing"),
       alt:"Le Swing image"
     }, {
-      bigImage: laia,
-      smallImage: concha,
+      bigImage: laiaImg,
+      smallImage: conchaImg,
       interviewText:  t("conscious-shopping.laia"),
       alt:"Laia image"
     },
     {
-      bigImage: nadia,
-      smallImage: concha,
+      bigImage: nadiaImg,
+      smallImage: conchaImg,
       interviewText: t("conscious-shopping.nadia"),
       alt:"Nadia image"
     },
@@ -143,8 +143,8 @@ const ConsciousShopping = () => {
         <FirstColumn width={["100%", "100%", "100%", "100%", "30%"]}>
         <Link to="/projects">
           <ProjectIcon
-            alt="icon image"
-            src={shell}
+            alt="shell icon"
+            src={shellIcon}
             maxWidth={["25%", "25%", "25%", "25%", "15%"]}
             alignSelf="center"
           ></ProjectIcon>
