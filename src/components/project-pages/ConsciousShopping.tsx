@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import {
   FlexboxProps,
@@ -117,7 +117,7 @@ const ConsciousShopping = () => {
       smallImage: concha,
       interviewText:  t("conscious-shopping.laia"),
       alt:"Laia image"
-    }, 
+    },
     {
       bigImage: nadia,
       smallImage: concha,
@@ -128,31 +128,14 @@ const ConsciousShopping = () => {
 
   const [current, setCurrent] = useState(0);
   const next = (current + 1) % carousel.length;
-  const mainImage = carousel[current].bigImage
-  const secondaryImage = carousel[current].smallImage
-  const interviewText = carousel[current].interviewText
-  const altTags = carousel[current].alt
+  const currentCarouselItem = carousel[current];
 
-//   var Keys = {
-//     left: false,
-//     right: false
-// };
+  const mainImage = currentCarouselItem.bigImage
+  const secondaryImage = currentCarouselItem.smallImage
+  const interviewText = currentCarouselItem.interviewText
+  const altTags = currentCarouselItem.alt
 
-// function onKeyDown(key: { which: number; }) {
-//   if (key.which == 37){Keys.left = true;}
-//   if (key.which == 39){Keys.right = true;}
-// } 
-
-// function onKeyUp(key: { which: number; }) {
-//   if (key.which == 37){Keys.left = false;}
-//   if (key.which == 39){Keys.right = false;}
-// } 
-
-function handleClick() {
-  setCurrent(next);
-  // onKeyDown({which: 0});
-  // onKeyUp({which: 0});
-} 
+  const handleClick = useCallback(() => setCurrent(next), [next]);
 
   return (
     <Main justifyContent="center" alignItems="center"  fontFamily="secondary">
@@ -173,7 +156,7 @@ function handleClick() {
           </ScrollableText>
         </FirstColumn>
         <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]}>
-        <BigImage src={mainImage} alt={altTags} onClick={() => handleClick()} p={4}/>
+        <BigImage src={mainImage} alt={altTags} onClick={handleClick} p={4}/>
         </SecondColumn>
         <ThirdColumn width={["100%", "100%", "100%", "100%", "30%"]}>
           <SmallImage
@@ -185,7 +168,7 @@ function handleClick() {
           <ScrollableText textAlign="justify" mb={6}>
          {interviewText}
           </ScrollableText>
-        </ThirdColumn> 
+        </ThirdColumn>
       </Container>
        {/* <ConsciousShoppingPreview/>  */}
     </Main>
