@@ -16,7 +16,7 @@ const Div = styled.div<{ background: Background }>`
 `
 
 const getBackground = (pathname: string): Background => {
-  const pagesWithMarbleBG = [ "/", "/projects", "/advertising", "/about", "/contact", "/buy", "/oxymore" ];
+  const pagesWithMarbleBG = [ "/", "/projects", "/manifesto", "/advertising", "/about", "/contact", "/buy", "/oxymore" ];
   const pagesWithBlackBG = ["/projects/consciousshopping", "/projects/fashioneditorial", "/projects/kailandre", "/projects/eroticstories", "/projects/eyes", "/projects/themap", "/projects/belledejour", "/projects/leoadef"];
 
   if (pagesWithBlackBG.includes(pathname)) {
