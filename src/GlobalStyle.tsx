@@ -6,7 +6,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: SangBleu;
     src: url(SangBleuOGSerif-Light.otf)
   }
-
+  html {
+    height: 100%
+  }
   body {
     min-height: 100%;
     height: 100%;

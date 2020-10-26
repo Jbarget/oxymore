@@ -12,6 +12,7 @@ const Div = styled.div<{ background: Background }>`
   }
   background-repeat: repeat-y;
   background-size: cover;
+  height: 100%;
 `
 
 const getBackground = (pathname: string): Background => {
