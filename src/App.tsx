@@ -28,7 +28,8 @@ const AppContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${theme.space[6]}px;
-  `;
+  overflow: auto;
+`;
 
 const App = () => {
   return (
