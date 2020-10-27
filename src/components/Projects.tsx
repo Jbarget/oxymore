@@ -52,6 +52,7 @@ const ProjectLink = styled(Link)<LayoutProps & GridProps & FlexboxProps>`
   ${grid};
   ${flexbox};
   display: flex;
+  align-items: center;
 `;
 
 const Img = styled.img<LayoutProps>`
