@@ -22,7 +22,7 @@ import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
 import nadiaImg from "../assets/conscious-shopping/nadia.jpg";
 import conchaImg from "../assets/conscious-shopping/concha.jpg";
 import laiaImg from "../assets/conscious-shopping/laia.jpg";
-import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
+// import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
 
 const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;

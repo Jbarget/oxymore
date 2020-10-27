@@ -5,11 +5,9 @@ import {
   space,
   typography,
   flexbox,
-  grid,
   SpaceProps,
   TypographyProps,
   FlexboxProps,
-  GridProps,
   LayoutProps,
   layout,
 } from "styled-system";
