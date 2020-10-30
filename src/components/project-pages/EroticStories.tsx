@@ -51,9 +51,7 @@ const ScrollableTextContainer = styled.div<GridProps & SpaceProps>`
 `;
 
 
-const ScrollableText = styled.p<GridProps & SpaceProps>`
-  ${grid};
-  ${space};
+const ScrollableText = styled.p`
   overflow: scroll;
 `;
 
