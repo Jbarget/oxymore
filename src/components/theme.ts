@@ -57,7 +57,7 @@ const space = {
 
 const fonts = {
   primary: "Helvetica Neue, sans-serif",
-  secondary: "SangBleu, sans-serif",
+  secondary: "SangBleuOGSerif-Light, sans-serif",
 };
 
 const borders = {};
