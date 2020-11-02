@@ -13,7 +13,6 @@ import {
   TypographyProps,
 } from "styled-system";
 import EroticStoriesPreview from "./EroticStoriesPreview";
-import alasImg from "./../assets/erotic-stories/alas-bateando.jpg";
 import ombligosImg from "./../assets/erotic-stories/ombligos.jpg";
 import { useTranslation } from "react-i18next";
 
@@ -53,7 +52,6 @@ const ScrollableText = styled.p<GridProps>`
 `;
 
 interface EroticStoryProps {
-  title: string;
   img: string;
   text: string;
   alt: string;
@@ -63,13 +61,11 @@ const EroticStories = () => {
   const { t } = useTranslation();
   const eroticStories: EroticStoryProps[] = [
     {
-      title: "Ombligos",
       img: ombligosImg,
       text: t("erotic-stories.poem"),
       alt: "Ombligos image",
     },
     {
-      title: "Alas Bateando",
       img: ombligosImg,
       text: t("erotic-stories.poem"),
       alt: "Alas Bateando image",
@@ -99,7 +95,7 @@ const EroticStories = () => {
           "repeat(1, 100% [col-start])",
           "repeat(2, 50% [col-start])",
           "repeat(2, 50% [col-start])",
-        ]}
+        ]}    
       >
         <EroticImageContainer>
           <EroticImage src={eroticStory1.img} alt={eroticStory1.alt} />
