@@ -14,6 +14,8 @@ import {
 } from "styled-system";
 import EroticStoriesPreview from "./EroticStoriesPreview";
 import ombligosImg from "./../assets/erotic-stories/ombligos.jpg";
+import gloria from "../assets/about-page/gloria.jpg";
+
 import { useTranslation } from "react-i18next";
 
 const Main = styled.main<TypographyProps>`
@@ -39,12 +41,13 @@ const H2 = styled.h2<TypographyProps & SpaceProps>`
 `;
 
 const EroticImageContainer = styled.div<GridProps>`
-  object-fit: contain;
-  height: fit-content;
   ${grid};
 `;
 
-const EroticImage = styled.img``;
+const EroticImage = styled.img`
+  height: auto;
+  max-width: 100%;
+`;
 
 const ScrollableText = styled.p<GridProps>`
   overflow: scroll;
@@ -66,7 +69,7 @@ const EroticStories = () => {
       alt: "Ombligos image",
     },
     {
-      img: ombligosImg,
+      img: gloria,
       text: t("erotic-stories.poem"),
       alt: "Alas Bateando image",
     },
@@ -85,23 +88,23 @@ const EroticStories = () => {
       </H2>
       <Grid
         display="grid"
-        height="100%"
+        height={["auto", "auto", "100%"]}
         flexDirection="column"
         justifyContent="center"
         gridRowGap={3}
         gridColumnGap={3}
         gridTemplateColumns={[
-          "repeat(1, 100% [col-start])",
-          "repeat(1, 100% [col-start])",
-          "repeat(2, 50% [col-start])",
-          "repeat(2, 50% [col-start])",
-        ]}    
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+        ]}
+        gridTemplateRows={["auto"]}
       >
         <EroticImageContainer>
           <EroticImage src={eroticStory1.img} alt={eroticStory1.alt} />
         </EroticImageContainer>
         <ScrollableText>{eroticStory1.text}</ScrollableText>
-        <EroticImageContainer gridColumn={2}>
+        <EroticImageContainer gridRow={[3, 3, 2]} gridColumn={[1, 1, 2]}>
           <EroticImage src={eroticStory2.img} alt={eroticStory2.alt} />
         </EroticImageContainer>
         <ScrollableText gridColumn={1} gridRow={2}>
