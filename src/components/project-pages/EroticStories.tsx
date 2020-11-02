@@ -13,7 +13,7 @@ import {
   TypographyProps,
 } from "styled-system";
 import EroticStoriesPreview from "./EroticStoriesPreview";
-import ombligosImg from "./../assets/erotic-stories/ombligos.jpg";
+import ombligosImg from "../assets/erotic-stories/ombligos.jpg";
 
 import { useTranslation } from "react-i18next";
 
