@@ -14,7 +14,6 @@ import {
 } from "styled-system";
 import EroticStoriesPreview from "./EroticStoriesPreview";
 import ombligosImg from "./../assets/erotic-stories/ombligos.jpg";
-import gloria from "../assets/about-page/gloria.jpg";
 
 import { useTranslation } from "react-i18next";
 
@@ -44,10 +43,7 @@ const EroticImageContainer = styled.div<GridProps>`
   ${grid};
 `;
 
-const EroticImage = styled.img`
-  height: auto;
-  max-width: 100%;
-`;
+const EroticImage = styled.img``;
 
 const ScrollableText = styled.p<GridProps>`
   overflow: scroll;
@@ -69,7 +65,7 @@ const EroticStories = () => {
       alt: "Ombligos image",
     },
     {
-      img: gloria,
+      img: ombligosImg,
       text: t("erotic-stories.poem"),
       alt: "Alas Bateando image",
     },
@@ -98,7 +94,6 @@ const EroticStories = () => {
           "repeat(1, 1fr)",
           "repeat(2, 1fr)",
         ]}
-        gridTemplateRows={["auto"]}
       >
         <EroticImageContainer>
           <EroticImage src={eroticStory1.img} alt={eroticStory1.alt} />
