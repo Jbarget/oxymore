@@ -6,7 +6,7 @@ import dragon from "../assets/project-page/dragon.png";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   flex-direction: column;
   ${flexbox}
