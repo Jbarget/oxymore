@@ -15,11 +15,12 @@ const Container = styled.div<LayoutProps>`
 `;
 
 const KaiLandre = () => {
+  const url = 'https://www.youtube.com/watch?v=AGSH_acR4wA'
 
   return (
     <Main justifyContent="center" alignItems="center">
       <Container height='100%' width='100%'>
-      <ReactPlayer url='https://www.youtube.com/watch?v=AGSH_acR4wA' width='100%' height='100%'/>
+      <ReactPlayer url={url} width='100%' height='100%'/>
       </Container>
       {/* <KaiLandrePreview/> */}
     </Main>
