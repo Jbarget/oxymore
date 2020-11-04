@@ -19,10 +19,10 @@ const KaiLandre = () => {
 
   return (
     <Main justifyContent="center" alignItems="center">
-      <Container height='100%' width='100%'>
+      {/* <Container height='100%' width='100%'>
       <ReactPlayer url={url} width='100%' height='100%'/>
-      </Container>
-      {/* <KaiLandrePreview/> */}
+      </Container> */}
+      <KaiLandrePreview/>
     </Main>
   );
 };

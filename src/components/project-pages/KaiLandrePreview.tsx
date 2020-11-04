@@ -1,20 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
 import dragon from "../assets/project-page/dragon.png";
 
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100%;
-  overflow: hidden;
-  flex-direction: column;
-  ${flexbox}
-`;
 
-const Container = styled.div<FlexboxProps>`
-  display: flex;
+
+const Container = styled.div<FlexboxProps & LayoutProps>`
   ${flexbox};
+  ${layout};
 `;
 
 const Img = styled.img<LayoutProps>`
@@ -23,12 +17,12 @@ const Img = styled.img<LayoutProps>`
 
 const KaiLandrePreview = () => {
   return (
-    <Main justifyContent="center" alignItems="center">
-      <Container justifyContent="center" alignItems="center">
+    <Fragment>
+      <Container flexDirection="column" display="flex" justifyContent="center" alignItems="center">
         <Img src={dragon} alt="dragon icon" maxWidth="30%" />
+        <Timer endDate="2020-11-20" />
       </Container>
-      <Timer endDate="2020-11-20" />
-    </Main>
+    </Fragment>
   );
 };
 
