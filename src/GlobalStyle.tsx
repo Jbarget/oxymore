@@ -4,7 +4,7 @@ import theme from "./components/theme";
 const GlobalStyle = createGlobalStyle`
   @font-face{
     font-family: SangBleu;
-    src: url(SangBleuOGSerif-Light.otf)
+    src: url(/SangBleuOGSerif-Light.otf)
   }
   html {
     height: 100%
