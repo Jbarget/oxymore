@@ -59,7 +59,7 @@ const ConsciousShoppingPreview = () => {
       <Illustration  src={boots} alt="illustration image"  maxWidth="50%"  gridColumn={1} gridRow={2} justifySelf="flex-end" alignSelf="center"/> 
       <Illustration src={bag} alt="illustration image"  maxWidth="50%" gridColumn={2} justifySelf="center" alignSelf="center"/> 
     <Grid  zIndex={zIndexes.inFront} gridColumn={2} gridRow="2/4" justifySelf="center" alignSelf="center">
-      <Timer endDate="2020-11-20"/> 
+      <Timer endDate="2020-12-21"/> 
       </Grid>
       <Illustration src={concha} alt="illustration image"  maxWidth="50%" gridColumn={2} gridRow={4} justifySelf="flex-start" alignSelf="center"/> 
       <Illustration  src={trex} alt="illustration image" maxWidth="50%" gridColumn={2} gridRow={4} justifySelf="flex-end" alignSelf="center"/>

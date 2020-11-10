@@ -28,7 +28,7 @@ const Belledejour = () => {
         {" "}
         <Img src={knife} alt="knife icon" maxWidth="30%" />
       </Container>
-      <Timer endDate="2020-11-20" />
+      <Timer endDate="2020-12-21" />
     </Main>
   );
 };

@@ -20,7 +20,7 @@ const KaiLandrePreview = () => {
     <Fragment>
       <Container flexDirection="column" display="flex" justifyContent="center" alignItems="center">
         <Img src={dragon} alt="dragon icon" maxWidth="30%" />
-        <Timer endDate="2020-11-20" />
+        <Timer endDate="2020-12-21" />
       </Container>
     </Fragment>
   );
