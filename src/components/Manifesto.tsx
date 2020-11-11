@@ -10,17 +10,25 @@ import {
   FlexboxProps,
   LayoutProps,
   layout,
+  GridProps,
+  grid,
 } from "styled-system";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
   height: 100%;
+  flex-direction: column;
   ${flexbox};
 `;
 
-const Container = styled.div<LayoutProps & SpaceProps>`
+const Container = styled.div<LayoutProps>`
   ${layout};
-  ${space};
+`;
+
+const Grid = styled.div<GridProps & FlexboxProps>`
+display: grid;
+${grid}; 
+${flexbox}
 `;
 
 const H1 = styled.h1<TypographyProps & SpaceProps>`
@@ -30,9 +38,9 @@ const H1 = styled.h1<TypographyProps & SpaceProps>`
 `;
 
 const Paragraph = styled.p<TypographyProps & SpaceProps>`
-  text-transform: uppercase;
   ${typography};
   ${space};
+  text-transform: uppercase;
   text-align: justify;
   line-height: 1.5;
 `;
@@ -42,18 +50,32 @@ const Manifesto = () => {
   const fontSizes = [3, 4, 5, 5];
 
   return (
-    <Main flexDirection="column" justifyContent="center">
-      <Container minHeight="50%" maxHeight="80%">
-        <H1 fontSize={[4, 5, 6, 6]} pb={5}>
+    <Main justifyContent="center">
+      <Container height="100%">
+      <H1 fontSize={[2, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
-
-        <Paragraph pb={5} fontSize={fontSizes}>
-          {t("manifesto.manifesto")}
-        </Paragraph>
+        <Grid
+        justifyContent="center" 
+        gridColumnGap="4%" 
+        gridTemplateColumns={[
+          "repeat(1, 100% [col-start])",  
+          "repeat(1, 100% [col-start])",  
+          "repeat(1, 100% [col-start])",  
+          "repeat(2, 48% [col-start])", 
+        ]}
+          >
+        <Paragraph pb={5} fontSize={fontSizes}> 
+            {t("manifesto.manifesto")}  
+          </Paragraph>  
+          <Paragraph pb={5} fontSize={fontSizes}> 
+            {t("manifesto.manifesto")}  
+          </Paragraph>
+        </Grid>
       </Container>
     </Main>
   );
 };
+
 
 export default Manifesto;
