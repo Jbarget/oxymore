@@ -99,7 +99,7 @@ const Projects = () => {
           justifySelf="start"
           maxWidth={iconSizes}
         >
-          <Img src={stairs} alt="stairs icon"/>
+          <Img src={stairs} alt="stairs icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/consciousshopping"
@@ -108,16 +108,16 @@ const Projects = () => {
           justifySelf="start"
           maxWidth={iconSizes}
         >
-          <Img src={shell} alt="shell icon"/>
+          <Img src={shell} alt="shell icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/eyes"
           gridColumn={[2, 2, 2, 2, 1]}
-          gridRow={[3, 3, 3, 3, 1]}
+          gridRow={[3, 3, 3, 3, "1/3"]}
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={eye} alt="eye icon"/>
+          <Img src={eye} alt="eye icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/eroticstories"
@@ -126,7 +126,7 @@ const Projects = () => {
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={statue} alt="statue icon"/>
+          <Img src={statue} alt="statue icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/kailandre"
@@ -135,7 +135,7 @@ const Projects = () => {
           justifySelf="end"
           maxWidth={iconSizes}
         >
-          <Img src={dragon} alt="dragon icon"/>
+          <Img src={dragon} alt="dragon icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/belledejour"
@@ -144,7 +144,7 @@ const Projects = () => {
           maxWidth={iconSizes}
           justifySelf="start"
         >
-          <Img src={knife} alt="knife icon"/>
+          <Img src={knife} alt="knife icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/marcmedina"
@@ -153,7 +153,7 @@ const Projects = () => {
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={mask} alt="mask icon"/>
+          <Img src={mask} alt="mask icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/leoadef"
@@ -162,7 +162,7 @@ const Projects = () => {
           maxWidth={iconSizes}
           justifySelf="center"
         >
-          <Img src={spider} alt="spider icon"/>
+          <Img src={spider} alt="spider icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/themap"
@@ -171,7 +171,7 @@ const Projects = () => {
           justifySelf="end"
           maxWidth={iconSizes}
         >
-          <Img src={magnify} alt="magnify icon"/>
+          <Img src={magnify} alt="magnify icon" />
         </ProjectLink>
       </Container>
       <BuyButtonContainer
