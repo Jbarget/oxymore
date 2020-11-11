@@ -51,7 +51,7 @@ const Manifesto = () => {
 
   return (
     <Main justifyContent="center">
-      <Container height="75%">
+      <Container height="100%">
       <H1 fontSize={[2, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
