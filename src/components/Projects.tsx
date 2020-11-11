@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import styled from "styled-components";
 import {
   layout,
@@ -32,6 +32,8 @@ import { Link } from "react-router-dom";
 const Main = styled.main<FlexboxProps & LayoutProps>`
   display: flex;
   height: 100%;
+  overflow: scroll;
+  scroll-behavior: smooth;
   ${flexbox};
   ${layout}
 `;
@@ -76,14 +78,17 @@ const Scrollback = styled.button<ScrollbackProps>`
 `;
 
 const Projects = () => {
+  const ref = useRef<HTMLElement>(null);
   const scrollToTop = useCallback(() => {
-    window.scrollTo(0, 0);
+    if (ref.current) {
+      ref.current.scrollTop = 0;
+    }
   }, []);
 
   const iconSizes = ["100%", "100%", "100%", "100%", "30%"];
 
   return (
-    <Main justifyContent="center" alignItems="center">
+    <Main justifyContent="center" alignItems="center" ref={ref}>
       <Container
         gridTemplateColumns="repeat(3, 1fr)"
         gridTemplateRows="repeat(4, 1fr)"
@@ -99,7 +104,7 @@ const Projects = () => {
           justifySelf="start"
           maxWidth={iconSizes}
         >
-          <Img src={stairs} alt="stairs icon"/>
+          <Img src={stairs} alt="stairs icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/consciousshopping"
@@ -108,7 +113,7 @@ const Projects = () => {
           justifySelf="start"
           maxWidth={iconSizes}
         >
-          <Img src={shell} alt="shell icon"/>
+          <Img src={shell} alt="shell icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/eyes"
@@ -117,7 +122,7 @@ const Projects = () => {
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={eye} alt="eye icon"/>
+          <Img src={eye} alt="eye icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/eroticstories"
@@ -126,7 +131,7 @@ const Projects = () => {
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={statue} alt="statue icon"/>
+          <Img src={statue} alt="statue icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/kailandre"
@@ -135,7 +140,7 @@ const Projects = () => {
           justifySelf="end"
           maxWidth={iconSizes}
         >
-          <Img src={dragon} alt="dragon icon"/>
+          <Img src={dragon} alt="dragon icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/belledejour"
@@ -144,7 +149,7 @@ const Projects = () => {
           maxWidth={iconSizes}
           justifySelf="start"
         >
-          <Img src={knife} alt="knife icon"/>
+          <Img src={knife} alt="knife icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/marcmedina"
@@ -153,7 +158,7 @@ const Projects = () => {
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={mask} alt="mask icon"/>
+          <Img src={mask} alt="mask icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/leoadef"
@@ -162,7 +167,7 @@ const Projects = () => {
           maxWidth={iconSizes}
           justifySelf="center"
         >
-          <Img src={spider} alt="spider icon"/>
+          <Img src={spider} alt="spider icon" />
         </ProjectLink>
         <ProjectLink
           to="/projects/themap"
@@ -171,7 +176,7 @@ const Projects = () => {
           justifySelf="end"
           maxWidth={iconSizes}
         >
-          <Img src={magnify} alt="magnify icon"/>
+          <Img src={magnify} alt="magnify icon" />
         </ProjectLink>
       </Container>
       <BuyButtonContainer

@@ -47,19 +47,35 @@ const App = () => {
                 <Route path="/about" exact component={AboutUs} />
                 <Route path="/advertising" exact component={Advertising} />
                 <Route path="/projects" exact component={Projects} />
-                <Route path="/projects/marcmedina" exact component={MarcMedina} />
-                <Route path="/projects/eroticstories" exact component={EroticStories} />
+                <Route
+                  path="/projects/marcmedina"
+                  exact
+                  component={MarcMedina}
+                />
+                <Route
+                  path="/projects/eroticstories"
+                  exact
+                  component={EroticStories}
+                />
                 <Route path="/projects/eyes" exact component={Eye} />
-                <Route path="/projects/belledejour" exact component={Belledejour} />
+                <Route
+                  path="/projects/belledejour"
+                  exact
+                  component={Belledejour}
+                />
                 <Route path="/projects/leoadef" exact component={LeoAdef} />
                 <Route path="/projects/themap" exact component={Map} />
                 <Route path="/projects/kailandre" exact component={KaiLandre} />
-                <Route path="/projects/editorial" exact component={FashionEditorial} />
+                <Route
+                  path="/projects/editorial"
+                  exact
+                  component={FashionEditorial}
+                />
                 <Route
                   path="/projects/consciousshopping"
                   exact
                   component={ConsciousShopping}
-                  />
+                />
               </Switch>
             </Suspense>
           </AppContent>
