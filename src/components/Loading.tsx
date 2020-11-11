@@ -13,7 +13,7 @@ const Main = styled.main<FlexboxProps>`
 const Loading = () => {
   return (
     <Main justifyContent="center">
-      <Timer endDate="2020-11-13" />
+      <Timer endDate="2020-11-27" />
     </Main>
   );
 };
