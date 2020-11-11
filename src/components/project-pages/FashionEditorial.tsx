@@ -31,7 +31,8 @@ const Main = styled.main<FlexboxProps>`
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  ${flexbox}
+  height: 100%;
+  ${flexbox};
 `;
 
 const Grid = styled.div<GridProps & FlexboxProps>`
@@ -164,7 +165,7 @@ const EditorialImage = ({ img, alt }: EditorialImageProps) => {
 const FashionEditorial = () => {
   return (
     <Main justifyContent="center" alignItems="center">
-       <Grid
+       {/* <Grid
         flexDirection="column"
         justifyContent="center"
         gridRowGap={3}
@@ -176,9 +177,9 @@ const FashionEditorial = () => {
         ]}
       >
         {editorialImages.map(EditorialImage)}
-      </Grid>
+      </Grid> */}
       
-      {/* <FashionEditorialPreview/> */}
+      <FashionEditorialPreview/>
     </Main>
   );
 };
