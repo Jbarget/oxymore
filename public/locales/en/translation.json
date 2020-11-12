@@ -1,4 +1,7 @@
 {
+  "errors": {
+    "page-not-found": "Sorry, we can't find that page"
+  },
   "home": {
     "header": "EN"
   },
@@ -22,9 +25,6 @@
   "about": {
     "header": "About",
     "subheader": "Oxymore is a biannual publication bla bla bla bla"
-  },
-  "errors": {
-    "page-not-found": "Sorry we, can't find that page"
   },
   "advertising": {
     "salazraki": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
