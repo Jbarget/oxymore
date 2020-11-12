@@ -4,11 +4,9 @@ import { useTranslation } from "react-i18next";
 import {
   layout,
   space,
-  grid,
   typography,
   LayoutProps,
   SpaceProps,
-  GridProps,
   TypographyProps,
   FlexboxProps,
   flexbox,
@@ -20,6 +18,7 @@ import nil from "./assets/about-page/nil.jpg";
 import olga from "./assets/about-page/olga.jpg";
 import rodri from "./assets/about-page/rodri.jpg";
 import gloria from "./assets/about-page/gloria.jpg";
+import Grid from "./Grid";
 
 const teamMembers: TeamMemberProps[] = [
   {
@@ -62,13 +61,6 @@ const teamMembers: TeamMemberProps[] = [
 const Main = styled.main<SpaceProps>`
   ${space};
   height: 100%;
-`;
-
-const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
-  display: grid;
-  ${grid};
-  ${flexbox};
-  ${space};
 `;
 
 const H1 = styled.h1<TypographyProps & SpaceProps>`
@@ -131,7 +123,6 @@ const AboutUs = () => {
       </H2>
       <Grid
         gridRowGap={[1, 1, 1, 0]}
-        justifyContent="center"
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",

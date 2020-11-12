@@ -1,33 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import Timer from "../Timer";
-import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import statue from "../assets/project-page/statue.png";
+import { typography, TypographyProps } from "styled-system";
+import EroticStoriesPreview from "./EroticStoriesPreview";
 
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  flex-direction: column;
-  ${flexbox}
+import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import EroticStoriesContent from "./EroticStoriesContent";
+
+const Main = styled.main<TypographyProps>`
+  ${typography};
+  height: 100%;
 `;
 
-const Container = styled.div<FlexboxProps>`
-  display: flex;
-  ${flexbox};
-`;
-
-const Img = styled.img<LayoutProps>`
-  ${layout};
-`;
-
+const launchDate = "2020-12-21";
 const EroticStories = () => {
   return (
-    <Main justifyContent="center" alignItems="center">
-      <Container justifyContent="center" alignItems="center">
-        <Img src={statue} alt="statue icon" maxWidth="30%" />
-      </Container>
-      <Timer endDate="2020-11-20" />
+    <Main fontFamily="secondary" textAlign="justify">
+      <PreviewOrProjectPage
+        launchDate={launchDate}
+        PreviewPage={EroticStoriesPreview}
+        ProjectPage={EroticStoriesContent}
+      />
     </Main>
   );
 };

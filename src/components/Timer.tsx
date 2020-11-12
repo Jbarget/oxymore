@@ -9,6 +9,8 @@ import {
   space,
 } from "styled-system";
 
+import calculateTimeLeft from "../helpers/calculateTimeLeft";
+
 interface TimeLeft {
   days: number;
   hours: number;
@@ -33,34 +35,18 @@ const getInterval = (number: number, intervalType: string) => {
 };
 
 interface TimerProps {
-  endDate: string;
+  launchDate: string;
 }
 
 const Timer: React.FC<TimerProps> = (props) => {
-  const { endDate } = props;
+  const { launchDate } = props;
 
-  const calculateTimeLeft = () => {
-    const difference =
-      Number(new Date(endDate).getTime()) - Number(new Date().getTime());
-
-    const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24 -1);
-    const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
-    const secondsLeft = Math.floor((difference / 1000) % 60);
-
-    const timeLeft = {
-      days: daysLeft < 0 ? 0 : daysLeft,
-      hours: hoursLeft < 0 ? 0 : hoursLeft,
-      minutes: minutesLeft < 0 ? 0 : minutesLeft,
-      seconds: secondsLeft < 0 ? 0 : secondsLeft,
-    };
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(
+    calculateTimeLeft(launchDate)
+  );
   useEffect(() => {
     setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(launchDate));
     }, 1000);
   });
 

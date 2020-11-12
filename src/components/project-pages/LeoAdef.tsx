@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
 import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
 import spider from "../assets/project-page/spider.png";
+import PreviewOrProjectPage from "./PreviewOrProjectPage";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
@@ -21,13 +22,26 @@ const Img = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const LeoAdef = () => {
+const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
-    <Main justifyContent="center" alignItems="center">
+    <Fragment>
       <Container justifyContent="center" alignItems="center">
         <Img src={spider} alt="spider icon" maxWidth="30%" />
       </Container>
-      <Timer endDate="2020-11-20" />
+      <Timer launchDate={launchDate} />
+    </Fragment>
+  );
+};
+
+const launchDate = "2020-12-21";
+const LeoAdef = () => {
+  return (
+    <Main justifyContent="center" alignItems="center">
+      <PreviewOrProjectPage
+        launchDate={launchDate}
+        PreviewPage={PreviewPage}
+        ProjectPage={() => null}
+      />
     </Main>
   );
 };

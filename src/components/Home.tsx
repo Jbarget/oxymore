@@ -13,10 +13,10 @@ import {
 } from "styled-system";
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
-import oxymore from "./assets/home-page/oxymore-720.png";
-import manifesto from "./assets/home-page/manifesto-720.png";
-import number from "./assets/home-page/number-one-720.png";
-import alpha from "./assets/home-page/360-alpha-compressed.png";
+import oxymore from "./assets/home-page/oxymore.png";
+import manifesto from "./assets/home-page/manifesto.png";
+import number from "./assets/home-page/number-one.png";
+import alpha from "./assets/home-page/360-alpha.png";
 import LanguageButtons from "./LanguageButtons";
 
 const Main = styled.main<FlexboxProps>`

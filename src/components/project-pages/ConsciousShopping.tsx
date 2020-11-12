@@ -1,33 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import Timer from "../Timer";
-import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
-import shell from "../assets/project-page/shell.png";
+import {
+  FlexboxProps,
+  flexbox,
+  typography,
+  TypographyProps,
+} from "styled-system";
 
-const Main = styled.main<FlexboxProps>`
+import ConsciousShoppingContent from "./ConsciousShoppingContent";
+import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
+import PreviewOrProjectPage from "./PreviewOrProjectPage";
+
+const Main = styled.main<FlexboxProps & TypographyProps>`
   display: flex;
-  height: 100vh;
-  overflow: hidden;
-  flex-direction: column;
+  height: 100%;
   ${flexbox}
+  ${typography};
 `;
 
-const Container = styled.div<FlexboxProps>`
-  display: flex;
-  ${flexbox};
-`;
-
-const Img = styled.img<LayoutProps>`
-  ${layout};
-`;
-
+const launchDate = "2020-12-21";
 const ConsciousShopping = () => {
   return (
-    <Main justifyContent="center" alignItems="center">
-      <Container justifyContent="center" alignItems="center">
-        <Img src={shell} alt="shell icon" maxWidth="30%" />
-      </Container>
-      <Timer endDate="2020-11-20" />
+    <Main justifyContent="center" alignItems="center" fontFamily="secondary">
+      <PreviewOrProjectPage
+        launchDate={launchDate}
+        PreviewPage={ConsciousShoppingPreview}
+        ProjectPage={ConsciousShoppingContent}
+      />
     </Main>
   );
 };
