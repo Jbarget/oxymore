@@ -22,6 +22,8 @@ import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
 import nadiaImg from "../assets/conscious-shopping/nadia.jpg";
 import conchaImg from "../assets/conscious-shopping/concha.jpg";
 import laiaImg from "../assets/conscious-shopping/laia.jpg";
+import bagImg from "../assets/conscious-shopping/bag.jpg";
+
 // import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
 
 const Main = styled.main<FlexboxProps & TypographyProps>`
@@ -120,7 +122,7 @@ const ConsciousShopping = () => {
     },
     {
       bigImage: nadiaImg,
-      smallImage: conchaImg,
+      smallImage: bagImg,
       interviewText: t("conscious-shopping.nadia"),
       alt:"Nadia image"
     },
