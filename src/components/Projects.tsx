@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import styled from "styled-components";
 import {
   layout,
@@ -32,6 +32,8 @@ import { Link } from "react-router-dom";
 const Main = styled.main<FlexboxProps & LayoutProps>`
   display: flex;
   height: 100%;
+  overflow: scroll;
+  scroll-behavior: smooth;
   ${flexbox};
   ${layout}
 `;
@@ -76,14 +78,17 @@ const Scrollback = styled.button<ScrollbackProps>`
 `;
 
 const Projects = () => {
+  const ref = useRef<HTMLElement>(null);
   const scrollToTop = useCallback(() => {
-    window.scrollTo(0, 0);
+    if (ref.current) {
+      ref.current.scrollTop = 0;
+    }
   }, []);
 
   const iconSizes = ["100%", "100%", "100%", "100%", "30%"];
 
   return (
-    <Main justifyContent="center" alignItems="center">
+    <Main justifyContent="center" alignItems="center" ref={ref}>
       <Container
         gridTemplateColumns="repeat(3, 1fr)"
         gridTemplateRows="repeat(4, 1fr)"
