@@ -33,7 +33,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   );
 };
 
-const launchDate = "2019-12-21";
+const launchDate = "2020-12-21";
 const MarcMedina = () => {
   return (
     <Main justifyContent="center" alignItems="center">

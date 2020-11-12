@@ -18,7 +18,7 @@ const Main = styled.main<FlexboxProps & TypographyProps>`
   ${typography};
 `;
 
-const launchDate = "2019-12-21";
+const launchDate = "2020-12-21";
 const ConsciousShopping = () => {
   return (
     <Main justifyContent="center" alignItems="center" fontFamily="secondary">
