@@ -1,13 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  FlexboxProps,
-  flexbox,
-  layout,
-  LayoutProps,
-  grid,
-  GridProps,
-} from "styled-system";
+import { layout, LayoutProps } from "styled-system";
 
 import image1 from "./../assets/fashion-editorial/awewave-oxymore-01.jpg";
 import image2 from "./../assets/fashion-editorial/awewave-oxymore-02.jpg";
@@ -32,13 +25,7 @@ import image20 from "./../assets/fashion-editorial/awewave-oxymore-20.jpg";
 import image21 from "./../assets/fashion-editorial/awewave-oxymore-21.jpg";
 import image22 from "./../assets/fashion-editorial/amewave-oxymore-22.jpg";
 import image23 from "./../assets/fashion-editorial/amewave-oxymore-23.jpg";
-
-const Grid = styled.div<GridProps & FlexboxProps>`
-  display: grid;
-  overflow: scroll;
-  ${grid};
-  ${flexbox};
-`;
+import Grid from "../Grid";
 
 const EditorialImageContainer = styled.div<LayoutProps>`
   object-fit: contain;
@@ -163,8 +150,7 @@ const EditorialImage = ({ img, alt }: EditorialImageProps) => {
 const FashionEditorialContent = () => {
   return (
     <Grid
-      flexDirection="column"
-      justifyContent="center"
+      overflow="scroll"
       gridRowGap={3}
       gridColumnGap={3}
       gridTemplateColumns={[

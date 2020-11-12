@@ -4,28 +4,20 @@ import { useTranslation } from "react-i18next";
 import {
   layout,
   space,
-  grid,
   typography,
   LayoutProps,
   SpaceProps,
-  GridProps,
   TypographyProps,
   FlexboxProps,
   flexbox,
 } from "styled-system";
 import voltrova from "./assets/advertising-page/voltrova.jpg";
 import salazraki from "./assets/advertising-page/salazraki.jpg";
+import Grid from "./Grid";
 
 const Main = styled.main`
   height: 100%;
   object-fit: contain;
-`;
-
-const Grid = styled.div<GridProps & FlexboxProps & SpaceProps>`
-  display: grid;
-  ${grid};
-  ${flexbox};
-  ${space};
 `;
 
 const AdvertContainer = styled.div<LayoutProps & SpaceProps>`
@@ -65,7 +57,6 @@ const Advertising: React.FC = () => {
     <Main>
       <Grid
         gridRowGap={[1, 1, 1, 0]}
-        justifyContent="center"
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
