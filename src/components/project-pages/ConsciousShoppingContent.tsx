@@ -23,30 +23,7 @@ import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
 import nadiaImg from "../assets/conscious-shopping/nadia.jpg";
 import conchaImg from "../assets/conscious-shopping/concha.jpg";
 import laiaImg from "../assets/conscious-shopping/laia.jpg";
-
-const Container = styled.div<FlexboxProps & LayoutProps>`
-  display: flex;
-  ${flexbox};
-  ${layout};
-`;
-
-const FirstColumn = styled.div<LayoutProps>`
-  display: flex;
-  flex-direction: column;
-  ${layout};
-`;
-
-const SecondColumn = styled.div<LayoutProps>`
-  display: flex;
-  flex-direction: column;
-  ${layout};
-`;
-
-const ThirdColumn = styled.div<LayoutProps>`
-  display: flex;
-  flex-direction: column;
-  ${layout};
-`;
+import Flex from "../Flex";
 
 const H1 = styled.h1<SpaceProps>`
   text-transform: uppercase;
@@ -132,11 +109,11 @@ const ConsciousShoppingContent = () => {
 
   const handleClick = useCallback(() => setCurrent(next), [next]);
   return (
-    <Container
+    <Flex
       height="100%"
       flexDirection={["column", "column", "column", "column", "row"]}
     >
-      <FirstColumn width={["100%", "100%", "100%", "100%", "30%"]}>
+      <Flex width={["100%", "100%", "100%", "100%", "30%"]}>
         <Link to="/projects">
           <ProjectIcon
             alt="shell icon"
@@ -150,11 +127,11 @@ const ConsciousShoppingContent = () => {
         <ScrollableText textAlign="justify" mb={6}>
           {interviewText}
         </ScrollableText>
-      </FirstColumn>
-      <SecondColumn width={["100%", "100%", "100%", "100%", "40%"]}>
+      </Flex>
+      <Flex width={["100%", "100%", "100%", "100%", "40%"]}>
         <BigImage src={mainImage} alt={altTags} onClick={handleClick} p={4} />
-      </SecondColumn>
-      <ThirdColumn width={["100%", "100%", "100%", "100%", "30%"]}>
+      </Flex>
+      <Flex width={["100%", "100%", "100%", "100%", "30%"]}>
         <SmallImage
           src={secondaryImage}
           alt={altTags}
@@ -165,8 +142,8 @@ const ConsciousShoppingContent = () => {
         <ScrollableText textAlign="justify" mb={6}>
           {interviewText}
         </ScrollableText>
-      </ThirdColumn>
-    </Container>
+      </Flex>
+    </Flex>
   );
 };
 

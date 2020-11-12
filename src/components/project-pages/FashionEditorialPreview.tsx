@@ -1,13 +1,9 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import Timer from "../Timer";
-import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
+import { layout, LayoutProps } from "styled-system";
 import stairs from "../assets/project-page/stairs.png";
-
-const Container = styled.div<FlexboxProps>`
-  display: flex;
-  ${flexbox};
-`;
+import Flex from "../Flex";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -16,9 +12,9 @@ const Img = styled.img<LayoutProps>`
 const FashionEditorial: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
     <Fragment>
-      <Container justifyContent="center" alignItems="center">
+      <Flex justifyContent="center" alignItems="center">
         <Img src={stairs} alt="stairs icon" maxWidth="30%" />
-      </Container>
+      </Flex>
       <Timer launchDate={launchDate} />
     </Fragment>
   );

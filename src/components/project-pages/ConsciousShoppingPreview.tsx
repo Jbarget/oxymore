@@ -1,11 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   FlexboxProps,
   flexbox,
   layout,
   LayoutProps,
-  position,
   PositionProps,
   GridProps,
   grid,
@@ -19,16 +18,9 @@ import concha from "../assets/conscious-shopping/concha.jpg";
 import Timer from "../Timer";
 import { zIndexes } from "../theme";
 import { Link } from "react-router-dom";
+import Flex from "../Flex";
 
 type GridLayoutProps = FlexboxProps & LayoutProps & PositionProps & GridProps;
-
-const Grid = styled.div<GridLayoutProps>`
-  display: flex;
-  ${flexbox};
-  ${layout};
-  ${position};
-  ${grid};
-`;
 
 const ProjectIconShell = styled.img<LayoutProps & GridProps>`
   ${layout};
@@ -48,78 +40,68 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
   launchDate,
 }) => {
   return (
-    <Fragment>
-      <Grid
-        display={["flex", "flex", "flex", "grid"]}
-        flexDirection={["column", "column", "column", "row"]}
-        gridTemplateColumns="repeat(3, 1fr)"
-        gridTemplateRows="repeat(5, 20%)"
-        height="100%"
-        alignItems="center"
-      >
-        <Link to="/projects">
-          <ProjectIconShell
-            src={shell}
-            alt="icon image"
-            maxWidth="20%"
-            gridColumn={1}
-            gridRow={1}
-          />
-        </Link>
-        <Illustration
-          src={boots}
-          alt="illustration image"
-          maxWidth="50%"
+    <Flex
+      display={["flex", "flex", "flex", "grid"]}
+      flexDirection={["column", "column", "column", "row"]}
+      height="100%"
+      alignItems="center"
+    >
+      <Link to="/projects">
+        <ProjectIconShell
+          src={shell}
+          alt="icon image"
+          maxWidth="20%"
           gridColumn={1}
-          gridRow={2}
-          justifySelf="flex-end"
-          alignSelf="center"
+          gridRow={1}
         />
-        <Illustration
-          src={bag}
-          alt="illustration image"
-          maxWidth="50%"
-          gridColumn={2}
-          justifySelf="center"
-          alignSelf="center"
-        />
-        <Grid
-          zIndex={zIndexes.inFront}
-          gridColumn={2}
-          gridRow="2/4"
-          justifySelf="center"
-          alignSelf="center"
-        >
-          <Timer launchDate={launchDate} />
-        </Grid>
-        <Illustration
-          src={concha}
-          alt="illustration image"
-          maxWidth="50%"
-          gridColumn={2}
-          gridRow={4}
-          justifySelf="flex-start"
-          alignSelf="center"
-        />
-        <Illustration
-          src={trex}
-          alt="illustration image"
-          maxWidth="50%"
-          gridColumn={2}
-          gridRow={4}
-          justifySelf="flex-end"
-          alignSelf="center"
-        />
-        <Illustration
-          src={sunglasses}
-          alt="illustration image"
-          maxWidth="50%"
-          gridColumn={3}
-          gridRow={2}
-          alignSelf="center"
-        />
-      </Grid>
-    </Fragment>
+      </Link>
+      <Illustration
+        src={boots}
+        alt="illustration image"
+        maxWidth="50%"
+        gridColumn={1}
+        gridRow={2}
+        justifySelf="flex-end"
+        alignSelf="center"
+      />
+      <Illustration
+        src={bag}
+        alt="illustration image"
+        maxWidth="50%"
+        gridColumn={2}
+        justifySelf="center"
+        alignSelf="center"
+      />
+      <Flex zIndex={zIndexes.inFront} justifySelf="center" alignSelf="center">
+        <Timer launchDate={launchDate} />
+      </Flex>
+      <Illustration
+        src={concha}
+        alt="illustration image"
+        maxWidth="50%"
+        gridColumn={2}
+        gridRow={4}
+        justifySelf="flex-start"
+        alignSelf="center"
+      />
+      <Illustration
+        src={trex}
+        alt="illustration image"
+        maxWidth="50%"
+        gridColumn={2}
+        gridRow={4}
+        justifySelf="flex-end"
+        alignSelf="center"
+      />
+      <Illustration
+        src={sunglasses}
+        alt="illustration image"
+        maxWidth="50%"
+        gridColumn={3}
+        gridRow={2}
+        alignSelf="center"
+      />
+    </Flex>
   );
 };
 

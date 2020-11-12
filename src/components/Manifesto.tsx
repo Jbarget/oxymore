@@ -12,13 +12,7 @@ import {
   layout,
 } from "styled-system";
 import Grid from "./Grid";
-
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  ${flexbox};
-`;
+import Flex from "./Flex";
 
 const Container = styled.div<LayoutProps>`
   ${layout};
@@ -43,7 +37,7 @@ const Manifesto = () => {
   const fontSizes = [3, 4, 5, 5];
 
   return (
-    <Main justifyContent="center">
+    <Flex height="100%" flexDirection="column" justifyContent="center">
       <Container height="100%">
         <H1 fontSize={[2, 5]} pb={5}>
           {t("manifesto.header")}
@@ -65,7 +59,7 @@ const Manifesto = () => {
           </Paragraph>
         </Grid>
       </Container>
-    </Main>
+    </Flex>
   );
 };
 

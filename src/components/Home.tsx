@@ -11,6 +11,7 @@ import {
   TypographyProps,
   typography,
 } from "styled-system";
+
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
 import oxymore from "./assets/home-page/oxymore.png";
@@ -18,17 +19,7 @@ import manifesto from "./assets/home-page/manifesto.png";
 import number from "./assets/home-page/number-one.png";
 import alpha from "./assets/home-page/360-alpha.png";
 import LanguageButtons from "./LanguageButtons";
-
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100%;
-  ${flexbox};
-`;
-
-const Flex = styled.div<FlexboxProps>`
-  display: flex;
-  ${flexbox};
-`;
+import Flex from "./Flex";
 
 const ManifestoLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${typography};
@@ -66,16 +57,16 @@ const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
 
 const Home = () => {
   return (
-    <Main flexDirection="column" justifyContent="space-between">
+    <Flex height="100%" flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <DoubleLineTextImage src={oxymore} alt="oxymore image"/>
+        <DoubleLineTextImage src={oxymore} alt="oxymore image" />
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
       <ProjectsLink to="/projects">
-        <ProjectsImg src={alpha} alt="alpha image"/>
+        <ProjectsImg src={alpha} alt="alpha image" />
       </ProjectsLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
@@ -86,10 +77,10 @@ const Home = () => {
           />
         </Flex>
         <ManifestoLink to="/manifesto" alignItems="flex-end">
-          <DoubleLineTextImage src={manifesto} alt="manifesto image"/>
+          <DoubleLineTextImage src={manifesto} alt="manifesto image" />
         </ManifestoLink>
       </Flex>
-    </Main>
+    </Flex>
   );
 };
 

@@ -23,21 +23,20 @@ import KaiLandre from "./components/project-pages/KaiLandre";
 import FashionEditorial from "./components/project-pages/FashionEditorial";
 import Background from "./components/Background";
 import Error404 from "./components/Error404";
+import Flex from "./components/Flex";
 
-const AppContent = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: ${theme.space[6]}px;
-  overflow: auto;
-`;
 
 const App = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <Background>
-          <AppContent>
+          <Flex
+            flexDirection="column"
+            p={6}
+            overflow="auto"
+            height="100%"
+          >
             <Suspense fallback={<div>Loading</div>}>
               <Header />
               <Switch>
@@ -80,7 +79,7 @@ const App = () => {
                 <Route component={Error404} />
               </Switch>
             </Suspense>
-          </AppContent>
+          </Flex>
         </Background>
         <GlobalStyle />
       </ThemeProvider>

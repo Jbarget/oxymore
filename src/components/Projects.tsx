@@ -16,6 +16,8 @@ import {
   BackgroundProps,
   background,
 } from "styled-system";
+import { Link } from "react-router-dom";
+
 import stairs from "./assets/project-page/stairs.png";
 import shell from "./assets/project-page/shell.png";
 import eye from "./assets/project-page/eye.png";
@@ -27,8 +29,8 @@ import spider from "./assets/project-page/spider.png";
 import magnify from "./assets/project-page/magnify.png";
 import BuyButton from "./BuyButton";
 import { zIndexes } from "./theme";
-import { Link } from "react-router-dom";
 
+// TODO: this component should use <Flex />, after it's configured to forwardRef
 const Main = styled.main<FlexboxProps & LayoutProps>`
   display: flex;
   height: 100%;
