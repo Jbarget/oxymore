@@ -10,9 +10,8 @@ import {
   FlexboxProps,
   LayoutProps,
   layout,
-  GridProps,
-  grid,
 } from "styled-system";
+import Grid from "./Grid";
 
 const Main = styled.main<FlexboxProps>`
   display: flex;
@@ -23,12 +22,6 @@ const Main = styled.main<FlexboxProps>`
 
 const Container = styled.div<LayoutProps>`
   ${layout};
-`;
-
-const Grid = styled.div<GridProps & FlexboxProps>`
-display: grid;
-${grid}; 
-${flexbox}
 `;
 
 const H1 = styled.h1<TypographyProps & SpaceProps>`
@@ -52,30 +45,28 @@ const Manifesto = () => {
   return (
     <Main justifyContent="center">
       <Container height="100%">
-      <H1 fontSize={[2, 5]} pb={5}>
+        <H1 fontSize={[2, 5]} pb={5}>
           {t("manifesto.header")}
         </H1>
         <Grid
-        justifyContent="center" 
-        gridColumnGap="4%" 
-        gridTemplateColumns={[
-          "repeat(1, 100% [col-start])",  
-          "repeat(1, 100% [col-start])",  
-          "repeat(1, 100% [col-start])",  
-          "repeat(2, 48% [col-start])", 
-        ]}
-          >
-        <Paragraph pb={5} fontSize={fontSizes}> 
-            {t("manifesto.manifesto")}  
-          </Paragraph>  
-          <Paragraph pb={5} fontSize={fontSizes}> 
-            {t("manifesto.manifesto")}  
+          gridColumnGap="4%"
+          gridTemplateColumns={[
+            "repeat(1, 100% [col-start])",
+            "repeat(1, 100% [col-start])",
+            "repeat(1, 100% [col-start])",
+            "repeat(2, 48% [col-start])",
+          ]}
+        >
+          <Paragraph pb={5} fontSize={fontSizes}>
+            {t("manifesto.manifesto")}
+          </Paragraph>
+          <Paragraph pb={5} fontSize={fontSizes}>
+            {t("manifesto.manifesto")}
           </Paragraph>
         </Grid>
       </Container>
     </Main>
   );
 };
-
 
 export default Manifesto;
