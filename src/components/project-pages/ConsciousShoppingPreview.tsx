@@ -5,8 +5,6 @@ import {
   flexbox,
   layout,
   LayoutProps,
-  space,
-  SpaceProps,
   position,
   PositionProps,
   GridProps,
@@ -22,9 +20,7 @@ import Timer from "../Timer";
 import { zIndexes } from "../theme";
 import { Link } from "react-router-dom";
 
-type GridLayoutProps = FlexboxProps &
-LayoutProps &
-PositionProps & GridProps;
+type GridLayoutProps = FlexboxProps & LayoutProps & PositionProps & GridProps;
 
 const Grid = styled.div<GridLayoutProps>`
   display: flex;
@@ -39,9 +35,7 @@ const ProjectIconShell = styled.img<LayoutProps & GridProps>`
   ${grid};
 `;
 
-type IllustrationProps = LayoutProps &
-  FlexboxProps &
-  GridProps;
+type IllustrationProps = LayoutProps & FlexboxProps & GridProps;
 
 const Illustration = styled.img<IllustrationProps>`
   ${layout};
@@ -50,21 +44,81 @@ const Illustration = styled.img<IllustrationProps>`
   opacity: 0.5;
 `;
 
-
-const ConsciousShoppingPreview = () => {
+const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
+  launchDate,
+}) => {
   return (
     <Fragment>
-     <Grid display={["flex", "flex", "flex", "grid"]} flexDirection={["column", "column", "column", "row"]} gridTemplateColumns="repeat(3, 1fr)" gridTemplateRows="repeat(5, 20%)"  height="100%" alignItems="center">
-      <Link to="/projects"> <ProjectIconShell src={shell}  alt="icon image" maxWidth="20%" gridColumn={1} gridRow={1} /></Link>
-      <Illustration  src={boots} alt="illustration image"  maxWidth="50%"  gridColumn={1} gridRow={2} justifySelf="flex-end" alignSelf="center"/> 
-      <Illustration src={bag} alt="illustration image"  maxWidth="50%" gridColumn={2} justifySelf="center" alignSelf="center"/> 
-    <Grid  zIndex={zIndexes.inFront} gridColumn={2} gridRow="2/4" justifySelf="center" alignSelf="center">
-      <Timer endDate="2020-12-21"/> 
+      <Grid
+        display={["flex", "flex", "flex", "grid"]}
+        flexDirection={["column", "column", "column", "row"]}
+        gridTemplateColumns="repeat(3, 1fr)"
+        gridTemplateRows="repeat(5, 20%)"
+        height="100%"
+        alignItems="center"
+      >
+        <Link to="/projects">
+          <ProjectIconShell
+            src={shell}
+            alt="icon image"
+            maxWidth="20%"
+            gridColumn={1}
+            gridRow={1}
+          />
+        </Link>
+        <Illustration
+          src={boots}
+          alt="illustration image"
+          maxWidth="50%"
+          gridColumn={1}
+          gridRow={2}
+          justifySelf="flex-end"
+          alignSelf="center"
+        />
+        <Illustration
+          src={bag}
+          alt="illustration image"
+          maxWidth="50%"
+          gridColumn={2}
+          justifySelf="center"
+          alignSelf="center"
+        />
+        <Grid
+          zIndex={zIndexes.inFront}
+          gridColumn={2}
+          gridRow="2/4"
+          justifySelf="center"
+          alignSelf="center"
+        >
+          <Timer launchDate={launchDate} />
+        </Grid>
+        <Illustration
+          src={concha}
+          alt="illustration image"
+          maxWidth="50%"
+          gridColumn={2}
+          gridRow={4}
+          justifySelf="flex-start"
+          alignSelf="center"
+        />
+        <Illustration
+          src={trex}
+          alt="illustration image"
+          maxWidth="50%"
+          gridColumn={2}
+          gridRow={4}
+          justifySelf="flex-end"
+          alignSelf="center"
+        />
+        <Illustration
+          src={sunglasses}
+          alt="illustration image"
+          maxWidth="50%"
+          gridColumn={3}
+          gridRow={2}
+          alignSelf="center"
+        />
       </Grid>
-      <Illustration src={concha} alt="illustration image"  maxWidth="50%" gridColumn={2} gridRow={4} justifySelf="flex-start" alignSelf="center"/> 
-      <Illustration  src={trex} alt="illustration image" maxWidth="50%" gridColumn={2} gridRow={4} justifySelf="flex-end" alignSelf="center"/>
-      <Illustration src={sunglasses} alt="illustration image"  maxWidth="50%"  gridColumn={3} gridRow={2} alignSelf="center"/> 
-     </Grid>
     </Fragment>
   );
 };

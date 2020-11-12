@@ -58,7 +58,7 @@ const P = styled.p<TypographyProps & SpaceProps>`
   ${typography};
 `;
 
-const Advertising = () => {
+const Advertising: React.FC = () => {
   const { t } = useTranslation();
   const fontSizes = [1, 2, 3, 4];
   return (
