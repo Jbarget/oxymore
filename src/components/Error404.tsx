@@ -22,7 +22,7 @@ const Error404: React.FC = () => {
 
   return (
     <Flex flex="auto" justifyContent="center" alignItems="center">
-      <P fontSize={[3, 4, 5, 6]}>{t("errors.page-not-found")}</P>
+      <P fontFamily="secondary" fontSize={[3, 4, 5, 6]}>{t("errors.page-not-found")}</P>
     </Flex>
   );
 };
