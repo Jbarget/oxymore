@@ -26,7 +26,7 @@ const KaiLandreContent: React.FC = () => {
   );
 };
 
-const launchDate = "2019-12-21";
+const launchDate = "2020-12-21";
 const KaiLandre: React.FC = () => {
   return (
     <Main justifyContent="center" alignItems="center">
