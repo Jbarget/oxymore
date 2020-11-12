@@ -1,4 +1,7 @@
 {
+  "errors": {
+    "page-not-found": "Lo sentimos, no podemos encontrar esa página"
+  },
   "home": {
     "header": "ES"
   },

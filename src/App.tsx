@@ -22,6 +22,7 @@ import Map from "./components/project-pages/Map";
 import KaiLandre from "./components/project-pages/KaiLandre";
 import FashionEditorial from "./components/project-pages/FashionEditorial";
 import Background from "./components/Background";
+import Error404 from "./components/Error404";
 
 const AppContent = styled.div`
   height: 100%;
@@ -76,6 +77,7 @@ const App = () => {
                   exact
                   component={ConsciousShopping}
                 />
+                <Route component={Error404} />
               </Switch>
             </Suspense>
           </AppContent>
