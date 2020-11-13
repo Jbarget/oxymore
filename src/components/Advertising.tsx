@@ -59,7 +59,7 @@ const Advertising: React.FC = () => {
       >
         <Img src={voltrova} alt="Voltrova image" mb={4}></Img>
         <P fontSize={fontSizes} textAlign="justify">
-          {t("advertising.")}
+          {t("advertising.voltrova")}
         </P>
       </Flex>
     </Flex>
