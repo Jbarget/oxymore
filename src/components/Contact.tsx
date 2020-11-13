@@ -11,12 +11,7 @@ import {
   LayoutProps,
   FlexboxProps,
 } from "styled-system";
-
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100%;
-  ${flexbox};
-`;
+import Flex from "./Flex";
 
 const Container = styled.div<TypographyProps & LayoutProps>`
   ${typography};
@@ -43,7 +38,7 @@ const Contact = () => {
   const { t } = useTranslation();
   const fontSizes = [2, 3, 4, 5];
   return (
-    <Main alignItems="center">
+    <Flex height="100%" alignItems="center">
       <Container
         textAlign={["center", "center", "center", "justify"]}
         height="50%"
@@ -69,7 +64,7 @@ const Contact = () => {
           </ContactInfo>
         </ul>
       </Container>
-    </Main>
+    </Flex>
   );
 };
 

@@ -8,38 +8,16 @@ import {
   LayoutProps,
   SpaceProps,
   TypographyProps,
-  FlexboxProps,
-  flexbox,
 } from "styled-system";
 import voltrova from "./assets/advertising-page/voltrova.jpg";
 import salazraki from "./assets/advertising-page/salazraki.jpg";
-import Grid from "./Grid";
+import Flex from "./Flex";
 
-const Main = styled.main`
-  height: 100%;
-  object-fit: contain;
-`;
-
-const AdvertContainer = styled.div<LayoutProps & SpaceProps>`
-  display: flex;
-  height: 100%;
-  object-fit: contain;
-  ${layout};
-  ${space};
-`;
-
-const ImgContainer = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  object-fit: contain;
-  ${layout};
-  ${space};
-  ${flexbox};
-`;
+const columnWidths = ["100%", "100%", "100%", "50%", "50%"];
 
 const Img = styled.img<LayoutProps & SpaceProps>`
-  height: 100%;
+  flex: auto;
+  object-fit: cover;
   ${layout};
   ${space};
 `;
@@ -54,41 +32,37 @@ const Advertising: React.FC = () => {
   const { t } = useTranslation();
   const fontSizes = [1, 2, 3, 4];
   return (
-    <Main>
-      <Grid
-        gridRowGap={[1, 1, 1, 0]}
-        gridTemplateColumns={[
-          "repeat(1, 100% [col-start])",
-          "repeat(1, 100% [col-start])",
-          "repeat(1, 100% [col-start])",
-          "repeat(2, 50% [col-start])",
-          "repeat(2, 50% [col-start])",
-        ]}
+    <Flex
+      flex="auto"
+      flexDirection={["column", "column", "column", "row", "row"]}
+    >
+      <Flex
+        flex="auto"
+        flexDirection="column"
+        p={4}
+        mb={4}
+        minWidth={columnWidths}
+        width={columnWidths}
       >
-        <AdvertContainer p={4}>
-          <ImgContainer
-            mb={4}
-            justifyContent={["left", "left", "left", "center"]}
-          >
-            <Img src={salazraki} alt="Salazraki image" mb={4}></Img>
-            <P fontSize={fontSizes} textAlign="justify">
-              {t("advertising.salazraki")}
-            </P>
-          </ImgContainer>
-        </AdvertContainer>
-        <AdvertContainer p={4}>
-          <ImgContainer
-            mb={4}
-            justifyContent={["left", "left", "left", "center"]}
-          >
-            <Img src={voltrova} alt="Voltrova image" mb={4}></Img>
-            <P fontSize={fontSizes} textAlign="justify">
-              {t("advertising.voltrova")}
-            </P>
-          </ImgContainer>
-        </AdvertContainer>
-      </Grid>
-    </Main>
+        <Img src={salazraki} alt="Salazraki image" mb={4}></Img>
+        <P fontSize={fontSizes} textAlign="justify">
+          {t("advertising.salazraki")}
+        </P>
+      </Flex>
+      <Flex
+        flex="auto"
+        flexDirection="column"
+        p={4}
+        mb={4}
+        minWidth={columnWidths}
+        width={columnWidths}
+      >
+        <Img src={voltrova} alt="Voltrova image" mb={4}></Img>
+        <P fontSize={fontSizes} textAlign="justify">
+          {t("advertising.voltrova")}
+        </P>
+      </Flex>
+    </Flex>
   );
 };
 

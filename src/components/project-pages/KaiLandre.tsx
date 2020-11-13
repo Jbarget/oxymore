@@ -1,16 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { FlexboxProps, flexbox, layout, LayoutProps } from "styled-system";
+import { layout, LayoutProps } from "styled-system";
 import ReactPlayer from "react-player/lazy";
 
 import KaiLandrePreview from "./KaiLandrePreview";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
-
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100%;
-  ${flexbox}
-`;
+import Flex from "../Flex";
 
 const Container = styled.div<LayoutProps>`
   ${layout};
@@ -29,13 +24,13 @@ const KaiLandreContent: React.FC = () => {
 const launchDate = "2020-12-21";
 const KaiLandre: React.FC = () => {
   return (
-    <Main justifyContent="center" alignItems="center">
+    <Flex height="100%" justifyContent="center" alignItems="center">
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={KaiLandrePreview}
         ProjectPage={KaiLandreContent}
       />
-    </Main>
+    </Flex>
   );
 };
 
