@@ -37,7 +37,7 @@ const overlayStyles = css`
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${(props) => props.isOpen && overlayStyles}
+  ${props => props.isOpen && overlayStyles}
 `;
 
 const MenuButton = styled.button<TypographyProps & PositionProps>`
@@ -129,7 +129,7 @@ const NavMenu = () => {
           to="/oxymore"
           fontSize={fontSizes}
           position="absolute"
-          left={30}
+          left={24}
           top={24}
           onClick={() => setIsOpen(!isOpen)}
         >
