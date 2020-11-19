@@ -23,7 +23,7 @@ const launchDate = "2020-12-21";
 const Eye = () => {
   return (
     <Flex
-      height="100%"
+      flex="auto"
       overflow="hidden"
       flexDirection="column"
       justifyContent="center"

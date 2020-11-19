@@ -30,7 +30,7 @@ const App = () => {
     <Router>
       <ThemeProvider theme={theme}>
         <Background>
-          <Flex flexDirection="column" p={6} overflow="auto" height="100%">
+          <Flex flexDirection="column" flex="auto" p={6}>
             <Suspense fallback={<div>Loading</div>}>
               <Header />
               <Switch>

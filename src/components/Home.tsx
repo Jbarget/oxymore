@@ -57,7 +57,7 @@ const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
 
 const Home = () => {
   return (
-    <Flex height="100%" flexDirection="column" justifyContent="space-between">
+    <Flex flex="auto" flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
         <DoubleLineTextImage src={oxymore} alt="oxymore image" />
         <Flex justifyContent="space-between">

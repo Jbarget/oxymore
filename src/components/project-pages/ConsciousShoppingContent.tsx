@@ -110,7 +110,7 @@ const ConsciousShoppingContent = () => {
   const handleClick = useCallback(() => setCurrent(next), [next]);
   return (
     <Flex
-      height="100%"
+      flex="auto"
       flexDirection={["column", "column", "column", "column", "row"]}
     >
       <Flex width={["100%", "100%", "100%", "100%", "30%"]}>

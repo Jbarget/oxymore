@@ -14,7 +14,7 @@ const EroticStoriesPreview: React.FC<{ launchDate: string }> = ({
 }) => {
   return (
     <Flex
-      height="100%"
+      flex="auto"
       overflow="hidden"
       flexDirection="column"
       justifyContent="center"
