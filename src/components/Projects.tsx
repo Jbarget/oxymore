@@ -33,9 +33,7 @@ import { zIndexes } from "./theme";
 // TODO: this component should use <Flex />, after it's configured to forwardRef
 const Main = styled.main<FlexboxProps & LayoutProps>`
   display: flex;
-  height: 100%;
-  overflow: scroll;
-  scroll-behavior: smooth;
+  flex: auto;
   ${flexbox};
   ${layout}
 `;
@@ -97,7 +95,7 @@ const Projects = () => {
         display="grid"
         justifyItems="center"
         alignItems="center"
-        height={["90%", "100%"]}
+        height={["90vh", "100vh"]}
       >
         <ProjectLink
           to="/projects/editorial"

@@ -15,7 +15,7 @@ const launchDate = "2020-12-21";
 const ConsciousShopping = () => {
   return (
     <Main
-      height="100%"
+      flex="auto"
       justifyContent="center"
       alignItems="center"
       fontFamily="secondary"

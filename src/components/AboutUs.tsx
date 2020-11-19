@@ -19,6 +19,7 @@ import olga from "./assets/about-page/olga.jpg";
 import rodri from "./assets/about-page/rodri.jpg";
 import gloria from "./assets/about-page/gloria.jpg";
 import Grid from "./Grid";
+import Flex from "./Flex";
 
 const teamMembers: TeamMemberProps[] = [
   {
@@ -57,11 +58,6 @@ const teamMembers: TeamMemberProps[] = [
     alt: "Nil image",
   },
 ];
-
-const Main = styled.main<SpaceProps>`
-  ${space};
-  height: 100%;
-`;
 
 const H1 = styled.h1<TypographyProps & SpaceProps>`
   text-transform: uppercase;
@@ -114,7 +110,7 @@ const AboutUs = () => {
   const { t } = useTranslation();
 
   return (
-    <Main>
+    <Flex flex="auto">
       <H1 fontSize={5} mb={4}>
         {t("about.header")}
       </H1>
@@ -147,7 +143,7 @@ const AboutUs = () => {
           </p>
         </GridCell>
       </Grid>
-    </Main>
+    </Flex>
   );
 };
 

@@ -38,7 +38,7 @@ const Contact = () => {
   const { t } = useTranslation();
   const fontSizes = [2, 3, 4, 5];
   return (
-    <Flex height="100%" alignItems="center">
+    <Flex flex="auto" alignItems="center">
       <Container
         textAlign={["center", "center", "center", "justify"]}
         height="50%"
