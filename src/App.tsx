@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import GlobalStyle from "./GlobalStyle";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import theme from "./components/theme";
 import "./css/reset.css";
@@ -25,18 +25,12 @@ import Background from "./components/Background";
 import Error404 from "./components/Error404";
 import Flex from "./components/Flex";
 
-
 const App = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <Background>
-          <Flex
-            flexDirection="column"
-            p={6}
-            overflow="auto"
-            height="100%"
-          >
+          <Flex flexDirection="column" p={6} overflow="auto" height="100%">
             <Suspense fallback={<div>Loading</div>}>
               <Header />
               <Switch>

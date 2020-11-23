@@ -41,7 +41,7 @@ const Main = styled.main<FlexboxProps & LayoutProps>`
 `;
 
 const Container = styled.div<LayoutProps & FlexboxProps & GridProps>`
-  ${layout}
+  ${layout};
   ${flexbox};
   ${grid};
 `;
@@ -51,7 +51,7 @@ const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${space};
 `;
 
-const ProjectLink = styled(Link)<LayoutProps & GridProps & FlexboxProps>`
+const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
   ${layout};
   ${grid};
   ${flexbox};
@@ -99,87 +99,96 @@ const Projects = () => {
         alignItems="center"
         height={["90%", "100%"]}
       >
-        <ProjectLink
-          to="/projects/editorial"
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[1, 1, 1, 1, 1]}
           justifySelf="start"
           maxWidth={iconSizes}
         >
-          <Img src={stairs} alt="stairs icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/consciousshopping"
+          <Link to="/projects/editorial">
+            <Img src={stairs} alt="stairs icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[2, 2, 2, 2, "1/3"]}
           justifySelf="start"
           maxWidth={iconSizes}
         >
-          <Img src={shell} alt="shell icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/eyes"
+          <Link to="/projects/consciousshopping">
+            <Img src={shell} alt="shell icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[3, 3, 3, 3, "1/3"]}
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={eye} alt="eye icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/eroticstories"
+          <Link to="/projects/eyes">
+            <Img src={eye} alt="eye icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[4, 4, 4, 4, 3]}
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={statue} alt="statue icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/kailandre"
+          <Link to="/projects/eroticstories">
+            <Img src={statue} alt="statue icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 1]}
           gridRow={[5, 5, 5, 5, "2/4"]}
           justifySelf="end"
           maxWidth={iconSizes}
         >
-          <Img src={dragon} alt="dragon icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/belledejour"
+          <Link to="/projects/kailandre">
+            <Img src={dragon} alt="dragon icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[6, 6, 6, 6, 3]}
           maxWidth={iconSizes}
           justifySelf="start"
         >
-          <Img src={knife} alt="knife icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/marcmedina"
+          <Link to="/projects/belledejour">
+            <Img src={knife} alt="knife icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 3]}
           gridRow={[7, 7, 7, 7, 2]}
           justifySelf="center"
           maxWidth={iconSizes}
         >
-          <Img src={mask} alt="mask icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/leoadef"
+          <Link to="/projects/marcmedina">
+            <Img src={mask} alt="mask icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[8, 8, 8, 8, "2/4"]}
           maxWidth={iconSizes}
           justifySelf="center"
         >
-          <Img src={spider} alt="spider icon" />
-        </ProjectLink>
-        <ProjectLink
-          to="/projects/themap"
+          <Link to="/projects/leoadef">
+            <Img src={spider} alt="spider icon" />
+          </Link>
+        </ProjectLinkWrapper>
+        <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 2]}
           gridRow={[9, 9, 9, 9, 2]}
           justifySelf="end"
           maxWidth={iconSizes}
         >
-          <Img src={magnify} alt="magnify icon" />
-        </ProjectLink>
+          <Link to="/projects/themap">
+            <Img src={magnify} alt="magnify icon" />
+          </Link>
+        </ProjectLinkWrapper>
       </Container>
       <BuyButtonContainer
         position="fixed"

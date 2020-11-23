@@ -1,14 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import {
-  space,
   typography,
   layout,
-  flexbox,
   SpaceProps,
   TypographyProps,
   LayoutProps,
-  FlexboxProps,
   GridProps,
 } from "styled-system";
 import NavMenu from "./NavMenu";

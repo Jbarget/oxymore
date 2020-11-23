@@ -5,11 +5,9 @@ import {
   space,
   typography,
   layout,
-  flexbox,
   SpaceProps,
   TypographyProps,
   LayoutProps,
-  FlexboxProps,
 } from "styled-system";
 import Flex from "./Flex";
 

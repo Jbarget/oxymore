@@ -4,10 +4,8 @@ import { useTranslation } from "react-i18next";
 import {
   space,
   typography,
-  flexbox,
   SpaceProps,
   TypographyProps,
-  FlexboxProps,
   LayoutProps,
   layout,
 } from "styled-system";
