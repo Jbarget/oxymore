@@ -6,6 +6,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: SangBleu;
     src: url(/SangBleuOGSerif-Light.otf)
   }
+  * {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: ${theme.colors.athensGray} transparent;
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: ${theme.colors.athensGray};
+    }
+  }
   html {
     height: 100%
   }
