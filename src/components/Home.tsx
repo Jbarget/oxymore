@@ -21,10 +21,10 @@ import alpha from "./assets/home-page/360-alpha.png";
 import LanguageButtons from "./LanguageButtons";
 import Flex from "./Flex";
 
-const ManifestoLink = styled(NavLink)<TypographyProps & FlexboxProps>`
+const ManifestoLink = styled(NavLink)<TypographyProps>`
   ${typography};
   display: flex;
-  ${flexbox}
+  alignitems: flex-end;
 `;
 
 const DoubleLineTextImage = styled.img`
@@ -76,7 +76,7 @@ const Home = () => {
             cancelUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
           />
         </Flex>
-        <ManifestoLink to="/manifesto" alignItems="flex-end">
+        <ManifestoLink to="/manifesto">
           <DoubleLineTextImage src={manifesto} alt="manifesto image" />
         </ManifestoLink>
       </Flex>
