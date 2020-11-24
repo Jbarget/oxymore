@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     display: flex;
-    flex-direction: auto;
+    flex-direction: column;
     flex: auto;
     font-family: ${theme.fonts.primary};
     text-decoration: none;
