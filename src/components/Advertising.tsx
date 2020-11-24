@@ -35,16 +35,17 @@ const Advertising: React.FC = () => {
     <Flex
       flex="auto"
       flexDirection={["column", "column", "column", "row", "row"]}
+      justifyContent="center"
     >
       <Flex
         flex="auto"
         flexDirection="column"
-        p={4}
         mb={4}
         minWidth={columnWidths}
         width={columnWidths}
+        mr={[0, 0, 0, 2]}
       >
-        <Img src={salazraki} alt="Salazraki image" mb={4}></Img>
+        <Img src={salazraki} alt="Salazraki image" mb={2}></Img>
         <P fontSize={fontSizes} textAlign="justify">
           {t("advertising.salazraki")}
         </P>
@@ -52,12 +53,13 @@ const Advertising: React.FC = () => {
       <Flex
         flex="auto"
         flexDirection="column"
-        p={4}
+        p={0}
         mb={4}
         minWidth={columnWidths}
         width={columnWidths}
+        ml={[0, 0, 0, 2]}
       >
-        <Img src={voltrova} alt="Voltrova image" mb={4}></Img>
+        <Img src={voltrova} alt="Voltrova image" mb={2}></Img>
         <P fontSize={fontSizes} textAlign="justify">
           {t("advertising.voltrova")}
         </P>
