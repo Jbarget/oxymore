@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import {
   layout,
@@ -29,16 +29,7 @@ import spider from "./assets/project-page/spider.png";
 import magnify from "./assets/project-page/magnify.png";
 import BuyButton from "./BuyButton";
 import { zIndexes } from "./theme";
-
-// TODO: this component should use <Flex />, after it's configured to forwardRef
-const Main = styled.main<FlexboxProps & LayoutProps>`
-  display: flex;
-  height: 100%;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  ${flexbox};
-  ${layout}
-`;
+import Flex from "./Flex";
 
 const Container = styled.div<LayoutProps & FlexboxProps & GridProps>`
   ${layout};
@@ -80,24 +71,22 @@ const Scrollback = styled.button<ScrollbackProps>`
 `;
 
 const Projects = () => {
-  const ref = useRef<HTMLElement>(null);
   const scrollToTop = useCallback(() => {
-    if (ref.current) {
-      ref.current.scrollTop = 0;
+    if (window) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
 
   const iconSizes = ["100%", "100%", "100%", "100%", "30%"];
 
   return (
-    <Main justifyContent="center" alignItems="center" ref={ref}>
+    <Flex flex="auto" justifyContent="center" alignItems="center">
       <Container
         gridTemplateColumns="repeat(3, 1fr)"
         gridTemplateRows="repeat(4, 1fr)"
         display="grid"
         justifyItems="center"
         alignItems="center"
-        height={["90%", "100%"]}
       >
         <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 3]}
@@ -213,7 +202,7 @@ const Projects = () => {
       >
         UP
       </Scrollback>
-    </Main>
+    </Flex>
   );
 };
 

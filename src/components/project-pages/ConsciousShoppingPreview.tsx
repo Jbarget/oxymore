@@ -43,7 +43,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
     <Flex
       display={["flex", "flex", "flex", "grid"]}
       flexDirection={["column", "column", "column", "row"]}
-      height="100%"
+      flex="auto"
       alignItems="center"
     >
       <Link to="/projects">
