@@ -16,19 +16,23 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   html {
-    height: 100%
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;    
   }
   body {
-    min-height: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: auto;
+    flex: auto;
     font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.athensGray};
   }
   #root {
-    height: 100%;
     display: flex;
     flex-direction: column;
+    flex: auto;
   }
   button {
     cursor: pointer;

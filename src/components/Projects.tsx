@@ -95,7 +95,6 @@ const Projects = () => {
         display="grid"
         justifyItems="center"
         alignItems="center"
-        height={["90vh", "100vh"]}
       >
         <ProjectLinkWrapper
           gridColumn={[2, 2, 2, 2, 3]}
