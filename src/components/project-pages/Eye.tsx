@@ -5,6 +5,7 @@ import { layout, LayoutProps } from "styled-system";
 import eye from "../assets/project-page/eye.png";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
 import Flex from "../Flex";
+import EyeContent from "./EyeContent";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -19,7 +20,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
     </Fragment>
   );
 };
-const launchDate = "2020-12-21";
+const launchDate = "2019-12-21";
 const Eye = () => {
   return (
     <Flex
@@ -32,7 +33,7 @@ const Eye = () => {
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={PreviewPage}
-        ProjectPage={() => null}
+        ProjectPage={EyeContent}
       />
     </Flex>
   );
