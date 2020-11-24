@@ -3,19 +3,24 @@ import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
-  color,
   typography,
   position,
   grid,
   space,
-  ColorProps,
   TypographyProps,
   PositionProps,
-  GridProps,
   SpaceProps,
+  BackgroundProps,
 } from "styled-system";
 import { zIndexes } from "./theme";
 import background from "./assets/backgrounds/background.png";
+// import { loadStripe } from "@stripe/stripe-js";
+// import { allowedCountries } from "../lib/constants";
+
+type NavMenuProps = TypographyProps &
+  SpaceProps &
+  PositionProps &
+  BackgroundProps;
 
 const overlayStyles = css`
   display: flex;
@@ -40,25 +45,15 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${props => props.isOpen && overlayStyles}
 `;
 
-const MenuButton = styled.button<TypographyProps & PositionProps>`
-  border: none;
-  background: transparent;
-  ${typography};
-  ${position};
-`;
-
-const MenuContainer = styled.div<GridProps>`
-  ${grid};
-`;
-
-const Menu = styled.ul<GridProps & TypographyProps & SpaceProps>`
+const Menu = styled.ul<NavMenuProps>`
   ${grid};
   ${typography};
   ${space};
 `;
 
-const MenuLink = styled(NavLink)<ColorProps & TypographyProps & PositionProps>`
-  ${color};
+const MenuButton = styled.button<NavMenuProps>`
+  border: none;
+  background: transparent;
   ${typography};
   ${position};
 `;
@@ -71,6 +66,11 @@ const MenuText = styled.li`
   }
 `;
 
+const MenuLink = styled(NavLink)<NavMenuProps>`
+  ${typography};
+  ${position};
+`;
+
 interface LinkProps {
   page: string;
   url: string;
@@ -78,19 +78,69 @@ interface LinkProps {
 
 const Link = ({ page, url }: LinkProps) => {
   return (
-    <MenuContainer
-      key={page}
-      gridTemplateRows="max-content"
-      gridTemplateColumns="max-content"
-    >
-      <MenuText>
-        <MenuLink to={url} fontSize={[5, 6, 7, 8]}>
-          {page}
-        </MenuLink>
-      </MenuText>
-    </MenuContainer>
+    <MenuText>
+      <MenuLink to={url} fontSize={[5, 6, 7, 8]} key={page}>
+        {page}
+      </MenuLink>
+    </MenuText>
   );
 };
+
+// const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
+
+// interface StripeLinkProps {
+//   successUrl: string;
+//   cancelUrl: string;
+// }
+// const StripeLink: React.FC<StripeLinkProps> = props => {
+//   const { t } = useTranslation();
+//   const { successUrl, cancelUrl } = props;
+//   const [error, setError] = useState<string>();
+
+//   const handleClick = async () => {
+//     try {
+//       // When the customer clicks on the button, redirect them to Checkout.
+//       const stripe = await stripePromise;
+//       if (!stripe) {
+//         return null;
+//       }
+
+//       await stripe.redirectToCheckout({
+//         lineItems: [
+//           {
+//             price: `${process.env.REACT_APP_STRIPE_PRICE_ID}`,
+//             quantity: 1,
+//           },
+//         ],
+//         mode: "payment",
+//         successUrl,
+//         cancelUrl,
+//         shippingAddressCollection: {
+//           allowedCountries: allowedCountries,
+//         },
+//       });
+//       // If `redirectToCheckout` fails due to a browser or network
+//       // error, display the localized error message to your customer
+//       // using `error.message`.
+//     } catch (error) {
+//       setError(error.message);
+//     }
+//   };
+
+//   const BuyLink = styled.button<NavMenuProps>`
+//     border: none;
+//     background: transparent;
+//   `;
+
+//   return (
+//     <Fragment>
+//       {error && <p>{error}</p>}
+//       <MenuText>
+//         <BuyLink onClick={handleClick}>{`${t("nav.buy")}`}</BuyLink>
+//       </MenuText>
+//     </Fragment>
+//   );
+// };
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,10 +162,6 @@ const NavMenu = () => {
     {
       page: `${t("nav.advertising")}`,
       url: "/advertising",
-    },
-    {
-      page: `${t("nav.buy")}`,
-      url: "/buy",
     },
   ];
 
@@ -149,10 +195,10 @@ const NavMenu = () => {
         <Menu
           onClick={() => setIsOpen(!isOpen)}
           textAlign={["center", null, null, "start"]}
-          gridColumn={["2/3", null, null, "1/2"]}
           p={4}
         >
           {Links.map(Link)}
+          {/* <StripeLink successUrl={successUrl} cancelUrl={cancelUrl} /> */}
         </Menu>
       </Overlay>
     </Fragment>

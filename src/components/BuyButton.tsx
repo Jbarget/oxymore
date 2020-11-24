@@ -15,6 +15,7 @@ import {
 import styled from "styled-components";
 
 import { zIndexes } from "./theme";
+import { allowedCountries } from "../lib/constants";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 
@@ -37,7 +38,7 @@ interface BuyButtonProps {
   successUrl: string;
   cancelUrl: string;
 }
-const BuyButton: React.FC<BuyButtonProps> = (props) => {
+const BuyButton: React.FC<BuyButtonProps> = props => {
   const { successUrl, cancelUrl } = props;
   const [error, setError] = useState<string>();
 
@@ -60,41 +61,7 @@ const BuyButton: React.FC<BuyButtonProps> = (props) => {
         successUrl,
         cancelUrl,
         shippingAddressCollection: {
-          allowedCountries: [
-          "US",
-          "AT",
-          "AU",
-          "BE",
-          "BG",
-          "CA",
-          "CH",
-          "CY",
-          "CZ",
-          "DE",
-          "DK",
-          "EE",
-          "ES",
-          "FI",
-          "FR",
-          "GB",
-          "GR",
-          "HK",
-          "IE",
-          "IT",
-          "LT",
-          "LU",
-          "LV",
-          "MT",
-          "NL",
-          "NO",
-          "NZ",
-          "PL",
-          "PT",
-          "RO",
-          "SE",
-          "SG",
-          "SI",
-          "SK"],
+          allowedCountries: allowedCountries,
         },
       });
       // If `redirectToCheckout` fails due to a browser or network
