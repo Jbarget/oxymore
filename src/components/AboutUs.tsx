@@ -110,7 +110,7 @@ const AboutUs = () => {
   const { t } = useTranslation();
 
   return (
-    <Flex flex="auto">
+    <Flex flex="auto" flexDirection="column">
       <H1 fontSize={5} mb={4}>
         {t("about.header")}
       </H1>
