@@ -52,7 +52,7 @@ const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
 
 const Img = styled.img<LayoutProps>`
   ${layout};
-  transition: transform 0.2s;
+  transition: transform 0.5s;
   &:hover {
     transform: scale(1.05);
 `;
