@@ -3,7 +3,7 @@ export interface DataValues {
   populationAffected: number;
   percentageAffected: number;
 }
-
+export type DataSet = keyof DataValues;
 export interface EyeData {
   coords: [number, number];
   name: string;
@@ -64,8 +64,8 @@ const eyeData: EyeData[] = [
   },
   {
     name: "Mauritius",
-    coords: [36, 95],
-    active: false,
+    coords: [135, 200],
+    active: true,
     data: {
       population: 4573157,
       populationAffected: 107317,
