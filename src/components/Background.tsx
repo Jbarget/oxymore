@@ -3,10 +3,17 @@ import { useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
 import marbleBackground from "./assets/backgrounds/background.png";
 import eyeProjectBackground from "./assets/backgrounds/eye-bg.png";
+import Flex from "./Flex";
+import { zIndexes } from "./theme";
 
 type Background = "black" | typeof marbleBackground;
 
-const Div = styled.div<{ background: Background }>`
+const BackgroundElement = styled.div<{ background: Background }>`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   ${(props) =>
     props.background === "black"
       ? "background-color: black;"
@@ -16,6 +23,7 @@ const Div = styled.div<{ background: Background }>`
   background-repeat: repeat-y;
   background-size: cover;
   height: 100%;
+  z-index: ${zIndexes.behind};
 `;
 
 const eyeInteractionBackgroundStyles = css`
@@ -61,7 +69,12 @@ const Background: React.FC = ({ children }) => {
   const location = useLocation();
   const background = getBackground(location.pathname);
 
-  return <Div background={background}>{children}</Div>;
+  return (
+    <Flex flex="auto" flexDirection="column">
+      <BackgroundElement background={background} />
+      {children}
+    </Flex>
+  );
 };
 
 export default Background;

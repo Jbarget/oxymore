@@ -5,7 +5,7 @@ import Timer from "./Timer";
 
 const Loading = () => {
   return (
-    <Flex height="100%" overflow="hidden" justifyContent="center">
+    <Flex flex="auto" overflow="hidden" justifyContent="center">
       <Timer launchDate="2020-11-27" />
     </Flex>
   );
