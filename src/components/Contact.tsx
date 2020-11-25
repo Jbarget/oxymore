@@ -11,12 +11,12 @@ const Container = styled.div<ContactPageProps>`
   text-transform: uppercase;
 `;
 
-const H2 = styled.h2<ContactPageProps>`
+const H1 = styled.h1<ContactPageProps>`
   ${space};
   ${typography};
 `;
 
-const H3 = styled.h3<ContactPageProps>`
+const H2 = styled.h2<ContactPageProps>`
   ${space};
   ${typography};
 `;
@@ -32,12 +32,12 @@ const Contact = () => {
   return (
     <Flex flex="auto" alignItems="center">
       <Container textAlign="justify">
-        <H2 fontSize={[4, 5, 6, 7]} py={3}>
+        <H1 fontSize={[4, 5, 6, 7]} py={3}>
           {t("contact.header")}
-        </H2>
-        <H3 fontSize={fontSizes} py={3}>
+        </H1>
+        <H2 fontSize={fontSizes} py={3}>
           {t("contact.subheader")}
-        </H3>
+        </H2>
         <ContactInfo fontSize={fontSizes} py={1}>
           <a
             href="mailto:ox@oxymore.com"
