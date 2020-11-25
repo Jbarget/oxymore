@@ -10,26 +10,33 @@ import {
   grid,
 } from "styled-system";
 import bag from "../assets/conscious-shopping/bag.jpg";
-import shell from "../assets/project-page/shell.png";
+import projectIcon from "../assets/project-page/shell.png";
 import trex from "../assets/conscious-shopping/t-rex.jpg";
 import boots from "../assets/conscious-shopping/boots.jpg";
 import sunglasses from "../assets/conscious-shopping/sunglasses.jpg";
-import concha from "../assets/conscious-shopping/concha.jpg";
+import shell from "../assets/conscious-shopping/concha.jpg";
 import Timer from "../Timer";
 import { zIndexes } from "../theme";
 import { Link } from "react-router-dom";
-import Flex from "../Flex";
 
 type GridLayoutProps = FlexboxProps & LayoutProps & PositionProps & GridProps;
 
-const ProjectIconShell = styled.img<LayoutProps & GridProps>`
+const Grid = styled.div<GridLayoutProps>`
+  ${flexbox};
   ${layout};
   ${grid};
 `;
 
-type IllustrationProps = LayoutProps & FlexboxProps & GridProps;
+const TimerContainer = styled.div<GridLayoutProps>`
+  ${grid};
+`;
 
-const Illustration = styled.img<IllustrationProps>`
+const ProjectIcon = styled.img<GridLayoutProps>`
+  ${layout};
+  ${grid};
+`;
+
+const Illustration = styled.img<GridLayoutProps>`
   ${layout};
   ${flexbox};
   ${grid};
@@ -40,15 +47,16 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
   launchDate,
 }) => {
   return (
-    <Flex
+    <Grid
       display={["flex", "flex", "flex", "grid"]}
-      flexDirection={["column", "column", "column", "row"]}
-      flex="auto"
+      flexDirection={["column", "column", "column"]}
+      gridTemplateColumns="repeat(3, 1fr)"
+      gridTemplateRows="repeat(5, 20%)"
       alignItems="center"
     >
       <Link to="/projects">
-        <ProjectIconShell
-          src={shell}
+        <ProjectIcon
+          src={projectIcon}
           alt="icon image"
           maxWidth="20%"
           gridColumn={1}
@@ -64,23 +72,24 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         justifySelf="flex-end"
         alignSelf="center"
       />
+      <TimerContainer zIndex={zIndexes.inFront} gridColumn={2} gridRow={2}>
+        <Timer launchDate={launchDate} />
+      </TimerContainer>
       <Illustration
         src={bag}
         alt="illustration image"
         maxWidth="50%"
         gridColumn={2}
+        gridRow={1}
         justifySelf="center"
         alignSelf="center"
       />
-      <Flex zIndex={zIndexes.inFront} justifySelf="center" alignSelf="center">
-        <Timer launchDate={launchDate} />
-      </Flex>
       <Illustration
-        src={concha}
+        src={shell}
         alt="illustration image"
         maxWidth="50%"
         gridColumn={2}
-        gridRow={4}
+        gridRow={3}
         justifySelf="flex-start"
         alignSelf="center"
       />
@@ -89,7 +98,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         alt="illustration image"
         maxWidth="50%"
         gridColumn={2}
-        gridRow={4}
+        gridRow={3}
         justifySelf="flex-end"
         alignSelf="center"
       />
@@ -101,7 +110,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         gridRow={2}
         alignSelf="center"
       />
-    </Flex>
+    </Grid>
   );
 };
 
