@@ -42,8 +42,6 @@ const Projects = () => {
     }
   }, []);
 
-  const iconSizes = ["100%", "100%", "75%", "30%"];
-
   return (
     <Flex flex="auto" justifyContent="center" alignItems="center">
       <ProjectsGrid />
