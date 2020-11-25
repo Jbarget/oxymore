@@ -44,14 +44,6 @@ const Illustration = styled.img<GridLayoutProps>`
   opacity: 0.5;
 `;
 
-const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
-  ${layout};
-  ${grid};
-  ${flexbox};
-  display: flex;
-  align-items: center;
-`;
-
 const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
   launchDate,
 }) => {
