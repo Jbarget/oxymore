@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
@@ -14,8 +14,7 @@ import {
 } from "styled-system";
 import { zIndexes } from "./theme";
 import background from "./assets/backgrounds/background.png";
-// import { loadStripe } from "@stripe/stripe-js";
-// import { allowedCountries } from "../lib/constants";
+import redirectToCheckout from "../helpers/redirectToCheckout";
 
 type NavMenuProps = TypographyProps &
   SpaceProps &
@@ -42,7 +41,7 @@ const overlayStyles = css`
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${props => props.isOpen && overlayStyles}
+  ${(props) => props.isOpen && overlayStyles}
 `;
 
 const Menu = styled.ul<NavMenuProps>`
@@ -76,77 +75,44 @@ interface LinkProps {
   url: string;
 }
 
-const Link = ({ page, url }: LinkProps) => {
+const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
-    <MenuText>
-      <MenuLink to={url} fontSize={[5, 6, 7, 8]} key={page}>
+    <MenuText key={url} onClick={onClick}>
+      <MenuLink to={url} fontSize={[5, 6, 7, 8]}>
         {page}
       </MenuLink>
     </MenuText>
   );
 };
+const BuyLink = styled.button<TypographyProps>`
+  border: none;
+  background: transparent;
+  ${typography};
+`;
 
-// const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
+const StripeMenuLink: React.FC = () => {
+  const [error, setError] = useState<string>();
+  const { t } = useTranslation();
 
-// interface StripeLinkProps {
-//   successUrl: string;
-//   cancelUrl: string;
-// }
-// const StripeLink: React.FC<StripeLinkProps> = props => {
-//   const { t } = useTranslation();
-//   const { successUrl, cancelUrl } = props;
-//   const [error, setError] = useState<string>();
-
-//   const handleClick = async () => {
-//     try {
-//       // When the customer clicks on the button, redirect them to Checkout.
-//       const stripe = await stripePromise;
-//       if (!stripe) {
-//         return null;
-//       }
-
-//       await stripe.redirectToCheckout({
-//         lineItems: [
-//           {
-//             price: `${process.env.REACT_APP_STRIPE_PRICE_ID}`,
-//             quantity: 1,
-//           },
-//         ],
-//         mode: "payment",
-//         successUrl,
-//         cancelUrl,
-//         shippingAddressCollection: {
-//           allowedCountries: allowedCountries,
-//         },
-//       });
-//       // If `redirectToCheckout` fails due to a browser or network
-//       // error, display the localized error message to your customer
-//       // using `error.message`.
-//     } catch (error) {
-//       setError(error.message);
-//     }
-//   };
-
-//   const BuyLink = styled.button<NavMenuProps>`
-//     border: none;
-//     background: transparent;
-//   `;
-
-//   return (
-//     <Fragment>
-//       {error && <p>{error}</p>}
-//       <MenuText>
-//         <BuyLink onClick={handleClick}>{`${t("nav.buy")}`}</BuyLink>
-//       </MenuText>
-//     </Fragment>
-//   );
-// };
+  return (
+    <Fragment>
+      {error && <p>{error}</p>}
+      <MenuText>
+        <BuyLink onClick={redirectToCheckout(setError)} fontSize={[5, 6, 7, 8]}>
+          {t("nav.buy")}
+        </BuyLink>
+      </MenuText>
+    </Fragment>
+  );
+};
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const fontSizes = [1, 2, 3, 4];
   const { t } = useTranslation();
-  const Links: LinkProps[] = [
+  const toggleMenuIsOpen = useCallback(() => setIsOpen(!isOpen), [isOpen]);
+
+  const links: LinkProps[] = [
     {
       page: `${t("nav.about-us")}`,
       url: "/about",
@@ -192,13 +158,11 @@ const NavMenu = () => {
           BACK
         </MenuButton>
 
-        <Menu
-          onClick={() => setIsOpen(!isOpen)}
-          textAlign={["center", null, null, "start"]}
-          p={4}
-        >
-          {Links.map(Link)}
-          {/* <StripeLink successUrl={successUrl} cancelUrl={cancelUrl} /> */}
+        <Menu textAlign={["center", null, null, "start"]} p={4}>
+          {links.map((props) => (
+            <Link onClick={toggleMenuIsOpen} {...props} />
+          ))}
+          <StripeMenuLink />
         </Menu>
       </Overlay>
     </Fragment>
