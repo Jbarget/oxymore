@@ -63,17 +63,15 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
       gridTemplateRows="repeat(5, 20%)"
       alignItems="center"
     >
-      <ProjectLinkWrapper>
-        <Link to="/projects">
-          <ProjectIcon
-            src={projectIcon}
-            alt="icon image"
-            maxWidth="20%"
-            gridColumn={1}
-            gridRow={1}
-          />
-        </Link>
-      </ProjectLinkWrapper>
+      <Link to="/projects">
+        <ProjectIcon
+          src={projectIcon}
+          alt="icon image"
+          maxWidth="20%"
+          gridColumn={1}
+          gridRow={1}
+        />
+      </Link>
       <Illustration
         src={boots}
         alt="illustration image"
