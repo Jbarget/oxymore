@@ -18,6 +18,7 @@ import shell from "../assets/conscious-shopping/concha.jpg";
 import Timer from "../Timer";
 import { zIndexes } from "../theme";
 import { Link } from "react-router-dom";
+import Flex from "../Flex";
 
 type GridLayoutProps = FlexboxProps & LayoutProps & PositionProps & GridProps;
 
@@ -43,6 +44,14 @@ const Illustration = styled.img<GridLayoutProps>`
   opacity: 0.5;
 `;
 
+const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
+  ${layout};
+  ${grid};
+  ${flexbox};
+  display: flex;
+  align-items: center;
+`;
+
 const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
   launchDate,
 }) => {
@@ -54,15 +63,17 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
       gridTemplateRows="repeat(5, 20%)"
       alignItems="center"
     >
-      <Link to="/projects">
-        <ProjectIcon
-          src={projectIcon}
-          alt="icon image"
-          maxWidth="20%"
-          gridColumn={1}
-          gridRow={1}
-        />
-      </Link>
+      <ProjectLinkWrapper>
+        <Link to="/projects">
+          <ProjectIcon
+            src={projectIcon}
+            alt="icon image"
+            maxWidth="20%"
+            gridColumn={1}
+            gridRow={1}
+          />
+        </Link>
+      </ProjectLinkWrapper>
       <Illustration
         src={boots}
         alt="illustration image"

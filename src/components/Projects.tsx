@@ -17,7 +17,6 @@ import {
   background,
 } from "styled-system";
 import { Link } from "react-router-dom";
-
 import stairs from "./assets/project-page/stairs.png";
 import shell from "./assets/project-page/shell.png";
 import eye from "./assets/project-page/eye.png";
@@ -52,7 +51,7 @@ const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
 
 const Img = styled.img<LayoutProps>`
   ${layout};
-  transition: transform 0.2s;
+  transition: transform 0.5s;
   &:hover {
     transform: scale(1.05);
 `;

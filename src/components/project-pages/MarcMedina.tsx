@@ -5,6 +5,7 @@ import Timer from "../Timer";
 import mask from "../assets/project-page/mask.png";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
 import Flex from "../Flex";
+import { Link } from "react-router-dom";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -12,12 +13,20 @@ const Img = styled.img<LayoutProps>`
 
 const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
-    <Fragment>
-      <Flex justifyContent="center" alignItems="center">
-        <Img src={mask} alt="mask icon" maxWidth="30%" />
-      </Flex>
+    <Flex
+      flex="auto"
+      overflow="hidden"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Link to="/projects">
+        <Flex justifyContent="center" alignItems="center">
+          <Img src={mask} alt="mask icon" maxWidth="30%" />
+        </Flex>
+      </Link>
       <Timer launchDate={launchDate} />
-    </Fragment>
+    </Flex>
   );
 };
 
