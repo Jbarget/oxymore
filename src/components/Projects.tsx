@@ -30,23 +30,25 @@ import BuyButton from "./BuyButton";
 import { zIndexes } from "./theme";
 import Flex from "./Flex";
 
-const Container = styled.div<LayoutProps & FlexboxProps & GridProps>`
+type ProjectPageProps = LayoutProps & FlexboxProps & GridProps;
+
+const Container = styled.div<ProjectPageProps>`
   ${layout};
   ${flexbox};
   ${grid};
 `;
 
-const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
-  ${position};
-  ${space};
-`;
-
-const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
+const ProjectLinkWrapper = styled.div<ProjectPageProps>`
   ${layout};
   ${grid};
   ${flexbox};
   display: flex;
   align-items: center;
+`;
+
+const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
+  ${position};
+  ${space};
 `;
 
 const Img = styled.img<LayoutProps>`

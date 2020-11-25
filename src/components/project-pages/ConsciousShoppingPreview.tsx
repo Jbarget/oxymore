@@ -18,7 +18,6 @@ import shell from "../assets/conscious-shopping/concha.jpg";
 import Timer from "../Timer";
 import { zIndexes } from "../theme";
 import { Link } from "react-router-dom";
-import Flex from "../Flex";
 
 type GridLayoutProps = FlexboxProps & LayoutProps & PositionProps & GridProps;
 

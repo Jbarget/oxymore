@@ -11,7 +11,6 @@ import {
   TypographyProps,
   typography,
 } from "styled-system";
-
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
 import oxymore from "./assets/home-page/oxymore.png";
