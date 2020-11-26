@@ -43,7 +43,7 @@ const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   align-self: center;
   align-items: flex-start;
   justify-content: flex-start;
-  transition: transform 0.2s;
+  transition: transform 0.5s;
   &:hover {
     transform: scale(1.01);
   ${flexbox}
@@ -71,10 +71,7 @@ const Home = () => {
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
           <SingleLineTextImage src={number} mb={3} />
-          <BuyButton
-            successUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
-            cancelUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
-          />
+          <BuyButton />
         </Flex>
         <ManifestoLink to="/manifesto">
           <DoubleLineTextImage src={manifesto} alt="manifesto image" />

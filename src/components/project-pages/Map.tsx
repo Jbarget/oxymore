@@ -5,6 +5,7 @@ import { layout, LayoutProps } from "styled-system";
 import magnify from "../assets/project-page/magnify.png";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
 import Flex from "../Flex";
+import { Link } from "react-router-dom";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -13,15 +14,17 @@ const Img = styled.img<LayoutProps>`
 const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
     <Fragment>
-      <Flex justifyContent="center" alignItems="center">
-        <Img src={magnify} alt="magnify icon" maxWidth="30%" />
-      </Flex>
+      <Link to="/projects">
+        <Flex justifyContent="center" alignItems="center">
+          <Img src={magnify} alt="magnify icon" maxWidth="30%" />
+        </Flex>
+      </Link>
       <Timer launchDate={launchDate} />
     </Fragment>
   );
 };
 
-const launchDate = "2020-12-21";
+const launchDate = "2021-01-21";
 const Map = () => {
   return (
     <Flex
