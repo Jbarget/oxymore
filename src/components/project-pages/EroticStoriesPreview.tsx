@@ -4,6 +4,7 @@ import Timer from "../Timer";
 import { layout, LayoutProps } from "styled-system";
 import statue from "../assets/project-page/statue.png";
 import Flex from "../Flex";
+import { Link } from "react-router-dom";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -20,9 +21,11 @@ const EroticStoriesPreview: React.FC<{ launchDate: string }> = ({
       justifyContent="center"
       alignItems="center"
     >
-      <Flex justifyContent="center" alignItems="center">
-        <Img src={statue} alt="statue icon" maxWidth="30%" />
-      </Flex>
+      <Link to="/projects">
+        <Flex justifyContent="center" alignItems="center">
+          <Img src={statue} alt="statue icon" maxWidth="30%" />
+        </Flex>
+      </Link>
       <Timer launchDate={launchDate} />
     </Flex>
   );
