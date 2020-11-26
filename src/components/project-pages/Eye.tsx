@@ -5,6 +5,7 @@ import { layout, LayoutProps } from "styled-system";
 import eye from "../assets/project-page/eye.png";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
 import Flex from "../Flex";
+import EyeContent from "./EyeContent";
 import { Link } from "react-router-dom";
 
 const Img = styled.img<LayoutProps>`
@@ -35,7 +36,7 @@ const Eye = () => {
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={PreviewPage}
-        ProjectPage={() => null}
+        ProjectPage={EyeContent}
       />
     </Flex>
   );

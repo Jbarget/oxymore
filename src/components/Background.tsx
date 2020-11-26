@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import marbleBackground from "./assets/backgrounds/background.png";
+import eyeProjectBackground from "./assets/backgrounds/eye-bg.png";
 import Flex from "./Flex";
 import { zIndexes } from "./theme";
 
@@ -17,9 +18,16 @@ const BackgroundElement = styled.div<{ background: Background }>`
     props.background === "black"
       ? "background-color: black;"
       : `background: url(${props.background});`}
+  ${(props) =>
+    props.background === eyeProjectBackground && eyeInteractionBackgroundStyles}
   background-repeat: repeat-y;
   background-size: cover;
+  height: 100%;
   z-index: ${zIndexes.behind};
+`;
+
+const eyeInteractionBackgroundStyles = css`
+  background-position: bottom;
 `;
 
 const getBackground = (pathname: string): Background => {
@@ -44,6 +52,9 @@ const getBackground = (pathname: string): Background => {
     "/projects/leoadef",
   ];
 
+  if (pathname === "/projects/eyes") {
+    return eyeProjectBackground;
+  }
   if (pagesWithBlackBG.includes(pathname)) {
     return "black";
   }
