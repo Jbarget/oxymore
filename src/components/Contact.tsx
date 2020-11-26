@@ -1,40 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import {
-  space,
-  typography,
-  layout,
-  flexbox,
-  SpaceProps,
-  TypographyProps,
-  LayoutProps,
-  FlexboxProps,
-} from "styled-system";
+import { space, typography, SpaceProps, TypographyProps } from "styled-system";
+import Flex from "./Flex";
 
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100%;
-  ${flexbox};
-`;
+type ContactPageProps = SpaceProps & TypographyProps;
 
-const Container = styled.div<TypographyProps & LayoutProps>`
+const Container = styled.div<ContactPageProps>`
   ${typography};
-  ${layout};
   text-transform: uppercase;
 `;
 
-const H1 = styled.h1<SpaceProps & TypographyProps>`
+const H1 = styled.h1<ContactPageProps>`
   ${space};
   ${typography};
 `;
 
-const H2 = styled.h2<SpaceProps & TypographyProps>`
+const H2 = styled.h2<ContactPageProps>`
   ${space};
   ${typography};
 `;
 
-const ContactInfo = styled.p<SpaceProps & TypographyProps>`
+const ContactInfo = styled.p<ContactPageProps>`
   ${space};
   ${typography};
 `;
@@ -43,33 +30,26 @@ const Contact = () => {
   const { t } = useTranslation();
   const fontSizes = [2, 3, 4, 5];
   return (
-    <Main alignItems="center">
-      <Container
-        textAlign={["center", "center", "center", "justify"]}
-        height="50%"
-      >
-        <ul>
-          <H1 fontSize={[4, 5, 6, 7]} py={3}>
-            {t("contact.header")}
-          </H1>
-          <H2 fontSize={fontSizes} py={3}>
-            {t("contact.subheader")}
-          </H2>
-          <ContactInfo fontSize={fontSizes} py={1}>
-            <a
-              href="mailto:ox@oxymore.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t("contact.email")}
-            </a>
-          </ContactInfo>
-          <ContactInfo fontSize={fontSizes}>
-            {t("contact.location")}
-          </ContactInfo>
-        </ul>
+    <Flex flex="auto" alignItems="center">
+      <Container textAlign="justify">
+        <H1 fontSize={[4, 5, 6, 7]} py={3}>
+          {t("contact.header")}
+        </H1>
+        <H2 fontSize={fontSizes} py={3}>
+          {t("contact.subheader")}
+        </H2>
+        <ContactInfo fontSize={fontSizes} py={1}>
+          <a
+            href="mailto:ox@oxymore.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t("contact.email")}
+          </a>
+        </ContactInfo>
+        <ContactInfo fontSize={fontSizes}>{t("contact.location")}</ContactInfo>
       </Container>
-    </Main>
+    </Flex>
   );
 };
 

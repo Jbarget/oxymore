@@ -6,18 +6,33 @@ const GlobalStyle = createGlobalStyle`
     font-family: SangBleu;
     src: url(/SangBleuOGSerif-Light.otf)
   }
+  * {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: ${theme.colors.athensGray} transparent;
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: ${theme.colors.athensGray};
+    }
+  }
   html {
-    height: 100%
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;    
   }
   body {
-    min-height: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
     font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.athensGray};
   }
   #root {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
   }
   button {
     cursor: pointer;

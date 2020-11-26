@@ -60,7 +60,9 @@ const fonts = {
   secondary: "SangBleu, sans-serif",
 };
 
-const borders = {};
+const borders = {
+  whiteThin: "1px solid white",
+};
 
 const theme = {
   space: {

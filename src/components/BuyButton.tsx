@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react";
-import { loadStripe } from "@stripe/stripe-js";
 import {
   SpaceProps,
   TypographyProps,
@@ -15,8 +14,8 @@ import {
 import styled from "styled-components";
 
 import { zIndexes } from "./theme";
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
+import { useTranslation } from "react-i18next";
+import redirectToCheckout from "../helpers/redirectToCheckout";
 
 const Button = styled.button<
   SpaceProps & TypographyProps & BorderProps & BackgroundProps & LayoutProps
@@ -24,6 +23,7 @@ const Button = styled.button<
   width: auto;
   white-space: nowrap;
   z-index: ${zIndexes.inFront};
+  text-transform: uppercase;
   ${space};
   ${typography};
   ${border};
@@ -31,88 +31,19 @@ const Button = styled.button<
   ${layout};
 `;
 
-const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
-
-interface BuyButtonProps {
-  successUrl: string;
-  cancelUrl: string;
-}
-const BuyButton: React.FC<BuyButtonProps> = (props) => {
-  const { successUrl, cancelUrl } = props;
+const BuyButton: React.FC = () => {
   const [error, setError] = useState<string>();
-
-  const handleClick = async () => {
-    try {
-      // When the customer clicks on the button, redirect them to Checkout.
-      const stripe = await stripePromise;
-      if (!stripe) {
-        return null;
-      }
-
-      await stripe.redirectToCheckout({
-        lineItems: [
-          {
-            price: `${process.env.REACT_APP_STRIPE_PRICE_ID}`,
-            quantity: 1,
-          },
-        ],
-        mode: "payment",
-        successUrl,
-        cancelUrl,
-        shippingAddressCollection: {
-          allowedCountries: [
-          "US",
-          "AT",
-          "AU",
-          "BE",
-          "BG",
-          "CA",
-          "CH",
-          "CY",
-          "CZ",
-          "DE",
-          "DK",
-          "EE",
-          "ES",
-          "FI",
-          "FR",
-          "GB",
-          "GR",
-          "HK",
-          "IE",
-          "IT",
-          "LT",
-          "LU",
-          "LV",
-          "MT",
-          "NL",
-          "NO",
-          "NZ",
-          "PL",
-          "PT",
-          "RO",
-          "SE",
-          "SG",
-          "SI",
-          "SK"],
-        },
-      });
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `error.message`.
-    } catch (error) {
-      setError(error.message);
-    }
-  };
+  const { t } = useTranslation();
 
   return (
     <Fragment>
       {error && <p>{error}</p>}
       <Button
         role="link"
-        onClick={handleClick}
+        onClick={redirectToCheckout(setError)}
         fontSize={[0, 1, 3]}
         background="transparent"
+        fontStyle="uppercase"
         border={1}
         borderStyle="solid"
         height="fit-content"
@@ -120,7 +51,7 @@ const BuyButton: React.FC<BuyButtonProps> = (props) => {
         py={[1, 1, 2, 3]}
         px={[1, 1, 2, 3]}
       >
-        BUY THE MAG
+        {t("buy-button.text")}
       </Button>
     </Fragment>
   );

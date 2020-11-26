@@ -1,15 +1,9 @@
 import React, { useEffect, useState, Fragment } from "react";
 import styled from "styled-components";
-import {
-  TypographyProps,
-  typography,
-  FlexboxProps,
-  flexbox,
-  SpaceProps,
-  space,
-} from "styled-system";
+import { TypographyProps, typography } from "styled-system";
 
 import calculateTimeLeft from "../helpers/calculateTimeLeft";
+import Flex from "./Flex";
 
 interface TimeLeft {
   days: number;
@@ -18,11 +12,8 @@ interface TimeLeft {
   seconds: number;
 }
 
-const Container = styled.div<FlexboxProps & SpaceProps & TypographyProps>`
-  ${flexbox};
-  ${space};
+const Container = styled(Flex)<TypographyProps>`
   ${typography};
-  display: flex;
 `;
 
 const H1 = styled.h1<TypographyProps>`

@@ -11,6 +11,7 @@ import {
   TypographyProps,
   typography,
 } from "styled-system";
+
 import BuyButton from "./BuyButton";
 import NavMenu from "./NavMenu";
 import oxymore from "./assets/home-page/oxymore.png";
@@ -18,22 +19,12 @@ import manifesto from "./assets/home-page/manifesto.png";
 import number from "./assets/home-page/number-one.png";
 import alpha from "./assets/home-page/360-alpha.png";
 import LanguageButtons from "./LanguageButtons";
+import Flex from "./Flex";
 
-const Main = styled.main<FlexboxProps>`
-  display: flex;
-  height: 100%;
-  ${flexbox};
-`;
-
-const Flex = styled.div<FlexboxProps>`
-  display: flex;
-  ${flexbox};
-`;
-
-const ManifestoLink = styled(NavLink)<TypographyProps & FlexboxProps>`
+const ManifestoLink = styled(NavLink)<TypographyProps>`
   ${typography};
   display: flex;
-  ${flexbox}
+  alignitems: flex-end;
 `;
 
 const DoubleLineTextImage = styled.img`
@@ -52,7 +43,7 @@ const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   align-self: center;
   align-items: flex-start;
   justify-content: flex-start;
-  transition: transform 0.2s;
+  transition: transform 0.5s;
   &:hover {
     transform: scale(1.01);
   ${flexbox}
@@ -66,30 +57,27 @@ const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
 
 const Home = () => {
   return (
-    <Main flexDirection="column" justifyContent="space-between">
+    <Flex flex="auto" flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <DoubleLineTextImage src={oxymore} alt="oxymore image"/>
+        <DoubleLineTextImage src={oxymore} alt="oxymore image" />
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
       <ProjectsLink to="/projects">
-        <ProjectsImg src={alpha} alt="alpha image"/>
+        <ProjectsImg src={alpha} alt="alpha image" />
       </ProjectsLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
           <SingleLineTextImage src={number} mb={3} />
-          <BuyButton
-            successUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
-            cancelUrl={`${process.env.REACT_APP_BASE_URL}/oxymore`}
-          />
+          <BuyButton />
         </Flex>
-        <ManifestoLink to="/manifesto" alignItems="flex-end">
-          <DoubleLineTextImage src={manifesto} alt="manifesto image"/>
+        <ManifestoLink to="/manifesto">
+          <DoubleLineTextImage src={manifesto} alt="manifesto image" />
         </ManifestoLink>
       </Flex>
-    </Main>
+    </Flex>
   );
 };
 

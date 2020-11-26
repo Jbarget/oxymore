@@ -1,21 +1,25 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
 import {
-  color,
   typography,
   position,
   grid,
   space,
-  ColorProps,
   TypographyProps,
   PositionProps,
-  GridProps,
   SpaceProps,
+  BackgroundProps,
 } from "styled-system";
 import { zIndexes } from "./theme";
 import background from "./assets/backgrounds/background.png";
+import redirectToCheckout from "../helpers/redirectToCheckout";
+
+type NavMenuProps = TypographyProps &
+  SpaceProps &
+  PositionProps &
+  BackgroundProps;
 
 const overlayStyles = css`
   display: flex;
@@ -40,25 +44,15 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${(props) => props.isOpen && overlayStyles}
 `;
 
-const MenuButton = styled.button<TypographyProps & PositionProps>`
-  border: none;
-  background: transparent;
-  ${typography};
-  ${position};
-`;
-
-const MenuContainer = styled.div<GridProps>`
-  ${grid};
-`;
-
-const Menu = styled.ul<GridProps & TypographyProps & SpaceProps>`
+const Menu = styled.ul<NavMenuProps>`
   ${grid};
   ${typography};
   ${space};
 `;
 
-const MenuLink = styled(NavLink)<ColorProps & TypographyProps & PositionProps>`
-  ${color};
+const MenuButton = styled.button<NavMenuProps>`
+  border: none;
+  background: transparent;
   ${typography};
   ${position};
 `;
@@ -71,24 +65,44 @@ const MenuText = styled.li`
   }
 `;
 
+const MenuLink = styled(NavLink)<NavMenuProps>`
+  ${typography};
+  ${position};
+`;
+
 interface LinkProps {
   page: string;
   url: string;
 }
 
-const Link = ({ page, url }: LinkProps) => {
+const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
-    <MenuContainer
-      key={page}
-      gridTemplateRows="max-content"
-      gridTemplateColumns="max-content"
-    >
+    <MenuText key={url} onClick={onClick}>
+      <MenuLink to={url} fontSize={[5, 6, 7, 8]}>
+        {page}
+      </MenuLink>
+    </MenuText>
+  );
+};
+const BuyLink = styled.button<TypographyProps>`
+  border: none;
+  background: transparent;
+  ${typography};
+`;
+
+const StripeMenuLink: React.FC = () => {
+  const [error, setError] = useState<string>();
+  const { t } = useTranslation();
+
+  return (
+    <Fragment>
+      {error && <p>{error}</p>}
       <MenuText>
-        <MenuLink to={url} fontSize={[5, 6, 7, 8]}>
-          {page}
-        </MenuLink>
+        <BuyLink onClick={redirectToCheckout(setError)} fontSize={[5, 6, 7, 8]}>
+          {t("nav.buy")}
+        </BuyLink>
       </MenuText>
-    </MenuContainer>
+    </Fragment>
   );
 };
 
@@ -96,7 +110,9 @@ const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const fontSizes = [1, 2, 3, 4];
   const { t } = useTranslation();
-  const Links: LinkProps[] = [
+  const toggleMenuIsOpen = useCallback(() => setIsOpen(!isOpen), [isOpen]);
+
+  const links: LinkProps[] = [
     {
       page: `${t("nav.about-us")}`,
       url: "/about",
@@ -113,10 +129,6 @@ const NavMenu = () => {
       page: `${t("nav.advertising")}`,
       url: "/advertising",
     },
-    {
-      page: `${t("nav.buy")}`,
-      url: "/buy",
-    },
   ];
 
   return (
@@ -129,7 +141,7 @@ const NavMenu = () => {
           to="/oxymore"
           fontSize={fontSizes}
           position="absolute"
-          left={30}
+          left={24}
           top={24}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -146,13 +158,11 @@ const NavMenu = () => {
           BACK
         </MenuButton>
 
-        <Menu
-          onClick={() => setIsOpen(!isOpen)}
-          textAlign={["center", null, null, "start"]}
-          gridColumn={["2/3", null, null, "1/2"]}
-          p={4}
-        >
-          {Links.map(Link)}
+        <Menu textAlign={["center", null, null, "start"]} p={4}>
+          {links.map((props) => (
+            <Link onClick={toggleMenuIsOpen} {...props} />
+          ))}
+          <StripeMenuLink />
         </Menu>
       </Overlay>
     </Fragment>

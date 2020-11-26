@@ -1,26 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import {
-  space,
   typography,
   layout,
-  flexbox,
   SpaceProps,
   TypographyProps,
   LayoutProps,
-  FlexboxProps,
   GridProps,
 } from "styled-system";
 import NavMenu from "./NavMenu";
 import LanguageButtons from "./LanguageButtons";
 import { NavLink, useLocation } from "react-router-dom";
-
-const HeaderContainer = styled.header<SpaceProps & FlexboxProps>`
-  display: flex;
-  width: 100%;
-  ${space};
-  ${flexbox};
-`;
+import Flex from "./Flex";
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${typography};
@@ -49,13 +40,18 @@ const Header = () => {
   }
 
   return (
-    <HeaderContainer alignItems="center" justifyContent="space-between" pb={6}>
+    <Flex
+      width="100%"
+      alignItems="center"
+      justifyContent="space-between"
+      pb={6}
+    >
       <HeaderLogo />
       <Container display="flex">
         <LanguageButtons />
         <NavMenu />
       </Container>
-    </HeaderContainer>
+    </Flex>
   );
 };
 
