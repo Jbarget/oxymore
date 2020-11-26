@@ -175,18 +175,18 @@ const EyeContent = () => {
   );
 
   const setCountryDetails = useCallback(
-    countryData => () => setSelectedCountryData(countryData),
+    (countryData) => () => setSelectedCountryData(countryData),
     []
   );
   return (
     <Flex alignItems="center" flexDirection="column" position="relative">
       <Grid
         height="100%"
-        width="50%"
+        width={["85%", "85%", "85%", "50%"]}
         gridTemplateRows="repeat(180, minmax(0, auto))"
         gridTemplateColumns="repeat(120, minmax(0, auto))"
       >
-        {data.map(datum => (
+        {data.map((datum) => (
           <DataPoint
             {...datum}
             selectedDataSet={selectedDataSet}
