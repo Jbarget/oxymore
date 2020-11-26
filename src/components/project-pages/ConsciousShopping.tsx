@@ -11,7 +11,7 @@ const Main = styled(Flex)<FlexboxProps & TypographyProps>`
   ${typography};
 `;
 
-const launchDate = "2020-12-21";
+const launchDate = "2021-01-21";
 const ConsciousShopping = () => {
   return (
     <Main
