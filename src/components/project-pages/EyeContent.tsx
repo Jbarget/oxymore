@@ -91,11 +91,13 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
       <P borderBottom="whiteThin" fontSize={3}>
         {countryData.name}
       </P>
-      <P fontSize={2}>Population: {countryData.data.population}</P>
-      <P fontSize={2}>
+      <P fontSize={[1, 1, 2]}>Population: {countryData.data.population}</P>
+      <P fontSize={[1, 1, 2]}>
         Population affected: {countryData.data.populationAffected}
       </P>
-      <P fontSize={2}>Percentage: {countryData.data.percentageAffected}</P>
+      <P fontSize={[1, 1, 2]}>
+        Percentage: {countryData.data.percentageAffected}
+      </P>
     </Flex>
   );
 };
@@ -173,7 +175,7 @@ const EyeContent = () => {
   );
 
   const setCountryDetails = useCallback(
-    (countryData) => () => setSelectedCountryData(countryData),
+    countryData => () => setSelectedCountryData(countryData),
     []
   );
   return (
@@ -184,7 +186,7 @@ const EyeContent = () => {
         gridTemplateRows="repeat(180, minmax(0, auto))"
         gridTemplateColumns="repeat(120, minmax(0, auto))"
       >
-        {data.map((datum) => (
+        {data.map(datum => (
           <DataPoint
             {...datum}
             selectedDataSet={selectedDataSet}
