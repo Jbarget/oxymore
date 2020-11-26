@@ -184,10 +184,7 @@ const Projects = () => {
         bottom={["40%", "40%", "40%", "40%", "15%"]}
         zIndex={zIndexes.inFront}
       >
-        <BuyButton
-          successUrl={`${process.env.REACT_APP_BASE_URL}/projects`}
-          cancelUrl={`${process.env.REACT_APP_BASE_URL}/projects`}
-        />
+        <BuyButton />
       </BuyButtonContainer>
 
       <Scrollback
