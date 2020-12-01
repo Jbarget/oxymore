@@ -12,8 +12,8 @@ import {
   typography,
   TypographyProps,
 } from "styled-system";
-import ombligosImg from "../assets/erotic-stories/ombligos.jpg";
-
+import bellyButtons from "../assets/erotic-stories/belly-buttons.jpg";
+import wingsBeating from "../assets/erotic-stories/wings-beating.jpg";
 import { useTranslation } from "react-i18next";
 
 const Grid = styled.div<GridProps & FlexboxProps & LayoutProps>`
@@ -54,14 +54,14 @@ const EroticStoriesContent = () => {
   const { t } = useTranslation();
   const eroticStories: EroticStoryProps[] = [
     {
-      img: ombligosImg,
-      text: t("erotic-stories.poem"),
-      alt: "Ombligos image",
+      img: wingsBeating,
+      text: t("erotic-stories.wings"),
+      alt: "Erotic story image",
     },
     {
-      img: ombligosImg,
-      text: t("erotic-stories.poem"),
-      alt: "Alas Bateando image",
+      img: bellyButtons,
+      text: t("erotic-stories.bellyButtons"),
+      alt: "Erotic story image",
     },
   ];
 
@@ -92,7 +92,9 @@ const EroticStoriesContent = () => {
         <EroticImageContainer>
           <EroticImage src={eroticStory1.img} alt={eroticStory1.alt} />
         </EroticImageContainer>
-        <ScrollableText>{eroticStory1.text}</ScrollableText>
+        <ScrollableText dangerouslySetInnerHTML={{ __html: eroticStory1.text }}>
+          {eroticStory1.text}
+        </ScrollableText>
         <EroticImageContainer gridRow={[3, 3, 2]} gridColumn={[1, 1, 2]}>
           <EroticImage src={eroticStory2.img} alt={eroticStory2.alt} />
         </EroticImageContainer>
