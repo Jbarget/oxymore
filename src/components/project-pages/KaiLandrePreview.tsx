@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Timer from "../Timer";
-import { layout, LayoutProps } from "styled-system";
-import dragon from "../assets/project-page/dragon.png";
 import { Link } from "react-router-dom";
+import { layout, LayoutProps } from "styled-system";
+
+import Timer from "../Timer";
+import dragon from "../assets/project-page/dragon.png";
 import Flex from "../Flex";
+import { PROJECTS_URL } from "../../constants/router-urls";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -22,7 +24,7 @@ const KaiLandrePreview: React.FC<KaiLandrePreviewProps> = ({ launchDate }) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Link to="/projects">
+      <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
           <Img src={dragon} alt="dragon icon" maxWidth="30%" />
         </Flex>

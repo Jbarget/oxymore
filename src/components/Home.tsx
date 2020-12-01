@@ -20,6 +20,7 @@ import number from "./assets/home-page/number-one.png";
 import alpha from "./assets/home-page/360-alpha.png";
 import LanguageButtons from "./LanguageButtons";
 import Flex from "./Flex";
+import { PROJECTS_URL } from "../constants/router-urls";
 
 const ManifestoLink = styled(NavLink)<TypographyProps>`
   ${typography};
@@ -65,7 +66,7 @@ const Home = () => {
           <NavMenu />
         </Flex>
       </Flex>
-      <ProjectsLink to="/projects">
+      <ProjectsLink to={PROJECTS_URL}>
         <ProjectsImg src={alpha} alt="alpha image" />
       </ProjectsLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
