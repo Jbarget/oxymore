@@ -49,7 +49,7 @@ const ProjectsGrid = () => {
         justifySelf={["center", "center", "center", "end"]}
         maxWidth={iconSizes}
       >
-        <Link to="/projects/editorial">
+        <Link to="/projects/fashioneditorial">
           <Img src={stairs} alt="stairs icon" />
         </Link>
       </ProjectLinkWrapper>
