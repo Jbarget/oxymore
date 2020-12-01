@@ -18,6 +18,7 @@ import shell from "../assets/conscious-shopping/concha.jpg";
 import Timer from "../Timer";
 import { zIndexes } from "../theme";
 import { Link } from "react-router-dom";
+import { PROJECTS_URL } from "../../constants/router-urls";
 
 type GridLayoutProps = FlexboxProps & LayoutProps & PositionProps & GridProps;
 
@@ -54,7 +55,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
       gridTemplateRows="repeat(5, 20%)"
       alignItems="center"
     >
-      <Link to="/projects">
+      <Link to={PROJECTS_URL}>
         <ProjectIcon
           src={projectIcon}
           alt="icon image"

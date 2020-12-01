@@ -24,6 +24,7 @@ import nadiaImg from "../assets/conscious-shopping/nadia.jpg";
 import conchaImg from "../assets/conscious-shopping/concha.jpg";
 import laiaImg from "../assets/conscious-shopping/laia.jpg";
 import Flex from "../Flex";
+import { PROJECTS_URL } from "../../constants/router-urls";
 
 const H1 = styled.h1<SpaceProps>`
   text-transform: uppercase;
@@ -114,7 +115,7 @@ const ConsciousShoppingContent = () => {
       flexDirection={["column", "column", "column", "column", "row"]}
     >
       <Flex width={["100%", "100%", "100%", "100%", "30%"]}>
-        <Link to="/projects">
+        <Link to={PROJECTS_URL}>
           <ProjectIcon
             alt="shell icon"
             src={shellIcon}

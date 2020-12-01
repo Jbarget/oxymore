@@ -1,5 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
-import { allowedCountries } from "../lib/constants";
+import allowedCountries from "../constants/stripe-allowed-countries";
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
@@ -27,7 +27,7 @@ const redirectToCheckout = (setError: SetErrorType) => async () => {
       successUrl,
       cancelUrl,
       shippingAddressCollection: {
-        allowedCountries: allowedCountries,
+        allowedCountries,
       },
     });
     // If `redirectToCheckout` fails due to a browser or network

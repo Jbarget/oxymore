@@ -24,6 +24,23 @@ import FashionEditorial from "./components/project-pages/FashionEditorial";
 import Background from "./components/Background";
 import Error404 from "./components/Error404";
 import Flex from "./components/Flex";
+import {
+  ABOUT_URL,
+  ADVERTISING_URL,
+  BELLE_DE_JOUR_URL,
+  CONSCIOUS_SHOPPING_URL,
+  CONTACT_URL,
+  EROTIC_STORIES_URL,
+  EYES_URL,
+  FASHION_EDITORIAL_URL,
+  KAI_LANDRE_URL,
+  LEO_ADEF_URL,
+  MANIFESTO_URL,
+  MAP_URL,
+  MARC_MEDINA_URL,
+  OXYMORE_URL,
+  PROJECTS_URL,
+} from "./constants/router-urls";
 
 const App = () => {
   return (
@@ -35,38 +52,30 @@ const App = () => {
               <Header />
               <Switch>
                 <Route path="/" exact component={Loading} />
-                <Route path="/oxymore" exact component={Home} />
-                <Route path="/contact" exact component={Contact} />
-                <Route path="/manifesto" exact component={Manifesto} />
-                <Route path="/about" exact component={AboutUs} />
-                <Route path="/advertising" exact component={Advertising} />
-                <Route path="/projects" exact component={Projects} />
+                <Route path={OXYMORE_URL} exact component={Home} />
+                <Route path={CONTACT_URL} exact component={Contact} />
+                <Route path={MANIFESTO_URL} exact component={Manifesto} />
+                <Route path={ABOUT_URL} exact component={AboutUs} />
+                <Route path={ADVERTISING_URL} exact component={Advertising} />
+                <Route path={PROJECTS_URL} exact component={Projects} />
+                <Route path={MARC_MEDINA_URL} exact component={MarcMedina} />
                 <Route
-                  path="/projects/marcmedina"
-                  exact
-                  component={MarcMedina}
-                />
-                <Route
-                  path="/projects/eroticstories"
+                  path={EROTIC_STORIES_URL}
                   exact
                   component={EroticStories}
                 />
-                <Route path="/projects/eyes" exact component={Eye} />
+                <Route path={EYES_URL} exact component={Eye} />
+                <Route path={BELLE_DE_JOUR_URL} exact component={Belledejour} />
+                <Route path={LEO_ADEF_URL} exact component={LeoAdef} />
+                <Route path={MAP_URL} exact component={Map} />
+                <Route path={KAI_LANDRE_URL} exact component={KaiLandre} />
                 <Route
-                  path="/projects/belledejour"
-                  exact
-                  component={Belledejour}
-                />
-                <Route path="/projects/leoadef" exact component={LeoAdef} />
-                <Route path="/projects/themap" exact component={Map} />
-                <Route path="/projects/kailandre" exact component={KaiLandre} />
-                <Route
-                  path="/projects/editorial"
+                  path={FASHION_EDITORIAL_URL}
                   exact
                   component={FashionEditorial}
                 />
                 <Route
-                  path="/projects/consciousshopping"
+                  path={CONSCIOUS_SHOPPING_URL}
                   exact
                   component={ConsciousShopping}
                 />
