@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useCallback } from "react";
+import React, { useState, Fragment, useCallback, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
@@ -77,7 +77,7 @@ interface LinkProps {
 
 const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
-    <MenuText key={url} onClick={onClick}>
+    <MenuText onClick={onClick}>
       <MenuLink to={url} fontSize={[5, 6, 7, 8]}>
         {page}
       </MenuLink>
@@ -111,6 +111,15 @@ const NavMenu = () => {
   const fontSizes = [1, 2, 3, 4];
   const { t } = useTranslation();
   const toggleMenuIsOpen = useCallback(() => setIsOpen(!isOpen), [isOpen]);
+  useEffect(() => {
+    const close = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
 
   const links: LinkProps[] = [
     {
@@ -160,7 +169,7 @@ const NavMenu = () => {
 
         <Menu textAlign={["center", null, null, "start"]} p={4}>
           {links.map((props) => (
-            <Link onClick={toggleMenuIsOpen} {...props} />
+            <Link key={props.page} onClick={toggleMenuIsOpen} {...props} />
           ))}
           <StripeMenuLink />
         </Menu>
