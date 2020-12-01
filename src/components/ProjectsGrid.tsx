@@ -19,6 +19,17 @@ import mask from "./assets/project-page/mask.png";
 import spider from "./assets/project-page/spider.png";
 import magnify from "./assets/project-page/magnify.png";
 import Grid from "./Grid";
+import {
+  BELLE_DE_JOUR_URL,
+  CONSCIOUS_SHOPPING_URL,
+  EROTIC_STORIES_URL,
+  EYES_URL,
+  FASHION_EDITORIAL_URL,
+  KAI_LANDRE_URL,
+  MARC_MEDINA_URL,
+  LEO_ADEF_URL,
+  MAP_URL,
+} from "../constants/router-urls";
 
 const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
   ${layout};
@@ -49,7 +60,7 @@ const ProjectsGrid = () => {
         justifySelf={["center", "center", "center", "end"]}
         maxWidth={iconSizes}
       >
-        <Link to="/projects/fashioneditorial">
+        <Link to={FASHION_EDITORIAL_URL}>
           <Img src={stairs} alt="stairs icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -59,7 +70,7 @@ const ProjectsGrid = () => {
         justifySelf={["center", "center", "center", "start"]}
         maxWidth={iconSizes}
       >
-        <Link to="/projects/consciousshopping">
+        <Link to={CONSCIOUS_SHOPPING_URL}>
           <Img src={shell} alt="shell icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -69,7 +80,7 @@ const ProjectsGrid = () => {
         justifySelf="center"
         maxWidth={iconSizes}
       >
-        <Link to="/projects/eyes">
+        <Link to={EYES_URL}>
           <Img src={eye} alt="eye icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -79,7 +90,7 @@ const ProjectsGrid = () => {
         justifySelf="center"
         maxWidth={iconSizes}
       >
-        <Link to="/projects/eroticstories">
+        <Link to={EROTIC_STORIES_URL}>
           <Img src={statue} alt="statue icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -89,7 +100,7 @@ const ProjectsGrid = () => {
         justifySelf={["center", "center", "center", "end"]}
         maxWidth={iconSizes}
       >
-        <Link to="/projects/kailandre">
+        <Link to={KAI_LANDRE_URL}>
           <Img src={dragon} alt="dragon icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -99,7 +110,7 @@ const ProjectsGrid = () => {
         maxWidth={iconSizes}
         justifySelf={["center", "center", "center", "start"]}
       >
-        <Link to="/projects/belledejour">
+        <Link to={BELLE_DE_JOUR_URL}>
           <Img src={knife} alt="knife icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -109,7 +120,7 @@ const ProjectsGrid = () => {
         justifySelf="center"
         maxWidth={iconSizes}
       >
-        <Link to="/projects/marcmedina">
+        <Link to={MARC_MEDINA_URL}>
           <Img src={mask} alt="mask icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -119,7 +130,7 @@ const ProjectsGrid = () => {
         maxWidth={iconSizes}
         justifySelf="center"
       >
-        <Link to="/projects/leoadef">
+        <Link to={LEO_ADEF_URL}>
           <Img src={spider} alt="spider icon" />
         </Link>
       </ProjectLinkWrapper>
@@ -129,7 +140,7 @@ const ProjectsGrid = () => {
         justifySelf={["center", "center", "center", "end"]}
         maxWidth={iconSizes}
       >
-        <Link to="/projects/themap">
+        <Link to={MAP_URL}>
           <Img src={magnify} alt="magnify icon" />
         </Link>
       </ProjectLinkWrapper>
