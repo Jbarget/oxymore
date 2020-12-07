@@ -1,25 +1,26 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import {
-  layout,
-  space,
-  typography,
+  FlexboxProps,
   LayoutProps,
   SpaceProps,
   TypographyProps,
-  FlexboxProps,
   flexbox,
+  layout,
+  space,
+  typography,
 } from "styled-system";
+
+import Flex from "./Flex";
+import Grid from "./Grid";
+import React from "react";
 import aitor from "./assets/about-page/aitor.jpg";
+import gloria from "./assets/about-page/gloria.jpg";
 import juancamilo from "./assets/about-page/juancamilo.jpg";
 import micaela from "./assets/about-page/micaela.jpg";
 import nil from "./assets/about-page/nil.jpg";
 import olga from "./assets/about-page/olga.jpg";
 import rodri from "./assets/about-page/rodri.jpg";
-import gloria from "./assets/about-page/gloria.jpg";
-import Grid from "./Grid";
-import Flex from "./Flex";
+import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const teamMembers: TeamMemberProps[] = [
   {
@@ -67,6 +68,7 @@ const H1 = styled.h1<TypographyProps & SpaceProps>`
 
 const H2 = styled.h1<TypographyProps & SpaceProps>`
   text-transform: uppercase;
+  text-align: justify;
   ${space};
   ${typography};
 `;
