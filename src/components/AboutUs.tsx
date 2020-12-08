@@ -66,23 +66,27 @@ const H1 = styled.h1<TypographyProps & SpaceProps>`
   ${typography};
 `;
 
-const H2 = styled.h1<TypographyProps & SpaceProps>`
+const H2 = styled.h2<TypographyProps & SpaceProps>`
+  text-transform: uppercase;
+  ${space};
+  ${typography};
+`;
+
+const P = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
   text-align: justify;
   ${space};
   ${typography};
 `;
 
-const Img = styled.img<LayoutProps>`
+const TeamMemberImg = styled.img`
   height: 100%;
   width: 100%;
-  ${layout};
 `;
 
-const TeamMemberContainer = styled.div<LayoutProps>`
+const TeamMemberContainer = styled.div`
   object-fit: contain;
   height: 100%;
-  ${layout};
 `;
 
 const GridCell = styled.div<
@@ -103,7 +107,7 @@ interface TeamMemberProps {
 const TeamMember = ({ name, img, alt }: TeamMemberProps) => {
   return (
     <TeamMemberContainer key={name}>
-      <Img alt={alt} src={img} />
+      <TeamMemberImg alt={alt} src={img} />
     </TeamMemberContainer>
   );
 };
@@ -116,7 +120,10 @@ const AboutUs = () => {
       <H1 fontSize={5} mb={4}>
         {t("about.header")}
       </H1>
-      <H2 fontSize={5} mb={4}>
+      <P fontSize={4} mb={4} lineHeight={1.5}>
+        {t("about.summary")}
+      </P>
+      <H2 fontSize={4} mb={4}>
         {t("about.subheader")}
       </H2>
       <Grid
