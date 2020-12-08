@@ -66,12 +66,6 @@ const H1 = styled.h1<TypographyProps & SpaceProps>`
   ${typography};
 `;
 
-const H2 = styled.h2<TypographyProps & SpaceProps>`
-  text-transform: uppercase;
-  ${space};
-  ${typography};
-`;
-
 const P = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
   text-align: justify;
@@ -123,9 +117,6 @@ const AboutUs = () => {
       <P fontSize={4} mb={4} lineHeight={1.5}>
         {t("about.summary")}
       </P>
-      <H2 fontSize={4} mb={4}>
-        {t("about.subheader")}
-      </H2>
       <Grid
         gridRowGap={[1, 1, 1, 0]}
         gridTemplateColumns={[
@@ -144,12 +135,7 @@ const AboutUs = () => {
           lineHeight={1.5}
           textAlign="justify"
         >
-          <p>
-            OUR TEAM AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR
-            RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN
-            CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL
-            FERNÁNDEZ GRAPHIC DESIGNER
-          </p>
+          <P>{t("about.team")}</P>
         </GridCell>
       </Grid>
     </Flex>
