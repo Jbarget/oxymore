@@ -25,15 +25,19 @@ const ContactInfo = styled.p<ContactPageProps>`
 const Contact = () => {
   const { t } = useTranslation();
   const fontSizes = [2, 3, 4, 5];
+  const contactInfo = t("contact.contact-info");
+
   return (
     <Flex flex="auto" alignItems="center">
       <Container>
         <H1 fontSize={[4, 5, 6, 7]} py={3}>
           {t("contact.header")}
         </H1>
-        <ContactInfo fontSize={fontSizes} py={3}>
-          {t("contact.contact-info")}
-        </ContactInfo>
+        <ContactInfo
+          fontSize={fontSizes}
+          py={3}
+          dangerouslySetInnerHTML={{ __html: contactInfo }}
+        />
       </Container>
     </Flex>
   );
