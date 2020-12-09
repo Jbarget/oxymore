@@ -1,9 +1,10 @@
+import { SpaceProps, TypographyProps, space, typography } from "styled-system";
+
+import Flex from "./Flex";
+import Grid from "./Grid";
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { space, typography, SpaceProps, TypographyProps } from "styled-system";
-import Grid from "./Grid";
-import Flex from "./Flex";
 
 type ManifestoProps = TypographyProps & SpaceProps;
 
@@ -41,10 +42,10 @@ const Manifesto = () => {
         ]}
       >
         <Paragraph pb={5} fontSize={fontSizes}>
-          {t("manifesto.manifesto")}
+          {t("manifesto.left-column")}
         </Paragraph>
         <Paragraph pb={5} fontSize={fontSizes}>
-          {t("manifesto.manifesto")}
+          {t("manifesto.right-column")}
         </Paragraph>
       </Grid>
     </Flex>
