@@ -24,11 +24,10 @@ const Paragraph = styled.p<ManifestoProps>`
 
 const Manifesto = () => {
   const { t } = useTranslation();
-  const fontSizes = [3, 4, 5, 5];
 
   return (
     <Flex flex="auto" flexDirection="column" justifyContent="center">
-      <H1 fontSize={[2, 5]} pb={5}>
+      <H1 fontSize={[4, 5, 5, 6]} my={4}>
         {t("manifesto.header")}
       </H1>
       <Grid
@@ -41,10 +40,10 @@ const Manifesto = () => {
           "repeat(2, 48% [col-start])",
         ]}
       >
-        <Paragraph pb={5} fontSize={fontSizes}>
+        <Paragraph mb={5} fontSize={[4, 4, 4, 5]}>
           {t("manifesto.left-column")}
         </Paragraph>
-        <Paragraph pb={5} fontSize={fontSizes}>
+        <Paragraph mb={5} fontSize={[4, 4, 4, 5]}>
           {t("manifesto.right-column")}
         </Paragraph>
       </Grid>

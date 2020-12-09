@@ -39,6 +39,7 @@ const Advertising: React.FC = () => {
       flex="auto"
       flexDirection={["column", "column", "column", "row"]}
       justifyContent="center"
+      mt={4}
     >
       <Flex
         flex="auto"

@@ -1,29 +1,5 @@
-import React, { Suspense } from "react";
-import GlobalStyle from "./GlobalStyle";
-import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import theme from "./components/theme";
 import "./css/reset.css";
-import Header from "./components/Header";
-import Loading from "./components/Loading";
-import Home from "./components/Home";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import AboutUs from "./components/AboutUs";
-import Manifesto from "./components/Manifesto";
-import Advertising from "./components/Advertising";
-import ConsciousShopping from "./components/project-pages/ConsciousShopping";
-import MarcMedina from "./components/project-pages/MarcMedina";
-import Belledejour from "./components/project-pages/Belledejour";
-import Eye from "./components/project-pages/Eye";
-import LeoAdef from "./components/project-pages/LeoAdef";
-import EroticStories from "./components/project-pages/EroticStories";
-import Map from "./components/project-pages/Map";
-import KaiLandre from "./components/project-pages/KaiLandre";
-import FashionEditorial from "./components/project-pages/FashionEditorial";
-import Background from "./components/Background";
-import Error404 from "./components/Error404";
-import Flex from "./components/Flex";
+
 import {
   ABOUT_URL,
   ADVERTISING_URL,
@@ -41,6 +17,32 @@ import {
   OXYMORE_URL,
   PROJECTS_URL,
 } from "./constants/router-urls";
+import React, { Suspense } from "react";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+
+import AboutUs from "./components/About";
+import Advertising from "./components/Advertising";
+import Background from "./components/Background";
+import Belledejour from "./components/project-pages/Belledejour";
+import ConsciousShopping from "./components/project-pages/ConsciousShopping";
+import Contact from "./components/Contact";
+import EroticStories from "./components/project-pages/EroticStories";
+import Error404 from "./components/Error404";
+import Eye from "./components/project-pages/Eye";
+import FashionEditorial from "./components/project-pages/FashionEditorial";
+import Flex from "./components/Flex";
+import GlobalStyle from "./GlobalStyle";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import KaiLandre from "./components/project-pages/KaiLandre";
+import LeoAdef from "./components/project-pages/LeoAdef";
+import Loading from "./components/Loading";
+import Manifesto from "./components/Manifesto";
+import Map from "./components/project-pages/Map";
+import MarcMedina from "./components/project-pages/MarcMedina";
+import Projects from "./components/Projects";
+import { ThemeProvider } from "styled-components";
+import theme from "./components/theme";
 
 const App = () => {
   return (
