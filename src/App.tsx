@@ -20,7 +20,7 @@ import {
 import React, { Suspense } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import AboutUs from "./components/About";
+import About from "./components/About";
 import Advertising from "./components/Advertising";
 import Background from "./components/Background";
 import Belledejour from "./components/project-pages/Belledejour";
@@ -57,7 +57,7 @@ const App = () => {
                 <Route path={OXYMORE_URL} exact component={Home} />
                 <Route path={CONTACT_URL} exact component={Contact} />
                 <Route path={MANIFESTO_URL} exact component={Manifesto} />
-                <Route path={ABOUT_URL} exact component={AboutUs} />
+                <Route path={ABOUT_URL} exact component={About} />
                 <Route path={ADVERTISING_URL} exact component={Advertising} />
                 <Route path={PROJECTS_URL} exact component={Projects} />
                 <Route path={MARC_MEDINA_URL} exact component={MarcMedina} />
