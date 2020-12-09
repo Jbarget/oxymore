@@ -22,7 +22,8 @@
   },
   "about": {
     "header": "Sobre nosotros",
-    "subheader": "Oxymore Magazine es una plataforma en formato de revista impresa y online, que busca crear conciencia hacia temas sociales actuales; y que conecta a colectivos en una situación de vulnerabilidad o temáticas de problemática actual con artistas; con el fin de generar visibilidad y empoderamiento a través de la experimentación artística multimedia."
+    "summary": "Oxymore Magazine es una plataforma en formato de revista impresa y online, que busca crear conciencia hacia temas sociales actuales; y que conecta a colectivos en una situación de vulnerabilidad o temáticas de problemática actual con artistas; con el fin de generar visibilidad y empoderamiento a través de la experimentación artística multimedia.",
+    "team": "NUESTRO EQUIPO AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL FERNÁNDEZ GRAPHIC DESIGNER"
   },
   "conscious-shopping": {
     "subheader": "Hay muchas variaciones de los pasajes de Lorem Ipsum disponibles",
