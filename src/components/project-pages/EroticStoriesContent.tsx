@@ -12,10 +12,10 @@ import {
 } from "styled-system";
 import React, { Fragment } from "react";
 
-import bellyButtons from "../assets/erotic-stories/belly-buttons.jpg";
+import bellyButtonsImg from "../assets/erotic-stories/belly-buttons.jpg";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import wingsBeating from "../assets/erotic-stories/wings-beating.jpg";
+import wingsBeatingImg from "../assets/erotic-stories/wings-beating.jpg";
 
 const Grid = styled.div<GridProps & FlexboxProps & LayoutProps>`
   ${grid};
@@ -55,19 +55,19 @@ const EroticStoriesContent = () => {
   const { t } = useTranslation();
   const eroticStories: EroticStoryProps[] = [
     {
-      img: wingsBeating,
+      img: wingsBeatingImg,
       text: t("erotic-stories.wings"),
       alt: "Erotic story image",
     },
     {
-      img: bellyButtons,
+      img: bellyButtonsImg,
       text: t("erotic-stories.bellyButtons"),
       alt: "Erotic story image",
     },
   ];
 
-  const eroticStory1 = eroticStories[0];
-  const eroticStory2 = eroticStories[1];
+  const wingsBeating = eroticStories[0];
+  const bellyButtons = eroticStories[1];
 
   return (
     <Fragment>
@@ -91,19 +91,19 @@ const EroticStoriesContent = () => {
         ]}
       >
         <EroticImageContainer>
-          <EroticImage src={eroticStory1.img} alt={eroticStory1.alt} />
+          <EroticImage src={wingsBeating.img} alt={wingsBeating.alt} />
         </EroticImageContainer>
         <ScrollableText
-          dangerouslySetInnerHTML={{ __html: eroticStory1.text }}
+          dangerouslySetInnerHTML={{ __html: wingsBeating.text }}
         />
 
         <EroticImageContainer gridRow={[3, 3, 2]} gridColumn={[1, 1, 2]}>
-          <EroticImage src={eroticStory2.img} alt={eroticStory2.alt} />
+          <EroticImage src={bellyButtons.img} alt={bellyButtons.alt} />
         </EroticImageContainer>
         <ScrollableText
           gridColumn={1}
           gridRow={2}
-          dangerouslySetInnerHTML={{ __html: eroticStory2.text }}
+          dangerouslySetInnerHTML={{ __html: bellyButtons.text }}
         />
       </Grid>
     </Fragment>
