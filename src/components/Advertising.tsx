@@ -1,17 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import {
-  layout,
-  space,
-  typography,
   LayoutProps,
   SpaceProps,
   TypographyProps,
+  layout,
+  space,
+  typography,
 } from "styled-system";
-import voltrova from "./assets/advertising-page/voltrova.jpg";
-import salazraki from "./assets/advertising-page/salazraki.jpg";
+
 import Flex from "./Flex";
+import React from "react";
+import honestCouponsImg from "./assets/advertising-page/honest-coupons.jpeg";
+import salazrakiImg from "./assets/advertising-page/salazraki.jpg";
+import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import voltrovaImg from "./assets/advertising-page/voltrova.jpg";
 
 const columnWidths = ["100%", "100%", "100%", "50%", "50%"];
 
@@ -30,7 +32,8 @@ const P = styled.p<TypographyProps & SpaceProps>`
 
 const Advertising: React.FC = () => {
   const { t } = useTranslation();
-  const fontSizes = [1, 2, 3, 4];
+  const fontSizes = [1, 2, 3, 3];
+
   return (
     <Flex
       flex="auto"
@@ -40,12 +43,12 @@ const Advertising: React.FC = () => {
       <Flex
         flex="auto"
         flexDirection="column"
-        mb={4}
         minWidth={columnWidths}
         width={columnWidths}
         mr={[0, 0, 0, 2]}
+        mb={4}
       >
-        <Img src={salazraki} alt="Salazraki image" mb={2}></Img>
+        <Img src={salazrakiImg} alt="Advertsing image" mb={2}></Img>
         <P fontSize={fontSizes} textAlign="justify">
           {t("advertising.salazraki")}
         </P>
@@ -54,14 +57,18 @@ const Advertising: React.FC = () => {
         flex="auto"
         flexDirection="column"
         p={0}
-        mb={4}
         minWidth={columnWidths}
         width={columnWidths}
         ml={[0, 0, 0, 2]}
+        mb={4}
       >
-        <Img src={voltrova} alt="Voltrova image" mb={2}></Img>
+        <Img src={voltrovaImg} alt="Advertsing image" mb={2}></Img>
         <P fontSize={fontSizes} textAlign="justify">
           {t("advertising.voltrova")}
+        </P>
+        <Img src={honestCouponsImg} alt="Advertsing image" mb={2} mt={4}></Img>
+        <P fontSize={fontSizes} textAlign="justify">
+          {t("advertising.honest-coupons")}
         </P>
       </Flex>
     </Flex>
