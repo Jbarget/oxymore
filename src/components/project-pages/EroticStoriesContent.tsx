@@ -1,20 +1,21 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
 import {
   FlexboxProps,
-  flexbox,
-  layout,
-  LayoutProps,
-  grid,
   GridProps,
-  space,
+  LayoutProps,
   SpaceProps,
-  typography,
   TypographyProps,
+  flexbox,
+  grid,
+  layout,
+  space,
+  typography,
 } from "styled-system";
+import React, { Fragment } from "react";
+
 import bellyButtons from "../assets/erotic-stories/belly-buttons.jpg";
-import wingsBeating from "../assets/erotic-stories/wings-beating.jpg";
+import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import wingsBeating from "../assets/erotic-stories/wings-beating.jpg";
 
 const Grid = styled.div<GridProps & FlexboxProps & LayoutProps>`
   ${grid};
@@ -92,15 +93,18 @@ const EroticStoriesContent = () => {
         <EroticImageContainer>
           <EroticImage src={eroticStory1.img} alt={eroticStory1.alt} />
         </EroticImageContainer>
-        <ScrollableText dangerouslySetInnerHTML={{ __html: eroticStory1.text }}>
-          {eroticStory1.text}
-        </ScrollableText>
+        <ScrollableText
+          dangerouslySetInnerHTML={{ __html: eroticStory1.text }}
+        />
+
         <EroticImageContainer gridRow={[3, 3, 2]} gridColumn={[1, 1, 2]}>
           <EroticImage src={eroticStory2.img} alt={eroticStory2.alt} />
         </EroticImageContainer>
-        <ScrollableText gridColumn={1} gridRow={2}>
-          {eroticStory2.text}
-        </ScrollableText>
+        <ScrollableText
+          gridColumn={1}
+          gridRow={2}
+          dangerouslySetInnerHTML={{ __html: eroticStory2.text }}
+        />
       </Grid>
     </Fragment>
   );
