@@ -106,15 +106,15 @@ const TeamMember = ({ name, img, alt }: TeamMemberProps) => {
   );
 };
 
-const AboutUs = () => {
+const About = () => {
   const { t } = useTranslation();
 
   return (
     <Flex flex="auto" flexDirection="column">
-      <H1 fontSize={5} mb={4}>
+      <H1 fontSize={[4, 5, 5, 6]} my={4}>
         {t("about.header")}
       </H1>
-      <P fontSize={4} mb={4} lineHeight={1.5}>
+      <P fontSize={[4, 4, 4, 5]} mb={4} lineHeight={1.5}>
         {t("about.summary")}
       </P>
       <Grid
@@ -142,4 +142,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default About;
