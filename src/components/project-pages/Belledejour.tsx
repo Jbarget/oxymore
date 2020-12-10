@@ -6,6 +6,7 @@ import knife from "../assets/project-page/knife.png";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
 import Flex from "../Flex";
 import { Link } from "react-router-dom";
+import { PROJECTS_URL } from "../../constants/router-urls";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -14,7 +15,7 @@ const Img = styled.img<LayoutProps>`
 const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
     <Fragment>
-      <Link to="/projects">
+      <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
           <Img src={knife} alt="knife icon" maxWidth="30%" />
         </Flex>

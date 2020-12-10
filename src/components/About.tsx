@@ -1,25 +1,26 @@
-import React from "react";
-import styled from "styled-components";
-import { useTranslation } from "react-i18next";
 import {
-  layout,
-  space,
-  typography,
+  FlexboxProps,
   LayoutProps,
   SpaceProps,
   TypographyProps,
-  FlexboxProps,
   flexbox,
+  layout,
+  space,
+  typography,
 } from "styled-system";
+
+import Flex from "./Flex";
+import Grid from "./Grid";
+import React from "react";
 import aitor from "./assets/about-page/aitor.jpg";
+import gloria from "./assets/about-page/gloria.jpg";
 import juancamilo from "./assets/about-page/juancamilo.jpg";
 import micaela from "./assets/about-page/micaela.jpg";
 import nil from "./assets/about-page/nil.jpg";
 import olga from "./assets/about-page/olga.jpg";
 import rodri from "./assets/about-page/rodri.jpg";
-import gloria from "./assets/about-page/gloria.jpg";
-import Grid from "./Grid";
-import Flex from "./Flex";
+import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const teamMembers: TeamMemberProps[] = [
   {
@@ -65,22 +66,21 @@ const H1 = styled.h1<TypographyProps & SpaceProps>`
   ${typography};
 `;
 
-const H2 = styled.h1<TypographyProps & SpaceProps>`
+const P = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
+  text-align: justify;
   ${space};
   ${typography};
 `;
 
-const Img = styled.img<LayoutProps>`
+const TeamMemberImg = styled.img`
   height: 100%;
   width: 100%;
-  ${layout};
 `;
 
-const TeamMemberContainer = styled.div<LayoutProps>`
+const TeamMemberContainer = styled.div`
   object-fit: contain;
   height: 100%;
-  ${layout};
 `;
 
 const GridCell = styled.div<
@@ -101,22 +101,22 @@ interface TeamMemberProps {
 const TeamMember = ({ name, img, alt }: TeamMemberProps) => {
   return (
     <TeamMemberContainer key={name}>
-      <Img alt={alt} src={img} />
+      <TeamMemberImg alt={alt} src={img} />
     </TeamMemberContainer>
   );
 };
 
-const AboutUs = () => {
+const About = () => {
   const { t } = useTranslation();
 
   return (
     <Flex flex="auto" flexDirection="column">
-      <H1 fontSize={5} mb={4}>
+      <H1 fontSize={[4, 5, 5, 6]} my={4}>
         {t("about.header")}
       </H1>
-      <H2 fontSize={5} mb={4}>
-        {t("about.subheader")}
-      </H2>
+      <P fontSize={[4, 4, 4, 5]} mb={4} lineHeight={1.5}>
+        {t("about.summary")}
+      </P>
       <Grid
         gridRowGap={[1, 1, 1, 0]}
         gridTemplateColumns={[
@@ -135,16 +135,11 @@ const AboutUs = () => {
           lineHeight={1.5}
           textAlign="justify"
         >
-          <p>
-            OUR TEAM AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR
-            RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN
-            CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL
-            FERNÁNDEZ GRAPHIC DESIGNER
-          </p>
+          <P>{t("about.team")}</P>
         </GridCell>
       </Grid>
     </Flex>
   );
 };
 
-export default AboutUs;
+export default About;

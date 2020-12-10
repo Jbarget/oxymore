@@ -1,4 +1,4 @@
-export const allowedCountries = [
+const allowedCountries = [
   "US",
   "AT",
   "AU",
@@ -34,3 +34,5 @@ export const allowedCountries = [
   "SI",
   "SK",
 ];
+
+export default allowedCountries;

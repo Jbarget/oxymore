@@ -1,9 +1,10 @@
+import { SpaceProps, TypographyProps, space, typography } from "styled-system";
+
+import Flex from "./Flex";
+import Grid from "./Grid";
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { space, typography, SpaceProps, TypographyProps } from "styled-system";
-import Grid from "./Grid";
-import Flex from "./Flex";
 
 type ManifestoProps = TypographyProps & SpaceProps;
 
@@ -23,11 +24,10 @@ const Paragraph = styled.p<ManifestoProps>`
 
 const Manifesto = () => {
   const { t } = useTranslation();
-  const fontSizes = [3, 4, 5, 5];
 
   return (
     <Flex flex="auto" flexDirection="column" justifyContent="center">
-      <H1 fontSize={[2, 5]} pb={5}>
+      <H1 fontSize={[4, 5, 5, 6]} my={4}>
         {t("manifesto.header")}
       </H1>
       <Grid
@@ -40,11 +40,11 @@ const Manifesto = () => {
           "repeat(2, 48% [col-start])",
         ]}
       >
-        <Paragraph pb={5} fontSize={fontSizes}>
-          {t("manifesto.manifesto")}
+        <Paragraph mb={5} fontSize={[4, 4, 4, 5]}>
+          {t("manifesto.left-column")}
         </Paragraph>
-        <Paragraph pb={5} fontSize={fontSizes}>
-          {t("manifesto.manifesto")}
+        <Paragraph mb={5} fontSize={[4, 4, 4, 5]}>
+          {t("manifesto.right-column")}
         </Paragraph>
       </Grid>
     </Flex>

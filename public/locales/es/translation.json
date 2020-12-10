@@ -14,17 +14,23 @@
   },
   "contact": {
     "header": "Contácto",
-    "subheader": "Oxymore es una publicación bianual bla bla bla bla",
-    "email": "ox@oxymore.com",
-    "location": "Barcelona"
+    "contact-info": "FOR INQUIRIES PLEASE CONTACT OX@OXYMOREMAGAZINE.COM BASED IN GÓTICO, BARCELONA",
+    "location-info": "BASED IN GÓTICO, BARCELONA"
   },
   "manifesto": {
     "header": "Manifiesto",
-    "manifesto": "Conexiones anarquistas distinguidas crean utopías genuinamente diversas en las que las nobles luchas sociales de las minorías educan a los ignorantes y dan poder a los humildes e ingenuos. Una onírica revolución de amor queer, elegantemente kitsch y sutilmente absurda. Una distopía anti-diseño creada por oximoron estéticos."
+    "left-column": "Conexiones anarquistas distinguidas crean utopías genuinamente diversas en las que las nobles luchas sociales de las minorías educan a los ignorantes y dan poder a los humildes e ingenuos. Una onírica revolución de amor queer, elegantemente kitsch y sutilmente absurda. Una distopía anti-diseño creada por oximoron estéticos.",
+    "right-column": "Classy anarchist connections make for genuinely diverse utopias in which noble social fights by minorities educate the ignorant and empower the humble and naïf. An oniric queer love revolution, elegantly kitsch and subtly absurd. An anti design dystopia created by aesthetic oxymorons."
   },
   "about": {
     "header": "Sobre nosotros",
-    "subheader": "Oxymore es una publicación bianual bla bla bla bla"
+    "summary": "Oxymore Magazine es una plataforma en formato de revista impresa y online, que busca crear conciencia hacia temas sociales actuales; y que conecta a colectivos en una situación de vulnerabilidad o temáticas de problemática actual con artistas; con el fin de generar visibilidad y empoderamiento a través de la experimentación artística multimedia.",
+    "team": "NUESTRO EQUIPO AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL FERNÁNDEZ GRAPHIC DESIGNER"
+  },
+  "advertising": {
+    "salazraki": "SOFIA ALAZRAKI @SALAZRAKII DISEÑADO POR MATTEO GUARNACCIA @EMMEGU",
+    "voltrova": "VOLTROVA @VOLTROVA_FOTOGRAFÍA: JOACO SACCONE @JOAC_ DIRECCIÓN CREATIVA: MAYA CAMACHO @MAYACAL , JULIANA CASTAÑEDA @STERLING_SILVERRRRR Y AITOR COSTA @AITORCOSTA EDICIÓN: NIL FERNÀNDEZ @NILFERNANDEZ",
+    "honest-coupons": "DISEÑADO POR NIL FERNÀNDEZ @NILFERNANDEZ"
   },
   "conscious-shopping": {
     "subheader": "Hay muchas variaciones de los pasajes de Lorem Ipsum disponibles",
@@ -36,10 +42,6 @@
   },
   "erotic-stories": {
     "poem": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas Letraset, las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas Letraset, las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas Letraset, las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum. "
-  },
-  "advertising": {
-    "salazraki": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.",
-    "voltrova": "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen."
   },
   "buy-button": {
     "text": "Comprar mag"
