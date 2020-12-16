@@ -52,7 +52,6 @@ const Div = styled.div<FlexboxProps & LayoutProps & SpaceProps>`
 `;
 
 const ScrollableText = styled.p<GridProps & TypographyProps>`
-  overflow: scroll;
   ${grid};
   ${typography};
 `;
@@ -95,7 +94,13 @@ const EroticStoriesContent = () => {
         "repeat(2, 1fr)",
       ]}
     >
-      <GridSquare gridColumn={1} gridRow={1} px={[0, 0, 4]}>
+      <GridSquare
+        gridColumn={1}
+        gridRow={1}
+        px={[0, 0, 4]}
+        height="140vh"
+        overflow="scroll"
+      >
         <Div display="flex" justifyContent="center" p={4}>
           <Link to="/projects">
             <ProjectIcon
@@ -126,7 +131,7 @@ const EroticStoriesContent = () => {
       <GridSquare gridColumn={1} gridRow={[4, 4, 2]} px={[0, 0, 4]}>
         <img src={bellyButtons.img} alt={bellyButtons.alt} />
       </GridSquare>
-      <GridSquare>
+      <GridSquare height="140vh" overflow="scroll">
         <H2 fontSize={[2, 3, 4, 5]} mb={4}>
           {t("erotic-stories.bellyButtonsTitle")}
         </H2>
