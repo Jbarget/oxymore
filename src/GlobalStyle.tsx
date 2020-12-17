@@ -4,16 +4,21 @@ import theme from "./components/theme";
 const GlobalStyle = createGlobalStyle`
   @font-face{
     font-family: SangBleu;
-    src: url(/SangBleuOGSerif-Light.otf)
+    src: url(/SangBleuOGSerif-Light.otf);
   }
   * {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: ${theme.colors.athensGray} transparent;
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
     &::-webkit-scrollbar-thumb {
-      border-radius: 2px;
+      border-radius: 0;
       background-color: ${theme.colors.athensGray};
     }
+    
   }
   html {
     min-height: 100%;
@@ -28,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.athensGray};
+    background-color: ${theme.colors.black};
   }
   #root {
     display: flex;
