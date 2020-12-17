@@ -15,7 +15,7 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import voltrovaImg from "./assets/advertising-page/voltrova.jpg";
 
-const columnWidths = ["100%", "100%", "100%", "50%", "50%"];
+const columnWidths = ["100%", "100%", "100%", "44%", "44%"];
 
 const Img = styled.img<LayoutProps & SpaceProps>`
   flex: auto;
@@ -46,11 +46,10 @@ const Advertising: React.FC = () => {
         flexDirection="column"
         minWidth={columnWidths}
         width={columnWidths}
-        mr={[0, 0, 0, 2]}
-        mb={4}
+        mr={[0, 0, 0, 8]}
       >
-        <Img src={salazrakiImg} alt="Advertsing image" mb={2}></Img>
-        <P fontSize={fontSizes} textAlign="justify">
+        <Img src={voltrovaImg} alt="Advertsing image"></Img>
+        <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
           {t("advertising.salazraki")}
         </P>
       </Flex>
@@ -61,14 +60,13 @@ const Advertising: React.FC = () => {
         minWidth={columnWidths}
         width={columnWidths}
         ml={[0, 0, 0, 2]}
-        mb={4}
       >
-        <Img src={voltrovaImg} alt="Advertsing image" mb={2}></Img>
-        <P fontSize={fontSizes} textAlign="justify">
+        <Img src={salazrakiImg} alt="Advertsing image"></Img>
+        <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
           {t("advertising.voltrova")}
         </P>
-        <Img src={honestCouponsImg} alt="Advertsing image" mb={2} mt={4}></Img>
-        <P fontSize={fontSizes} textAlign="justify">
+        <Img src={honestCouponsImg} alt="Advertsing image"></Img>
+        <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
           {t("advertising.honest-coupons")}
         </P>
       </Flex>

@@ -1,6 +1,3 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import styled, { css } from "styled-components";
 import {
   ABOUT_URL,
   ADVERTISING_URL,
@@ -17,9 +14,13 @@ import {
   OXYMORE_URL,
   PROJECTS_URL,
 } from "../constants/router-urls";
-import marbleBackground from "./assets/backgrounds/background.png";
-import eyeProjectBackground from "./assets/backgrounds/eye-bg.png";
+import styled, { css } from "styled-components";
+
 import Flex from "./Flex";
+import React from "react";
+import eyeProjectBackground from "./assets/backgrounds/eye-bg.png";
+import marbleBackground from "./assets/backgrounds/background.png";
+import { useLocation } from "react-router-dom";
 import { zIndexes } from "./theme";
 
 type Background = "black" | typeof marbleBackground;
@@ -30,11 +31,11 @@ const BackgroundElement = styled.div<{ background: Background }>`
   right: 0;
   bottom: 0;
   left: 0;
-  ${(props) =>
+  ${props =>
     props.background === "black"
       ? "background-color: black;"
       : `background: url(${props.background});`}
-  ${(props) =>
+  ${props =>
     props.background === eyeProjectBackground && eyeInteractionBackgroundStyles}
   background-repeat: repeat-y;
   background-size: cover;
@@ -47,16 +48,12 @@ const eyeInteractionBackgroundStyles = css`
 `;
 
 const getBackground = (pathname: string): Background => {
-  const pagesWithMarbleBG = [
-    "/",
-    PROJECTS_URL,
+  const pagesWithMarbleBG = ["/", PROJECTS_URL, OXYMORE_URL];
+  const pagesWithBlackBG = [
     MANIFESTO_URL,
     ADVERTISING_URL,
     ABOUT_URL,
     CONTACT_URL,
-    OXYMORE_URL,
-  ];
-  const pagesWithBlackBG = [
     CONSCIOUS_SHOPPING_URL,
     FASHION_EDITORIAL_URL,
     KAI_LANDRE_URL,

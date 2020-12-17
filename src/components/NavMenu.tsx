@@ -1,25 +1,28 @@
-import React, { useState, Fragment, useCallback, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import styled, { css } from "styled-components";
-import { useTranslation } from "react-i18next";
 import {
-  typography,
-  position,
-  grid,
-  space,
-  TypographyProps,
+  ABOUT_URL,
+  ADVERTISING_URL,
+  CONTACT_URL,
+  MANIFESTO_URL,
+} from "../constants/router-urls";
+import {
+  ColorProps,
+  GridProps,
   PositionProps,
   SpaceProps,
-  BackgroundProps,
+  TypographyProps,
+  color,
+  grid,
+  position,
+  space,
+  typography,
 } from "styled-system";
-import { zIndexes } from "./theme";
-import background from "./assets/backgrounds/background.png";
-import redirectToCheckout from "../helpers/redirectToCheckout";
+import React, { Fragment, useCallback, useEffect, useState } from "react";
+import styled, { css } from "styled-components";
+import theme, { zIndexes } from "./theme";
 
-type NavMenuProps = TypographyProps &
-  SpaceProps &
-  PositionProps &
-  BackgroundProps;
+import { NavLink } from "react-router-dom";
+import redirectToCheckout from "../helpers/redirectToCheckout";
+import { useTranslation } from "react-i18next";
 
 const overlayStyles = css`
   display: flex;
@@ -33,7 +36,7 @@ const overlayStyles = css`
   top: 0;
   right: 0;
   position: fixed;
-  background-image: url(${background});
+  background-image: ${theme.colors.athensGray};
   background-repeat: no-repeat;
   background-size: cover;
   z-index: ${zIndexes.overlay};
@@ -41,20 +44,21 @@ const overlayStyles = css`
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${(props) => props.isOpen && overlayStyles}
+  ${props => props.isOpen && overlayStyles}
 `;
 
-const Menu = styled.ul<NavMenuProps>`
+const Menu = styled.ul<GridProps & TypographyProps & SpaceProps>`
   ${grid};
   ${typography};
   ${space};
 `;
 
-const MenuButton = styled.button<NavMenuProps>`
+const MenuButton = styled.button<TypographyProps & PositionProps & ColorProps>`
   border: none;
   background: transparent;
   ${typography};
   ${position};
+  ${color};
 `;
 
 const MenuText = styled.li`
@@ -65,9 +69,10 @@ const MenuText = styled.li`
   }
 `;
 
-const MenuLink = styled(NavLink)<NavMenuProps>`
+const MenuLink = styled(NavLink)<ColorProps & PositionProps & TypographyProps>`
   ${typography};
   ${position};
+  ${color};
 `;
 
 interface LinkProps {
@@ -78,16 +83,17 @@ interface LinkProps {
 const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
     <MenuText onClick={onClick}>
-      <MenuLink to={url} fontSize={[5, 6, 7, 8]}>
+      <MenuLink to={url} fontSize={[5, 6, 7, 8]} color="black">
         {page}
       </MenuLink>
     </MenuText>
   );
 };
-const BuyLink = styled.button<TypographyProps>`
+const BuyLink = styled.button<TypographyProps & ColorProps>`
   border: none;
   background: transparent;
   ${typography};
+  ${color};
 `;
 
 const StripeMenuLink: React.FC = () => {
@@ -98,7 +104,11 @@ const StripeMenuLink: React.FC = () => {
     <Fragment>
       {error && <p>{error}</p>}
       <MenuText>
-        <BuyLink onClick={redirectToCheckout(setError)} fontSize={[5, 6, 7, 8]}>
+        <BuyLink
+          onClick={redirectToCheckout(setError)}
+          fontSize={[5, 6, 7, 8]}
+          color="black"
+        >
           {t("nav.buy")}
         </BuyLink>
       </MenuText>
@@ -123,20 +133,20 @@ const NavMenu = () => {
 
   const links: LinkProps[] = [
     {
-      page: `${t("nav.about-us")}`,
-      url: "/about",
+      page: `${t("nav.about")}`,
+      url: ABOUT_URL,
     },
     {
       page: `${t("nav.manifesto")}`,
-      url: "/manifesto",
+      url: MANIFESTO_URL,
     },
     {
       page: `${t("nav.contact")}`,
-      url: "/contact",
+      url: CONTACT_URL,
     },
     {
       page: `${t("nav.advertising")}`,
-      url: "/advertising",
+      url: ADVERTISING_URL,
     },
   ];
 
@@ -146,16 +156,17 @@ const NavMenu = () => {
         MENU
       </MenuButton>
       <Overlay isOpen={isOpen}>
-        <MenuLink
-          to="/oxymore"
+        <MenuButton
           fontSize={fontSizes}
           position="absolute"
           left={24}
           top={24}
+          color="black"
           onClick={() => setIsOpen(!isOpen)}
         >
+          <NavLink to="/oxymore"></NavLink>
           OXYMORE
-        </MenuLink>
+        </MenuButton>
 
         <MenuButton
           onClick={() => setIsOpen(false)}
@@ -163,12 +174,13 @@ const NavMenu = () => {
           position="absolute"
           right={30}
           top={24}
+          color="black"
         >
           BACK
         </MenuButton>
 
         <Menu textAlign={["center", null, null, "start"]} p={4}>
-          {links.map((props) => (
+          {links.map(props => (
             <Link key={props.page} onClick={toggleMenuIsOpen} {...props} />
           ))}
           <StripeMenuLink />

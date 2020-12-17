@@ -8,19 +8,17 @@
   "nav": {
     "manifesto": "MANIFESTO",
     "advertising": "ADVERTISING",
-    "about-us": "ABOUT US",
+    "about": "ABOUT",
     "contact": "CONTACT",
     "buy": "BUY"
   },
   "contact": {
-    "header": "Contact",
-    "contact-info": "FOR INQUIRIES PLEASE CONTACT OX@OXYMOREMAGAZINE.COM ",
-    "location-info": "BASED IN GÓTICO, BARCELONA"
+    "header": "Contact"
   },
   "manifesto": {
     "header": "Manifesto",
-    "left-column": "Classy anarchist connections make for genuinely diverse utopias in which noble social fights by minorities educate the ignorant and empower the humble and naïf. An oniric queer love revolution, elegantly kitsch and subtly absurd. An anti design dystopia created by aesthetic oxymorons.",
-    "right-column": "Conexiones anarquistas distinguidas crean utopías genuinamente diversas en las que las nobles luchas sociales de las minorías educan a los ignorantes y dan poder a los humildes e ingenuos. Una onírica revolución de amor queer, elegantemente kitsch y sutilmente absurda. Una distopía anti-diseño creada por oximoron estéticos."
+    "left-column": "Classy anarchist connections make for genuinely diverse utopias in which noble social fights by minorities educate the ignorant and empower the humble and naïf. An oniric queer love revolution, elegantly kitsch and subtly absurd. An anti design dystopia created by aesthetic oxymorons. Conexiones anarquistas",
+    "right-column": " distinguidas crean utopías genuinamente diversas en las que las nobles luchas sociales de las minorías educan a los ignorantes y dan poder a los humildes e ingenuos. Una onírica revolución de amor queer, elegantemente kitsch y sutilmente absurda. Una distopía anti-diseño creada por oximoron estéticos."
   },
   "about": {
     "header": "About",

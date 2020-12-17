@@ -131,9 +131,10 @@ const About = () => {
         <GridCell
           display="flex"
           justifyContent="center"
-          p={6}
           lineHeight={1.5}
           textAlign="justify"
+          mt={6}
+          mx={[0, 0, 0, 6]}
         >
           <P>{t("about.team")}</P>
         </GridCell>

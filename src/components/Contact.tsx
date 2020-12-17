@@ -19,6 +19,13 @@ const ContactInfo = styled.p<ContactPageProps>`
   text-transform: uppercase;
 `;
 
+const EmailLink = styled.a<ContactPageProps>`
+  &:hover {
+    text-decoration: underline;
+    transition-duration: 0.2s;
+  }
+`;
+
 const Contact = () => {
   const { t } = useTranslation();
 
@@ -29,10 +36,13 @@ const Contact = () => {
           {t("contact.header")}
         </H1>
         <ContactInfo fontSize={[4, 4, 4, 5]}>
-          {t("contact.contact-info")}
+          FOR INQUIRIES PLEASE CONTACT{" "}
+          <EmailLink href="mailto:ox@oxymore.com" target="_blank">
+            OX@OXYMOREMAGAZINE.COM
+          </EmailLink>
         </ContactInfo>
         <ContactInfo fontSize={[4, 4, 4, 5]}>
-          {t("contact.location-info")}
+          BASED IN GOTICO, BARCELONA
         </ContactInfo>
       </div>
     </Flex>
