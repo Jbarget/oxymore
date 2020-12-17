@@ -12,29 +12,20 @@ import {
 } from "styled-system";
 
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { Fragment } from "react";
 import bellyButtonsImg from "../assets/erotic-stories/belly-buttons.jpg";
 import statue from "../assets/project-page/statue.png";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import wingsBeatingImg from "../assets/erotic-stories/wings-beating.jpg";
+import Flex from "../Flex";
 
-const Grid = styled.div<GridProps & FlexboxProps & LayoutProps>`
-  ${grid};
-  ${flexbox};
-  ${layout};
-`;
 
-const GridRow = styled.div<LayoutProps & GridProps>`
-  ${layout};
-  ${grid};
-`;
-
-const GridSquare = styled(Grid)<SpaceProps>`
-  ${space};
-  scrollbar-color: transparent;
-`;
-
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
 const ProjectIcon = styled.img<LayoutProps & FlexboxProps>`
   ${layout};
   ${flexbox};
@@ -87,18 +78,16 @@ const EroticStoriesContent = () => {
   const bellyButtons = eroticStories[1];
 
   return (
-    <Grid gridRowGap={3}>
-      <GridRow
-        gridColumnGap={3}
-        gridTemplateColumns={[
-          "repeat(1, 1fr)",
-          "repeat(1, 1fr)",
-          "repeat(2, 1fr)",
-        ]}
-        height="100vh"
-        overflow="scroll"
-      >
-        <GridSquare gridColumn={1}>
+    <Fragment>
+      <Flex flexDirection={["column", "column", "column", "row"]}>
+        <Flex
+          width={["100%", "100%", "100%", "50%"]}
+          minWidth={["100%", "100%", "100%", "50%"]}
+          flexDirection="column"
+          p={6}
+          pl="0"
+          pr={[0, 0, 0, 6]}
+        >
           <IconContainer p={4}>
             <Link to="/projects">
               <ProjectIcon
@@ -118,25 +107,27 @@ const EroticStoriesContent = () => {
             textAlign="left"
             dangerouslySetInnerHTML={{ __html: wingsBeating.text }}
           />
-        </GridSquare>
-        <GridSquare gridColumn={[1, 1, 2, 2]} py={[2, 2, 2, 0]}>
-          <img src={wingsBeating.img} alt={wingsBeating.alt} />
-        </GridSquare>
-      </GridRow>
-      <GridRow
-        gridColumnGap={3}
-        gridTemplateColumns={[
-          "repeat(1, 1fr)",
-          "repeat(1, 1fr)",
-          "repeat(2, fr)",
-        ]}
-        height="100vh"
-        overflow="scroll"
-      >
-        <GridSquare gridColumn={1} py={[2, 2, 2, 0]}>
-          <img src={bellyButtons.img} alt={bellyButtons.alt} />
-        </GridSquare>
-        <GridSquare gridColumn={[1, 1, 1, 2]}>
+        </Flex>
+        <Flex
+          width={["100%", "100%", "100%", "50%"]}
+          minWidth={["100%", "100%", "100%", "50%"]}
+          position={["unset", "unset", "unset", "sticky"]}
+          height={["unset", "unset", "unset", "100vh"]}
+          top="0"
+        >
+          <Img src={wingsBeating.img} alt={wingsBeating.alt} />
+        </Flex>
+      </Flex>
+      <Flex flexDirection={["column", "column", "column", "row-reverse"]}>
+        <Flex
+          width={["100%", "100%", "100%", "50%"]}
+          minWidth={["100%", "100%", "100%", "50%"]}
+          flexDirection="column"
+          overflowY="auto"
+          p={6}
+          pl={[0, 0, 0, 6]}
+          pr="0"
+        >
           <H2 fontSize={[2, 3, 4, 5]} mb={4}>
             {t("erotic-stories.bellyButtonsTitle")}
           </H2>
@@ -144,9 +135,18 @@ const EroticStoriesContent = () => {
             textAlign="left"
             dangerouslySetInnerHTML={{ __html: bellyButtons.text }}
           />
-        </GridSquare>
-      </GridRow>
-    </Grid>
+        </Flex>
+        <Flex
+          width={["100%", "100%", "100%", "50%"]}
+          minWidth={["100%", "100%", "100%", "50%"]}
+          position={["unset", "unset", "unset", "sticky"]}
+          height={["unsert", "unsert", "unsert", "100vh"]}
+          top="0"
+        >
+          <Img src={bellyButtons.img} alt={bellyButtons.alt} />
+        </Flex>
+      </Flex>
+    </Fragment>
   );
 };
 
