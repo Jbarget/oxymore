@@ -22,7 +22,7 @@ const ContactInfo = styled.p<ContactPageProps>`
 const EmailLink = styled.a<ContactPageProps>`
   &:hover {
     text-decoration: underline;
-    transition-duration: 0.2s;
+    transition-duration: 0.5s;
   }
 `;
 

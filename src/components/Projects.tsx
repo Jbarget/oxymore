@@ -1,21 +1,22 @@
-import React, { useCallback } from "react";
-import styled from "styled-components";
 import {
-  layout,
-  space,
-  LayoutProps,
-  SpaceProps,
-  position,
-  PositionProps,
-  typography,
-  TypographyProps,
   BackgroundProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  TypographyProps,
   background,
+  layout,
+  position,
+  space,
+  typography,
 } from "styled-system";
+import React, { useCallback } from "react";
+
 import BuyButton from "./BuyButton";
-import { zIndexes } from "./theme";
 import Flex from "./Flex";
 import ProjectsGrid from "./ProjectsGrid";
+import styled from "styled-components";
+import { zIndexes } from "./theme";
 
 const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${position};

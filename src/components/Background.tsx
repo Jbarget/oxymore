@@ -23,7 +23,9 @@ import marbleBackground from "./assets/backgrounds/background.png";
 import { useLocation } from "react-router-dom";
 import { zIndexes } from "./theme";
 
-type Background = "black" | typeof marbleBackground;
+const black = "#020403";
+
+type Background = typeof black | typeof marbleBackground;
 
 const BackgroundElement = styled.div<{ background: Background }>`
   position: fixed;
@@ -31,16 +33,16 @@ const BackgroundElement = styled.div<{ background: Background }>`
   right: 0;
   bottom: 0;
   left: 0;
-  ${props =>
-    props.background === "black"
-      ? "background-color: black;"
-      : `background: url(${props.background});`}
-  ${props =>
-    props.background === eyeProjectBackground && eyeInteractionBackgroundStyles}
   background-repeat: repeat-y;
   background-size: cover;
   height: 100%;
   z-index: ${zIndexes.behind};
+  ${props =>
+    props.background === `${black}`
+      ? `background-color: ${black}`
+      : `background: url(${props.background});`}
+  ${props =>
+    props.background === eyeProjectBackground && eyeInteractionBackgroundStyles}
 `;
 
 const eyeInteractionBackgroundStyles = css`
@@ -67,13 +69,12 @@ const getBackground = (pathname: string): Background => {
     return eyeProjectBackground;
   }
   if (pagesWithBlackBG.includes(pathname)) {
-    return "black";
+    return black;
   }
   if (pagesWithMarbleBG.includes(pathname)) {
     return marbleBackground;
   }
-
-  return "black";
+  return black;
 };
 
 const Background: React.FC = ({ children }) => {

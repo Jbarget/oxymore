@@ -3,8 +3,12 @@ import theme from "./components/theme";
 
 const GlobalStyle = createGlobalStyle`
   @font-face{
-    font-family: SangBleu;
+    font-family: SangBleu OG Serif;
     src: url(/SangBleuOGSerif-Light.otf)
+  }
+  @font-face{
+    font-family: Favorit;
+    src: url(/Favorit-Regular.ttf)
   }
   * {
     -webkit-overflow-scrolling: touch;

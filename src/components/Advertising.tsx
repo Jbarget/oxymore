@@ -9,17 +9,15 @@ import {
 
 import Flex from "./Flex";
 import React from "react";
-import honestCouponsImg from "./assets/advertising-page/honest-coupons.jpeg";
+import honestCouponsImg from "./assets/advertising-page/honest-coupons.jpg";
 import salazrakiImg from "./assets/advertising-page/salazraki.jpg";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import voltrovaImg from "./assets/advertising-page/voltrova.jpg";
 
-const columnWidths = ["100%", "100%", "100%", "44%", "44%"];
+const columnWidths = "100%";
 
 const Img = styled.img<LayoutProps & SpaceProps>`
-  flex: auto;
-  object-fit: cover;
   ${layout};
   ${space};
 `;
@@ -35,40 +33,25 @@ const Advertising: React.FC = () => {
   const fontSizes = [1, 2, 3, 3];
 
   return (
-    <Flex
-      flex="auto"
-      flexDirection={["column", "column", "column", "row"]}
-      justifyContent="center"
-      mt={4}
-    >
-      <Flex
-        flex="auto"
-        flexDirection="column"
-        minWidth={columnWidths}
-        width={columnWidths}
-        mr={[0, 0, 0, 8]}
-      >
-        <Img src={voltrovaImg} alt="Advertsing image"></Img>
-        <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
-          {t("advertising.salazraki")}
-        </P>
-      </Flex>
-      <Flex
-        flex="auto"
-        flexDirection="column"
-        p={0}
-        minWidth={columnWidths}
-        width={columnWidths}
-        ml={[0, 0, 0, 2]}
-      >
-        <Img src={salazrakiImg} alt="Advertsing image"></Img>
-        <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
-          {t("advertising.voltrova")}
-        </P>
-        <Img src={honestCouponsImg} alt="Advertsing image"></Img>
-        <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
-          {t("advertising.honest-coupons")}
-        </P>
+    <Flex flex="auto" flexDirection="column">
+      <Flex flexDirection={["column", "column", "column", "row"]}>
+        <Flex flexDirection="column" width={columnWidths} mr={[0, 0, 2]}>
+          <Img src={voltrovaImg} alt="Advertsing image"></Img>
+          <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
+            {t("advertising.salazraki")}
+          </P>
+        </Flex>
+        <Flex flexDirection="column" width={columnWidths} ml={[0, 0, 2]}>
+          <Img src={salazrakiImg} alt="Advertsing image"></Img>
+          <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
+            {t("advertising.voltrova")}
+          </P>
+
+          <Img src={honestCouponsImg} alt="Advertsing image"></Img>
+          <P fontSize={fontSizes} textAlign="justify" mt={4} mb={6}>
+            {t("advertising.honest-coupons")}
+          </P>
+        </Flex>
       </Flex>
     </Flex>
   );

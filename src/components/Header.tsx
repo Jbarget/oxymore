@@ -1,20 +1,26 @@
-import React from "react";
-import styled from "styled-components";
 import {
-  typography,
-  layout,
+  GridProps,
+  LayoutProps,
   SpaceProps,
   TypographyProps,
-  LayoutProps,
-  GridProps,
+  layout,
+  typography,
 } from "styled-system";
-import NavMenu from "./NavMenu";
-import LanguageButtons from "./LanguageButtons";
 import { NavLink, useLocation } from "react-router-dom";
+
 import Flex from "./Flex";
+import LanguageButtons from "./LanguageButtons";
+import NavMenu from "./NavMenu";
+import React from "react";
+import styled from "styled-components";
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${typography};
+  &:hover {
+    transform: scale(1.02);
+    color: white;
+    font-weight: 500;
+  }
 `;
 
 const Container = styled.div<LayoutProps>`

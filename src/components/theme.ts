@@ -16,8 +16,8 @@ export const zIndexes = {
 };
 
 const colorCodes = {
-  black: "#000000",
-  athensGray: "#f4f4f6",
+  black: "#020403",
+  athensGray: "#d9d9d9",
 };
 
 const colors = {
@@ -56,8 +56,8 @@ const space = {
 };
 
 const fonts = {
-  primary: "Helvetica Neue, sans-serif",
-  secondary: "SangBleu, sans-serif",
+  primary: "Favorit, sans-serif",
+  secondary: "SangBleu OG Serif, sans-serif",
 };
 
 const borders = {

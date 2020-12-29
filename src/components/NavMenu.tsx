@@ -3,6 +3,7 @@ import {
   ADVERTISING_URL,
   CONTACT_URL,
   MANIFESTO_URL,
+  OXYMORE_URL,
 } from "../constants/router-urls";
 import {
   ColorProps,
@@ -18,11 +19,11 @@ import {
 } from "styled-system";
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-import theme, { zIndexes } from "./theme";
 
 import { NavLink } from "react-router-dom";
 import redirectToCheckout from "../helpers/redirectToCheckout";
 import { useTranslation } from "react-i18next";
+import { zIndexes } from "./theme";
 
 const overlayStyles = css`
   display: flex;
@@ -36,8 +37,9 @@ const overlayStyles = css`
   top: 0;
   right: 0;
   position: fixed;
-  background-image: ${theme.colors.athensGray};
-  background-repeat: no-repeat;
+  background-color: #b3cdd1;
+  background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+
   background-size: cover;
   z-index: ${zIndexes.overlay};
 `;
@@ -56,12 +58,17 @@ const Menu = styled.ul<GridProps & TypographyProps & SpaceProps>`
 const MenuButton = styled.button<TypographyProps & PositionProps & ColorProps>`
   border: none;
   background: transparent;
+  &:hover {
+    transform: scale(1.02);
+    color: white;
+    font-weight: 500;
+  }
   ${typography};
   ${position};
   ${color};
 `;
 
-const MenuText = styled.li`
+const MenuItem = styled.li`
   transition: transform 0.4s;
   transform-origin: left;
   &:hover {
@@ -69,10 +76,20 @@ const MenuText = styled.li`
   }
 `;
 
+const HomePageLink = styled(NavLink)<ColorProps>`
+  ${color};
+  &:hover {
+    color: white;
+  }
+`;
+
 const MenuLink = styled(NavLink)<ColorProps & PositionProps & TypographyProps>`
   ${typography};
   ${position};
   ${color};
+  &:hover {
+    color: white;
+  }
 `;
 
 interface LinkProps {
@@ -82,16 +99,24 @@ interface LinkProps {
 
 const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
-    <MenuText onClick={onClick}>
-      <MenuLink to={url} fontSize={[5, 6, 7, 8]} color="black">
+    <MenuItem>
+      <MenuLink
+        to={url}
+        fontSize={[5, 6, 7, 8]}
+        color="black"
+        onClick={onClick}
+      >
         {page}
       </MenuLink>
-    </MenuText>
+    </MenuItem>
   );
 };
 const BuyLink = styled.button<TypographyProps & ColorProps>`
   border: none;
   background: transparent;
+  &:hover {
+    color: white;
+  }
   ${typography};
   ${color};
 `;
@@ -103,7 +128,7 @@ const StripeMenuLink: React.FC = () => {
   return (
     <Fragment>
       {error && <p>{error}</p>}
-      <MenuText>
+      <MenuItem>
         <BuyLink
           onClick={redirectToCheckout(setError)}
           fontSize={[5, 6, 7, 8]}
@@ -111,7 +136,7 @@ const StripeMenuLink: React.FC = () => {
         >
           {t("nav.buy")}
         </BuyLink>
-      </MenuText>
+      </MenuItem>
     </Fragment>
   );
 };
@@ -164,8 +189,9 @@ const NavMenu = () => {
           color="black"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <NavLink to="/oxymore"></NavLink>
-          OXYMORE
+          <HomePageLink color="black" to={OXYMORE_URL}>
+            OXYMORE
+          </HomePageLink>
         </MenuButton>
 
         <MenuButton

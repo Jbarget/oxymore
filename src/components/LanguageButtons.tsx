@@ -1,15 +1,16 @@
-import React, { useCallback, useState } from "react";
-import styled, { css } from "styled-components";
 import {
-  space,
-  typography,
-  layout,
-  flexbox,
+  FlexboxProps,
+  LayoutProps,
   SpaceProps,
   TypographyProps,
-  LayoutProps,
-  FlexboxProps,
+  flexbox,
+  layout,
+  space,
+  typography,
 } from "styled-system";
+import React, { useCallback, useState } from "react";
+import styled, { css } from "styled-components";
+
 import i18next from "i18next";
 
 const Container = styled.div<FlexboxProps & LayoutProps & SpaceProps>`
@@ -26,14 +27,14 @@ const LangButton = styled.button<
   ${typography};
   ${space};
   transition: transform 0.2s;
-  ${(props) => props.isActive && ActiveLang}
+  ${props => props.isActive && ActiveLang}
   &:hover {
     transform: scale(1.05);
-  
+    color: white;
 `;
 
 const ActiveLang = css`
-  text-decoration-line: underline;
+  color: white;
 `;
 
 const LanguageButtons = () => {
