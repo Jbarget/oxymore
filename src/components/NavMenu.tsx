@@ -69,7 +69,7 @@ const MenuItem = styled.li`
   }
 `;
 
-const HomePageLink = styled(NavLink)<ColorProps>`
+const HomepageLink = styled(NavLink)<ColorProps>`
   ${color};
   &:hover {
     color: white;
@@ -84,25 +84,6 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
   }
 `;
 
-interface LinkProps {
-  page: string;
-  url: string;
-}
-
-const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
-  return (
-    <MenuItem onClick={onClick}>
-      <MenuLink
-        to={url}
-        fontSize={[5, 6, 7, 8]}
-        color="black"
-        onClick={onClick}
-      >
-        {page}
-      </MenuLink>
-    </MenuItem>
-  );
-};
 const BuyLink = styled.button<TypographyProps & ColorProps>`
   border: none;
   background: transparent;
@@ -112,6 +93,21 @@ const BuyLink = styled.button<TypographyProps & ColorProps>`
   ${typography};
   ${color};
 `;
+
+interface LinkProps {
+  page: string;
+  url: string;
+}
+
+const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
+  return (
+    <MenuItem onClick={onClick}>
+      <MenuLink to={url} fontSize={[5, 6, 7, 8]} color="black">
+        {page}
+      </MenuLink>
+    </MenuItem>
+  );
+};
 
 const StripeMenuLink: React.FC = () => {
   const [error, setError] = useState<string>();
@@ -181,9 +177,9 @@ const NavMenu = () => {
           color="black"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <HomePageLink color="black" to={OXYMORE_URL}>
+          <HomepageLink color="black" to={OXYMORE_URL}>
             OXYMORE
-          </HomePageLink>
+          </HomepageLink>
         </MenuButton>
 
         <MenuButton
