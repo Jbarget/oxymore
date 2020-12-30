@@ -7,12 +7,10 @@ import {
 } from "../constants/router-urls";
 import {
   ColorProps,
-  GridProps,
   PositionProps,
   SpaceProps,
   TypographyProps,
   color,
-  grid,
   position,
   space,
   typography,
@@ -32,15 +30,11 @@ const overlayStyles = css`
   width: 100%;
   justify-content: center;
   border: none;
-  background-size: cover;
   opacity: 1;
   top: 0;
   right: 0;
   position: fixed;
-  background-color: #b3cdd1;
   background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
-
-  background-size: cover;
   z-index: ${zIndexes.overlay};
 `;
 
@@ -49,8 +43,7 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${props => props.isOpen && overlayStyles}
 `;
 
-const Menu = styled.ul<GridProps & TypographyProps & SpaceProps>`
-  ${grid};
+const Menu = styled.ul<TypographyProps & SpaceProps>`
   ${typography};
   ${space};
 `;
@@ -83,9 +76,8 @@ const HomePageLink = styled(NavLink)<ColorProps>`
   }
 `;
 
-const MenuLink = styled(NavLink)<ColorProps & PositionProps & TypographyProps>`
+const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
   ${typography};
-  ${position};
   ${color};
   &:hover {
     color: white;
@@ -99,7 +91,7 @@ interface LinkProps {
 
 const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
-    <MenuItem>
+    <MenuItem onClick={onClick}>
       <MenuLink
         to={url}
         fontSize={[5, 6, 7, 8]}
