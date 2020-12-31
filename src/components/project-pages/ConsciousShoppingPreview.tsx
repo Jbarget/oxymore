@@ -1,61 +1,71 @@
-import React from "react";
-import styled from "styled-components";
 import {
   FlexboxProps,
-  flexbox,
-  layout,
+  GridProps,
   LayoutProps,
   PositionProps,
-  GridProps,
+  flexbox,
   grid,
+  layout,
+  position,
 } from "styled-system";
-import bag from "../assets/conscious-shopping/bag.jpg";
-import projectIcon from "../assets/project-page/shell.png";
-import trex from "../assets/conscious-shopping/t-rex.jpg";
-import boots from "../assets/conscious-shopping/boots.jpg";
-import sunglasses from "../assets/conscious-shopping/sunglasses.jpg";
-import shell from "../assets/conscious-shopping/concha.jpg";
-import Timer from "../Timer";
-import { zIndexes } from "../theme";
+
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import React from "react";
+import Timer from "../Timer";
+import bag from "../assets/conscious-shopping/bag.jpg";
+import boots from "../assets/conscious-shopping/boots.jpg";
+import projectIcon from "../assets/project-page/shell.png";
+import shell from "../assets/conscious-shopping/concha.jpg";
+import styled from "styled-components";
+import sunglasses from "../assets/conscious-shopping/sunglasses.jpg";
+import trex from "../assets/conscious-shopping/t-rex.jpg";
+import { zIndexes } from "../theme";
 
-type GridLayoutProps = FlexboxProps & LayoutProps & PositionProps & GridProps;
-
-const Grid = styled.div<GridLayoutProps>`
+const Div = styled.div<GridProps & LayoutProps & FlexboxProps>`
   ${flexbox};
   ${layout};
   ${grid};
 `;
 
-const TimerContainer = styled.div<GridLayoutProps>`
+const TimerContainer = styled.div<GridProps & PositionProps>`
   ${grid};
+  ${position}
 `;
 
-const ProjectIcon = styled.img<GridLayoutProps>`
+const ProjectIcon = styled.img<GridProps & LayoutProps>`
   ${layout};
   ${grid};
+  transition: transform 0.4s;
+  transform-origin: left;
+  &:hover {
+    transform: scale(1.02);
 `;
 
-const Illustration = styled.img<GridLayoutProps>`
+const Illustration = styled.img<LayoutProps & FlexboxProps & GridProps>`
   ${layout};
   ${flexbox};
   ${grid};
   opacity: 0.5;
 `;
 
+const ReturnToProjectsPage = styled(Link)<FlexboxProps>`
+  ${flexbox};
+`;
+
 const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
   launchDate,
 }) => {
   return (
-    <Grid
+    <Div
       display={["flex", "flex", "flex", "grid"]}
       flexDirection={["column", "column", "column"]}
       gridTemplateColumns="repeat(3, 1fr)"
       gridTemplateRows="repeat(5, 20%)"
       alignItems="center"
+      height={["unset", "unset", "unset", "80vh"]}
     >
-      <Link to={PROJECTS_URL}>
+      <ReturnToProjectsPage to={PROJECTS_URL} alignSelf="start">
         <ProjectIcon
           src={projectIcon}
           alt="icon image"
@@ -63,7 +73,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
           gridColumn={1}
           gridRow={1}
         />
-      </Link>
+      </ReturnToProjectsPage>
       <Illustration
         src={boots}
         alt="illustration image"
@@ -73,7 +83,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         justifySelf="flex-end"
         alignSelf="center"
       />
-      <TimerContainer zIndex={zIndexes.inFront} gridColumn={2} gridRow={2}>
+      <TimerContainer zIndex={zIndexes.inFront} gridColumn={2} gridRow="2/4">
         <Timer launchDate={launchDate} />
       </TimerContainer>
       <Illustration
@@ -90,7 +100,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         alt="illustration image"
         maxWidth="50%"
         gridColumn={2}
-        gridRow={3}
+        gridRow={4}
         justifySelf="flex-start"
         alignSelf="center"
       />
@@ -99,7 +109,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         alt="illustration image"
         maxWidth="50%"
         gridColumn={2}
-        gridRow={3}
+        gridRow={4}
         justifySelf="flex-end"
         alignSelf="center"
       />
@@ -111,7 +121,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         gridRow={2}
         alignSelf="center"
       />
-    </Grid>
+    </Div>
   );
 };
 
