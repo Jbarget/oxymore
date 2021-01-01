@@ -63,7 +63,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
       gridTemplateColumns="repeat(3, 1fr)"
       gridTemplateRows="repeat(5, 20%)"
       alignItems="center"
-      height={["unset", "unset", "unset", "80vh"]}
+      height={["unset", "unset", "unset", "100vh"]}
     >
       <ReturnToProjectsPage to={PROJECTS_URL} alignSelf="start">
         <ProjectIcon
