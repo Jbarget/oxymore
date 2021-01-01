@@ -1,10 +1,12 @@
 import {
   FlexboxProps,
   LayoutProps,
+  PositionProps,
   SpaceProps,
   TypographyProps,
   flexbox,
   layout,
+  position,
   space,
   typography,
 } from "styled-system";
@@ -13,6 +15,7 @@ import React, { useCallback, useState } from "react";
 import Flex from "../Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import arrow from "../assets/conscious-shopping/arrow.png";
 import bootsImg from "../assets/conscious-shopping/boots.jpg";
 import conchaImg from "../assets/conscious-shopping/concha.jpg";
 import laiaImg from "../assets/conscious-shopping/laia.jpg";
@@ -25,6 +28,7 @@ import styled from "styled-components";
 import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
 import trexImg from "../assets/conscious-shopping/t-rex.jpg";
 import { useTranslation } from "react-i18next";
+import { zIndexes } from "../theme";
 
 const H1 = styled.h1<SpaceProps>`
   text-transform: uppercase;
@@ -35,16 +39,29 @@ const H2 = styled.h2<SpaceProps>`
   ${space};
 `;
 
-const BigImage = styled.img<SpaceProps & LayoutProps>`
+const BigImage = styled.img<SpaceProps & LayoutProps & PositionProps>`
   ${space};
   ${layout};
-  cursor: pointer;
+  ${position};
 `;
 
 const SmallImage = styled.img<LayoutProps & FlexboxProps & SpaceProps>`
   ${layout};
   ${flexbox};
   ${space};
+`;
+
+const Arrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
+  ${layout};
+  ${space};
+  ${position};
+  z-index: ${zIndexes.inFront};
+  cursor: pointer;
+  transition: transform 0.2s;
+  transform-origin: left;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const TextContainer = styled.div`
@@ -130,11 +147,14 @@ const ConsciousShoppingContent = () => {
   const altTags = currentCarouselItem.alt;
 
   const handleClick = useCallback(() => setCurrent(next), [next]);
+
   return (
     <Flex
       flexDirection={["column", "column", "column", "column", "row"]}
       height={["unset", "unset", "unset", "100vh"]}
+      alignItems={["center", "center", "center", "unset"]}
       width="100%"
+      overflowX="hidden"
     >
       <Flex
         width={["100%", "100%", "100%", "100%", "40%"]}
@@ -148,7 +168,6 @@ const ConsciousShoppingContent = () => {
             alignSelf="center"
           ></ProjectIcon>
         </Link>
-
         <H1 my={4}>Conscious Shopping</H1>
         <H2 mb={4}>{title}</H2>
         <TextContainer>
@@ -161,13 +180,17 @@ const ConsciousShoppingContent = () => {
         </TextContainer>
       </Flex>
 
-      <BigImage
-        src={mainImage}
-        alt={altTags}
+      <BigImage src={mainImage} alt={altTags} maxWidth={500} p={4} />
+      <Arrow
+        src={arrow}
+        alt="arrow"
+        maxHeight={[80, 80, 80, 40]}
+        maxWidth={[80, 80, 80, 40]}
+        position={["unset", "unset", "unset", "relative"]}
+        right={72}
+        top={280}
         onClick={handleClick}
-        maxWidth={500}
-        p={4}
-      />
+      ></Arrow>
 
       <Flex
         width={["100%", "100%", "100%", "100%", "40%"]}

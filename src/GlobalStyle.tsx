@@ -13,12 +13,12 @@ const GlobalStyle = createGlobalStyle`
     &::-webkit-scrollbar {
       width: 6px;
       height: 6px;
+      padding: 20px;
     }
     &::-webkit-scrollbar-thumb {
       border-radius: 0;
       background-color: ${theme.colors.athensGray};
     }
-    
   }
   html {
     min-height: 100%;
