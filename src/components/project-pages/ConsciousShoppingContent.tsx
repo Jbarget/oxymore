@@ -16,18 +16,18 @@ import theme, { zIndexes } from "../theme";
 import Flex from "../Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
-import arrow from "../assets/conscious-shopping/arrow.png";
-import bootsImg from "../assets/conscious-shopping/boots.jpg";
-import conchaImg from "../assets/conscious-shopping/concha.jpg";
-import laiaImg from "../assets/conscious-shopping/laia.jpg";
-import leSwingImg from "../assets/conscious-shopping/le-swing.jpg";
-import lydiaImg from "../assets/conscious-shopping/lydia.jpg";
-import mijalImg from "../assets/conscious-shopping/mijal.jpg";
-import nadiaImg from "../assets/conscious-shopping/nadia.jpg";
+import arrow from "../assets/project-page/projects/conscious-shopping/arrow.png";
+import bootsImg from "../assets/project-page/projects/conscious-shopping/boots.jpg";
+import conchaImg from "../assets/project-page/projects/conscious-shopping/concha.jpg";
+import laiaImg from "../assets/project-page/projects/conscious-shopping/laia.jpg";
+import leSwingImg from "../assets/project-page/projects/conscious-shopping/le-swing.jpg";
+import lydiaImg from "../assets/project-page/projects/conscious-shopping/lydia.jpg";
+import mijalImg from "../assets/project-page/projects/conscious-shopping/mijal.jpg";
+import nadiaImg from "../assets/project-page/projects/conscious-shopping/nadia.jpg";
 import shellIcon from "../assets/project-page/shell.png";
 import styled from "styled-components";
-import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
-import trexImg from "../assets/conscious-shopping/t-rex.jpg";
+import sunglassesImg from "../assets/project-page/projects/conscious-shopping/sunglasses.jpg";
+import trexImg from "../assets/project-page/projects/conscious-shopping/t-rex.jpg";
 import { useTranslation } from "react-i18next";
 
 const H1 = styled.h1<SpaceProps>`
@@ -152,7 +152,7 @@ const ConsciousShoppingContent = () => {
     <Flex
       flexDirection={["column", "column", "column", "column", "row"]}
       height={["unset", "unset", "unset", "100vh"]}
-      alignItems={["center", "center", "center", "unset"]}
+      alignItems={["center", "center", "center", "center", "unset"]}
       width="100%"
       overflowX="hidden"
     >
@@ -184,9 +184,9 @@ const ConsciousShoppingContent = () => {
       <Arrow
         src={arrow}
         alt="arrow"
-        maxHeight={[80, 80, 80, 40]}
-        maxWidth={[80, 80, 80, 40]}
-        position={["unset", "unset", "unset", "relative"]}
+        maxHeight={[80, 80, 80, 80, 40]}
+        maxWidth={[80, 80, 80, 80, 40]}
+        position={["unset", "unset", "unset", "unset", "relative"]}
         right={72}
         top={280}
         onClick={handleClick}
