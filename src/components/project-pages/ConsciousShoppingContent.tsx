@@ -11,6 +11,7 @@ import {
   typography,
 } from "styled-system";
 import React, { useCallback, useState } from "react";
+import theme, { zIndexes } from "../theme";
 
 import Flex from "../Flex";
 import { Link } from "react-router-dom";
@@ -28,7 +29,6 @@ import styled from "styled-components";
 import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
 import trexImg from "../assets/conscious-shopping/t-rex.jpg";
 import { useTranslation } from "react-i18next";
-import { zIndexes } from "../theme";
 
 const H1 = styled.h1<SpaceProps>`
   text-transform: uppercase;
@@ -67,7 +67,7 @@ const Arrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
 const TextContainer = styled.div`
   overflow-y: scroll;
   ::-webkit-scrollbar {
-    display: none;
+    scrollbar-color: ${theme.colors.black} transparent;
   }
 `;
 

@@ -10,10 +10,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: ${theme.colors.athensGray} transparent;
-    &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
+   
     &::-webkit-scrollbar-thumb {
       border-radius: 0;
       background-color: ${theme.colors.athensGray};
