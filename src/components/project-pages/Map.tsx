@@ -27,7 +27,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   );
 };
 
-const launchDate = "2020-01-21";
+const launchDate = "2021-03-21";
 const Map = () => {
   return (
     <Flex
