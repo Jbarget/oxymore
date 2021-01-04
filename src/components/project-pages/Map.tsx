@@ -8,6 +8,7 @@ import magnify from "../assets/project-page/magnify.png";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
 import Flex from "../Flex";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import MapContent from "./MapContent";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -26,7 +27,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   );
 };
 
-const launchDate = "2021-01-21";
+const launchDate = "2020-01-21";
 const Map = () => {
   return (
     <Flex
@@ -39,7 +40,7 @@ const Map = () => {
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={PreviewPage}
-        ProjectPage={() => null}
+        ProjectPage={MapContent}
       />
     </Flex>
   );
