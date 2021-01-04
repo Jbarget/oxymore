@@ -10,22 +10,21 @@ import {
   space,
   typography,
 } from "styled-system";
-
-import { Link } from "react-router-dom";
 import React, { Fragment } from "react";
+
+import Flex from "../Flex";
+import { Link } from "react-router-dom";
 import bellyButtonsImg from "../assets/erotic-stories/belly-buttons.jpg";
 import statue from "../assets/project-page/statue.png";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import wingsBeatingImg from "../assets/erotic-stories/wings-beating.jpg";
-import Flex from "../Flex";
-
 
 const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-`
+`;
 const ProjectIcon = styled.img<LayoutProps & FlexboxProps>`
   ${layout};
   ${flexbox};
@@ -93,7 +92,7 @@ const EroticStoriesContent = () => {
               <ProjectIcon
                 src={statue}
                 alt="project icon"
-                maxWidth="10%"
+                maxWidth="15%"
               ></ProjectIcon>
             </Link>
           </IconContainer>
@@ -140,7 +139,7 @@ const EroticStoriesContent = () => {
           width={["100%", "100%", "100%", "50%"]}
           minWidth={["100%", "100%", "100%", "50%"]}
           position={["unset", "unset", "unset", "sticky"]}
-          height={["unsert", "unsert", "unsert", "100vh"]}
+          height={["unset", "unset", "unset", "100vh"]}
           top="0"
         >
           <Img src={bellyButtons.img} alt={bellyButtons.alt} />
