@@ -1,30 +1,34 @@
-import React, { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
 import {
   FlexboxProps,
   LayoutProps,
+  PositionProps,
+  SpaceProps,
+  TypographyProps,
   flexbox,
   layout,
-  SpaceProps,
+  position,
   space,
-  TypographyProps,
   typography,
 } from "styled-system";
+import React, { useCallback, useState } from "react";
+import theme, { zIndexes } from "../theme";
 
-import shellIcon from "../assets/project-page/shell.png";
-import mijalImg from "../assets/conscious-shopping/mijal.jpg";
-import trexImg from "../assets/conscious-shopping/t-rex.jpg";
-import lydiaImg from "../assets/conscious-shopping/lydia.jpg";
-import bootsImg from "../assets/conscious-shopping/boots.jpg";
-import leSwingImg from "../assets/conscious-shopping/le-swing.jpg";
-import sunglassesImg from "../assets/conscious-shopping/sunglasses.jpg";
-import nadiaImg from "../assets/conscious-shopping/nadia.jpg";
-import conchaImg from "../assets/conscious-shopping/concha.jpg";
-import laiaImg from "../assets/conscious-shopping/laia.jpg";
 import Flex from "../Flex";
+import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import arrow from "../assets/project-page/projects/conscious-shopping/arrow.png";
+import bootsImg from "../assets/project-page/projects/conscious-shopping/boots.jpg";
+import conchaImg from "../assets/project-page/projects/conscious-shopping/concha.jpg";
+import laiaImg from "../assets/project-page/projects/conscious-shopping/laia.jpg";
+import leSwingImg from "../assets/project-page/projects/conscious-shopping/le-swing.jpg";
+import lydiaImg from "../assets/project-page/projects/conscious-shopping/lydia.jpg";
+import mijalImg from "../assets/project-page/projects/conscious-shopping/mijal.jpg";
+import nadiaImg from "../assets/project-page/projects/conscious-shopping/nadia.jpg";
+import shellIcon from "../assets/project-page/shell.png";
+import styled from "styled-components";
+import sunglassesImg from "../assets/project-page/projects/conscious-shopping/sunglasses.jpg";
+import trexImg from "../assets/project-page/projects/conscious-shopping/t-rex.jpg";
+import { useTranslation } from "react-i18next";
 
 const H1 = styled.h1<SpaceProps>`
   text-transform: uppercase;
@@ -35,9 +39,10 @@ const H2 = styled.h2<SpaceProps>`
   ${space};
 `;
 
-const BigImage = styled.img<SpaceProps>`
+const BigImage = styled.img<SpaceProps & LayoutProps & PositionProps>`
   ${space};
-  cursor: pointer;
+  ${layout};
+  ${position};
 `;
 
 const SmallImage = styled.img<LayoutProps & FlexboxProps & SpaceProps>`
@@ -46,10 +51,29 @@ const SmallImage = styled.img<LayoutProps & FlexboxProps & SpaceProps>`
   ${space};
 `;
 
+const Arrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
+  ${layout};
+  ${space};
+  ${position};
+  z-index: ${zIndexes.inFront};
+  cursor: pointer;
+  transition: transform 0.2s;
+  transform-origin: left;
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const TextContainer = styled.div`
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    scrollbar-color: ${theme.colors.black} transparent;
+  }
+`;
+
 const ScrollableText = styled.p<TypographyProps & SpaceProps>`
   ${typography};
   ${space};
-  overflow: scroll;
 `;
 
 const ProjectIcon = styled.img<LayoutProps & FlexboxProps>`
@@ -58,9 +82,11 @@ const ProjectIcon = styled.img<LayoutProps & FlexboxProps>`
 `;
 
 interface CarouselProps {
+  title: string;
   bigImage: string;
   smallImage: string;
-  interviewText: string;
+  interviewTextLeftCol: string;
+  interviewTextRightCol: string;
   alt: string;
 }
 
@@ -68,33 +94,43 @@ const ConsciousShoppingContent = () => {
   const { t } = useTranslation();
   const carousel: CarouselProps[] = [
     {
+      title: t("conscious-shopping.mijal.title"),
       bigImage: mijalImg,
       smallImage: trexImg,
-      interviewText: t("conscious-shopping.mijal"),
+      interviewTextLeftCol: t("conscious-shopping.mijal.interviewP1"),
+      interviewTextRightCol: t("conscious-shopping.mijal.interviewP2"),
       alt: "Mijal image",
     },
     {
+      title: t("conscious-shopping.lydia.title"),
       bigImage: lydiaImg,
       smallImage: bootsImg,
-      interviewText: t("conscious-shopping.lydia"),
+      interviewTextLeftCol: t("conscious-shopping.lydia.interviewP1"),
+      interviewTextRightCol: t("conscious-shopping.lydia.interviewP2"),
       alt: "Lydia image",
     },
     {
+      title: t("conscious-shopping.le-swing.title"),
       bigImage: leSwingImg,
       smallImage: sunglassesImg,
-      interviewText: t("conscious-shopping.le-swing"),
+      interviewTextLeftCol: t("conscious-shopping.le-swing.interviewP1"),
+      interviewTextRightCol: t("conscious-shopping.le-swing.interviewP2"),
       alt: "Le Swing image",
     },
     {
+      title: t("conscious-shopping.laia.title"),
       bigImage: laiaImg,
       smallImage: conchaImg,
-      interviewText: t("conscious-shopping.laia"),
+      interviewTextLeftCol: t("conscious-shopping.laia.interviewP1"),
+      interviewTextRightCol: t("conscious-shopping.laia.interviewP2"),
       alt: "Laia image",
     },
     {
+      title: t("conscious-shopping.nadia.title"),
       bigImage: nadiaImg,
       smallImage: conchaImg,
-      interviewText: t("conscious-shopping.nadia"),
+      interviewTextLeftCol: t("conscious-shopping.nadia.interviewP1"),
+      interviewTextRightCol: t("conscious-shopping.nadia.interviewP2"),
       alt: "Nadia image",
     },
   ];
@@ -103,46 +139,77 @@ const ConsciousShoppingContent = () => {
   const next = (current + 1) % carousel.length;
   const currentCarouselItem = carousel[current];
 
+  const title = currentCarouselItem.title;
   const mainImage = currentCarouselItem.bigImage;
   const secondaryImage = currentCarouselItem.smallImage;
-  const interviewText = currentCarouselItem.interviewText;
+  const interviewTextLeftCol = currentCarouselItem.interviewTextLeftCol;
+  const interviewTextRightCol = currentCarouselItem.interviewTextRightCol;
   const altTags = currentCarouselItem.alt;
 
   const handleClick = useCallback(() => setCurrent(next), [next]);
+
   return (
     <Flex
-      flex="auto"
       flexDirection={["column", "column", "column", "column", "row"]}
+      height={["unset", "unset", "unset", "100vh"]}
+      alignItems={["center", "center", "center", "center", "unset"]}
+      width="100%"
+      overflowX="hidden"
     >
-      <Flex width={["100%", "100%", "100%", "100%", "30%"]}>
+      <Flex
+        width={["100%", "100%", "100%", "100%", "40%"]}
+        flexDirection="column"
+      >
         <Link to={PROJECTS_URL}>
           <ProjectIcon
             alt="shell icon"
             src={shellIcon}
-            maxWidth={["25%", "25%", "25%", "25%", "15%"]}
+            maxWidth={80}
             alignSelf="center"
           ></ProjectIcon>
         </Link>
-        <H1 my={4}>Conscious Shopping:</H1>
-        <H2 mb={4}>{t("conscious-shopping.subheader")}</H2>
-        <ScrollableText textAlign="justify" mb={6}>
-          {interviewText}
-        </ScrollableText>
+        <H1 my={4}>Conscious Shopping</H1>
+        <H2 mb={4}>{title}</H2>
+        <TextContainer>
+          <ScrollableText
+            textAlign="justify"
+            mb={6}
+            mr={2}
+            dangerouslySetInnerHTML={{ __html: interviewTextLeftCol }}
+          ></ScrollableText>
+        </TextContainer>
       </Flex>
-      <Flex width={["100%", "100%", "100%", "100%", "40%"]}>
-        <BigImage src={mainImage} alt={altTags} onClick={handleClick} p={4} />
-      </Flex>
-      <Flex width={["100%", "100%", "100%", "100%", "30%"]}>
+
+      <BigImage src={mainImage} alt={altTags} maxWidth={500} p={4} />
+      <Arrow
+        src={arrow}
+        alt="arrow"
+        maxHeight={[80, 80, 80, 80, 40]}
+        maxWidth={[80, 80, 80, 80, 40]}
+        position={["unset", "unset", "unset", "unset", "relative"]}
+        right={72}
+        top={280}
+        onClick={handleClick}
+      ></Arrow>
+
+      <Flex
+        width={["100%", "100%", "100%", "100%", "40%"]}
+        flexDirection="column"
+        alignItems="center"
+      >
         <SmallImage
           src={secondaryImage}
           alt={altTags}
-          maxWidth={["75%", "75%", "75%", "75%", "50%"]}
-          justifySelf="start"
-          pb={4}
+          maxWidth={[400, 400, 200]}
         />
-        <ScrollableText textAlign="justify" mb={6}>
-          {interviewText}
-        </ScrollableText>
+        <TextContainer>
+          <ScrollableText
+            textAlign="justify"
+            mb={6}
+            mr={2}
+            dangerouslySetInnerHTML={{ __html: interviewTextRightCol }}
+          ></ScrollableText>
+        </TextContainer>
       </Flex>
     </Flex>
   );

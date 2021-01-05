@@ -14,8 +14,9 @@ const GlobalStyle = createGlobalStyle`
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: ${theme.colors.athensGray} transparent;
+   
     &::-webkit-scrollbar-thumb {
-      border-radius: 2px;
+      border-radius: 0;
       background-color: ${theme.colors.athensGray};
     }
   }
@@ -32,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.athensGray};
+    background-color: ${theme.colors.black};
   }
   #root {
     display: flex;
