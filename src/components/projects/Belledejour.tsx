@@ -1,31 +1,33 @@
+import { LayoutProps, layout } from "styled-system";
 import React, { Fragment } from "react";
-import styled from "styled-components";
-import Timer from "../Timer";
-import { layout, LayoutProps } from "styled-system";
-import eye from "../assets/project-page/eye.png";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
+
 import Flex from "../Flex";
-import EyeContent from "./EyeContent";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import Timer from "../Timer";
+import knife from "./../../assets/project-page/project-icons/knife.png";
+import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
 `;
+
 const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
     <Fragment>
       <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
-          <Img src={eye} alt="eye icon" maxWidth="30%" />
+          <Img src={knife} alt="knife icon" maxWidth="30%" />
         </Flex>
       </Link>
       <Timer launchDate={launchDate} />
     </Fragment>
   );
 };
+
 const launchDate = "2021-01-21";
-const Eye = () => {
+const Belledejour = () => {
   return (
     <Flex
       flex="auto"
@@ -37,10 +39,10 @@ const Eye = () => {
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={PreviewPage}
-        ProjectPage={EyeContent}
+        ProjectPage={() => null}
       />
     </Flex>
   );
 };
 
-export default Eye;
+export default Belledejour;

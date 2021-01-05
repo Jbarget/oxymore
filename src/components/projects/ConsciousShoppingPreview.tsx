@@ -13,13 +13,13 @@ import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
 import React from "react";
 import Timer from "../Timer";
-import bag from "../assets/project-page/projects/conscious-shopping/bag.jpg";
-import boots from "../assets/project-page/projects/conscious-shopping/boots.jpg";
-import projectIcon from "../assets/project-page/shell.png";
-import shell from "../assets/project-page/projects/conscious-shopping/concha.jpg";
+import bag from "./../../assets/project-page/conscious-shopping/bag.jpg";
+import boots from "./../../assets/project-page/conscious-shopping/boots.jpg";
+import projectIcon from "./../../assets/project-page/project-icons/shell.png";
+import shell from "./../../assets/project-page/conscious-shopping/concha.jpg";
 import styled from "styled-components";
-import sunglasses from "../assets/project-page/projects/conscious-shopping/sunglasses.jpg";
-import trex from "../assets/project-page/projects/conscious-shopping/t-rex.jpg";
+import sunglasses from "./../../assets/project-page/conscious-shopping/sunglasses.jpg";
+import trex from "./../../assets/project-page/conscious-shopping/t-rex.jpg";
 import { zIndexes } from "../theme";
 
 const Div = styled.div<GridProps & LayoutProps & FlexboxProps>`
