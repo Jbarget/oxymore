@@ -5,14 +5,16 @@ import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
 import React from "react";
 import Timer from "../Timer";
-import spider from "../assets/project-page/spider.png";
+import statue from "./../../assets/project-page/project-icons/statue.png";
 import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const LeoAdefPreview: React.FC<{ launchDate: string }> = ({ launchDate }) => {
+const EroticStoriesPreview: React.FC<{ launchDate: string }> = ({
+  launchDate,
+}) => {
   return (
     <Flex
       flex="auto"
@@ -23,7 +25,7 @@ const LeoAdefPreview: React.FC<{ launchDate: string }> = ({ launchDate }) => {
     >
       <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
-          <Img src={spider} alt="spider icon" maxWidth="30%" />
+          <Img src={statue} alt="statue icon" maxWidth="30%" />
         </Flex>
       </Link>
       <Timer launchDate={launchDate} />
@@ -31,4 +33,4 @@ const LeoAdefPreview: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   );
 };
 
-export default LeoAdefPreview;
+export default EroticStoriesPreview;
