@@ -1,20 +1,21 @@
-import React, { useState, Fragment, useCallback, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import styled, { css } from "styled-components";
-import { useTranslation } from "react-i18next";
 import {
-  typography,
-  position,
-  grid,
-  space,
-  TypographyProps,
+  BackgroundProps,
   PositionProps,
   SpaceProps,
-  BackgroundProps,
+  TypographyProps,
+  grid,
+  position,
+  space,
+  typography,
 } from "styled-system";
-import { zIndexes } from "./theme";
-import background from "./assets/backgrounds/background.png";
+import React, { Fragment, useCallback, useEffect, useState } from "react";
+import styled, { css } from "styled-components";
+
+import { NavLink } from "react-router-dom";
+import background from "./../assets/backgrounds/background.png";
 import redirectToCheckout from "../helpers/redirectToCheckout";
+import { useTranslation } from "react-i18next";
+import { zIndexes } from "./theme";
 
 type NavMenuProps = TypographyProps &
   SpaceProps &
@@ -41,7 +42,7 @@ const overlayStyles = css`
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${(props) => props.isOpen && overlayStyles}
+  ${props => props.isOpen && overlayStyles}
 `;
 
 const Menu = styled.ul<NavMenuProps>`
@@ -168,7 +169,7 @@ const NavMenu = () => {
         </MenuButton>
 
         <Menu textAlign={["center", null, null, "start"]} p={4}>
-          {links.map((props) => (
+          {links.map(props => (
             <Link key={props.page} onClick={toggleMenuIsOpen} {...props} />
           ))}
           <StripeMenuLink />

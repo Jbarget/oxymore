@@ -1,26 +1,25 @@
-import React, { useCallback, useState } from "react";
-import styled, { keyframes } from "styled-components";
-import {
-  border,
-  BorderProps,
-  grid,
-  GridProps,
-  layout,
-  LayoutProps,
-  typography,
-  TypographyProps,
-} from "styled-system";
-
-import { Picker } from "react-mobile-style-picker";
 import "react-mobile-style-picker/dist/index.css";
 
+import {
+  BorderProps,
+  GridProps,
+  LayoutProps,
+  TypographyProps,
+  border,
+  grid,
+  layout,
+  typography,
+} from "styled-system";
 import { DataSet, DataValues, EyeData } from "../../fixtures/eye-data";
-import eyeBlue from "../assets/eye/eye_blue.png";
-import eyeBrown from "../assets/eye/eye_brown.png";
-import Grid from "../Grid";
+import React, { useCallback, useState } from "react";
+import styled, { keyframes } from "styled-components";
 
-import data from "../../fixtures/eye-data";
 import Flex from "../Flex";
+import Grid from "../Grid";
+import { Picker } from "react-mobile-style-picker";
+import data from "../../fixtures/eye-data";
+import eyeBlue from "./../../assets/project-page/eye/eye_blue.png";
+import eyeBrown from "./../../assets/project-page/eye/eye_brown.png";
 
 const P = styled.p<BorderProps & TypographyProps>`
   text-transform: uppercase;
@@ -175,7 +174,7 @@ const EyeContent = () => {
   );
 
   const setCountryDetails = useCallback(
-    (countryData) => () => setSelectedCountryData(countryData),
+    countryData => () => setSelectedCountryData(countryData),
     []
   );
   return (
@@ -186,7 +185,7 @@ const EyeContent = () => {
         gridTemplateRows="repeat(180, minmax(0, auto))"
         gridTemplateColumns="repeat(120, minmax(0, auto))"
       >
-        {data.map((datum) => (
+        {data.map(datum => (
           <DataPoint
             {...datum}
             selectedDataSet={selectedDataSet}
