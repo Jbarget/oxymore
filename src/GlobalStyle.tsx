@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
   @font-face{
     font-family: Favorit;
-    src: url(/Favorit-Regular.ttf)
+    src: url(/Favorit_Regular.ttf)
   }
   * {
     -webkit-overflow-scrolling: touch;

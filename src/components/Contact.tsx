@@ -22,7 +22,6 @@ const ContactInfo = styled.p<ContactPageProps>`
 const EmailLink = styled.a<ContactPageProps>`
   &:hover {
     text-decoration: underline;
-    transition-duration: 0.5s;
   }
 `;
 
@@ -42,7 +41,7 @@ const Contact = () => {
           </EmailLink>
         </ContactInfo>
         <ContactInfo fontSize={[4, 4, 4, 5]}>
-          BASED IN GOTICO, BARCELONA
+          BASED IN GÓTICO, BARCELONA
         </ContactInfo>
       </div>
     </Flex>

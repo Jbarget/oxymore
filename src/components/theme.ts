@@ -15,7 +15,7 @@ export const zIndexes = {
   overlay: 1300,
 };
 
-const colorCodes = {
+export const colorCodes = {
   black: "#020403",
   athensGray: "#d9d9d9",
 };
