@@ -1,13 +1,14 @@
 import { LayoutProps, layout } from "styled-system";
+import styled from "styled-components";
 import React, { Fragment } from "react";
-
-import Flex from "../Flex";
 import { Link } from "react-router-dom";
+
 import { PROJECTS_URL } from "../../constants/router-urls";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Timer from "../Timer";
 import magnify from "./../../assets/project-page/project-icons/magnify.png";
-import styled from "styled-components";
+import Timer from "../Timer";
+import MapContent from "./MapContent";
+import Flex from "../Flex";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -26,7 +27,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   );
 };
 
-const launchDate = "2021-01-21";
+const launchDate = "2021-03-21";
 const Map = () => {
   return (
     <Flex
@@ -39,7 +40,7 @@ const Map = () => {
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={PreviewPage}
-        ProjectPage={() => null}
+        ProjectPage={MapContent}
       />
     </Flex>
   );
