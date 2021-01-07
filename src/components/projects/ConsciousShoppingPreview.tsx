@@ -19,8 +19,8 @@ import projectIcon from "./../../assets/project-page/project-icons/shell.png";
 import shell from "./../../assets/project-page/conscious-shopping/concha.jpg";
 import styled from "styled-components";
 import sunglasses from "./../../assets/project-page/conscious-shopping/sunglasses.jpg";
+import theme from "../theme";
 import trex from "./../../assets/project-page/conscious-shopping/t-rex.jpg";
-import { zIndexes } from "../theme";
 
 const Div = styled.div<GridProps & LayoutProps & FlexboxProps>`
   ${flexbox};
@@ -83,7 +83,11 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         justifySelf="flex-end"
         alignSelf="center"
       />
-      <TimerContainer zIndex={zIndexes.inFront} gridColumn={2} gridRow="2/4">
+      <TimerContainer
+        zIndex={theme.zIndexes.inFront}
+        gridColumn={2}
+        gridRow="2/4"
+      >
         <Timer launchDate={launchDate} />
       </TimerContainer>
       <Illustration

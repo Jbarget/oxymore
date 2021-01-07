@@ -20,10 +20,12 @@ import Flex from "./Flex";
 import React from "react";
 import eyeProjectBackground from "./../assets/backgrounds/eye-bg.png";
 import marbleBackground from "./../assets/backgrounds/background.png";
+import theme from "./theme";
 import { useLocation } from "react-router-dom";
-import { zIndexes } from "./theme";
 
-type Background = "black" | typeof marbleBackground;
+const black = `${theme.colors.black}`;
+
+type Background = typeof black | typeof marbleBackground;
 
 const BackgroundElement = styled.div<{ background: Background }>`
   position: fixed;
@@ -31,16 +33,16 @@ const BackgroundElement = styled.div<{ background: Background }>`
   right: 0;
   bottom: 0;
   left: 0;
-  ${props =>
-    props.background === "black"
-      ? "background-color: black;"
-      : `background: url(${props.background});`}
-  ${props =>
-    props.background === eyeProjectBackground && eyeInteractionBackgroundStyles}
   background-repeat: repeat-y;
   background-size: cover;
   height: 100%;
-  z-index: ${zIndexes.behind};
+  z-index: ${theme.zIndexes.behind};
+  ${props =>
+    props.background === `${black}`
+      ? `background-color: ${black}`
+      : `background: url(${props.background});`}
+  ${props =>
+    props.background === eyeProjectBackground && eyeInteractionBackgroundStyles}
 `;
 
 const eyeInteractionBackgroundStyles = css`
@@ -48,16 +50,12 @@ const eyeInteractionBackgroundStyles = css`
 `;
 
 const getBackground = (pathname: string): Background => {
-  const pagesWithMarbleBG = [
-    "/",
-    PROJECTS_URL,
+  const pagesWithMarbleBG = ["/", PROJECTS_URL, OXYMORE_URL];
+  const pagesWithBlackBG = [
     MANIFESTO_URL,
     ADVERTISING_URL,
     ABOUT_URL,
     CONTACT_URL,
-    OXYMORE_URL,
-  ];
-  const pagesWithBlackBG = [
     CONSCIOUS_SHOPPING_URL,
     FASHION_EDITORIAL_URL,
     KAI_LANDRE_URL,
@@ -71,13 +69,12 @@ const getBackground = (pathname: string): Background => {
     return eyeProjectBackground;
   }
   if (pagesWithBlackBG.includes(pathname)) {
-    return "black";
+    return black;
   }
   if (pagesWithMarbleBG.includes(pathname)) {
     return marbleBackground;
   }
-
-  return "black";
+  return black;
 };
 
 const Background: React.FC = ({ children }) => {

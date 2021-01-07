@@ -6,24 +6,22 @@
     "header": "ES"
   },
   "nav": {
-    "manifesto": "MANIFIESTO",
+    "manifesto": "MANIFESTO",
     "advertising": "PUBLICIDAD",
-    "about-us": "SOBRE NOSOTROS",
+    "about": "NOSOTROS",
     "contact": "CONTACTO",
     "buy": "COMPRAR"
   },
   "contact": {
-    "header": "Contácto",
-    "contact-info": "FOR INQUIRIES PLEASE CONTACT OX@OXYMOREMAGAZINE.COM BASED IN GÓTICO, BARCELONA",
-    "location-info": "BASED IN GÓTICO, BARCELONA"
+    "header": "Contacto"
   },
   "manifesto": {
-    "header": "Manifiesto",
-    "left-column": "Conexiones anarquistas distinguidas crean utopías genuinamente diversas en las que las nobles luchas sociales de las minorías educan a los ignorantes y dan poder a los humildes e ingenuos. Una onírica revolución de amor queer, elegantemente kitsch y sutilmente absurda. Una distopía anti-diseño creada por oximoron estéticos.",
-    "right-column": "Classy anarchist connections make for genuinely diverse utopias in which noble social fights by minorities educate the ignorant and empower the humble and naïf. An oniric queer love revolution, elegantly kitsch and subtly absurd. An anti design dystopia created by aesthetic oxymorons."
+    "header": "Manifesto",
+    "left-column": "Conexiones anarquistas distinguidas crean utopías genuinamente diversas en las que las nobles luchas sociales de las minorías educan a los ignorantes y dan poder a los humildes e ingenuos. Una onírica revolución de amor queer, elegantemente kitsch y sutilmente absurda. Una distopía anti-diseño creada por oximoron",
+    "right-column": "estéticos. Classy anarchist connections make for genuinely diverse utopias in which noble social fights by minorities educate the ignorant and empower the humble and naïf. An oniric queer love revolution, elegantly kitsch and subtly absurd. An anti design dystopia created by aesthetic oxymorons."
   },
   "about": {
-    "header": "Sobre nosotros",
+    "header": "Nosotros",
     "summary": "Oxymore Magazine es una plataforma en formato de revista impresa y online, que busca crear conciencia hacia temas sociales actuales; y que conecta a colectivos en una situación de vulnerabilidad o temáticas de problemática actual con artistas; con el fin de generar visibilidad y empoderamiento a través de la experimentación artística multimedia.",
     "team": "NUESTRO EQUIPO AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL FERNÁNDEZ GRAPHIC DESIGNER"
   },

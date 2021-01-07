@@ -54,6 +54,7 @@ const ProjectsGrid = () => {
     <Grid
       gridTemplateColumns="repeat(3, 1fr)"
       gridTemplateRows="repeat(4, 1fr)"
+      height="80vh"
     >
       <ProjectLinkWrapper
         gridColumn={[2, 2, 2, 2]}

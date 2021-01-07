@@ -38,22 +38,22 @@ const SingleLineTextImage = styled.img<SpaceProps>`
   ${space};
 `;
 
-const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
+const ProjectPageLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${typography};
   display: flex;
   align-self: center;
   align-items: flex-start;
   justify-content: flex-start;
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.01);
   ${flexbox}
 `;
-const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
+const AlphaLogo = styled.img<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
   max-width: 40vw;
   max-height: 60vh;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.01);
 `;
 
 const Home = () => {
@@ -66,9 +66,9 @@ const Home = () => {
           <NavMenu />
         </Flex>
       </Flex>
-      <ProjectsLink to={PROJECTS_URL}>
-        <ProjectsImg src={alpha} alt="alpha image" />
-      </ProjectsLink>
+      <ProjectPageLink to={PROJECTS_URL}>
+        <AlphaLogo src={alpha} alt="alpha logo" />
+      </ProjectPageLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
           <SingleLineTextImage src={number} mb={3} />
