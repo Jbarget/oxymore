@@ -14,15 +14,15 @@ import React, { Fragment, useState } from "react";
 
 import redirectToCheckout from "../helpers/redirectToCheckout";
 import styled from "styled-components";
+import theme from "./theme";
 import { useTranslation } from "react-i18next";
-import { zIndexes } from "./theme";
 
 const Button = styled.button<
   SpaceProps & TypographyProps & BorderProps & BackgroundProps & LayoutProps
 >`
   width: auto;
   white-space: nowrap;
-  z-index: ${zIndexes.inFront};
+  z-index: ${theme.zIndexes.inFront};
   text-transform: uppercase;
   transition: transform 0.5s;
   &:hover {

@@ -9,13 +9,13 @@ export type Colors =
       accentPrimary: string;
     };
 
-export const zIndexes = {
+const zIndexes = {
   behind: -1,
   inFront: 1,
   overlay: 1300,
 };
 
-export const colorCodes = {
+const colorCodes = {
   black: "#020403",
   athensGray: "#d9d9d9",
 };
@@ -78,6 +78,9 @@ const theme = {
   breakpoints,
   colors: {
     ...colors,
+  },
+  zIndexes: {
+    ...zIndexes,
   },
 };
 

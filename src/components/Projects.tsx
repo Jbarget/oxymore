@@ -16,7 +16,7 @@ import BuyButton from "./BuyButton";
 import Flex from "./Flex";
 import ProjectsGrid from "./ProjectsGrid";
 import styled from "styled-components";
-import { zIndexes } from "./theme";
+import theme from "./theme";
 
 const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${position};
@@ -49,7 +49,7 @@ const Projects = () => {
       <BuyButtonContainer
         position="fixed"
         bottom={["40%", "40%", "40%", "15%"]}
-        zIndex={zIndexes.inFront}
+        zIndex={theme.zIndexes.inFront}
       >
         <BuyButton />
       </BuyButtonContainer>
@@ -62,7 +62,7 @@ const Projects = () => {
         fontSize={[3, 4]}
         background="transparent"
         onClick={scrollToTop}
-        zIndex={zIndexes.inFront}
+        zIndex={theme.zIndexes.inFront}
       >
         UP
       </Scrollback>

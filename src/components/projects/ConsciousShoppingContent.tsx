@@ -11,7 +11,6 @@ import {
   typography,
 } from "styled-system";
 import React, { useCallback, useState } from "react";
-import theme, { zIndexes } from "../theme";
 
 import Flex from "../Flex";
 import { Link } from "react-router-dom";
@@ -27,6 +26,7 @@ import nadiaImg from "./../../assets/project-page/conscious-shopping/nadia.jpg";
 import shellIcon from "./../../assets/project-page/project-icons/shell.png";
 import styled from "styled-components";
 import sunglassesImg from "./../../assets/project-page/conscious-shopping/sunglasses.jpg";
+import theme from "../theme";
 import trexImg from "./../../assets/project-page/conscious-shopping/t-rex.jpg";
 import { useTranslation } from "react-i18next";
 
@@ -55,7 +55,7 @@ const Arrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
   ${layout};
   ${space};
   ${position};
-  z-index: ${zIndexes.inFront};
+  z-index: ${theme.zIndexes.inFront};
   cursor: pointer;
   transition: transform 0.2s;
   transform-origin: left;

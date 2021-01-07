@@ -20,8 +20,8 @@ import styled, { css } from "styled-components";
 
 import { NavLink } from "react-router-dom";
 import redirectToCheckout from "../helpers/redirectToCheckout";
+import theme from "./theme";
 import { useTranslation } from "react-i18next";
-import { zIndexes } from "./theme";
 
 const overlayStyles = css`
   display: flex;
@@ -35,7 +35,7 @@ const overlayStyles = css`
   right: 0;
   position: fixed;
   background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
-  z-index: ${zIndexes.overlay};
+  z-index: ${theme.zIndexes.overlay};
 `;
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`

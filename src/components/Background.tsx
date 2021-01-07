@@ -18,13 +18,12 @@ import styled, { css } from "styled-components";
 
 import Flex from "./Flex";
 import React from "react";
-import { colorCodes } from "./theme";
 import eyeProjectBackground from "./../assets/backgrounds/eye-bg.png";
 import marbleBackground from "./../assets/backgrounds/background.png";
+import theme from "./theme";
 import { useLocation } from "react-router-dom";
-import { zIndexes } from "./theme";
 
-const black = `${colorCodes.black}`;
+const black = `${theme.colors.black}`;
 
 type Background = typeof black | typeof marbleBackground;
 
@@ -37,7 +36,7 @@ const BackgroundElement = styled.div<{ background: Background }>`
   background-repeat: repeat-y;
   background-size: cover;
   height: 100%;
-  z-index: ${zIndexes.behind};
+  z-index: ${theme.zIndexes.behind};
   ${props =>
     props.background === `${black}`
       ? `background-color: ${black}`
