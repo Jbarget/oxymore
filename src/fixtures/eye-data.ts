@@ -2,9 +2,9 @@ export interface DataValues {
   population: number;
   populationAffected: number;
   percentageAffected: number;
-  casesTreated?: number | undefined;
+  casesTreated?: number;
 }
-export type DataSet = keyof DataValues;
+export type DataSet = keyof Omit<DataValues, "casesTreated">;
 export interface EyeData {
   coords: [number, number];
   name: string;
