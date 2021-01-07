@@ -9,7 +9,7 @@ import mapSmall from "./../assets/project-page/projects/map/mapa-barcelona-small
 const MapContent = () => {
   return (
     <Flex>
-      <InnerImageZoom src={mapSmall} zoomScale={0.4} />
+      <InnerImageZoom src={mapSmall} zoomScale={0.4} fullscreenOnMobile />
     </Flex>
   );
 };
