@@ -2,12 +2,12 @@ export interface DataValues {
   population: number;
   populationAffected: number;
   percentageAffected: number;
+  casesTreated?: number;
 }
-export type DataSet = keyof DataValues;
+export type DataSet = keyof Omit<DataValues, "casesTreated">;
 export interface EyeData {
   coords: [number, number];
   name: string;
-  active: boolean;
   data: DataValues;
 }
 
@@ -15,17 +15,16 @@ const eyeData: EyeData[] = [
   {
     name: "Morocco",
     coords: [17, 68],
-    active: true,
     data: {
       population: 36444324,
       populationAffected: 1382808,
       percentageAffected: 4.03,
+      casesTreated: 324,
     },
   },
   {
     name: "Tunisia",
     coords: [18, 105],
-    active: false,
     data: {
       population: 11835284,
       populationAffected: 514191,
@@ -35,7 +34,6 @@ const eyeData: EyeData[] = [
   {
     name: "Libya",
     coords: [26, 133],
-    active: false,
     data: {
       population: 6700086,
       populationAffected: 147514,
@@ -45,7 +43,6 @@ const eyeData: EyeData[] = [
   {
     name: "Egypt",
     coords: [29, 158],
-    active: false,
     data: {
       population: 100517804,
       populationAffected: 2612803,
@@ -55,7 +52,6 @@ const eyeData: EyeData[] = [
   {
     name: "Algeria",
     coords: [36, 95],
-    active: false,
     data: {
       population: 43007769,
       populationAffected: 1425342,
@@ -65,7 +61,6 @@ const eyeData: EyeData[] = [
   {
     name: "Mauritius",
     coords: [135, 200],
-    active: true,
     data: {
       population: 4573157,
       populationAffected: 107317,
@@ -75,7 +70,6 @@ const eyeData: EyeData[] = [
   {
     name: "Sudan",
     coords: [52, 152],
-    active: false,
     data: {
       population: 45308399,
       populationAffected: 1124066,
@@ -85,7 +79,6 @@ const eyeData: EyeData[] = [
   {
     name: "Chad",
     coords: [55, 127],
-    active: false,
     data: {
       population: 16431332,
       populationAffected: 409439,
@@ -95,17 +88,16 @@ const eyeData: EyeData[] = [
   {
     name: "Niger",
     coords: [56, 101],
-    active: true,
     data: {
       population: 24314931,
       populationAffected: 620589,
       percentageAffected: 5.69,
+      casesTreated: 213,
     },
   },
   {
     name: "Mali",
     coords: [55, 75],
-    active: false,
     data: {
       population: 20456890,
       populationAffected: 414692,
@@ -115,27 +107,26 @@ const eyeData: EyeData[] = [
   {
     name: "Senegal",
     coords: [54, 45],
-    active: true,
     data: {
       population: 17487409,
       populationAffected: 329943,
       percentageAffected: 3.99,
+      casesTreated: 499,
     },
   },
   {
     name: "Cape Verde",
     coords: [55, 22],
-    active: true,
     data: {
       population: 552850,
       populationAffected: 14611,
       percentageAffected: 3.72,
+      casesTreated: 401,
     },
   },
   {
     name: "Eritrea",
     coords: [57, 174],
-    active: false,
     data: {
       population: 5891500,
       populationAffected: 180704,
@@ -145,7 +136,6 @@ const eyeData: EyeData[] = [
   {
     name: "Djibouti",
     coords: [67, 185],
-    active: false,
     data: {
       population: 34,
       populationAffected: 2,
@@ -155,7 +145,6 @@ const eyeData: EyeData[] = [
   {
     name: "Ethiopia",
     coords: [71, 164],
-    active: false,
     data: {
       population: 111971051,
       populationAffected: 2348694,
@@ -165,7 +154,6 @@ const eyeData: EyeData[] = [
   {
     name: "Benin",
     coords: [74, 93],
-    active: false,
     data: {
       population: 12360726,
       populationAffected: 236187,
@@ -175,7 +163,6 @@ const eyeData: EyeData[] = [
   {
     name: "Burkina Faso",
     coords: [67, 79],
-    active: false,
     data: {
       population: 20860541,
       populationAffected: 406485,
@@ -185,17 +172,16 @@ const eyeData: EyeData[] = [
   {
     name: "Guinea",
     coords: [70, 59],
-    active: true,
     data: {
       population: 14354833,
       populationAffected: 339620,
       percentageAffected: 4.61,
+      casesTreated: 628,
     },
   },
   {
     name: "Guinea Bissau",
     coords: [70, 45],
-    active: false,
     data: {
       population: 2068363,
       populationAffected: 50326,
@@ -205,7 +191,6 @@ const eyeData: EyeData[] = [
   {
     name: "Gambia",
     coords: [64, 41],
-    active: false,
     data: {
       population: 34,
       populationAffected: 2,
@@ -215,17 +200,16 @@ const eyeData: EyeData[] = [
   {
     name: "Sierra Leone",
     coords: [80, 53],
-    active: true,
     data: {
       population: 7160373,
       populationAffected: 143695,
       percentageAffected: 4.31,
+      casesTreated: 332,
     },
   },
   {
     name: "Liberia",
     coords: [84, 63],
-    active: false,
     data: {
       population: 5090855,
       populationAffected: 109345,
@@ -235,17 +219,16 @@ const eyeData: EyeData[] = [
   {
     name: "Ghana",
     coords: [83, 79],
-    active: true,
     data: {
       population: 30530449,
       populationAffected: 634228,
       percentageAffected: 3.86,
+      casesTreated: 317,
     },
   },
   {
     name: "Togo",
     coords: [80, 89],
-    active: false,
     data: {
       population: 8293638,
       populationAffected: 163297,
@@ -255,7 +238,6 @@ const eyeData: EyeData[] = [
   {
     name: "Nigeria",
     coords: [80, 106],
-    active: false,
     data: {
       population: 206863087,
       populationAffected: 3904999,
@@ -265,7 +247,6 @@ const eyeData: EyeData[] = [
   {
     name: "Central African Republic",
     coords: [81, 130],
-    active: false,
     data: {
       population: 5408758,
       populationAffected: 142693,
@@ -275,7 +256,6 @@ const eyeData: EyeData[] = [
   {
     name: "Somalia",
     coords: [81, 183],
-    active: false,
     data: {
       population: 12422741,
       populationAffected: 279139,
@@ -285,27 +265,26 @@ const eyeData: EyeData[] = [
   {
     name: "Kenya",
     coords: [93, 168],
-    active: true,
     data: {
       population: 52186722,
       populationAffected: 750760,
       percentageAffected: 3.02,
+      casesTreated: 75,
     },
   },
   {
     name: "Uganda",
     coords: [86, 151],
-    active: true,
     data: {
       population: 45856367,
       populationAffected: 536641,
       percentageAffected: 2.99,
+      casesTreated: 169,
     },
   },
   {
     name: "Cameroon",
     coords: [89, 117],
-    active: false,
     data: {
       population: 26332965,
       populationAffected: 362539,
@@ -315,7 +294,6 @@ const eyeData: EyeData[] = [
   {
     name: "Equatorial Guinea",
     coords: [95, 111],
-    active: false,
     data: {
       population: 970828,
       populationAffected: 18649,
@@ -325,17 +303,16 @@ const eyeData: EyeData[] = [
   {
     name: "Gabon",
     coords: [104, 114],
-    active: true,
     data: {
       population: 1917169,
       populationAffected: 37584,
       percentageAffected: 2.91,
+      casesTreated: 171,
     },
   },
   {
     name: "Republic of Congo",
     coords: [105, 125],
-    active: false,
     data: {
       population: 5263342,
       populationAffected: 83782,
@@ -345,7 +322,6 @@ const eyeData: EyeData[] = [
   {
     name: "Democratic Republic of Congo",
     coords: [98, 135],
-    active: false,
     data: {
       population: 90169404,
       populationAffected: 1686670,
@@ -355,7 +331,6 @@ const eyeData: EyeData[] = [
   {
     name: "Rwanda",
     coords: [99, 147],
-    active: false,
     data: {
       population: 12996594,
       populationAffected: 191276,
@@ -365,7 +340,6 @@ const eyeData: EyeData[] = [
   {
     name: "Burundi",
     coords: [104, 145],
-    active: false,
     data: {
       population: 13126273,
       populationAffected: 194434,
@@ -375,7 +349,6 @@ const eyeData: EyeData[] = [
   {
     name: "United Republic of Tanzania",
     coords: [106, 159],
-    active: false,
     data: {
       population: 62267349,
       populationAffected: 895117,
@@ -385,7 +358,6 @@ const eyeData: EyeData[] = [
   {
     name: "Comoros",
     coords: [115, 178],
-    active: false,
     data: {
       population: 883162,
       populationAffected: 14412,
@@ -395,7 +367,6 @@ const eyeData: EyeData[] = [
   {
     name: "Zambia",
     coords: [118, 139],
-    active: false,
     data: {
       population: 18882333,
       populationAffected: 227777,
@@ -405,17 +376,16 @@ const eyeData: EyeData[] = [
   {
     name: "Angola",
     coords: [122, 124],
-    active: true,
     data: {
       population: 29245334,
       populationAffected: 383947,
       percentageAffected: 3.21,
+      casesTreated: 703,
     },
   },
   {
     name: "Malawi",
     coords: [121, 151],
-    active: false,
     data: {
       population: 20022268,
       populationAffected: 326529,
@@ -425,27 +395,26 @@ const eyeData: EyeData[] = [
   {
     name: "Mozambique",
     coords: [128, 161],
-    active: true,
     data: {
       population: 31992997,
       populationAffected: 514011,
       percentageAffected: 3.26,
+      casesTreated: 228,
     },
   },
   {
     name: "Zimbabwe",
     coords: [135, 148],
-    active: true,
     data: {
       population: 17470705,
       populationAffected: 184147,
       percentageAffected: 2.37,
+      casesTreated: 281,
     },
   },
   {
     name: "Botswana",
     coords: [141, 135],
-    active: false,
     data: {
       population: 2460223,
       populationAffected: 19859,
@@ -455,7 +424,6 @@ const eyeData: EyeData[] = [
   {
     name: "Namibia",
     coords: [135, 120],
-    active: false,
     data: {
       population: 2731165,
       populationAffected: 39950,
@@ -465,7 +433,6 @@ const eyeData: EyeData[] = [
   {
     name: "Madagascar",
     coords: [137, 192],
-    active: false,
     data: {
       population: 27798964,
       populationAffected: 484014,
@@ -475,7 +442,6 @@ const eyeData: EyeData[] = [
   {
     name: "Swaziland",
     coords: [149, 151],
-    active: false,
     data: {
       population: 1366266,
       populationAffected: 17559,
@@ -485,7 +451,6 @@ const eyeData: EyeData[] = [
   {
     name: "Lesotho",
     coords: [155, 145],
-    active: false,
     data: {
       population: 2257685,
       populationAffected: 37091,
@@ -495,7 +460,6 @@ const eyeData: EyeData[] = [
   {
     name: "South Africa",
     coords: [165, 136],
-    active: false,
     data: {
       population: 56668602,
       populationAffected: 984002,

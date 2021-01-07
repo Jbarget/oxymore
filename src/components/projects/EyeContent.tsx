@@ -97,6 +97,11 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
       <P fontSize={[1, 1, 2]}>
         Percentage: {countryData.data.percentageAffected}
       </P>
+      {countryData.data.casesTreated ? (
+        <P fontSize={[1, 1, 2]}>
+          Fundación Elena Barraquer: {countryData.data.casesTreated}
+        </P>
+      ) : null}
     </Flex>
   );
 };
@@ -143,7 +148,6 @@ interface DataPointProps extends EyeData {
 }
 const DataPoint: React.FC<DataPointProps> = ({
   name,
-  active,
   coords,
   data,
   selectedDataSet,
@@ -151,7 +155,7 @@ const DataPoint: React.FC<DataPointProps> = ({
 }) => {
   const relativeValues = getRelativeValues(data);
   const spanValue = calculateSpanValue({ relativeValues, selectedDataSet });
-  const eyeImage = active ? eyeBlue : eyeBrown;
+  const eyeImage = data.casesTreated ? eyeBlue : eyeBrown;
 
   return (
     <GridItem
