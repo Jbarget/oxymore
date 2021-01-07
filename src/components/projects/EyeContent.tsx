@@ -60,10 +60,11 @@ const maximumValues: DataValues = data.reduce((accum, eyeData) => {
       accum.percentageAffected > eyeData.data.percentageAffected
         ? accum.percentageAffected
         : eyeData.data.percentageAffected,
-    casesTreated:
-      accum.casesTreated > eyeData.data.casesTreated
+    casesTreated: eyeData.data.casesTreated
+      ? accum.casesTreated > eyeData.data.casesTreated
         ? accum.casesTreated
-        : eyeData.data.casesTreated,
+        : eyeData.data.casesTreated
+      : defaultMaximumValues.casesTreated,
   };
 }, defaultMaximumValues);
 
@@ -77,15 +78,16 @@ const getRelativeValues = ({
     population: population / maximumValues.population,
     populationAffected: populationAffected / maximumValues.populationAffected,
     percentageAffected: percentageAffected / maximumValues.percentageAffected,
-    casesTreated: casesTreated / maximumValues.casesTreated,
+    casesTreated:
+      casesTreated && maximumValues.casesTreated
+        ? casesTreated / maximumValues.casesTreated
+        : defaultMaximumValues.casesTreated,
   };
   return values;
 };
 
 const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
   if (!countryData) return null;
-  console.log(countryData);
-
   return (
     <Flex
       position="fixed"
@@ -104,6 +106,11 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
       <P fontSize={[1, 1, 2]}>
         Percentage: {countryData.data.percentageAffected}
       </P>
+      {countryData.data.casesTreated ? (
+        <P fontSize={[1, 1, 2]}>
+          Fundación Elena Barraquer: {countryData.data.casesTreated}
+        </P>
+      ) : null}
     </Flex>
   );
 };
@@ -213,9 +220,6 @@ const EyeContent = () => {
             Population Affected
           </Picker.Item>
           <Picker.Item value="percentageAffected">Percentage</Picker.Item>
-          <Picker.Item value="casesTreated">
-            Fundación Elena Barraquer Data
-          </Picker.Item>
         </Picker>
       </Flex>
     </Flex>
