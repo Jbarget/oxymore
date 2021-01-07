@@ -143,7 +143,6 @@ interface DataPointProps extends EyeData {
 }
 const DataPoint: React.FC<DataPointProps> = ({
   name,
-  active,
   coords,
   data,
   selectedDataSet,
@@ -151,7 +150,7 @@ const DataPoint: React.FC<DataPointProps> = ({
 }) => {
   const relativeValues = getRelativeValues(data);
   const spanValue = calculateSpanValue({ relativeValues, selectedDataSet });
-  const eyeImage = active ? eyeBlue : eyeBrown;
+  const eyeImage = data.casesTreated ? eyeBlue : eyeBrown;
 
   return (
     <GridItem
