@@ -43,6 +43,7 @@ const defaultMaximumValues = {
   population: 0,
   populationAffected: 0,
   percentageAffected: 0,
+  casesTreated: 0,
 };
 
 const maximumValues: DataValues = data.reduce((accum, eyeData) => {
@@ -59,6 +60,10 @@ const maximumValues: DataValues = data.reduce((accum, eyeData) => {
       accum.percentageAffected > eyeData.data.percentageAffected
         ? accum.percentageAffected
         : eyeData.data.percentageAffected,
+    casesTreated:
+      accum.casesTreated > eyeData.data.casesTreated
+        ? accum.casesTreated
+        : eyeData.data.casesTreated,
   };
 }, defaultMaximumValues);
 
@@ -66,11 +71,13 @@ const getRelativeValues = ({
   population,
   populationAffected,
   percentageAffected,
+  casesTreated,
 }: DataValues): DataValues => {
   const values = {
     population: population / maximumValues.population,
     populationAffected: populationAffected / maximumValues.populationAffected,
     percentageAffected: percentageAffected / maximumValues.percentageAffected,
+    casesTreated: casesTreated / maximumValues.casesTreated,
   };
   return values;
 };
@@ -206,6 +213,9 @@ const EyeContent = () => {
             Population Affected
           </Picker.Item>
           <Picker.Item value="percentageAffected">Percentage</Picker.Item>
+          <Picker.Item value="casesTreated">
+            Fundación Elena Barraquer Data
+          </Picker.Item>
         </Picker>
       </Flex>
     </Flex>
