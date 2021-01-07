@@ -4,7 +4,7 @@ import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 
 import Flex from "../Flex";
-import mapSmall from "./../assets/project-page/projects/map/mapa-barcelona-small.jpg";
+import mapSmall from "../../assets/project-page/map/mapa-barcelona-small.jpg";
 
 const MapContent = () => {
   return (
