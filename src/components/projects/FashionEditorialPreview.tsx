@@ -1,19 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import Timer from "../Timer";
-import { layout, LayoutProps } from "styled-system";
-import statue from "../assets/project-page/statue.png";
+import { LayoutProps, layout } from "styled-system";
+
 import Flex from "../Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import React from "react";
+import Timer from "../Timer";
+import stairs from "./../../assets/project-page/project-icons/shell.png";
+import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const EroticStoriesPreview: React.FC<{ launchDate: string }> = ({
-  launchDate,
-}) => {
+const FashionEditorial: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
     <Flex
       flex="auto"
@@ -24,7 +23,7 @@ const EroticStoriesPreview: React.FC<{ launchDate: string }> = ({
     >
       <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
-          <Img src={statue} alt="statue icon" maxWidth="30%" />
+          <Img src={stairs} alt="stairs icon" maxWidth="30%" />
         </Flex>
       </Link>
       <Timer launchDate={launchDate} />
@@ -32,4 +31,4 @@ const EroticStoriesPreview: React.FC<{ launchDate: string }> = ({
   );
 };
 
-export default EroticStoriesPreview;
+export default FashionEditorial;

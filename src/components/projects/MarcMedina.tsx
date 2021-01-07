@@ -1,12 +1,13 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
-import Timer from "../Timer";
 import { LayoutProps, layout } from "styled-system";
-import knife from "../assets/project-page/knife.png";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import React, { Fragment } from "react";
+
 import Flex from "../Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import Timer from "../Timer";
+import mask from "./../../assets/project-page/project-icons/mask.png";
+import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
@@ -17,7 +18,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
     <Fragment>
       <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
-          <Img src={knife} alt="knife icon" maxWidth="30%" />
+          <Img src={mask} alt="mask icon" maxWidth="30%" />
         </Flex>
       </Link>
       <Timer launchDate={launchDate} />
@@ -26,7 +27,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
 };
 
 const launchDate = "2021-01-21";
-const Belledejour = () => {
+const MarcMedina = () => {
   return (
     <Flex
       flex="auto"
@@ -44,4 +45,4 @@ const Belledejour = () => {
   );
 };
 
-export default Belledejour;
+export default MarcMedina;

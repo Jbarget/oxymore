@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { layout, LayoutProps } from "styled-system";
+import { LayoutProps, layout } from "styled-system";
 
-import Timer from "../Timer";
-import dragon from "../assets/project-page/dragon.png";
 import Flex from "../Flex";
+import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import React from "react";
+import Timer from "../Timer";
+import dragon from "./../../assets/project-page/project-icons/dragon.png";
+import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
   ${layout};

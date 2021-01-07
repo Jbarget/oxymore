@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
+import { LayoutProps, layout } from "styled-system";
 import styled from "styled-components";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { layout, LayoutProps } from "styled-system";
 
-import Timer from "../Timer";
-import magnify from "../assets/project-page/magnify.png";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Flex from "../Flex";
 import { PROJECTS_URL } from "../../constants/router-urls";
+import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import magnify from "./../../assets/project-page/project-icons/magnify.png";
+import Timer from "../Timer";
 import MapContent from "./MapContent";
+import Flex from "../Flex";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
