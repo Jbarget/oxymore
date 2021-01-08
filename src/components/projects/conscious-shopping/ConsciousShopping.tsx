@@ -2,8 +2,8 @@ import { FlexboxProps, TypographyProps, typography } from "styled-system";
 
 import ConsciousShoppingContent from "./ConsciousShoppingContent";
 import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
-import Flex from "../Flex";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import Flex from "../../Flex";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 import styled from "styled-components";
 

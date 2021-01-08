@@ -1,12 +1,12 @@
 import { LayoutProps, layout } from "styled-system";
 import React, { Fragment } from "react";
 
-import Flex from "../Flex";
+import Flex from "../../Flex";
 import { Link } from "react-router-dom";
-import { PROJECTS_URL } from "../../constants/router-urls";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Timer from "../Timer";
-import mask from "../../assets/project-page/project-icons/mask.png";
+import { PROJECTS_URL } from "../../../constants/router-urls";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
+import Timer from "../../Timer";
+import mask from "../../../assets/project-page/project-icons/mask.png";
 import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`

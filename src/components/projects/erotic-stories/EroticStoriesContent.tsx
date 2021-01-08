@@ -12,13 +12,13 @@ import {
 } from "styled-system";
 import React, { Fragment } from "react";
 
-import Flex from "../Flex";
+import Flex from "../../Flex";
 import { Link } from "react-router-dom";
-import bellyButtonsImg from "../../assets/project-page/erotic-stories/belly-buttons.jpg";
-import statue from "../../assets/project-page/project-icons/statue.png";
+import bellyButtonsImg from "../../../assets/project-page/erotic-stories/belly-buttons.jpg";
+import statue from "../../../assets/project-page/project-icons/statue.png";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import wingsBeatingImg from "../../assets/project-page/erotic-stories/wings-beating.jpg";
+import wingsBeatingImg from "../../../assets/project-page/erotic-stories/wings-beating.jpg";
 
 const Img = styled.img`
   width: 100%;

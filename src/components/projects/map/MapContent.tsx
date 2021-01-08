@@ -1,10 +1,10 @@
-import React from "react";
-// @ts-ignore
-import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 
-import Flex from "../Flex";
-import mapSmall from "../../assets/project-page/map/mapa-barcelona-small.jpg";
+import Flex from "../../Flex";
+// @ts-ignore
+import InnerImageZoom from "react-inner-image-zoom";
+import React from "react";
+import mapSmall from "../../../assets/project-page/map/mapa-barcelona-small.jpg";
 
 const MapContent = () => {
   return (

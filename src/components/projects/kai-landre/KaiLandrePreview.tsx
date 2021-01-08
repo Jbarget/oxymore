@@ -1,20 +1,21 @@
 import { LayoutProps, layout } from "styled-system";
 
-import Flex from "../Flex";
+import Flex from "../../Flex";
 import { Link } from "react-router-dom";
-import { PROJECTS_URL } from "../../constants/router-urls";
+import { PROJECTS_URL } from "../../../constants/router-urls";
 import React from "react";
-import Timer from "../Timer";
-import knife from "../../assets/project-page/project-icons/knife.png";
+import Timer from "../../Timer";
+import dragon from "../../../assets/project-page/project-icons/dragon.png";
 import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const BelledejourPreview: React.FC<{ launchDate: string }> = ({
-  launchDate,
-}) => {
+interface KaiLandrePreviewProps {
+  launchDate: string;
+}
+const KaiLandrePreview: React.FC<KaiLandrePreviewProps> = ({ launchDate }) => {
   return (
     <Flex
       flex="auto"
@@ -25,7 +26,7 @@ const BelledejourPreview: React.FC<{ launchDate: string }> = ({
     >
       <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
-          <Img src={knife} alt="stairs icon" maxWidth="30%" />
+          <Img src={dragon} alt="dragon icon" maxWidth="30%" />
         </Flex>
       </Link>
       <Timer launchDate={launchDate} />
@@ -33,4 +34,4 @@ const BelledejourPreview: React.FC<{ launchDate: string }> = ({
   );
 };
 
-export default BelledejourPreview;
+export default KaiLandrePreview;

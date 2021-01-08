@@ -2,12 +2,12 @@ import { LayoutProps, layout } from "styled-system";
 import React, { Fragment } from "react";
 
 import EyeContent from "./EyeContent";
-import Flex from "../Flex";
+import Flex from "../../Flex";
 import { Link } from "react-router-dom";
-import { PROJECTS_URL } from "../../constants/router-urls";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Timer from "../Timer";
-import eye from "../../assets/project-page/project-icons/eye.png";
+import { PROJECTS_URL } from "../../../constants/router-urls";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
+import Timer from "../../Timer";
+import eye from "../../../assets/project-page/project-icons/eye.png";
 import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
