@@ -1,47 +1,31 @@
-import { LayoutProps, layout } from "styled-system";
-import React, { Fragment } from "react";
+import { TypographyProps, typography } from "styled-system";
 
+import BelledejourContent from "./BelledejourContent";
+import BelledejourPreview from "./BelledejourPreview";
 import Flex from "../Flex";
-import { Link } from "react-router-dom";
-import { PROJECTS_URL } from "../../constants/router-urls";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Timer from "../Timer";
-import knife from "./../../assets/project-page/project-icons/knife.png";
+import React from "react";
 import styled from "styled-components";
 
-const Img = styled.img<LayoutProps>`
-  ${layout};
+const Main = styled(Flex)<TypographyProps>`
+  ${typography};
 `;
 
-const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
-  return (
-    <Fragment>
-      <Link to={PROJECTS_URL}>
-        <Flex justifyContent="center" alignItems="center">
-          <Img src={knife} alt="knife icon" maxWidth="30%" />
-        </Flex>
-      </Link>
-      <Timer launchDate={launchDate} />
-    </Fragment>
-  );
-};
-
-const launchDate = "2021-01-21";
+const launchDate = "2021-03-21";
 const Belledejour = () => {
   return (
-    <Flex
+    <Main
       flex="auto"
-      overflow="hidden"
+      fontFamily="secondary"
+      textAlign="justify"
       flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
     >
       <PreviewOrProjectPage
         launchDate={launchDate}
-        PreviewPage={PreviewPage}
-        ProjectPage={() => null}
+        PreviewPage={BelledejourPreview}
+        ProjectPage={BelledejourContent}
       />
-    </Flex>
+    </Main>
   );
 };
 
