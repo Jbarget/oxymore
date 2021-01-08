@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
 import React from "react";
 import Timer from "../Timer";
-import statue from "./../../assets/project-page/project-icons/statue.png";
+import statue from "../../assets/project-page/project-icons/statue.png";
 import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`

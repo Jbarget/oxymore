@@ -4,11 +4,11 @@ import theme from "./components/theme";
 const GlobalStyle = createGlobalStyle`
   @font-face{
     font-family: SangBleu OG Serif;
-    src: url(/../fonts/SangBleuOGSerif-Light.otf)
+    src: url(../fonts/SangBleuOGSerif-Light.otf)
   }
   @font-face{
     font-family: Favorit;
-    src: url(/../fonts/Favorit_Regular.ttf)
+    src: url(../fonts/Favorit_Regular.ttf)
   }
   * {
     -webkit-overflow-scrolling: touch;

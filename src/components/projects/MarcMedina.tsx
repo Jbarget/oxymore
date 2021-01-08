@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
 import Timer from "../Timer";
-import mask from "./../../assets/project-page/project-icons/mask.png";
+import mask from "../../assets/project-page/project-icons/mask.png";
 import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`

@@ -18,8 +18,8 @@ import Flex from "../Flex";
 import Grid from "../Grid";
 import { Picker } from "react-mobile-style-picker";
 import data from "../../fixtures/eye-data";
-import eyeBlue from "./../../assets/project-page/eye/eye_blue.png";
-import eyeBrown from "./../../assets/project-page/eye/eye_brown.png";
+import eyeBlue from "../../assets/project-page/eye/eye_blue.png";
+import eyeBrown from "../../assets/project-page/eye/eye_brown.png";
 
 const P = styled.p<BorderProps & TypographyProps>`
   text-transform: uppercase;

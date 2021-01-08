@@ -2,17 +2,17 @@ import { LayoutProps, layout } from "styled-system";
 
 import Grid from "../Grid";
 import React from "react";
-import april from "./../../assets/project-page/leo-adef/4-APRIL.png";
-import august from "./../../assets/project-page/leo-adef/8-AUGUST.png";
-import december from "./../../assets/project-page/leo-adef/12-DECEMBER.png";
-import january from "./../../assets/project-page/leo-adef/1-JANUARY.png";
-import july from "./../../assets/project-page/leo-adef/7-JULY.png";
-import june from "./../../assets/project-page/leo-adef/6-JUNE.png";
-import march from "./../../assets/project-page/leo-adef/3-MARCH.png";
-import may from "./../../assets/project-page/leo-adef/5-MAY.png";
-import november from "./../../assets/project-page/leo-adef/11-NOVEMBER.png";
-import october from "./../../assets/project-page/leo-adef/10-OCTOBER.png";
-import september from "./../../assets/project-page/leo-adef/9-SEPTEMBER.png";
+import april from "../../assets/project-page/leo-adef/4-APRIL.png";
+import august from "../../assets/project-page/leo-adef/8-AUGUST.png";
+import december from "../../assets/project-page/leo-adef/12-DECEMBER.png";
+import january from "../../assets/project-page/leo-adef/1-JANUARY.png";
+import july from "../../assets/project-page/leo-adef/7-JULY.png";
+import june from "../../assets/project-page/leo-adef/6-JUNE.png";
+import march from "../../assets/project-page/leo-adef/3-MARCH.png";
+import may from "../../assets/project-page/leo-adef/5-MAY.png";
+import november from "../../assets/project-page/leo-adef/11-NOVEMBER.png";
+import october from "../../assets/project-page/leo-adef/10-OCTOBER.png";
+import september from "../../assets/project-page/leo-adef/9-SEPTEMBER.png";
 import styled from "styled-components";
 
 const CalendarImageContainer = styled.div<LayoutProps>`
