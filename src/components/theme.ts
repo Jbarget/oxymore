@@ -9,15 +9,15 @@ export type Colors =
       accentPrimary: string;
     };
 
-export const zIndexes = {
+const zIndexes = {
   behind: -1,
   inFront: 1,
   overlay: 1300,
 };
 
 const colorCodes = {
-  black: "#000000",
-  athensGray: "#f4f4f6",
+  black: "#020403",
+  athensGray: "#d9d9d9",
 };
 
 const colors = {
@@ -56,8 +56,8 @@ const space = {
 };
 
 const fonts = {
-  primary: "Helvetica Neue, sans-serif",
-  secondary: "SangBleu, sans-serif",
+  primary: "Favorit, sans-serif",
+  secondary: "SangBleu OG Serif, sans-serif",
 };
 
 const borders = {
@@ -78,6 +78,9 @@ const theme = {
   breakpoints,
   colors: {
     ...colors,
+  },
+  zIndexes: {
+    ...zIndexes,
   },
 };
 

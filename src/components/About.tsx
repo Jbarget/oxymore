@@ -12,13 +12,13 @@ import {
 import Flex from "./Flex";
 import Grid from "./Grid";
 import React from "react";
-import aitor from "./assets/about-page/aitor.jpg";
-import gloria from "./assets/about-page/gloria.jpg";
-import juancamilo from "./assets/about-page/juancamilo.jpg";
-import micaela from "./assets/about-page/micaela.jpg";
-import nil from "./assets/about-page/nil.jpg";
-import olga from "./assets/about-page/olga.jpg";
-import rodri from "./assets/about-page/rodri.jpg";
+import aitor from "./../assets/about-page/aitor.jpg";
+import gloria from "./../assets/about-page/gloria.jpg";
+import juancamilo from "./../assets/about-page/juancamilo.jpg";
+import micaela from "./../assets/about-page/micaela.jpg";
+import nil from "./../assets/about-page/nil.jpg";
+import olga from "./../assets/about-page/olga.jpg";
+import rodri from "./../assets/about-page/rodri.jpg";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
@@ -131,9 +131,10 @@ const About = () => {
         <GridCell
           display="flex"
           justifyContent="center"
-          p={6}
           lineHeight={1.5}
           textAlign="justify"
+          mt={6}
+          mx={[0, 0, 0, 6]}
         >
           <P>{t("about.team")}</P>
         </GridCell>

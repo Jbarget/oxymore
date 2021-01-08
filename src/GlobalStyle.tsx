@@ -3,15 +3,20 @@ import theme from "./components/theme";
 
 const GlobalStyle = createGlobalStyle`
   @font-face{
-    font-family: SangBleu;
-    src: url(/SangBleuOGSerif-Light.otf)
+    font-family: SangBleu OG Serif;
+    src: url(/../fonts/SangBleuOGSerif-Light.otf)
+  }
+  @font-face{
+    font-family: Favorit;
+    src: url(/../fonts/Favorit_Regular.ttf)
   }
   * {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: ${theme.colors.athensGray} transparent;
+   
     &::-webkit-scrollbar-thumb {
-      border-radius: 2px;
+      border-radius: 0;
       background-color: ${theme.colors.athensGray};
     }
   }
@@ -28,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.athensGray};
+    background-color: ${theme.colors.black};
   }
   #root {
     display: flex;

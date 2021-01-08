@@ -1,24 +1,3 @@
-import React from "react";
-import styled from "styled-components";
-import {
-  layout,
-  flexbox,
-  grid,
-  LayoutProps,
-  FlexboxProps,
-  GridProps,
-} from "styled-system";
-import { Link } from "react-router-dom";
-import stairs from "./assets/project-page/stairs.png";
-import shell from "./assets/project-page/shell.png";
-import eye from "./assets/project-page/eye.png";
-import statue from "./assets/project-page/statue.png";
-import dragon from "./assets/project-page/dragon.png";
-import knife from "./assets/project-page/knife.png";
-import mask from "./assets/project-page/mask.png";
-import spider from "./assets/project-page/spider.png";
-import magnify from "./assets/project-page/magnify.png";
-import Grid from "./Grid";
 import {
   BELLE_DE_JOUR_URL,
   CONSCIOUS_SHOPPING_URL,
@@ -26,10 +5,32 @@ import {
   EYES_URL,
   FASHION_EDITORIAL_URL,
   KAI_LANDRE_URL,
-  MARC_MEDINA_URL,
   LEO_ADEF_URL,
   MAP_URL,
+  MARC_MEDINA_URL,
 } from "../constants/router-urls";
+import {
+  FlexboxProps,
+  GridProps,
+  LayoutProps,
+  flexbox,
+  grid,
+  layout,
+} from "styled-system";
+
+import Grid from "./Grid";
+import { Link } from "react-router-dom";
+import React from "react";
+import dragon from "./../assets/project-page/project-icons/dragon.png";
+import eye from "./../assets/project-page/project-icons/eye.png";
+import knife from "./../assets/project-page/project-icons/knife.png";
+import magnify from "./../assets/project-page/project-icons/magnify.png";
+import mask from "./../assets/project-page/project-icons/mask.png";
+import shell from "./../assets/project-page/project-icons/shell.png";
+import spider from "./../assets/project-page/project-icons/spider.png";
+import stairs from "./../assets/project-page/project-icons/stairs.png";
+import statue from "./../assets/project-page/project-icons/statue.png";
+import styled from "styled-components";
 
 const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
   ${layout};
@@ -53,6 +54,7 @@ const ProjectsGrid = () => {
     <Grid
       gridTemplateColumns="repeat(3, 1fr)"
       gridTemplateRows="repeat(4, 1fr)"
+      height="80vh"
     >
       <ProjectLinkWrapper
         gridColumn={[2, 2, 2, 2]}

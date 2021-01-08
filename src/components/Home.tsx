@@ -1,26 +1,26 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
 import {
-  layout,
-  space,
-  flexbox,
+  FlexboxProps,
   LayoutProps,
   SpaceProps,
-  FlexboxProps,
   TypographyProps,
+  flexbox,
+  layout,
+  space,
   typography,
 } from "styled-system";
 
 import BuyButton from "./BuyButton";
-import NavMenu from "./NavMenu";
-import oxymore from "./assets/home-page/oxymore.png";
-import manifesto from "./assets/home-page/manifesto.png";
-import number from "./assets/home-page/number-one.png";
-import alpha from "./assets/home-page/360-alpha.png";
-import LanguageButtons from "./LanguageButtons";
 import Flex from "./Flex";
+import LanguageButtons from "./LanguageButtons";
+import { NavLink } from "react-router-dom";
+import NavMenu from "./NavMenu";
 import { PROJECTS_URL } from "../constants/router-urls";
+import React from "react";
+import alpha from "./../assets/home-page/360-alpha.png";
+import manifesto from "./../assets/home-page/manifesto.png";
+import number from "./../assets/home-page/number-one.png";
+import oxymore from "./../assets/home-page/oxymore.png";
+import styled from "styled-components";
 
 const ManifestoLink = styled(NavLink)<TypographyProps>`
   ${typography};
@@ -38,22 +38,22 @@ const SingleLineTextImage = styled.img<SpaceProps>`
   ${space};
 `;
 
-const ProjectsLink = styled(NavLink)<TypographyProps & FlexboxProps>`
+const ProjectPageLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   ${typography};
   display: flex;
   align-self: center;
   align-items: flex-start;
   justify-content: flex-start;
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.01);
   ${flexbox}
 `;
-const ProjectsImg = styled.img<LayoutProps & SpaceProps>`
+const AlphaLogo = styled.img<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
   max-width: 40vw;
   max-height: 60vh;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.01);
 `;
 
 const Home = () => {
@@ -66,9 +66,9 @@ const Home = () => {
           <NavMenu />
         </Flex>
       </Flex>
-      <ProjectsLink to={PROJECTS_URL}>
-        <ProjectsImg src={alpha} alt="alpha image" />
-      </ProjectsLink>
+      <ProjectPageLink to={PROJECTS_URL}>
+        <AlphaLogo src={alpha} alt="alpha logo" />
+      </ProjectPageLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
           <SingleLineTextImage src={number} mb={3} />

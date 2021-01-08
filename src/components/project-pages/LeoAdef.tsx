@@ -1,13 +1,13 @@
+import { LayoutProps, layout } from "styled-system";
 import React, { Fragment } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { layout, LayoutProps } from "styled-system";
 
+import Flex from "../Flex";
+import { Link } from "react-router-dom";
+import { PROJECTS_URL } from "../../constants/router-urls";
+import PreviewOrProjectPage from "../projects/PreviewOrProjectPage";
 import Timer from "../Timer";
 import spider from "../assets/project-page/spider.png";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Flex from "../Flex";
-import { PROJECTS_URL } from "../../constants/router-urls";
+import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`
   ${layout};

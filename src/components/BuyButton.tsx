@@ -1,29 +1,35 @@
-import React, { useState, Fragment } from "react";
 import {
+  BackgroundProps,
+  BorderProps,
+  LayoutProps,
   SpaceProps,
   TypographyProps,
-  BorderProps,
-  BackgroundProps,
+  background,
+  border,
+  layout,
   space,
   typography,
-  border,
-  background,
-  LayoutProps,
-  layout,
 } from "styled-system";
-import styled from "styled-components";
+import React, { Fragment, useState } from "react";
 
-import { zIndexes } from "./theme";
-import { useTranslation } from "react-i18next";
 import redirectToCheckout from "../helpers/redirectToCheckout";
+import styled from "styled-components";
+import theme from "./theme";
+import { useTranslation } from "react-i18next";
 
 const Button = styled.button<
   SpaceProps & TypographyProps & BorderProps & BackgroundProps & LayoutProps
 >`
   width: auto;
   white-space: nowrap;
-  z-index: ${zIndexes.inFront};
+  z-index: ${theme.zIndexes.inFront};
   text-transform: uppercase;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.02);
+    color: white;
+    font-weight: 500;
+  }
   ${space};
   ${typography};
   ${border};

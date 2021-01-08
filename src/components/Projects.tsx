@@ -1,21 +1,22 @@
-import React, { useCallback } from "react";
-import styled from "styled-components";
 import {
-  layout,
-  space,
-  LayoutProps,
-  SpaceProps,
-  position,
-  PositionProps,
-  typography,
-  TypographyProps,
   BackgroundProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  TypographyProps,
   background,
+  layout,
+  position,
+  space,
+  typography,
 } from "styled-system";
+import React, { useCallback } from "react";
+
 import BuyButton from "./BuyButton";
-import { zIndexes } from "./theme";
 import Flex from "./Flex";
 import ProjectsGrid from "./ProjectsGrid";
+import styled from "styled-components";
+import theme from "./theme";
 
 const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${position};
@@ -48,7 +49,7 @@ const Projects = () => {
       <BuyButtonContainer
         position="fixed"
         bottom={["40%", "40%", "40%", "15%"]}
-        zIndex={zIndexes.inFront}
+        zIndex={theme.zIndexes.inFront}
       >
         <BuyButton />
       </BuyButtonContainer>
@@ -61,7 +62,7 @@ const Projects = () => {
         fontSize={[3, 4]}
         background="transparent"
         onClick={scrollToTop}
-        zIndex={zIndexes.inFront}
+        zIndex={theme.zIndexes.inFront}
       >
         UP
       </Scrollback>

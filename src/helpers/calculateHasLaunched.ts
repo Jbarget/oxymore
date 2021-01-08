@@ -8,8 +8,6 @@ const calculateHasLaunched = (timeLeft: TimeLeft): boolean => {
     return accum + value;
   }, 0);
 
-  console.log(remainder);
-
   return remainder <= 0;
 };
 
