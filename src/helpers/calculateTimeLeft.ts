@@ -10,7 +10,7 @@ const calculateTimeLeft = (date: string): TimeLeft => {
     Number(new Date(date).getTime()) - Number(new Date().getTime());
 
   const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const hoursLeft = Math.floor(((difference / (1000 * 60 * 60)) % 24) - 1);
+  const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24) + 17;
   const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
   const secondsLeft = Math.floor((difference / 1000) % 60);
 
