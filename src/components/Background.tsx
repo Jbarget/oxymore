@@ -18,8 +18,8 @@ import styled, { css } from "styled-components";
 
 import Flex from "./Flex";
 import React from "react";
-import eyeProjectBackground from "./../assets/backgrounds/eye-bg.png";
-import marbleBackground from "./../assets/backgrounds/background.png";
+import eyeProjectBackground from "../assets/backgrounds/eye-bg.png";
+import marbleBackground from "../assets/backgrounds/background.png";
 import theme from "./theme";
 import { useLocation } from "react-router-dom";
 

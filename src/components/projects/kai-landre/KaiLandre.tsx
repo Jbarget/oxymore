@@ -1,9 +1,8 @@
+import Flex from "../../Flex";
+import KaiLandrePreview from "./KaiLandrePreview";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 import ReactPlayer from "react-player/lazy";
-
-import KaiLandrePreview from "./KaiLandrePreview";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Flex from "../Flex";
 
 const KaiLandreContent: React.FC = () => {
   const url = "https://www.youtube.com/watch?v=AGSH_acR4wA";

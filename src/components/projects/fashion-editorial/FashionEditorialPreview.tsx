@@ -1,11 +1,11 @@
 import { LayoutProps, layout } from "styled-system";
 
-import Flex from "../Flex";
+import Flex from "../../Flex";
 import { Link } from "react-router-dom";
-import { PROJECTS_URL } from "../../constants/router-urls";
+import { PROJECTS_URL } from "../../../constants/router-urls";
 import React from "react";
-import Timer from "../Timer";
-import stairs from "./../../assets/project-page/project-icons/shell.png";
+import Timer from "../../Timer";
+import stairs from "../../../assets/project-page/project-icons/stairs.png";
 import styled from "styled-components";
 
 const Img = styled.img<LayoutProps>`

@@ -9,11 +9,11 @@ import {
 
 import Flex from "./Flex";
 import React from "react";
-import honestCouponsImg from "./../assets/advertising-page/honest-coupons.jpeg";
-import salazrakiImg from "./../assets/advertising-page/salazraki.jpg";
+import honestCouponsImg from "../assets/advertising-page/honest-coupons.jpeg";
+import salazrakiImg from "../assets/advertising-page/salazraki.jpg";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import voltrovaImg from "./../assets/advertising-page/voltrova.jpg";
+import voltrovaImg from "../assets/advertising-page/voltrova.jpg";
 
 const columnWidths = "100%";
 
