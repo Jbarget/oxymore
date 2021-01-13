@@ -27,9 +27,6 @@ const P = styled.p<TypographyProps & SpaceProps>`
   ${typography};
   line-height: 1.6em;
   text-transform: uppercase;
-  a:hover {
-    border-bottom: solid 1px;
-  }
 `;
 
 const Advertising: React.FC = () => {
