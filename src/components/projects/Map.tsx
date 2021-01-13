@@ -1,29 +1,23 @@
-import { LayoutProps, layout } from "styled-system";
-import styled from "styled-components";
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-
-import { PROJECTS_URL } from "../../constants/router-urls";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import magnify from "./../../assets/project-page/project-icons/magnify.png";
-import Timer from "../Timer";
-import MapContent from "./MapContent";
 import Flex from "../Flex";
-
-const Img = styled.img<LayoutProps>`
-  ${layout};
-`;
+import Icon from "./Icon";
+import MapContent from "./MapContent";
+import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import React from "react";
+import Timer from "../Timer";
+import magnify from "./../../assets/project-page/project-icons/magnify.png";
 
 const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
-    <Fragment>
-      <Link to={PROJECTS_URL}>
-        <Flex justifyContent="center" alignItems="center">
-          <Img src={magnify} alt="magnify icon" maxWidth="30%" />
-        </Flex>
-      </Link>
+    <Flex
+      flex="auto"
+      overflow="hidden"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Icon icon={magnify}></Icon>
       <Timer launchDate={launchDate} />
-    </Fragment>
+    </Flex>
   );
 };
 

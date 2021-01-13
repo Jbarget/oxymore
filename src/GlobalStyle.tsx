@@ -45,10 +45,12 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.colors.athensGray};
     outline: none;
     font-family: ${theme.fonts.primary};
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
   a {
     text-decoration: none;
     color: ${theme.colors.athensGray};
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 `;
 export default GlobalStyle;

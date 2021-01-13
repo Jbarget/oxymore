@@ -3,6 +3,7 @@ import { SpaceProps, TypographyProps, space, typography } from "styled-system";
 import Flex from "./Flex";
 import React from "react";
 import styled from "styled-components";
+import theme from "./theme";
 import { useTranslation } from "react-i18next";
 
 type ContactPageProps = SpaceProps & TypographyProps;
@@ -20,8 +21,12 @@ const ContactInfo = styled.p<ContactPageProps>`
 `;
 
 const EmailLink = styled.a<ContactPageProps>`
+  transition: 2s;
   &:hover {
-    text-decoration: underline;
+    ::before,
+    ::after {
+      content: "${" "}+${" "}";
+    }
   }
 `;
 
@@ -32,11 +37,11 @@ const Contact = () => {
     <Flex flex="auto" alignItems="center">
       <div>
         <H1 fontSize={[4, 5, 6, 7]} py={3}>
-          {t("contact.header")}
+          CONTACT
         </H1>
         <ContactInfo fontSize={[4, 4, 4, 5]}>
           FOR INQUIRIES PLEASE CONTACT{" "}
-          <EmailLink href="mailto:ox@oxymore.com" target="_blank">
+          <EmailLink href="mailto:ox@oxymoremagazine.com" target="_blank">
             OX@OXYMOREMAGAZINE.COM
           </EmailLink>
         </ContactInfo>

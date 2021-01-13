@@ -13,9 +13,11 @@ import {
   FlexboxProps,
   GridProps,
   LayoutProps,
+  SpaceProps,
   flexbox,
   grid,
   layout,
+  space,
 } from "styled-system";
 
 import Grid from "./Grid";
@@ -32,34 +34,39 @@ import stairs from "./../assets/project-page/project-icons/stairs.png";
 import statue from "./../assets/project-page/project-icons/statue.png";
 import styled from "styled-components";
 
-const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
+const ProjectLinkWrapper = styled.div<
+  LayoutProps & GridProps & FlexboxProps & SpaceProps
+>`
   ${layout};
   ${grid};
   ${flexbox};
+  ${space};
   display: flex;
   align-items: center;
+  transition: 1s;
 `;
 
 const Img = styled.img<LayoutProps>`
   ${layout};
-  transition: transform 0.5s;
+  transition: transform 0.3s;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 `;
 
 const ProjectsGrid = () => {
-  const iconSizes = ["100%", "100%", "60%", "30%"];
+  const iconSizes = ["100%", "100%", 120, 100, 130];
 
   return (
     <Grid
       gridTemplateColumns="repeat(3, 1fr)"
       gridTemplateRows="repeat(4, 1fr)"
       height="80vh"
+      width="100%"
     >
       <ProjectLinkWrapper
-        gridColumn={[2, 2, 2, 2]}
-        gridRow={1}
-        justifySelf={["center", "center", "center", "end"]}
+        gridColumn={[2, 2, 2, 1, 2]}
+        gridRow={[1, 1, 1, 1, 1]}
+        justifySelf={["center", "center", "center", "center", "end"]}
         maxWidth={iconSizes}
       >
         <Link to={FASHION_EDITORIAL_URL}>
@@ -67,9 +74,9 @@ const ProjectsGrid = () => {
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={2}
-        gridRow={[2, 2, 2, "1/3"]}
-        justifySelf={["center", "center", "center", "start"]}
+        gridColumn={[2, 2, 2, 2, 2]}
+        gridRow={[2, 2, 2, 1, "1/3"]}
+        justifySelf={["center", "center", "center", "center", "start"]}
         maxWidth={iconSizes}
       >
         <Link to={CONSCIOUS_SHOPPING_URL}>
@@ -77,8 +84,8 @@ const ProjectsGrid = () => {
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={[2, 2, 2, 1]}
-        gridRow={[3, 3, 3, "1/3"]}
+        gridColumn={[2, 2, 2, 3, 1]}
+        gridRow={[3, 3, 3, 1, "1/3"]}
         justifySelf="center"
         maxWidth={iconSizes}
       >
@@ -87,8 +94,8 @@ const ProjectsGrid = () => {
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={[2, 2, 2, 1]}
-        gridRow={[4, 4, 4, 3]}
+        gridColumn={[2, 2, 2, 1, 1]}
+        gridRow={[4, 4, 4, 2, 3]}
         justifySelf="center"
         maxWidth={iconSizes}
       >
@@ -97,9 +104,9 @@ const ProjectsGrid = () => {
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={[2, 2, 2, 1]}
-        gridRow={[5, 5, 5, "2/4"]}
-        justifySelf={["center", "center", "center", "end"]}
+        gridColumn={[2, 2, 2, 2, 1]}
+        gridRow={[5, 5, 5, 2, "2/4"]}
+        justifySelf={["center", "center", "center", "center", "end"]}
         maxWidth={iconSizes}
       >
         <Link to={KAI_LANDRE_URL}>
@@ -107,18 +114,18 @@ const ProjectsGrid = () => {
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={[2, 2, 2, 3]}
-        gridRow={[6, 6, 6, 3]}
+        gridColumn={[2, 2, 2, 3, 3]}
+        gridRow={[6, 6, 6, 2, 3]}
         maxWidth={iconSizes}
-        justifySelf={["center", "center", "center", "start"]}
+        justifySelf={["center", "center", "center", "center", "start"]}
       >
-        <Link to={BELLE_DE_JOUR_URL}>
+        <Link to={LEO_ADEF_URL}>
           <Img src={knife} alt="knife icon" />
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={[2, 2, 2, 3]}
-        gridRow={[7, 7, 7, 2]}
+        gridColumn={[2, 2, 2, 1, 3]}
+        gridRow={[7, 7, 7, 3, 2]}
         justifySelf="center"
         maxWidth={iconSizes}
       >
@@ -127,19 +134,19 @@ const ProjectsGrid = () => {
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={2}
-        gridRow={[8, 8, 8, "2/4"]}
+        gridColumn={[2, 2, 2, 2, 2]}
+        gridRow={[8, 8, 8, 3, "2/4"]}
         maxWidth={iconSizes}
         justifySelf="center"
       >
-        <Link to={LEO_ADEF_URL}>
+        <Link to={BELLE_DE_JOUR_URL}>
           <Img src={spider} alt="spider icon" />
         </Link>
       </ProjectLinkWrapper>
       <ProjectLinkWrapper
-        gridColumn={2}
-        gridRow={[9, 9, 9, 2]}
-        justifySelf={["center", "center", "center", "end"]}
+        gridColumn={[2, 2, 2, 3, 2]}
+        gridRow={[9, 9, 9, 3, 2]}
+        justifySelf={["center", "center", "center", "center", "end"]}
         maxWidth={iconSizes}
       >
         <Link to={MAP_URL}>

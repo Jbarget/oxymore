@@ -51,10 +51,10 @@ const Menu = styled.ul<TypographyProps & SpaceProps>`
 const MenuButton = styled.button<TypographyProps & PositionProps & ColorProps>`
   border: none;
   background: transparent;
+  transition: transform 0.3s;
   &:hover {
-    transform: scale(1.02);
-    color: white;
-    font-weight: 500;
+    transform: scale(1.01);
+    color: ${theme.colors.athensGray};
   }
   ${typography};
   ${position};
@@ -72,7 +72,7 @@ const MenuItem = styled.li`
 const HomepageLink = styled(NavLink)<ColorProps>`
   ${color};
   &:hover {
-    color: white;
+    color: ${theme.colors.athensGray};
   }
 `;
 
@@ -80,7 +80,7 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
   ${typography};
   ${color};
   &:hover {
-    color: white;
+    color: ${theme.colors.athensGray};
   }
 `;
 
@@ -88,7 +88,7 @@ const BuyLink = styled.button<TypographyProps & ColorProps>`
   border: none;
   background: transparent;
   &:hover {
-    color: white;
+    color: ${theme.colors.athensGray};
   }
   ${typography};
   ${color};

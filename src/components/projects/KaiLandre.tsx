@@ -1,9 +1,8 @@
-import React from "react";
-import ReactPlayer from "react-player/lazy";
-
+import Flex from "../Flex";
 import KaiLandrePreview from "./KaiLandrePreview";
 import PreviewOrProjectPage from "./PreviewOrProjectPage";
-import Flex from "../Flex";
+import React from "react";
+import ReactPlayer from "react-player/lazy";
 
 const KaiLandreContent: React.FC = () => {
   const url = "https://www.youtube.com/watch?v=AGSH_acR4wA";
@@ -15,7 +14,7 @@ const KaiLandreContent: React.FC = () => {
   );
 };
 
-const launchDate = "2021-01-21";
+const launchDate = "2021-03-21";
 const KaiLandre: React.FC = () => {
   return (
     <Flex flex="auto" justifyContent="center" alignItems="center">

@@ -22,15 +22,17 @@ const Container = styled.div<FlexboxProps & LayoutProps & SpaceProps>`
 const LangButton = styled.button<
   SpaceProps & TypographyProps & { isActive: boolean }
 >`
-  background: transparent;
-  border: none;
   ${typography};
   ${space};
-  transition: transform 0.2s;
   ${props => props.isActive && ActiveLang}
+  background: transparent;
+  border: none;
+  transition: transform 0.3s;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:hover {
     transform: scale(1.05);
     color: white;
+  }
 `;
 
 const ActiveLang = css`

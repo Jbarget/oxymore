@@ -46,14 +46,16 @@ const ProjectPageLink = styled(NavLink)<TypographyProps & FlexboxProps>`
   justify-content: flex-start;
   ${flexbox}
 `;
+
 const AlphaLogo = styled.img<LayoutProps & SpaceProps>`
   ${layout};
   ${space};
   max-width: 40vw;
   max-height: 60vh;
-  transition: transform 0.5s;
+  transition: 1.5s;
   &:hover {
     transform: scale(1.01);
+  }
 `;
 
 const Home = () => {
