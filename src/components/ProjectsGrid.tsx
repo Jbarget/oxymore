@@ -54,7 +54,7 @@ const Img = styled.img<LayoutProps>`
 `;
 
 const ProjectsGrid = () => {
-  const iconSizes = ["100%", "100%", 120, 100, 130];
+  const iconSizes = [80, 100, 120, 100, 130];
 
   return (
     <Grid
