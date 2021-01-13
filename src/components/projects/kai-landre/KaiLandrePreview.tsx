@@ -1,8 +1,8 @@
-import Flex from "../Flex";
-import Icon from "./Icon";
+import Flex from "../../Flex";
+import Icon from "../Icon";
 import React from "react";
-import Timer from "../Timer";
-import dragon from "./../../assets/project-page/project-icons/dragon.png";
+import Timer from "../../Timer";
+import dragon from "../../../assets/project-page/project-icons/dragon.png";
 
 interface KaiLandrePreviewProps {
   launchDate: string;

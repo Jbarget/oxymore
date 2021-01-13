@@ -12,22 +12,22 @@ import {
 } from "styled-system";
 import React, { useCallback, useState } from "react";
 
-import Flex from "../Flex";
+import Flex from "../../Flex";
 import { Link } from "react-router-dom";
-import { PROJECTS_URL } from "../../constants/router-urls";
-import arrow from "./../../assets/project-page/conscious-shopping/arrow.png";
-import bootsImg from "./../../assets/project-page/conscious-shopping/boots.jpg";
-import conchaImg from "./../../assets/project-page/conscious-shopping/concha.jpg";
-import laiaImg from "./../../assets/project-page/conscious-shopping/laia.jpg";
-import leSwingImg from "./../../assets/project-page/conscious-shopping/le-swing.jpg";
-import lydiaImg from "./../../assets/project-page/conscious-shopping/lydia.jpg";
-import mijalImg from "./../../assets/project-page/conscious-shopping/mijal.jpg";
-import nadiaImg from "./../../assets/project-page/conscious-shopping/nadia.jpg";
-import shellIcon from "./../../assets/project-page/project-icons/shell.png";
+import { PROJECTS_URL } from "../../../constants/router-urls";
+import arrow from "../../../assets/project-page/conscious-shopping/arrow.png";
+import bootsImg from "../../../assets/project-page/conscious-shopping/boots.jpg";
+import conchaImg from "../../../assets/project-page/conscious-shopping/concha.jpg";
+import laiaImg from "../../../assets/project-page/conscious-shopping/laia.jpg";
+import leSwingImg from "../../../assets/project-page/conscious-shopping/le-swing.jpg";
+import lydiaImg from "../../../assets/project-page/conscious-shopping/lydia.jpg";
+import mijalImg from "../../../assets/project-page/conscious-shopping/mijal.jpg";
+import nadiaImg from "../../../assets/project-page/conscious-shopping/nadia.jpg";
+import shellIcon from "../../../assets/project-page/project-icons/shell.png";
 import styled from "styled-components";
-import sunglassesImg from "./../../assets/project-page/conscious-shopping/sunglasses.jpg";
-import theme from "../theme";
-import trexImg from "./../../assets/project-page/conscious-shopping/t-rex.jpg";
+import sunglassesImg from "../../../assets/project-page/conscious-shopping/sunglasses.jpg";
+import theme from "../../theme";
+import trexImg from "../../../assets/project-page/conscious-shopping/t-rex.jpg";
 import { useTranslation } from "react-i18next";
 
 const H1 = styled.h1<SpaceProps>`

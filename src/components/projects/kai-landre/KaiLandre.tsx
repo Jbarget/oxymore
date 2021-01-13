@@ -1,6 +1,6 @@
-import Flex from "../Flex";
+import Flex from "../../Flex";
 import KaiLandrePreview from "./KaiLandrePreview";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 import ReactPlayer from "react-player/lazy";
 

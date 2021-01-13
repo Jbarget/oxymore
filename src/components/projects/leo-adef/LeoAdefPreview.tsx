@@ -1,8 +1,8 @@
-import Flex from "../Flex";
-import Icon from "./Icon";
+import Flex from "../../Flex";
+import Icon from "../Icon";
 import React from "react";
-import Timer from "../Timer";
-import knife from "./../../assets/project-page/project-icons/knife.png";
+import Timer from "../../Timer";
+import knife from "../../../assets/project-page/project-icons/knife.png";
 
 const LeoAdefPreview: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (

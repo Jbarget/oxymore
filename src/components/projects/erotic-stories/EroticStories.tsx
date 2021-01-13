@@ -1,9 +1,9 @@
 import { TypographyProps, typography } from "styled-system";
 
-import Flex from "../Flex";
-import LeoAdefContent from "./LeoAdefContent";
-import LeoAdefPreview from "./LeoAdefPreview";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import EroticStoriesContent from "./EroticStoriesContent";
+import EroticStoriesPreview from "./EroticStoriesPreview";
+import Flex from "../../Flex";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ const Main = styled(Flex)<TypographyProps>`
 `;
 
 const launchDate = "2021-03-21";
-const LeoAdef = () => {
+const EroticStories = () => {
   return (
     <Main
       flex="auto"
@@ -22,11 +22,11 @@ const LeoAdef = () => {
     >
       <PreviewOrProjectPage
         launchDate={launchDate}
-        PreviewPage={LeoAdefPreview}
-        ProjectPage={LeoAdefContent}
+        PreviewPage={EroticStoriesPreview}
+        ProjectPage={EroticStoriesContent}
       />
     </Main>
   );
 };
 
-export default LeoAdef;
+export default EroticStories;

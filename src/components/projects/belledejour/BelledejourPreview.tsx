@@ -1,8 +1,8 @@
-import Flex from "../Flex";
-import Icon from "./Icon";
+import Flex from "../../Flex";
+import Icon from "../Icon";
 import React from "react";
-import Timer from "../Timer";
-import spider from "../../assets/project-page/project-icons/spider.png";
+import Timer from "../../Timer";
+import spider from "../../../assets/project-page/project-icons/spider.png";
 
 const BelledejourPreview: React.FC<{ launchDate: string }> = ({
   launchDate,

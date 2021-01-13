@@ -1,8 +1,8 @@
-import React from "react";
-import Flex from "../Flex";
 import FashionEditorialContent from "./FashionEditorialContent";
 import FashionEditorialPreview from "./FashionEditorialPreview";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import Flex from "../../Flex";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
+import React from "react";
 
 const launchDate = "2021-01-21";
 const FashionEditorial = () => {

@@ -1,10 +1,10 @@
-import EyeContent from "./EyeContent";
-import Flex from "../Flex";
-import Icon from "./Icon";
-import PreviewOrProjectPage from "./PreviewOrProjectPage";
+import Flex from "../../Flex";
+import Icon from "../Icon";
+import MapContent from "./MapContent";
+import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
-import Timer from "../Timer";
-import eye from "./../../assets/project-page/project-icons/eye.png";
+import Timer from "../../Timer";
+import magnify from "../../../assets/project-page/project-icons/magnify.png";
 
 const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
@@ -15,13 +15,14 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Icon icon={eye}></Icon>
+      <Icon icon={magnify}></Icon>
       <Timer launchDate={launchDate} />
     </Flex>
   );
 };
+
 const launchDate = "2021-03-21";
-const Eye = () => {
+const Map = () => {
   return (
     <Flex
       flex="auto"
@@ -33,10 +34,10 @@ const Eye = () => {
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={PreviewPage}
-        ProjectPage={EyeContent}
+        ProjectPage={MapContent}
       />
     </Flex>
   );
 };
 
-export default Eye;
+export default Map;
