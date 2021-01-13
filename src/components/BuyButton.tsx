@@ -46,7 +46,7 @@ const BuyButton: React.FC = () => {
       <Button
         role="link"
         onClick={redirectToCheckout(setError)}
-        fontSize={[0, 1, 3]}
+        fontSize={[0, 1, 2, 3]}
         background="transparent"
         fontStyle="uppercase"
         border={1}
@@ -54,8 +54,8 @@ const BuyButton: React.FC = () => {
         borderStyle="solid"
         height="fit-content"
         width="fit-content"
-        py={[1, 2, 3]}
-        px={[1, 2, 3]}
+        py={[1, 2, 2, 3]}
+        px={[1, 2, 2, 3]}
       >
         {t("buy-button.text")}
       </Button>

@@ -16,7 +16,7 @@ import { NavLink } from "react-router-dom";
 import NavMenu from "./NavMenu";
 import { PROJECTS_URL } from "../constants/router-urls";
 import React from "react";
-import alpha from "../assets/home-page/360-alpha.png";
+import alpha from "../assets/home-page/360-alpha.gif";
 import manifesto from "../assets/home-page/manifesto.png";
 import number from "../assets/home-page/number-one.png";
 import oxymore from "../assets/home-page/oxymore.png";
@@ -53,9 +53,6 @@ const AlphaLogo = styled.img<LayoutProps & SpaceProps>`
   max-width: 40vw;
   max-height: 60vh;
   transition: 1.5s;
-  &:hover {
-    transform: scale(1.01);
-  }
 `;
 
 const Home = () => {
