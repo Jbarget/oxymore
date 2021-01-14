@@ -16,6 +16,7 @@ import redirectToCheckout from "../helpers/redirectToCheckout";
 import styled from "styled-components";
 import theme from "./theme";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 const Button = styled.button<
   SpaceProps & TypographyProps & BorderProps & BackgroundProps & LayoutProps
@@ -40,13 +41,14 @@ const Button = styled.button<
 const BuyButton: React.FC = () => {
   const [error, setError] = useState<string>();
   const { t } = useTranslation();
+  const { pathname } = useLocation();
 
   return (
     <Fragment>
       {error && <p>{error}</p>}
       <Button
         role="link"
-        onClick={redirectToCheckout(setError)}
+        onClick={redirectToCheckout(setError, pathname)}
         fontSize={[0, 1, 3]}
         background="transparent"
         fontStyle="uppercase"

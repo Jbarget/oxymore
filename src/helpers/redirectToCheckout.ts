@@ -3,13 +3,14 @@ import allowedCountries from "../constants/stripe-allowed-countries";
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
-const successUrl = `${process.env.REACT_APP_BASE_URL}/oxymore`;
-const cancelUrl = `${process.env.REACT_APP_BASE_URL}/oxymore`;
-
 type SetErrorType = (errorMessage: string) => void;
 
-const redirectToCheckout = (setError: SetErrorType) => async () => {
+const redirectToCheckout = (
+  setError: SetErrorType,
+  redirectUrl: string
+) => async () => {
   try {
+    const urlWhenDone = `${process.env.REACT_APP_BASE_URL}${redirectUrl}`;
     // When the customer clicks on the button, redirect them to Checkout.
     const stripe = await stripePromise;
     if (!stripe) {
@@ -24,8 +25,8 @@ const redirectToCheckout = (setError: SetErrorType) => async () => {
         },
       ],
       mode: "payment",
-      successUrl,
-      cancelUrl,
+      successUrl: urlWhenDone,
+      cancelUrl: urlWhenDone,
       shippingAddressCollection: {
         allowedCountries,
       },
