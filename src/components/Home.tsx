@@ -21,6 +21,8 @@ import manifesto from "../assets/home-page/manifesto.png";
 import number from "../assets/home-page/number-one.png";
 import oxymore from "../assets/home-page/oxymore.png";
 import styled from "styled-components";
+import PreviewOrProjectPage from "./projects/PreviewOrProjectPage";
+import Loading from "./Loading";
 
 const ManifestoLink = styled(NavLink)<TypographyProps>`
   ${typography};
@@ -56,7 +58,7 @@ const AlphaLogo = styled.img<LayoutProps & SpaceProps>`
     transform: scale(1.01);
 `;
 
-const Home = () => {
+const HomeContent = () => {
   return (
     <Flex flex="auto" flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
@@ -79,6 +81,17 @@ const Home = () => {
         </ManifestoLink>
       </Flex>
     </Flex>
+  );
+};
+
+const Home = () => {
+  const launchDate = "2021-01-15";
+  return (
+    <PreviewOrProjectPage
+      launchDate={launchDate}
+      PreviewPage={Loading}
+      ProjectPage={HomeContent}
+    />
   );
 };
 

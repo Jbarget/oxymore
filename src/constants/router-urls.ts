@@ -3,7 +3,6 @@ export const ABOUT_URL = "/about";
 export const CONTACT_URL = "/contact";
 export const MANIFESTO_URL = "/manifesto";
 export const ADVERTISING_URL = "/advertising";
-export const OXYMORE_URL = "/oxymore";
 
 export const CONSCIOUS_SHOPPING_URL = `${PROJECTS_URL}/consciousshopping`;
 export const FASHION_EDITORIAL_URL = `${PROJECTS_URL}/fashioneditorial`;

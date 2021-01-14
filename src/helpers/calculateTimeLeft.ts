@@ -9,6 +9,7 @@ const calculateTimeLeft = (date: string): TimeLeft => {
   const difference =
     Number(new Date(date).getTime()) - Number(new Date().getTime());
 
+  // +1 day and -6 hours is so that the countdown ends at 6pm on the launchDate shown
   const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24) + 1);
   const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24) - 6;
   const minutesLeft = Math.floor((difference / 1000 / 60) % 60);

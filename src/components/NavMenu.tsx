@@ -3,7 +3,6 @@ import {
   ADVERTISING_URL,
   CONTACT_URL,
   MANIFESTO_URL,
-  OXYMORE_URL,
 } from "../constants/router-urls";
 import {
   ColorProps,
@@ -178,7 +177,7 @@ const NavMenu = () => {
           color="black"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <HomepageLink color="black" to={OXYMORE_URL}>
+          <HomepageLink color="black" to="/">
             OXYMORE
           </HomepageLink>
         </MenuButton>
