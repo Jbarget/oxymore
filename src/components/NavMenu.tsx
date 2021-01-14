@@ -18,7 +18,7 @@ import {
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import redirectToCheckout from "../helpers/redirectToCheckout";
 import theme from "./theme";
 import { useTranslation } from "react-i18next";
@@ -40,7 +40,7 @@ const overlayStyles = css`
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${props => props.isOpen && overlayStyles}
+  ${(props) => props.isOpen && overlayStyles}
 `;
 
 const Menu = styled.ul<TypographyProps & SpaceProps>`
@@ -112,13 +112,14 @@ const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
 const StripeMenuLink: React.FC = () => {
   const [error, setError] = useState<string>();
   const { t } = useTranslation();
+  const { pathname } = useLocation();
 
   return (
     <Fragment>
       {error && <p>{error}</p>}
       <MenuItem>
         <BuyLink
-          onClick={redirectToCheckout(setError)}
+          onClick={redirectToCheckout(setError, pathname)}
           fontSize={[5, 6, 7, 8]}
           color="black"
         >
@@ -194,7 +195,7 @@ const NavMenu = () => {
         </MenuButton>
 
         <Menu textAlign={["center", null, null, "start"]} p={4}>
-          {links.map(props => (
+          {links.map((props) => (
             <Link key={props.page} onClick={toggleMenuIsOpen} {...props} />
           ))}
           <StripeMenuLink />
