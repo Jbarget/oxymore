@@ -39,9 +39,8 @@ const HeaderLogo = () => {
 
 const Header = () => {
   const location = useLocation();
-  const hideHeaderViews = "/";
 
-  if (hideHeaderViews.includes(location.pathname)) {
+  if (location.pathname === "/") {
     return null;
   }
 
