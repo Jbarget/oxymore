@@ -29,7 +29,7 @@ const P = styled.p<TypographyProps & SpaceProps>`
   text-transform: uppercase;
 `;
 
-const Advertising: React.FC = () => {
+const Advertising = () => {
   const { t } = useTranslation();
   const fontSizes = [1, 2, 3, 3];
   const honestCoupons = t("advertising.honest-coupons");

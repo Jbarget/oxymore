@@ -31,7 +31,7 @@ const HeaderLogo = () => {
   const fontSizes = [1, 2, 3, 4];
 
   return (
-    <NavLink to="/oxymore">
+    <NavLink to="/">
       <H1 fontSize={fontSizes}>OXYMORE</H1>
     </NavLink>
   );
@@ -39,9 +39,8 @@ const HeaderLogo = () => {
 
 const Header = () => {
   const location = useLocation();
-  const hideHeaderViews = ["/", "/oxymore"];
 
-  if (hideHeaderViews.includes(location.pathname)) {
+  if (location.pathname === "/") {
     return null;
   }
 
