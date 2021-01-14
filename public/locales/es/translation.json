@@ -9,11 +9,8 @@
     "manifesto": "MANIFESTO",
     "advertising": "PUBLICIDAD",
     "about": "NOSOTROS",
-    "contact": "CONTACTO",
+    "contact": "CONTACT",
     "buy": "COMPRAR"
-  },
-  "contact": {
-    "header": "Contacto"
   },
   "manifesto": {
     "header": "Manifesto",
@@ -26,9 +23,9 @@
     "team": "NUESTRO EQUIPO AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL FERNÁNDEZ GRAPHIC DESIGNER"
   },
   "advertising": {
-    "salazraki": "SOFIA ALAZRAKI @SALAZRAKII DISEÑADO POR MATTEO GUARNACCIA @EMMEGU",
-    "voltrova": "VOLTROVA @VOLTROVA_FOTOGRAFÍA: JOACO SACCONE @JOAC_ DIRECCIÓN CREATIVA: MAYA CAMACHO @MAYACAL , JULIANA CASTAÑEDA @STERLING_SILVERRRRR Y AITOR COSTA @AITORCOSTA EDICIÓN: NIL FERNÀNDEZ @NILFERNANDEZ",
-    "honest-coupons": "DISEÑADO POR NIL FERNÀNDEZ @NILFERNANDEZ"
+    "salazraki": "SOFIA ALAZRAKI <a href=\"https://www.instagram.com/salazrakii/\" target=\"_blank\" rel=\"noopener noreferrer\">@SALAZRAKII</a> DISEÑADO POR MATTEO GUARNACCIA <a href=\"https://www.instagram.com/emmegu/\" target=\"_blank\" rel=\"noopener noreferrer\">@EMMEGU</a>",
+    "voltrova": "VOLTROVA <a href=\"https://www.instagram.com/voltrova_/\" target=\"_blank\" rel=\"noopener noreferrer\">@VOLTROVA_</a> FOTOGRAFÍA: JOACO SACCONE <a href=\"https://www.instagram.com/joac_/\" target=\"_blank\" rel=\"noopener noreferrer\">@JOAC_</a> DIRECCIÓN CREATIVA: MAYA CAMACHO <a href=\"https://www.instagram.com/mayacal/\" target=\"_blank\" rel=\"noopener noreferrer\">@MAYACAL</a>, JULIANA CASTAÑEDA <a href=\"https://www.instagram.com/sterling_silverrrrr/\" target=\"_blank\" rel=\"noopener noreferrer\">@STERLING_SILVERRRRR</a> Y AITOR COSTA <a href=\"https://www.instagram.com/aitorcosta_/\" target=\"_blank\" rel=\"noopener noreferrer\">@AITORCOSTA_</a> EDICIÓN: NIL FERNÀNDEZ <a href=\"https://www.instagram.com/nilfernandez/\" target=\"_blank\" rel=\"noopener noreferrer\">@NILFERNANDEZ</a>",
+    "honest-coupons": "DISEÑADO POR NIL FERNÀNDEZ <a href=\"https://www.instagram.com/nilfernandez/\" target=\"_blank\" rel=\"noopener noreferrer\"> @NILFERNANDEZ<a/>"
   },
   "conscious-shopping": {
     "nadia": {

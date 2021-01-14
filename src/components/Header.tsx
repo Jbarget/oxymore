@@ -16,10 +16,10 @@ import styled from "styled-components";
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${typography};
+  transition: transform 0.3s;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     color: white;
-    font-weight: 500;
   }
 `;
 

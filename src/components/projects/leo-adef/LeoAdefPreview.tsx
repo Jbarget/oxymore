@@ -1,16 +1,8 @@
-import { LayoutProps, layout } from "styled-system";
-
 import Flex from "../../Flex";
-import { Link } from "react-router-dom";
-import { PROJECTS_URL } from "../../../constants/router-urls";
+import Icon from "../Icon";
 import React from "react";
 import Timer from "../../Timer";
-import spider from "../../../assets/project-page/project-icons/spider.png";
-import styled from "styled-components";
-
-const Img = styled.img<LayoutProps>`
-  ${layout};
-`;
+import knife from "../../../assets/project-page/project-icons/knife.png";
 
 const LeoAdefPreview: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   return (
@@ -21,11 +13,7 @@ const LeoAdefPreview: React.FC<{ launchDate: string }> = ({ launchDate }) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Link to={PROJECTS_URL}>
-        <Flex justifyContent="center" alignItems="center">
-          <Img src={spider} alt="spider icon" maxWidth="30%" />
-        </Flex>
-      </Link>
+      <Icon icon={knife}></Icon>
       <Timer launchDate={launchDate} />
     </Flex>
   );

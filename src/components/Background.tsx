@@ -22,7 +22,7 @@ import marbleBackground from "../assets/backgrounds/background.png";
 import theme from "./theme";
 import { useLocation } from "react-router-dom";
 
-const black = `${theme.colors.black}`;
+const black = `${theme.colors.copyTwo}`;
 
 type Background = typeof black | typeof marbleBackground;
 
