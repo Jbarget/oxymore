@@ -20,11 +20,11 @@ const redirectToCheckout = (
     await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: `${process.env.REACT_APP_STRIPE_PRICE_ID_1}`,
+          price: `${process.env.REACT_APP_STRIPE_MAGAZINE_PRICE_ID}`,
           quantity: 1,
         },
         {
-          price: `${process.env.REACT_APP_STRIPE_PRICE_ID_2}`,
+          price: `${process.env.REACT_APP_STRIPE_SHIPPING_PRICE_ID}`,
           quantity: 1,
         },
       ],
