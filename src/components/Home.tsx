@@ -12,17 +12,17 @@ import {
 import BuyButton from "./BuyButton";
 import Flex from "./Flex";
 import LanguageButtons from "./LanguageButtons";
+import Loading from "./Loading";
 import { NavLink } from "react-router-dom";
 import NavMenu from "./NavMenu";
 import { PROJECTS_URL } from "../constants/router-urls";
+import PreviewOrProjectPage from "./projects/PreviewOrProjectPage";
 import React from "react";
 import alpha from "../assets/home-page/360-alpha.png";
 import manifesto from "../assets/home-page/manifesto.png";
 import number from "../assets/home-page/number-one.png";
 import oxymore from "../assets/home-page/oxymore.png";
 import styled from "styled-components";
-import PreviewOrProjectPage from "./projects/PreviewOrProjectPage";
-import Loading from "./Loading";
 
 const ManifestoLink = styled(NavLink)<TypographyProps>`
   ${typography};
