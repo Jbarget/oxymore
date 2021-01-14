@@ -14,7 +14,6 @@ import {
   MANIFESTO_URL,
   MAP_URL,
   MARC_MEDINA_URL,
-  OXYMORE_URL,
   PROJECTS_URL,
 } from "./constants/router-urls";
 import React, { Suspense } from "react";
@@ -36,7 +35,6 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import KaiLandre from "./components/projects/kai-landre/KaiLandre";
 import LeoAdef from "./components/projects/leo-adef/LeoAdef";
-import Loading from "./components/Loading";
 import Manifesto from "./components/Manifesto";
 import Map from "./components/projects/map/Map";
 import MarcMedina from "./components/projects/marc-medina/MarcMedina";
@@ -53,8 +51,7 @@ const App = () => {
             <Suspense fallback={<div>Loading</div>}>
               <Header />
               <Switch>
-                <Route path="/" exact component={Loading} />
-                <Route path={OXYMORE_URL} exact component={Home} />
+                <Route path="/" exact component={Home} />
                 <Route path={CONTACT_URL} exact component={Contact} />
                 <Route path={MANIFESTO_URL} exact component={Manifesto} />
                 <Route path={ABOUT_URL} exact component={About} />
