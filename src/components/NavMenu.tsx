@@ -50,10 +50,10 @@ const Menu = styled.ul<TypographyProps & SpaceProps>`
 const MenuButton = styled.button<TypographyProps & PositionProps & ColorProps>`
   border: none;
   background: transparent;
+  transition: transform 0.3s;
   &:hover {
-    transform: scale(1.02);
-    color: white;
-    font-weight: 500;
+    transform: scale(1.01);
+    color: ${theme.colors.copyOne};
   }
   ${typography};
   ${position};
@@ -71,7 +71,7 @@ const MenuItem = styled.li`
 const HomepageLink = styled(NavLink)<ColorProps>`
   ${color};
   &:hover {
-    color: white;
+    color: ${theme.colors.copyOne};
   }
 `;
 
@@ -79,7 +79,7 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
   ${typography};
   ${color};
   &:hover {
-    color: white;
+    color: ${theme.colors.copyOne};
   }
 `;
 
@@ -87,7 +87,7 @@ const BuyLink = styled.button<TypographyProps & ColorProps>`
   border: none;
   background: transparent;
   &:hover {
-    color: white;
+    color: ${theme.colors.copyOne};
   }
   ${typography};
   ${color};
@@ -101,7 +101,11 @@ interface LinkProps {
 const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
     <MenuItem onClick={onClick}>
-      <MenuLink to={url} fontSize={[5, 6, 7, 8]} color="black">
+      <MenuLink
+        to={url}
+        fontSize={[5, 6, 7, 8]}
+        color={`${theme.colors.copyTwo}`}
+      >
         {page}
       </MenuLink>
     </MenuItem>
@@ -120,7 +124,7 @@ const StripeMenuLink: React.FC = () => {
         <BuyLink
           onClick={redirectToCheckout(setError, pathname)}
           fontSize={[5, 6, 7, 8]}
-          color="black"
+          color={`${theme.colors.copyTwo}`}
         >
           {t("nav.buy")}
         </BuyLink>
@@ -174,7 +178,7 @@ const NavMenu = () => {
           position="absolute"
           left={24}
           top={24}
-          color="black"
+          color={`${theme.colors.copyTwo}`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <HomepageLink color="black" to="/">
@@ -188,7 +192,7 @@ const NavMenu = () => {
           position="absolute"
           right={30}
           top={24}
-          color="black"
+          color={`${theme.colors.copyTwo}`}
         >
           BACK
         </MenuButton>

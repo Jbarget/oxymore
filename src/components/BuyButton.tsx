@@ -15,8 +15,8 @@ import React, { Fragment, useState } from "react";
 import redirectToCheckout from "../helpers/redirectToCheckout";
 import styled from "styled-components";
 import theme from "./theme";
-import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Button = styled.button<
   SpaceProps & TypographyProps & BorderProps & BackgroundProps & LayoutProps
@@ -27,9 +27,8 @@ const Button = styled.button<
   text-transform: uppercase;
   transition: transform 0.5s;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     color: white;
-    font-weight: 500;
   }
   ${space};
   ${typography};
@@ -53,11 +52,12 @@ const BuyButton: React.FC = () => {
         background="transparent"
         fontStyle="uppercase"
         border={1}
+        borderRadius={3}
         borderStyle="solid"
         height="fit-content"
         width="fit-content"
-        py={[1, 1, 2, 3]}
-        px={[1, 1, 2, 3]}
+        py={[1, 2, 2, 3]}
+        px={[1, 2, 2, 3]}
       >
         {t("buy-button.text")}
       </Button>
