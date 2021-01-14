@@ -9,6 +9,7 @@ import {
 import { NavLink, useLocation } from "react-router-dom";
 
 import Flex from "./Flex";
+import { HOME_URL } from "../constants/router-urls";
 import LanguageButtons from "./LanguageButtons";
 import NavMenu from "./NavMenu";
 import React from "react";
@@ -31,7 +32,7 @@ const HeaderLogo = () => {
   const fontSizes = [1, 2, 3, 4];
 
   return (
-    <NavLink to="/">
+    <NavLink to={HOME_URL}>
       <H1 fontSize={fontSizes}>OXYMORE</H1>
     </NavLink>
   );
@@ -40,7 +41,7 @@ const HeaderLogo = () => {
 const Header = () => {
   const location = useLocation();
 
-  if (location.pathname === "/") {
+  if (location.pathname === `${HOME_URL}`) {
     return null;
   }
 
