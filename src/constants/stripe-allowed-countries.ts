@@ -1,10 +1,8 @@
+// limited to European countries
 const allowedCountries = [
-  "US",
   "AT",
-  "AU",
   "BE",
   "BG",
-  "CA",
   "CH",
   "CY",
   "CZ",
@@ -16,7 +14,6 @@ const allowedCountries = [
   "FR",
   "GB",
   "GR",
-  "HK",
   "IE",
   "IT",
   "LT",
@@ -25,12 +22,10 @@ const allowedCountries = [
   "MT",
   "NL",
   "NO",
-  "NZ",
   "PL",
   "PT",
   "RO",
   "SE",
-  "SG",
   "SI",
   "SK",
 ];
