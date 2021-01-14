@@ -1,5 +1,5 @@
-import { loadStripe } from "@stripe/stripe-js";
 import allowedCountries from "../constants/stripe-allowed-countries";
+import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_API_KEY}`);
 
@@ -20,7 +20,11 @@ const redirectToCheckout = (
     await stripe.redirectToCheckout({
       lineItems: [
         {
-          price: `${process.env.REACT_APP_STRIPE_PRICE_ID}`,
+          price: `${process.env.REACT_APP_STRIPE_PRICE_ID_1}`,
+          quantity: 1,
+        },
+        {
+          price: `${process.env.REACT_APP_STRIPE_PRICE_ID_2}`,
           quantity: 1,
         },
       ],
