@@ -13,11 +13,11 @@ const GlobalStyle = createGlobalStyle`
   * {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: ${theme.colors.athensGray} transparent;
+    scrollbar-color: ${theme.colors.copyOne} transparent;
    
     &::-webkit-scrollbar-thumb {
       border-radius: 0;
-      background-color: ${theme.colors.athensGray};
+      background-color: ${theme.colors.copyOne};
     }
   }
   html {
@@ -32,8 +32,8 @@ const GlobalStyle = createGlobalStyle`
     flex: auto;
     font-family: ${theme.fonts.primary};
     text-decoration: none;
-    color: ${theme.colors.athensGray};
-    background-color: ${theme.colors.black};
+    color: ${theme.colors.copyOne};
+    background-color: ${theme.colors.copyTwo};
   }
   #root {
     display: flex;
@@ -42,14 +42,14 @@ const GlobalStyle = createGlobalStyle`
   }
   button {
     cursor: pointer;
-    color: ${theme.colors.athensGray};
+    color: ${theme.colors.copyOne};
     outline: none;
     font-family: ${theme.fonts.primary};
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
   a {
     text-decoration: none;
-    color: ${theme.colors.athensGray};
+    color: ${theme.colors.copyOne};
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 `;

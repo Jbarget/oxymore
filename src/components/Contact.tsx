@@ -3,36 +3,28 @@ import { SpaceProps, TypographyProps, space, typography } from "styled-system";
 import Flex from "./Flex";
 import React from "react";
 import styled from "styled-components";
-import theme from "./theme";
-import { useTranslation } from "react-i18next";
 
-type ContactPageProps = SpaceProps & TypographyProps;
-
-const H1 = styled.h1<ContactPageProps>`
+const H1 = styled.h1<SpaceProps & TypographyProps>`
   ${space};
   ${typography};
   text-transform: uppercase;
 `;
 
-const ContactInfo = styled.p<ContactPageProps>`
+const ContactInfo = styled.p<SpaceProps & TypographyProps>`
   ${space};
   ${typography};
   text-transform: uppercase;
 `;
 
-const EmailLink = styled.a<ContactPageProps>`
-  transition: 2s;
-  &:hover {
-    ::before,
-    ::after {
-      content: "${" "}+${" "}";
-    }
-  }
+const EmailLink = styled.a` 
+&:hover {
+  ::before,
+  ::after {
+    content: "${" "}+${" "}";
+}
 `;
 
 const Contact = () => {
-  const { t } = useTranslation();
-
   return (
     <Flex flex="auto" alignItems="center">
       <div>
@@ -41,7 +33,11 @@ const Contact = () => {
         </H1>
         <ContactInfo fontSize={[4, 4, 4, 5]}>
           FOR INQUIRIES PLEASE CONTACT{" "}
-          <EmailLink href="mailto:ox@oxymoremagazine.com" target="_blank">
+          <EmailLink
+            href="mailto:ox@oxymoremagazine.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             OX@OXYMOREMAGAZINE.COM
           </EmailLink>
         </ContactInfo>
