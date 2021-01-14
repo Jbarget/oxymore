@@ -28,7 +28,6 @@ const LangButton = styled.button<
   background: transparent;
   border: none;
   transition: transform 0.3s;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:hover {
     transform: scale(1.05);
     color: white;
