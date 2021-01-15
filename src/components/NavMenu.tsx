@@ -54,7 +54,7 @@ const MenuButton = styled.button<TypographyProps & PositionProps & ColorProps>`
   transition: transform 0.3s;
   &:hover {
     transform: scale(1.01);
-    color: ${theme.colors.copyOne};
+    color: white;
   }
   ${typography};
   ${position};
