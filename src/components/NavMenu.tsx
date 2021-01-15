@@ -2,6 +2,7 @@ import {
   ABOUT_URL,
   ADVERTISING_URL,
   CONTACT_URL,
+  HOME_URL,
   MANIFESTO_URL,
 } from "../constants/router-urls";
 import {
@@ -14,10 +15,10 @@ import {
   space,
   typography,
 } from "styled-system";
+import { NavLink, useLocation } from "react-router-dom";
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { NavLink, useLocation } from "react-router-dom";
 import redirectToCheckout from "../helpers/redirectToCheckout";
 import theme from "./theme";
 import { useTranslation } from "react-i18next";
@@ -39,7 +40,7 @@ const overlayStyles = css`
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${(props) => props.isOpen && overlayStyles}
+  ${props => props.isOpen && overlayStyles}
 `;
 
 const Menu = styled.ul<TypographyProps & SpaceProps>`
@@ -181,11 +182,10 @@ const NavMenu = () => {
           color={`${theme.colors.copyTwo}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <HomepageLink color="black" to="/">
+          <HomepageLink color="black" to={HOME_URL}>
             OXYMORE
           </HomepageLink>
         </MenuButton>
-
         <MenuButton
           onClick={() => setIsOpen(false)}
           fontSize={fontSizes}
@@ -196,9 +196,8 @@ const NavMenu = () => {
         >
           BACK
         </MenuButton>
-
         <Menu textAlign={["center", null, null, "start"]} p={4}>
-          {links.map((props) => (
+          {links.map(props => (
             <Link key={props.page} onClick={toggleMenuIsOpen} {...props} />
           ))}
           <StripeMenuLink />

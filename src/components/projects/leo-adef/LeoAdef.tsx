@@ -11,7 +11,7 @@ const Main = styled(Flex)<TypographyProps>`
   ${typography};
 `;
 
-const launchDate = "2021-03-21";
+const launchDate = "2021-01-29";
 const LeoAdef = () => {
   return (
     <Main

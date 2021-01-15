@@ -20,7 +20,7 @@ const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
     </Flex>
   );
 };
-const launchDate = "2021-03-21";
+const launchDate = "2021-02-12";
 const Eye = () => {
   return (
     <Flex
