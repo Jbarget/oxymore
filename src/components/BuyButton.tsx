@@ -15,6 +15,7 @@ import React, { Fragment, useState } from "react";
 import redirectToCheckout from "../helpers/redirectToCheckout";
 import styled from "styled-components";
 import theme from "./theme";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Button = styled.button<
@@ -26,9 +27,8 @@ const Button = styled.button<
   text-transform: uppercase;
   transition: transform 0.5s;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     color: white;
-    font-weight: 500;
   }
   ${space};
   ${typography};
@@ -40,22 +40,24 @@ const Button = styled.button<
 const BuyButton: React.FC = () => {
   const [error, setError] = useState<string>();
   const { t } = useTranslation();
+  const { pathname } = useLocation();
 
   return (
     <Fragment>
       {error && <p>{error}</p>}
       <Button
         role="link"
-        onClick={redirectToCheckout(setError)}
+        onClick={redirectToCheckout(setError, pathname)}
         fontSize={[0, 1, 3]}
         background="transparent"
         fontStyle="uppercase"
         border={1}
+        borderRadius={3}
         borderStyle="solid"
         height="fit-content"
         width="fit-content"
-        py={[1, 1, 2, 3]}
-        px={[1, 1, 2, 3]}
+        py={[1, 2, 2, 3]}
+        px={[1, 2, 2, 3]}
       >
         {t("buy-button.text")}
       </Button>

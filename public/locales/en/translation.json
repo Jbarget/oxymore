@@ -12,9 +12,6 @@
     "contact": "CONTACT",
     "buy": "BUY"
   },
-  "contact": {
-    "header": "Contact"
-  },
   "manifesto": {
     "header": "Manifesto",
     "left-column": "Classy anarchist connections make for genuinely diverse utopias in which noble social fights by minorities educate the ignorant and empower the humble and naïf. An oniric queer love revolution, elegantly kitsch and subtly absurd. An anti design dystopia created by aesthetic oxymorons. Conexiones anarquistas",
@@ -26,9 +23,9 @@
     "team": "OUR TEAM AITOR COSTA EDITOR-IN-CHIEF MICAELA RUIZ MANAGING EDITOR RODRIGO AGUDO HEAD OF COMMUNICATION OLGA PIPNIK ART DIRECTOR JUAN CAMILO RODRIGUEZ FASHION EDITOR GLORIA FERRER EXECUTIVE EDITOR NIL FERNÁNDEZ GRAPHIC DESIGNER"
   },
   "advertising": {
-    "salazraki": "SOFIA ALAZRAKI  @SALAZRAKII ARTWORK BY MATTEO GUARNACCIA @EMMEGU",
-    "voltrova": "VOLTROVA @VOLTROVA_PHOTOGRAPHY: JOACO SACCONE @JOAC_ CREATIVE DIRECTION: MAYA CAMACHO @MAYACAL , JULIANA CASTAÑEDA @STERLING_SILVERRRRR AND AITOR COSTA @AITORCOSTA_ EDIT: NIL FERNÀNDEZ @NILFERNANDEZ",
-    "honest-coupons": "ARTWORK BY NIL FERNÀNDEZ @NILFERNANDEZ"
+    "salazraki": "SOFIA ALAZRAKI <a href=\"https://www.instagram.com/salazrakii/\" target=\"_blank\" rel=\"noopener noreferrer\">@SALAZRAKII</a> ARTWORK BY MATTEO GUARNACCIA <a href=\"https://www.instagram.com/emmegu/\" target=\"_blank\" rel=\"noopener noreferrer\">@EMMEGU</a>",
+    "voltrova": "VOLTROVA <a href=\"https://www.instagram.com/voltrova_/\" target=\"_blank\" rel=\"noopener noreferrer\">@VOLTROVA_</a> PHOTOGRAPHY: JOACO SACCONE <a href=\"https://www.instagram.com/joac_/\" target=\"_blank\" rel=\"noopener noreferrer\">@JOAC_</a> CREATIVE DIRECTION: MAYA CAMACHO <a href=\"https://www.instagram.com/mayacal/\" target=\"_blank\" rel=\"noopener noreferrer\">@MAYACAL</a>, JULIANA CASTAÑEDA <a href=\"https://www.instagram.com/sterling_silverrrrr/\" target=\"_blank\" rel=\"noopener noreferrer\">@STERLING_SILVERRRRR</a> AND AITOR COSTA <a href=\"https://www.instagram.com/aitorcosta_/\" target=\"_blank\" rel=\"noopener noreferrer\">@AITORCOSTA_</a> EDIT: NIL FERNÀNDEZ <a href=\"https://www.instagram.com/nilfernandez/\" target=\"_blank\" rel=\"noopener noreferrer\">@NILFERNANDEZ</a>",
+    "honest-coupons": "ARTWORK BY NIL FERNÀNDEZ <a href=\"https://www.instagram.com/nilfernandez/\" target=\"_blank\" rel=\"noopener noreferrer\"> @NILFERNANDEZ<a/>"
   },
   "conscious-shopping": {
     "nadia": {

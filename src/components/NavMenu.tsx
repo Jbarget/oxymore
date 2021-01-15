@@ -3,7 +3,6 @@ import {
   ADVERTISING_URL,
   CONTACT_URL,
   MANIFESTO_URL,
-  OXYMORE_URL,
 } from "../constants/router-urls";
 import {
   ColorProps,
@@ -18,7 +17,7 @@ import {
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import redirectToCheckout from "../helpers/redirectToCheckout";
 import theme from "./theme";
 import { useTranslation } from "react-i18next";
@@ -40,7 +39,7 @@ const overlayStyles = css`
 
 const Overlay = styled.dialog<{ isOpen: boolean }>`
   display: none;
-  ${props => props.isOpen && overlayStyles}
+  ${(props) => props.isOpen && overlayStyles}
 `;
 
 const Menu = styled.ul<TypographyProps & SpaceProps>`
@@ -51,10 +50,10 @@ const Menu = styled.ul<TypographyProps & SpaceProps>`
 const MenuButton = styled.button<TypographyProps & PositionProps & ColorProps>`
   border: none;
   background: transparent;
+  transition: transform 0.3s;
   &:hover {
-    transform: scale(1.02);
-    color: white;
-    font-weight: 500;
+    transform: scale(1.01);
+    color: ${theme.colors.copyOne};
   }
   ${typography};
   ${position};
@@ -72,7 +71,7 @@ const MenuItem = styled.li`
 const HomepageLink = styled(NavLink)<ColorProps>`
   ${color};
   &:hover {
-    color: white;
+    color: ${theme.colors.copyOne};
   }
 `;
 
@@ -80,7 +79,7 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
   ${typography};
   ${color};
   &:hover {
-    color: white;
+    color: ${theme.colors.copyOne};
   }
 `;
 
@@ -88,7 +87,7 @@ const BuyLink = styled.button<TypographyProps & ColorProps>`
   border: none;
   background: transparent;
   &:hover {
-    color: white;
+    color: ${theme.colors.copyOne};
   }
   ${typography};
   ${color};
@@ -102,7 +101,11 @@ interface LinkProps {
 const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
     <MenuItem onClick={onClick}>
-      <MenuLink to={url} fontSize={[5, 6, 7, 8]} color="black">
+      <MenuLink
+        to={url}
+        fontSize={[5, 6, 7, 8]}
+        color={`${theme.colors.copyTwo}`}
+      >
         {page}
       </MenuLink>
     </MenuItem>
@@ -112,15 +115,16 @@ const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
 const StripeMenuLink: React.FC = () => {
   const [error, setError] = useState<string>();
   const { t } = useTranslation();
+  const { pathname } = useLocation();
 
   return (
     <Fragment>
       {error && <p>{error}</p>}
       <MenuItem>
         <BuyLink
-          onClick={redirectToCheckout(setError)}
+          onClick={redirectToCheckout(setError, pathname)}
           fontSize={[5, 6, 7, 8]}
-          color="black"
+          color={`${theme.colors.copyTwo}`}
         >
           {t("nav.buy")}
         </BuyLink>
@@ -174,10 +178,10 @@ const NavMenu = () => {
           position="absolute"
           left={24}
           top={24}
-          color="black"
+          color={`${theme.colors.copyTwo}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <HomepageLink color="black" to={OXYMORE_URL}>
+          <HomepageLink color="black" to="/">
             OXYMORE
           </HomepageLink>
         </MenuButton>
@@ -188,13 +192,13 @@ const NavMenu = () => {
           position="absolute"
           right={30}
           top={24}
-          color="black"
+          color={`${theme.colors.copyTwo}`}
         >
           BACK
         </MenuButton>
 
         <Menu textAlign={["center", null, null, "start"]} p={4}>
-          {links.map(props => (
+          {links.map((props) => (
             <Link key={props.page} onClick={toggleMenuIsOpen} {...props} />
           ))}
           <StripeMenuLink />

@@ -14,8 +14,8 @@ const KaiLandreContent: React.FC = () => {
   );
 };
 
-const launchDate = "2021-01-21";
-const KaiLandre: React.FC = () => {
+const launchDate = "2021-03-21";
+const KaiLandre = () => {
   return (
     <Flex flex="auto" justifyContent="center" alignItems="center">
       <PreviewOrProjectPage

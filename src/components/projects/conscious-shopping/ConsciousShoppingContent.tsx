@@ -67,7 +67,7 @@ const Arrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
 const TextContainer = styled.div`
   overflow-y: scroll;
   ::-webkit-scrollbar {
-    scrollbar-color: ${theme.colors.black} transparent;
+    scrollbar-color: ${theme.colors.copyTwo} transparent;
   }
 `;
 
