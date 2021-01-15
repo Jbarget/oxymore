@@ -23,10 +23,6 @@ const redirectToCheckout = (
           price: `${process.env.REACT_APP_STRIPE_MAGAZINE_PRICE_ID}`,
           quantity: 1,
         },
-        {
-          price: `${process.env.REACT_APP_STRIPE_SHIPPING_PRICE_ID}`,
-          quantity: 1,
-        },
       ],
       mode: "payment",
       successUrl: urlWhenDone,
