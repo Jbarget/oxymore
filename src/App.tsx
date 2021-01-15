@@ -9,6 +9,7 @@ import {
   EROTIC_STORIES_URL,
   EYES_URL,
   FASHION_EDITORIAL_URL,
+  HOME_URL,
   KAI_LANDRE_URL,
   LEO_ADEF_URL,
   MANIFESTO_URL,
@@ -51,7 +52,7 @@ const App = () => {
             <Suspense fallback={<div>Loading</div>}>
               <Header />
               <Switch>
-                <Route path="/" exact component={Home} />
+                <Route path={HOME_URL} exact component={Home} />
                 <Route path={CONTACT_URL} exact component={Contact} />
                 <Route path={MANIFESTO_URL} exact component={Manifesto} />
                 <Route path={ABOUT_URL} exact component={About} />

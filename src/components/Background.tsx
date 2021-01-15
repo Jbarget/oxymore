@@ -7,6 +7,7 @@ import {
   EROTIC_STORIES_URL,
   EYES_URL,
   FASHION_EDITORIAL_URL,
+  HOME_URL,
   KAI_LANDRE_URL,
   LEO_ADEF_URL,
   MANIFESTO_URL,
@@ -36,11 +37,11 @@ const BackgroundElement = styled.div<{ background: Background }>`
   background-size: cover;
   height: 100%;
   z-index: ${theme.zIndexes.behind};
-  ${(props) =>
+  ${props =>
     props.background === `${black}`
       ? `background-color: ${black}`
       : `background: url(${props.background});`}
-  ${(props) =>
+  ${props =>
     props.background === eyeProjectBackground && eyeInteractionBackgroundStyles}
 `;
 
@@ -49,7 +50,7 @@ const eyeInteractionBackgroundStyles = css`
 `;
 
 const getBackground = (pathname: string): Background => {
-  const pagesWithMarbleBG = ["/", PROJECTS_URL];
+  const pagesWithMarbleBG = [HOME_URL, PROJECTS_URL];
   const pagesWithBlackBG = [
     MANIFESTO_URL,
     ADVERTISING_URL,
