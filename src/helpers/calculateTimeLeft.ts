@@ -6,14 +6,17 @@ export interface TimeLeft {
 }
 
 const calculateTimeLeft = (date: string): TimeLeft => {
+  // +18 hours is so that the countdown ends at 6pm on the launchDate shown
+  const hourInMilliseconds = 60 * 60 * 1000;
   const difference =
-    Number(new Date(date).getTime()) - Number(new Date().getTime());
+    Number(new Date(date).getTime()) -
+    Number(new Date().getTime()) +
+    18 * hourInMilliseconds;
 
-  // +18 hours +60 minutes and +60 seconds so that the countdown ends at 6pm on the launchDate shown
   const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24) + 18;
-  const minutesLeft = Math.floor((difference / 1000 / 60) % 60) + 60;
-  const secondsLeft = Math.floor((difference / 1000) % 60) + 60;
+  const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutesLeft = Math.floor((difference / 1000 / 60) % 60);
+  const secondsLeft = Math.floor((difference / 1000) % 60);
 
   const timeLeft = {
     days: daysLeft < 0 ? 0 : daysLeft,
