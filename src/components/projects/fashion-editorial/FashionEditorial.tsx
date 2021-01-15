@@ -4,7 +4,7 @@ import Flex from "../../Flex";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 
-const launchDate = "2021-01-21";
+const launchDate = "2021-02-05";
 const FashionEditorial = () => {
   return (
     <Flex
