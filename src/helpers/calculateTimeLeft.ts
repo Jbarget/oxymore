@@ -11,7 +11,7 @@ const calculateTimeLeft = (date: string): TimeLeft => {
   const difference =
     Number(new Date(date).getTime()) -
     Number(new Date().getTime()) +
-    18 * hourInMilliseconds;
+    17 * hourInMilliseconds;
 
   const daysLeft = Math.floor(difference / (1000 * 60 * 60 * 24));
   const hoursLeft = Math.floor((difference / (1000 * 60 * 60)) % 24);
