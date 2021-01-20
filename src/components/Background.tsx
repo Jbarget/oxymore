@@ -33,9 +33,10 @@ const BackgroundElement = styled.div<{ background: Background }>`
   right: 0;
   bottom: 0;
   left: 0;
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  width: 100%;
   z-index: ${theme.zIndexes.behind};
   ${props =>
     props.background === `${black}`
@@ -82,7 +83,7 @@ const Background: React.FC = ({ children }) => {
   const background = getBackground(location.pathname);
 
   return (
-    <Flex flex="auto" flexDirection="column">
+    <Flex flex="auto">
       <BackgroundElement background={background} />
       {children}
     </Flex>

@@ -20,30 +20,29 @@ const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
   }
 `;
 
-const KaiLandreContent: React.FC = () => {
+const KaiLandreContent = () => {
   const url = "https://www.youtube.com/watch?v=AGSH_acR4wA";
 
   return (
     <Fragment>
-      <Flex flex="auto" height="100%" width="100%">
+      <Flex flex="auto" height={["60vh", "60vh", "60vh", "80vh"]}>
         <ReactPlayer
           url={url}
+          position="relative"
+          width="100%"
+          height="100%"
           controls
           playing
           muted
-          height="100%"
-          width="100%"
-          position="relative"
-          zIndex={theme.zIndexes.behind}
+          zindex={theme.zIndexes.behind}
         ></ReactPlayer>
         <ReturnToProjectsPage
           to={PROJECTS_URL}
-          maxWidth={80}
-          zIndex={theme.zIndexes.inFront}
+          width={80}
           position="absolute"
-          display={["none", "none", "none", "block"]}
-          right={100}
-          bottom={20}
+          right={60}
+          bottom={100}
+          display={["none", "none", "block", "block"]}
         >
           <img src={dragon} alt="dragon icon" />
         </ReturnToProjectsPage>
@@ -55,7 +54,7 @@ const KaiLandreContent: React.FC = () => {
 const launchDate = "2020-01-22";
 const KaiLandre = () => {
   return (
-    <Flex flex="auto" height={theme.heights.belowHeader} width="100%">
+    <Flex flex="auto">
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={KaiLandrePreview}
