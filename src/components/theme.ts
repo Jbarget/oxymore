@@ -64,10 +64,6 @@ const borders = {
   whiteThin: "1px solid white",
 };
 
-const heights = {
-  belowHeader: "calc(100vh - 24px)",
-};
-
 const theme = {
   space: {
     ...space,
@@ -85,9 +81,6 @@ const theme = {
   },
   zIndexes: {
     ...zIndexes,
-  },
-  heights: {
-    ...heights,
   },
 };
 
