@@ -6,7 +6,7 @@ export interface TimeLeft {
 }
 
 const calculateTimeLeft = (date: string): TimeLeft => {
-  // +12 hours is so that the countdown ends at 1pm CET on the launchDate shown
+  // +12 hours is so that the countdown ends at +13 hours CET on the launchDate shown
   const hourInMilliseconds = 60 * 60 * 1000;
   const difference =
     Number(new Date(date).getTime()) -
