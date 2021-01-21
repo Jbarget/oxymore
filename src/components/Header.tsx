@@ -24,10 +24,6 @@ const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   }
 `;
 
-const Container = styled.div<LayoutProps>`
-  ${layout};
-`;
-
 const HeaderLogo = () => {
   const fontSizes = [1, 2, 3, 4];
 
@@ -53,10 +49,10 @@ const Header = () => {
       pb={6}
     >
       <HeaderLogo />
-      <Container display="flex">
+      <Flex>
         <LanguageButtons />
         <NavMenu />
-      </Container>
+      </Flex>
     </Flex>
   );
 };
