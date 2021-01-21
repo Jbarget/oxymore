@@ -51,7 +51,7 @@ const KaiLandreContent = () => {
   );
 };
 
-const launchDate = "2020-01-22";
+const launchDate = "2021-01-22";
 const KaiLandre = () => {
   return (
     <Flex flex="auto">
