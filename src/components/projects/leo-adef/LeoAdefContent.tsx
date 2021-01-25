@@ -5,6 +5,7 @@ import React from "react";
 import april from "../../../assets/project-page/leo-adef/4-APRIL.png";
 import august from "../../../assets/project-page/leo-adef/8-AUGUST.png";
 import december from "../../../assets/project-page/leo-adef/12-DECEMBER.png";
+import february from "../../../assets/project-page/leo-adef/2-FEBRUARY.png";
 import january from "../../../assets/project-page/leo-adef/1-JANUARY.png";
 import july from "../../../assets/project-page/leo-adef/7-JULY.png";
 import june from "../../../assets/project-page/leo-adef/6-JUNE.png";
@@ -32,7 +33,10 @@ const calendarImages: CalendarImageProps[] = [
     img: january,
     alt: "January photograph",
   },
-
+  {
+    img: february,
+    alt: "February photograph",
+  },
   {
     img: march,
     alt: "February photograph",
