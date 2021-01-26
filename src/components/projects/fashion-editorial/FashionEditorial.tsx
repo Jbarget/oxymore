@@ -55,7 +55,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image3,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image4,
@@ -65,7 +65,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image5,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image7,
@@ -80,7 +80,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image8,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image9,
@@ -90,7 +90,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image10,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image11,
@@ -100,7 +100,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image13,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image12,
@@ -115,7 +115,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image15,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image16,
@@ -125,7 +125,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image17,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image18,
@@ -135,7 +135,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image19,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image20,
@@ -145,7 +145,7 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image21,
     alt: "Photograh image",
-    gridColumn: "2",
+    gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image22,
@@ -157,7 +157,7 @@ const editorialImages: EditorialImageProps[] = [
 interface EditorialImageProps {
   img: string;
   alt: string;
-  gridColumn: string;
+  gridColumn: string | string[];
 }
 
 const EditorialImage = ({ img, alt, gridColumn }: EditorialImageProps) => {
@@ -176,6 +176,7 @@ const FashionEditorialContent: React.FC = () => {
         gridRowGap={3}
         gridColumnGap={3}
         gridTemplateColumns={[
+          "repeat(1, 1fr)",
           "repeat(1, 1fr)",
           "repeat(1, 1fr)",
           "repeat(2, 1fr)",
