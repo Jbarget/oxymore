@@ -29,7 +29,7 @@ import image8 from "../../../assets/project-page/fashion-editorial/008-awewave-o
 import image9 from "../../../assets/project-page/fashion-editorial/009-awewave-oxymore.jpg";
 import styled from "styled-components";
 
-const Container = styled.div<LayoutProps>`
+const Container = styled(Grid)<LayoutProps>`
   object-fit: contain;
   height: 100%;
   ${layout};
@@ -45,102 +45,124 @@ const editorialImages: EditorialImageProps[] = [
   {
     img: image1,
     alt: "Photograh image",
+    gridColumn: "1/3",
   },
   {
     img: image2,
     alt: "Photograh image",
+    gridColumn: "1",
   },
   {
     img: image3,
     alt: "Photograh image",
+    gridColumn: "2",
   },
   {
     img: image4,
     alt: "Photograh image",
+    gridColumn: "1",
+  },
+  {
+    img: image5,
+    alt: "Photograh image",
+    gridColumn: "2",
   },
   {
     img: image7,
     alt: "Photograh image",
-  },
-  {
-    img: image8,
-    alt: "Photograh image",
-  },
-  {
-    img: image9,
-    alt: "Photograh image",
+    gridColumn: "1/3",
   },
   {
     img: image6,
     alt: "Photograh image",
+    gridColumn: "1",
   },
   {
-    img: image11,
+    img: image8,
     alt: "Photograh image",
+    gridColumn: "2",
   },
   {
-    img: image12,
+    img: image9,
     alt: "Photograh image",
-  },
-  {
-    img: image13,
-    alt: "Photograh image",
-  },
-  {
-    img: image14,
-    alt: "Photograh image",
-  },
-  {
-    img: image15,
-    alt: "Photograh image",
-  },
-  {
-    img: image16,
-    alt: "Photograh image",
-  },
-  {
-    img: image17,
-    alt: "Photograh image",
-  },
-  {
-    img: image18,
-    alt: "Photograh image",
-  },
-  {
-    img: image19,
-    alt: "Photograh image",
-  },
-  {
-    img: image20,
-    alt: "Photograh image",
-  },
-  {
-    img: image21,
-    alt: "Photograh image",
-  },
-  {
-    img: image22,
-    alt: "Photograh image",
+    gridColumn: "1",
   },
   {
     img: image10,
     alt: "Photograh image",
+    gridColumn: "2",
   },
-
   {
-    img: image5,
+    img: image11,
     alt: "Photograh image",
+    gridColumn: "1",
+  },
+  {
+    img: image13,
+    alt: "Photograh image",
+    gridColumn: "2",
+  },
+  {
+    img: image12,
+    alt: "Photograh image",
+    gridColumn: "1/3",
+  },
+  {
+    img: image14,
+    alt: "Photograh image",
+    gridColumn: "1",
+  },
+  {
+    img: image15,
+    alt: "Photograh image",
+    gridColumn: "2",
+  },
+  {
+    img: image16,
+    alt: "Photograh image",
+    gridColumn: "1",
+  },
+  {
+    img: image17,
+    alt: "Photograh image",
+    gridColumn: "2",
+  },
+  {
+    img: image18,
+    alt: "Photograh image",
+    gridColumn: "1",
+  },
+  {
+    img: image19,
+    alt: "Photograh image",
+    gridColumn: "2",
+  },
+  {
+    img: image20,
+    alt: "Photograh image",
+    gridColumn: "1",
+  },
+  {
+    img: image21,
+    alt: "Photograh image",
+    gridColumn: "2",
+  },
+  {
+    img: image22,
+    alt: "Photograh image",
+    gridColumn: "1",
   },
 ];
 
 interface EditorialImageProps {
   img: string;
   alt: string;
+  gridColumn: string;
 }
 
-const EditorialImage = ({ img, alt }: EditorialImageProps) => {
+const EditorialImage = ({ img, alt, gridColumn }: EditorialImageProps) => {
   return (
-    <Container key={img}>
+    <Container key={img} gridColumn={gridColumn}>
       <Img alt={alt} src={img} />
     </Container>
   );
@@ -148,31 +170,27 @@ const EditorialImage = ({ img, alt }: EditorialImageProps) => {
 
 const FashionEditorialContent: React.FC = () => {
   return (
-    <Grid
-      overflow="scroll"
-      gridRowGap={3}
-      gridColumnGap={3}
-      gridTemplateColumns={[
-        "repeat(1, 1fr)",
-        "repeat(1, 1fr)",
-        "repeat(2, 1fr)",
-      ]}
-    >
-      {editorialImages.map(EditorialImage)}
-    </Grid>
+    <div>
+      <Grid
+        overflow="scroll"
+        gridRowGap={3}
+        gridColumnGap={3}
+        gridTemplateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+        ]}
+      >
+        {editorialImages.map(EditorialImage)}
+      </Grid>
+    </div>
   );
 };
 
 const launchDate = "2020-02-05";
 const FashionEditorial: React.FC = () => {
   return (
-    <Flex
-      flex="auto"
-      overflow="hidden"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-    >
+    <Flex flex="auto">
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={FashionEditorialPreview}
