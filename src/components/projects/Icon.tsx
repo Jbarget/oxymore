@@ -19,7 +19,7 @@ const Icon: React.FC<{ icon: string }> = ({ icon }) => {
     <Fragment>
       <Link to={PROJECTS_URL}>
         <Flex justifyContent="center" alignItems="center">
-          <Img src={icon} alt="icon" maxWidth={[100, 100, 100, 160]} />
+          <Img src={icon} alt="icon" maxWidth={[100, 100, 160, 160]} />
         </Flex>
       </Link>
     </Fragment>
