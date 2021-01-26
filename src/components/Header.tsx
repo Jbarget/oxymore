@@ -1,9 +1,7 @@
 import {
   GridProps,
-  LayoutProps,
   SpaceProps,
   TypographyProps,
-  layout,
   typography,
 } from "styled-system";
 import { NavLink, useLocation } from "react-router-dom";

@@ -1,9 +1,9 @@
-import React, { useEffect, useState, Fragment } from "react";
-import styled from "styled-components";
+import React, { Fragment, useEffect, useState } from "react";
 import { TypographyProps, typography } from "styled-system";
 
-import calculateTimeLeft from "../helpers/calculateTimeLeft";
 import Flex from "./Flex";
+import calculateTimeLeft from "../helpers/calculateTimeLeft";
+import styled from "styled-components";
 
 interface TimeLeft {
   days: number;
@@ -29,7 +29,7 @@ interface TimerProps {
   launchDate: string;
 }
 
-const Timer: React.FC<TimerProps> = (props) => {
+const Timer: React.FC<TimerProps> = props => {
   const { launchDate } = props;
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(
@@ -44,7 +44,7 @@ const Timer: React.FC<TimerProps> = (props) => {
   return (
     <Fragment>
       <Container alignItems="center" textAlign="center" p={6}>
-        <H1 fontSize={[4, 5, 6, 8]} fontFamily="secondary">
+        <H1 fontSize={[5, 5, 7, 8]} fontFamily="secondary">
           <span>
             {getInterval(timeLeft.days, "d")}
             {getInterval(timeLeft.hours, "h")}
