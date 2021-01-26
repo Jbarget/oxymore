@@ -8,7 +8,7 @@ import {
   position,
   typography,
 } from "styled-system";
-import React, { Fragment, useCallback } from "react";
+import React, { useCallback } from "react";
 
 import styled from "styled-components";
 import theme from "./theme";
@@ -36,20 +36,18 @@ const Scrollback: React.FC<ButtonProps> = props => {
     }
   }, []);
   return (
-    <Fragment>
-      <Button
-        display={["block", "block", "none", "none"]}
-        position="fixed"
-        bottom={bottom}
-        left={left}
-        fontSize={[3, 4]}
-        background="transparent"
-        onClick={scrollToTop}
-        zIndex={theme.zIndexes.inFront}
-      >
-        UP
-      </Button>
-    </Fragment>
+    <Button
+      display={["block", "block", "none", "none"]}
+      position="fixed"
+      bottom={bottom}
+      left={left}
+      fontSize={[3, 4]}
+      background="transparent"
+      onClick={scrollToTop}
+      zIndex={theme.zIndexes.inFront}
+    >
+      UP
+    </Button>
   );
 };
 

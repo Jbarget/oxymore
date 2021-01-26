@@ -1,20 +1,9 @@
-import {
-  BackgroundProps,
-  LayoutProps,
-  PositionProps,
-  SpaceProps,
-  TypographyProps,
-  background,
-  layout,
-  position,
-  space,
-  typography,
-} from "styled-system";
-import React, { useCallback } from "react";
+import { PositionProps, SpaceProps, position, space } from "styled-system";
 
 import BuyButton from "./BuyButton";
 import Flex from "./Flex";
 import ProjectsGrid from "./ProjectsGrid";
+import React from "react";
 import Scrollback from "./Scrollback";
 import styled from "styled-components";
 import theme from "./theme";
