@@ -6,18 +6,20 @@ import LeoAdefPreview from "./LeoAdefPreview";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 import Scrollback from "../../Scrollback";
-import april from "../../../assets/project-page/leo-adef/4-APRIL.png";
-import august from "../../../assets/project-page/leo-adef/8-AUGUST.png";
-import december from "../../../assets/project-page/leo-adef/12-DECEMBER.png";
-import february from "../../../assets/project-page/leo-adef/2-FEBRUARY.png";
-import january from "../../../assets/project-page/leo-adef/1-JANUARY.png";
-import july from "../../../assets/project-page/leo-adef/7-JULY.png";
-import june from "../../../assets/project-page/leo-adef/6-JUNE.png";
-import march from "../../../assets/project-page/leo-adef/3-MARCH.png";
-import may from "../../../assets/project-page/leo-adef/5-MAY.png";
-import november from "../../../assets/project-page/leo-adef/11-NOVEMBER.png";
-import october from "../../../assets/project-page/leo-adef/10-OCTOBER.png";
-import september from "../../../assets/project-page/leo-adef/9-SEPTEMBER.png";
+import april from "../../../assets/project-page/leo-adef/04_OXYMORE_CALENDAR.jpg";
+import august from "../../../assets/project-page/leo-adef/08_OXYMORE_CALENDAR.jpg";
+import december from "../../../assets/project-page/leo-adef/12_OXYMORE_CALENDAR.jpg";
+import extra1 from "../../../assets/project-page/leo-adef/zEXTRA1.jpg";
+import extra2 from "../../../assets/project-page/leo-adef/zEXTRA2.jpg";
+import february from "../../../assets/project-page/leo-adef/02_OXYMORE_CALENDAR.jpg";
+import january from "../../../assets/project-page/leo-adef/01_OXYMORE_CALENDAR.jpg";
+import july from "../../../assets/project-page/leo-adef/07_OXYMORE_CALENDAR.jpg";
+import june from "../../../assets/project-page/leo-adef/06_OXYMORE_CALENDAR.jpg";
+import march from "../../../assets/project-page/leo-adef/03_OXYMORE_CALENDAR.jpg";
+import may from "../../../assets/project-page/leo-adef/05_OXYMORE_CALENDAR.jpg";
+import november from "../../../assets/project-page/leo-adef/11_OXYMORE_CALENDAR.jpg";
+import october from "../../../assets/project-page/leo-adef/10_OXYMORE_CALENDAR.jpg";
+import september from "../../../assets/project-page/leo-adef/09_OXYMORE_CALENDAR.jpg";
 import styled from "styled-components";
 
 const Container = styled.div<LayoutProps>`
@@ -79,6 +81,14 @@ const calendarImages: CalendarImageProps[] = [
   },
   {
     img: december,
+    alt: "December photograph",
+  },
+  {
+    img: extra1,
+    alt: "December photograph",
+  },
+  {
+    img: extra2,
     alt: "December photograph",
   },
 ];
