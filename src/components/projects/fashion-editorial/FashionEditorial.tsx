@@ -29,18 +29,6 @@ import image8 from "../../../assets/project-page/fashion-editorial/008-awewave-o
 import image9 from "../../../assets/project-page/fashion-editorial/009-awewave-oxymore.jpg";
 import styled from "styled-components";
 
-const Container = styled(Grid)<LayoutProps>`
-  object-fit: contain;
-  height: 100%;
-  ${layout};
-`;
-
-const Img = styled.img<LayoutProps>`
-  height: 100%;
-  width: 100%;
-  ${layout};
-`;
-
 const editorialImages: EditorialImageProps[] = [
   {
     img: image1,
@@ -160,31 +148,40 @@ interface EditorialImageProps {
   gridColumn: string | string[];
 }
 
+const ImgContainer = styled(Grid)<LayoutProps>`
+  object-fit: contain;
+  height: 100%;
+  ${layout};
+`;
+
+const Img = styled.img`
+  height: 100%;
+  width: 100%;
+`;
+
 const EditorialImage = ({ img, alt, gridColumn }: EditorialImageProps) => {
   return (
-    <Container key={img} gridColumn={gridColumn}>
+    <ImgContainer key={img} gridColumn={gridColumn}>
       <Img alt={alt} src={img} />
-    </Container>
+    </ImgContainer>
   );
 };
 
 const FashionEditorialContent: React.FC = () => {
   return (
-    <div>
-      <Grid
-        overflow="scroll"
-        gridRowGap={3}
-        gridColumnGap={3}
-        gridTemplateColumns={[
-          "repeat(1, 1fr)",
-          "repeat(1, 1fr)",
-          "repeat(1, 1fr)",
-          "repeat(2, 1fr)",
-        ]}
-      >
-        {editorialImages.map(EditorialImage)}
-      </Grid>
-    </div>
+    <Grid
+      overflow="scroll"
+      gridRowGap={3}
+      gridColumnGap={3}
+      gridTemplateColumns={[
+        "repeat(1, 1fr)",
+        "repeat(1, 1fr)",
+        "repeat(1, 1fr)",
+        "repeat(2, 1fr)",
+      ]}
+    >
+      {editorialImages.map(EditorialImage)}
+    </Grid>
   );
 };
 
