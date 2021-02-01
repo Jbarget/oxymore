@@ -188,7 +188,7 @@ const FashionEditorialContent: React.FC = () => {
   );
 };
 
-const launchDate = "2020-02-05";
+const launchDate = "2021-02-05";
 const FashionEditorial: React.FC = () => {
   return (
     <Flex flex="auto">
