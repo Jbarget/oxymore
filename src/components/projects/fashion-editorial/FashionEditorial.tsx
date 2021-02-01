@@ -148,10 +148,9 @@ interface EditorialImageProps {
   gridColumn: string | string[];
 }
 
-const ImgContainer = styled(Grid)<LayoutProps>`
+const ImgContainer = styled(Grid)`
   object-fit: contain;
   height: 100%;
-  ${layout};
 `;
 
 const Img = styled.img`
