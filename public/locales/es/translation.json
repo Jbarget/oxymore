@@ -62,5 +62,11 @@
   },
   "buy-button": {
     "text": "Comprar mag"
+  },
+  "eye": {
+    "population": "Población",
+    "populationAffected": "Población afectada",
+    "percentage": "Porcentaje",
+    "recovered": "Fundación Elena Barraquer"
   }
 }

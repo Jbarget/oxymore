@@ -23,12 +23,12 @@ import data from "../../../fixtures/eye-data";
 import eyeBlue from "../../../assets/project-page/eye/eye_blue.png";
 import eyeBrown from "../../../assets/project-page/eye/eye_brown.png";
 import theme from "../../theme";
+import { useTranslation } from "react-i18next";
 
 const P = styled.p<BorderProps & TypographyProps>`
   text-transform: uppercase;
-  font-family: SangBleu;
+  font-family: ${theme.fonts.secondary};
   line-height: 28px;
-  transition: 1.5s;
   ${border};
   ${typography};
 `;
@@ -37,6 +37,7 @@ const itemStyles: React.CSSProperties = {
   color: `${theme.colors.copyOne}`,
   fontFamily: `${theme.fonts.secondary}`,
   textTransform: "uppercase",
+  transition: "1.5",
 };
 
 const style: React.CSSProperties = {
@@ -80,35 +81,32 @@ const getRelativeValues = ({
 };
 
 const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
+  const { t } = useTranslation();
   if (!countryData) return null;
 
   return (
     <Flex
       position="fixed"
       flexDirection="column"
-      width={252}
+      width="auto"
       top={100}
-      right={50}
+      left="75%"
     >
-      <P
-        borderBottom="offWhiteThin"
-        fontSize={3}
-        fontFamily={`${theme.fonts.secondary}`}
-      >
-        {countryData.name}
+      <Flex borderBottom="offWhiteThin" width="fit-content">
+        <P fontSize={3}>{countryData.name}</P>
+      </Flex>
+      <P fontSize={[1, 1, 2]}>
+        {t("eye.population")}: {countryData.data.population}
       </P>
-      <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
-        Population: {countryData.data.population}
+      <P fontSize={[1, 1, 2]}>
+        {t("eye.populationAffected")}: {countryData.data.populationAffected}
       </P>
-      <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
-        Population affected: {countryData.data.populationAffected}
-      </P>
-      <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
-        Percentage: {countryData.data.percentageAffected}
+      <P fontSize={[1, 1, 2]}>
+        {t("eye.percentage")}: {countryData.data.percentageAffected}
       </P>
       {countryData.data.casesTreated ? (
-        <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
-          Fundación Elena Barraquer: {countryData.data.casesTreated}
+        <P fontSize={[1, 1, 2]}>
+          {t("eye.recovered")}: {countryData.data.casesTreated}
         </P>
       ) : null}
     </Flex>
