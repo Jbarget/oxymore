@@ -22,6 +22,7 @@ import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import data from "../../../fixtures/eye-data";
 import eyeBlue from "../../../assets/project-page/eye/eye_blue.png";
 import eyeBrown from "../../../assets/project-page/eye/eye_brown.png";
+import theme from "../../theme";
 
 const P = styled.p<BorderProps & TypographyProps>`
   text-transform: uppercase;
@@ -32,8 +33,8 @@ const P = styled.p<BorderProps & TypographyProps>`
 `;
 
 const itemStyles: React.CSSProperties = {
-  color: "white",
-  fontFamily: "SangBleu",
+  color: `${theme.colors.copyOne}`,
+  fontFamily: `${theme.fonts.secondary}`,
   textTransform: "uppercase",
 };
 
@@ -79,17 +80,16 @@ const getRelativeValues = ({
 
 const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
   if (!countryData) return null;
-  console.log(countryData);
 
   return (
     <Flex
       position="fixed"
       flexDirection="column"
-      width="20%"
+      width={252}
       top={100}
-      right="5%"
+      right={50}
     >
-      <P borderBottom="whiteThin" fontSize={3}>
+      <P borderBottom="offWhiteThin" fontSize={3}>
         {countryData.name}
       </P>
       <P fontSize={[1, 1, 2]}>Population: {countryData.data.population}</P>
@@ -187,7 +187,7 @@ const EyeContent = () => {
   return (
     <Flex alignItems="center" flexDirection="column" position="relative">
       <Grid
-        width={["85%", "85%", "85%", "60%", "38%"]}
+        width={[320, 320, 400, 560]}
         gridTemplateRows="repeat(180, minmax(0, auto))"
         gridTemplateColumns="repeat(120, minmax(0, auto))"
       >
@@ -200,7 +200,7 @@ const EyeContent = () => {
         ))}
       </Grid>
       <CountryData countryData={selectedCountryData} />
-      <Flex position="fixed" bottom={0} left={100}>
+      <Flex position="fixed" bottom={0} left={50}>
         <Picker
           onChange={setSelectedDataSet}
           itemStyle={itemStyles}
@@ -222,7 +222,7 @@ const EyeContent = () => {
 const launchDate = "2020-02-12";
 const Eye = () => {
   return (
-    <Flex flex="auto">
+    <Flex flex="auto" justifyContent="center">
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={EyePreview}

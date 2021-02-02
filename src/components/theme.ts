@@ -61,7 +61,7 @@ const fonts = {
 };
 
 const borders = {
-  whiteThin: "1px solid white",
+  offWhiteThin: "1px solid athensGray",
 };
 
 const theme = {
