@@ -37,7 +37,6 @@ const itemStyles: React.CSSProperties = {
   color: `${theme.colors.copyOne}`,
   fontFamily: `${theme.fonts.secondary}`,
   textTransform: "uppercase",
-  transition: "1.5",
 };
 
 const style: React.CSSProperties = {
@@ -90,7 +89,8 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
       flexDirection="column"
       width="auto"
       top={100}
-      left="75%"
+      left={["50%", "50%", "50%", "60%", "75%"]}
+      zIndex={theme.zIndexes.behind}
     >
       <Flex borderBottom="offWhiteThin" width="fit-content">
         <P fontSize={3}>{countryData.name}</P>
@@ -124,6 +124,10 @@ const bounce = keyframes`
 
 const GridImg = styled.img<GridProps & LayoutProps>`
   max-width: 100%;
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.2);
+  }
   ${layout};
   ${grid};
 `;
@@ -181,18 +185,18 @@ const EyeContent = () => {
     selectedCountryData,
     setSelectedCountryData,
   ] = useState<EyeData | null>(null);
-  const [selectedDataSet, setSelectedDataSet] = useState<DataSet>(
-    "percentageAffected"
-  );
+  const [selectedDataSet, setSelectedDataSet] = useState<DataSet>("population");
 
   const setCountryDetails = useCallback(
     countryData => () => setSelectedCountryData(countryData),
     []
   );
+  const { t } = useTranslation();
+
   return (
     <Flex alignItems="center" flexDirection="column" position="relative">
       <Grid
-        width={[320, 320, 400, 560]}
+        width={[320, 320, 400, 540]}
         gridTemplateRows="repeat(180, minmax(0, auto))"
         gridTemplateColumns="repeat(120, minmax(0, auto))"
       >
@@ -213,11 +217,13 @@ const EyeContent = () => {
           mask={false}
           value={selectedDataSet}
         >
-          <Picker.Item value="population">Population</Picker.Item>
+          <Picker.Item value="population">{t("eye.population")}</Picker.Item>
           <Picker.Item value="populationAffected">
-            Population Affected
+            {t("eye.populationAffected")}
           </Picker.Item>
-          <Picker.Item value="percentageAffected">Percentage</Picker.Item>
+          <Picker.Item value="percentageAffected">
+            {t("eye.percentage")}
+          </Picker.Item>
         </Picker>
       </Flex>
     </Flex>
