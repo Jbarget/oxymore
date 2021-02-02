@@ -28,6 +28,7 @@ const P = styled.p<BorderProps & TypographyProps>`
   text-transform: uppercase;
   font-family: SangBleu;
   line-height: 28px;
+  transition: 1.5s;
   ${border};
   ${typography};
 `;
@@ -89,18 +90,24 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
       top={100}
       right={50}
     >
-      <P borderBottom="offWhiteThin" fontSize={3}>
+      <P
+        borderBottom="offWhiteThin"
+        fontSize={3}
+        fontFamily={`${theme.fonts.secondary}`}
+      >
         {countryData.name}
       </P>
-      <P fontSize={[1, 1, 2]}>Population: {countryData.data.population}</P>
-      <P fontSize={[1, 1, 2]}>
+      <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
+        Population: {countryData.data.population}
+      </P>
+      <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
         Population affected: {countryData.data.populationAffected}
       </P>
-      <P fontSize={[1, 1, 2]}>
+      <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
         Percentage: {countryData.data.percentageAffected}
       </P>
       {countryData.data.casesTreated ? (
-        <P fontSize={[1, 1, 2]}>
+        <P fontSize={[1, 1, 2]} fontFamily={`${theme.fonts.secondary}`}>
           Fundación Elena Barraquer: {countryData.data.casesTreated}
         </P>
       ) : null}

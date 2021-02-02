@@ -61,7 +61,7 @@ const fonts = {
 };
 
 const borders = {
-  offWhiteThin: "1px solid athensGray",
+  offWhiteThin: `1px solid ${colors.copyOne}`,
 };
 
 const theme = {
