@@ -1,5 +1,3 @@
-import { LayoutProps, layout } from "styled-system";
-
 import FashionEditorialPreview from "./FashionEditorialPreview";
 import Flex from "../../Flex";
 import Grid from "../../Grid";
