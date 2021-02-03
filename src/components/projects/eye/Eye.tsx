@@ -164,10 +164,12 @@ const calculateSpanValue = ({
 
   return value < MINIMUM_SPAN_VALUE ? MINIMUM_SPAN_VALUE : value;
 };
+
 interface DataPointProps extends EyeData {
   selectedDataSet: DataSet;
   onClick: () => void;
 }
+
 const DataPoint: React.FC<DataPointProps> = ({
   name,
   coords,
@@ -210,7 +212,7 @@ const EyeContent = () => {
         to={PROJECTS_URL}
         width={80}
         position="fixed"
-        left={60}
+        left={40}
         top={80}
         zIndex={theme.zIndexes.inFront}
       >
