@@ -14,6 +14,7 @@ import {
 import React, { Fragment, useCallback, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
+import AudioPlayer from "./AudioPlayer";
 import EyePreview from "./EyePreview";
 import Flex from "../../Flex";
 import Grid from "../../Grid";
@@ -83,6 +84,7 @@ const getRelativeValues = ({
 
 const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
   const { t } = useTranslation();
+
   if (!countryData) return null;
 
   return (
@@ -98,17 +100,21 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
         <P fontSize={3}>{countryData.name}</P>
       </Flex>
       <P fontSize={[1, 1, 2]}>
-        {t("eye.population")}: {countryData.data.population}
+        {t("eye.population")}:{" "}
+        {countryData.data.population.toLocaleString(["en-GB"])}
       </P>
       <P fontSize={[1, 1, 2]}>
-        {t("eye.populationAffected")}: {countryData.data.populationAffected}
+        {t("eye.populationAffected")}:{" "}
+        {countryData.data.populationAffected.toLocaleString("en-GB")}
       </P>
       <P fontSize={[1, 1, 2]}>
-        {t("eye.percentage")}: {countryData.data.percentageAffected}
+        {t("eye.percentage")}:{" "}
+        {countryData.data.percentageAffected.toLocaleString("en-GB")}%
       </P>
       {countryData.data.casesTreated ? (
         <P fontSize={[1, 1, 2]}>
-          {t("eye.recovered")}: {countryData.data.casesTreated}
+          {t("eye.recovered")}:{" "}
+          {countryData.data.casesTreated.toLocaleString("en-GB")}
         </P>
       ) : null}
     </Flex>
@@ -255,6 +261,14 @@ const EyeContent = () => {
               {t("eye.percentage")}
             </Picker.Item>
           </Picker>
+        </Flex>
+        <Flex
+          position="fixed"
+          bottom={50}
+          right={80}
+          display={["none", "none", "none", "block"]}
+        >
+          <AudioPlayer />
         </Flex>
       </Flex>
     </Fragment>
