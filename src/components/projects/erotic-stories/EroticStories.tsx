@@ -43,7 +43,6 @@ const H2 = styled.h2<TypographyProps & SpaceProps>`
 const EroticImg = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
 `;
 
 const ScrollableText = styled.p<GridProps & TypographyProps>`
@@ -74,18 +73,18 @@ const EroticStoriesContent: React.FC = () => {
 
   const wingsBeating = eroticStories[0];
   const bellyButtons = eroticStories[1];
-  const gridCellWidths = ["100%", "100%", "100%", "50%"];
-  const heights = ["unset", "unset", "unset", "100vh"];
+  const gridCellWidths = ["100%", "100%", "100%", "100%", "50%"];
+  const heights = ["unset", "unset", "unset", "unset", "100vh"];
 
   return (
     <Flex flexDirection="column">
-      <Flex flexDirection={["column", "column", "column", "row"]}>
+      <Flex flexDirection={["column", "column", "column", "column", "row"]}>
         <Flex
           width={gridCellWidths}
           minWidth={gridCellWidths}
           flexDirection="column"
-          pt={[0, 0, 0, 2]}
-          pr={[0, 0, 0, "40px"]}
+          pt={[0, 0, 0, 0, 2]}
+          pr={[0, 0, 0, 0, "40px"]}
         >
           <ReturnToProjectsPage to={PROJECTS_URL} width={90}>
             <img src={statue} alt="statue icon" />
@@ -93,7 +92,7 @@ const EroticStoriesContent: React.FC = () => {
           <H1 fontSize={[2, 3, 4, 5]} my={4} fontFamily="secondary">
             Erotic Stories
           </H1>
-          <H2 fontSize={[2, 3, 4, 5]} mb={4} fontFamily="secondary">
+          <H2 fontSize={[3, 4, 4, 5]} mb={4} fontFamily="secondary">
             {t("erotic-stories.wingsTitle")}
           </H2>
           <ScrollableText
@@ -107,20 +106,22 @@ const EroticStoriesContent: React.FC = () => {
           position={["unset", "unset", "unset", "sticky"]}
           height={heights}
           top={0}
-          mb={[4, 4, 4, 0]}
+          mb={[4, 4, 4, 4, 0]}
         >
           <EroticImg src={wingsBeating.img} alt={wingsBeating.alt} />
         </Flex>
       </Flex>
-      <Flex flexDirection={["column", "column", "column", "row-reverse"]}>
+      <Flex
+        flexDirection={["column", "column", "column", "column", "row-reverse"]}
+      >
         <Flex
           width={gridCellWidths}
           minWidth={gridCellWidths}
           flexDirection="column"
           overflowY="auto"
-          p={[0, 0, 0, "60px"]}
+          p={[0, 0, 0, 0, "60px"]}
         >
-          <H2 fontSize={[2, 3, 4, 5]} mb={4} fontFamily="secondary">
+          <H2 fontSize={[3, 4, 4, 5]} mb={4} fontFamily="secondary">
             {t("erotic-stories.bellyButtonsTitle")}
           </H2>
           <ScrollableText
