@@ -1,8 +1,11 @@
+import React from "react";
+import styled from "styled-components";
+import { grid, GridProps } from "styled-system";
+
 import FashionEditorialPreview from "./FashionEditorialPreview";
 import Flex from "../../Flex";
 import Grid from "../../Grid";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
-import React from "react";
 import image1 from "../../../assets/project-page/fashion-editorial/001-awewave-oxymore.jpg";
 import image10 from "../../../assets/project-page/fashion-editorial/010-awewave-oxymore.jpg";
 import image11 from "../../../assets/project-page/fashion-editorial/011-awewave-oxymore.jpg";
@@ -25,7 +28,6 @@ import image6 from "../../../assets/project-page/fashion-editorial/006-awewave-o
 import image7 from "../../../assets/project-page/fashion-editorial/007-awewave-oxymore.jpg";
 import image8 from "../../../assets/project-page/fashion-editorial/008-awewave-oxymore.jpg";
 import image9 from "../../../assets/project-page/fashion-editorial/009-awewave-oxymore.jpg";
-import styled from "styled-components";
 
 const editorialImages: EditorialImageProps[] = [
   {
@@ -146,9 +148,10 @@ interface EditorialImageProps {
   gridColumn: string | string[];
 }
 
-const ImgContainer = styled(Grid)`
+const ImgContainer = styled.div<GridProps>`
   object-fit: contain;
   height: 100%;
+  ${grid};
 `;
 
 const Img = styled.img`
@@ -182,7 +185,7 @@ const FashionEditorialContent: React.FC = () => {
   );
 };
 
-const launchDate = "2021-02-05";
+const launchDate = "2020-02-05";
 const FashionEditorial: React.FC = () => {
   return (
     <Flex flex="auto">
