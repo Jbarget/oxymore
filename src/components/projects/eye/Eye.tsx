@@ -238,6 +238,7 @@ const EyeContent = () => {
         >
           {data.map(datum => (
             <DataPoint
+              key={datum.name}
               {...datum}
               selectedDataSet={selectedDataSet}
               onClick={setCountryDetails(datum)}
@@ -262,12 +263,7 @@ const EyeContent = () => {
             </Picker.Item>
           </Picker>
         </Flex>
-        <Flex
-          position="fixed"
-          bottom={50}
-          right={80}
-          display={["none", "none", "none", "block"]}
-        >
+        <Flex position="fixed" bottom={50} right={80}>
           <AudioPlayer />
         </Flex>
       </Flex>

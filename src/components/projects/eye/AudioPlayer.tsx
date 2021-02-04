@@ -1,33 +1,36 @@
-import React, { useRef, useState } from "react";
-
-import AudioControls from "./AudioControls";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 
-/*
- * Read the blog post here:
- * https://letsbuildui.dev/articles/building-an-audio-player-with-react-hooks
- * src code is here: https://codesandbox.io/s/react-audio-player-demo-zwhoc?file=/src/AudioPlayer.jsx:300-306
- */
+import { ReactComponent as Pause } from "../../../assets/pause.svg";
+import { ReactComponent as Play } from "../../../assets/play.svg";
 
-const Input = styled.input`
+const Button = styled.button`
+  background: none;
+  border: none;
   cursor: pointer;
+  margin-right: 8px;
 `;
 
 const AudioPlayer = () => {
-  const src = "src/assets/audio/podcast.mp3";
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(new Audio(src));
-  const { duration } = audioRef.current;
+  const audioSrc = "/podcast.mp3";
+  const audio = new Audio(audioSrc);
+
+  const play = useCallback(() => {
+    audio.play();
+  }, [audio]);
+
+  const pause = useCallback(() => {
+    audio.pause();
+  }, [audio]);
 
   return (
     <div>
-      <AudioControls isPlaying={isPlaying} onPlayPauseClick={setIsPlaying} />
-      <Input
-        type="range"
-        step="1"
-        min="0"
-        max={duration ? duration : `${duration}`}
-      />
+      <Button type="button" onClick={play} aria-label="Play">
+        <Play />
+      </Button>
+      <Button type="button" onClick={pause} aria-label="Pause">
+        <Pause />
+      </Button>
     </div>
   );
 };
