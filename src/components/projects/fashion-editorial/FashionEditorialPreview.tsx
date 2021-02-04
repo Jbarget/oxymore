@@ -4,7 +4,9 @@ import React from "react";
 import Timer from "../../Timer";
 import stairs from "../../../assets/project-page/project-icons/stairs.png";
 
-const FashionEditorial: React.FC<{ launchDate: string }> = ({ launchDate }) => {
+const FashionEditorialPreview: React.FC<{ launchDate: string }> = ({
+  launchDate,
+}) => {
   return (
     <Flex
       flex="auto"
@@ -19,4 +21,4 @@ const FashionEditorial: React.FC<{ launchDate: string }> = ({ launchDate }) => {
   );
 };
 
-export default FashionEditorial;
+export default FashionEditorialPreview;
