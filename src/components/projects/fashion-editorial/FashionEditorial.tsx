@@ -1,11 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { grid, GridProps } from "styled-system";
+import { GridProps, LayoutProps, grid, layout } from "styled-system";
 
 import FashionEditorialPreview from "./FashionEditorialPreview";
 import Flex from "../../Flex";
-import Grid from "../../Grid";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
+import React from "react";
 import image1 from "../../../assets/project-page/fashion-editorial/001-awewave-oxymore.jpg";
 import image10 from "../../../assets/project-page/fashion-editorial/010-awewave-oxymore.jpg";
 import image11 from "../../../assets/project-page/fashion-editorial/011-awewave-oxymore.jpg";
@@ -28,6 +26,7 @@ import image6 from "../../../assets/project-page/fashion-editorial/006-awewave-o
 import image7 from "../../../assets/project-page/fashion-editorial/007-awewave-oxymore.jpg";
 import image8 from "../../../assets/project-page/fashion-editorial/008-awewave-oxymore.jpg";
 import image9 from "../../../assets/project-page/fashion-editorial/009-awewave-oxymore.jpg";
+import styled from "styled-components";
 
 const editorialImages: EditorialImageProps[] = [
   {
@@ -142,11 +141,11 @@ const editorialImages: EditorialImageProps[] = [
   },
 ];
 
-interface EditorialImageProps {
-  img: string;
-  alt: string;
-  gridColumn: string | string[];
-}
+const Div = styled.div<GridProps & LayoutProps>`
+  overflow-y: scroll;
+  ${layout};
+  ${grid};
+`;
 
 const ImgContainer = styled.div<GridProps>`
   object-fit: contain;
@@ -159,6 +158,12 @@ const Img = styled.img`
   width: 100%;
 `;
 
+interface EditorialImageProps {
+  img: string;
+  alt: string;
+  gridColumn: string | string[];
+}
+
 const EditorialImage = ({ img, alt, gridColumn }: EditorialImageProps) => {
   return (
     <ImgContainer key={img} gridColumn={gridColumn}>
@@ -169,8 +174,8 @@ const EditorialImage = ({ img, alt, gridColumn }: EditorialImageProps) => {
 
 const FashionEditorialContent: React.FC = () => {
   return (
-    <Grid
-      overflow="scroll"
+    <Div
+      display={["inline-table", "inline-table", "inline-table", "grid"]}
       gridRowGap={3}
       gridColumnGap={3}
       gridTemplateColumns={[
@@ -181,11 +186,11 @@ const FashionEditorialContent: React.FC = () => {
       ]}
     >
       {editorialImages.map(EditorialImage)}
-    </Grid>
+    </Div>
   );
 };
 
-const launchDate = "2020-02-05";
+const launchDate = "2021-02-05";
 const FashionEditorial: React.FC = () => {
   return (
     <Flex flex="auto">
