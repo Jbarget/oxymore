@@ -5,27 +5,17 @@ import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
 import Flex from "../../Flex";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
-import styled from "styled-components";
-
-const Main = styled(Flex)<FlexboxProps & TypographyProps>`
-  ${typography};
-`;
 
 const launchDate = "2021-02-19";
 const ConsciousShopping = () => {
   return (
-    <Main
-      flex="auto"
-      justifyContent="center"
-      alignItems="center"
-      fontFamily="secondary"
-    >
+    <Flex flex="auto">
       <PreviewOrProjectPage
         launchDate={launchDate}
         PreviewPage={ConsciousShoppingPreview}
         ProjectPage={ConsciousShoppingContent}
       />
-    </Main>
+    </Flex>
   );
 };
 
