@@ -81,6 +81,7 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
             left={30}
             top={80}
             position="absolute"
+            display={["none", "none", "block"]}
           />
         </ReturnToProjectsPage>
         <Illustration
