@@ -9,6 +9,7 @@ import {
   position,
 } from "styled-system";
 
+import Flex from "../../Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import React from "react";
@@ -28,14 +29,17 @@ const Div = styled.div<GridProps & LayoutProps & FlexboxProps>`
   ${grid};
 `;
 
-const TimerContainer = styled.div<GridProps & PositionProps>`
+const TimerContainer = styled.div<GridProps & LayoutProps>`
   ${grid};
-  ${position}
+  ${layout};
+  z-index: ${theme.zIndexes.inFront};
 `;
 
-const ProjectIcon = styled.img<GridProps & LayoutProps>`
+const ProjectIcon = styled.img<GridProps & LayoutProps & PositionProps>`
   ${layout};
   ${grid};
+  ${position};
+  z-index: ${theme.zIndexes.inFront};
   transition: transform 0.4s;
   transform-origin: left;
   &:hover {
@@ -57,75 +61,87 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
   launchDate,
 }) => {
   return (
-    <Div
-      display={["flex", "flex", "flex", "grid"]}
-      flexDirection={["column", "column", "column"]}
-      gridTemplateColumns="repeat(3, 1fr)"
-      gridTemplateRows="repeat(5, 20%)"
-      alignItems="center"
-      height={["unset", "unset", "unset", "86vh"]}
-    >
-      <ReturnToProjectsPage to={PROJECTS_URL} alignSelf="start">
-        <ProjectIcon
-          src={projectIcon}
-          alt="icon image"
-          maxWidth="20%"
-          gridColumn={1}
-          gridRow={1}
-        />
-      </ReturnToProjectsPage>
-      <Illustration
-        src={boots}
-        alt="illustration image"
-        maxWidth="50%"
-        gridColumn={1}
-        gridRow={2}
-        justifySelf="flex-end"
-        alignSelf="center"
-      />
-      <TimerContainer
-        zIndex={theme.zIndexes.inFront}
-        gridColumn={2}
-        gridRow="2/4"
+    <Flex flex="auto" justifyContent="center" alignItems="center" height="auto">
+      <Div
+        display={["flex", "flex", "flex", "flex", "grid"]}
+        flexDirection="column"
+        gridTemplateColumns="3, 1fr"
+        gridTemplateRows="140px 140px 140px 140px"
+        alignItems="center"
+        width="80%"
       >
-        <Timer launchDate={launchDate} />
-      </TimerContainer>
-      <Illustration
-        src={bag}
-        alt="illustration image"
-        maxWidth="50%"
-        gridColumn={2}
-        gridRow={1}
-        justifySelf="center"
-        alignSelf="center"
-      />
-      <Illustration
-        src={shell}
-        alt="illustration image"
-        maxWidth="50%"
-        gridColumn={2}
-        gridRow={4}
-        justifySelf="flex-start"
-        alignSelf="center"
-      />
-      <Illustration
-        src={trex}
-        alt="illustration image"
-        maxWidth="50%"
-        gridColumn={2}
-        gridRow={4}
-        justifySelf="flex-end"
-        alignSelf="center"
-      />
-      <Illustration
-        src={sunglasses}
-        alt="illustration image"
-        maxWidth="50%"
-        gridColumn={3}
-        gridRow={2}
-        alignSelf="center"
-      />
-    </Div>
+        <ReturnToProjectsPage to={PROJECTS_URL}>
+          <ProjectIcon
+            src={projectIcon}
+            alt="icon image"
+            width={80}
+            minWidth={80}
+            gridColumn={1}
+            gridRow={1}
+            left={30}
+            top={80}
+            position="absolute"
+            display={["none", "none", "block"]}
+          />
+        </ReturnToProjectsPage>
+        <Illustration
+          src={boots}
+          alt="illustration image"
+          width={240}
+          minWidth={240}
+          gridColumn={1}
+          gridRow={2}
+          justifySelf="flex-end"
+          alignSelf="center"
+        />
+        <TimerContainer
+          gridColumn={2}
+          gridRow="2/4"
+          width={["auto", "auto", "auto", 444]}
+          minWidth={["auto", "auto", "auto", 444]}
+        >
+          <Timer launchDate={launchDate} />
+        </TimerContainer>
+        <Illustration
+          src={bag}
+          alt="illustration image"
+          width={240}
+          minWidth={240}
+          gridColumn={2}
+          gridRow={1}
+          justifySelf="center"
+        />
+        <Illustration
+          src={shell}
+          alt="illustration image"
+          width={240}
+          minWidth={240}
+          gridColumn={2}
+          gridRow={4}
+          justifySelf="flex-start"
+          alignSelf="center"
+        />
+        <Illustration
+          src={trex}
+          alt="illustration image"
+          width={240}
+          minWidth={240}
+          gridColumn={2}
+          gridRow={4}
+          justifySelf="flex-end"
+          alignSelf="center"
+        />
+        <Illustration
+          src={sunglasses}
+          alt="illustration image"
+          width={240}
+          minWidth={240}
+          gridColumn={3}
+          gridRow="1/3"
+          alignSelf="start"
+        />
+      </Div>
+    </Flex>
   );
 };
 
