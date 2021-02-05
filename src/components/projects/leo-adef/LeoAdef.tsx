@@ -116,7 +116,6 @@ const LeoAdefContent: React.FC = () => {
       >
         {calendarImages.map(CalendarImage)}
       </Grid>
-      <Scrollback bottom={40} left={40} />
     </div>
   );
 };
