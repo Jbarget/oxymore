@@ -43,22 +43,43 @@ const Overlay = styled.dialog<{ isOpen: boolean }>`
   ${props => props.isOpen && overlayStyles}
 `;
 
-const Menu = styled.ul<TypographyProps & SpaceProps>`
+const OpenNavMenuButton = styled.button<ColorProps & TypographyProps>`
+  ${color};
   ${typography};
-  ${space};
-`;
-
-const MenuButton = styled.button<TypographyProps & PositionProps & ColorProps>`
   border: none;
   background: transparent;
-  transition: transform 0.3s;
+  transition: transform 1s;
   &:hover {
     transform: scale(1.01);
     color: white;
   }
-  ${typography};
-  ${position};
+`;
+
+const BackButton = styled(OpenNavMenuButton)<
+  ColorProps & PositionProps & TypographyProps
+>`
   ${color};
+  ${position};
+  ${typography};
+  &:hover {
+    color: ${theme.colors.copyOne};
+  }
+`;
+
+const ReturnToHomePage = styled(NavLink)<
+  ColorProps & PositionProps & TypographyProps
+>`
+  ${color};
+  ${position};
+  ${typography};
+  &:hover {
+    color: ${theme.colors.copyOne};
+  }
+`;
+
+const Menu = styled.ul<TypographyProps & SpaceProps>`
+  ${typography};
+  ${space};
 `;
 
 const MenuItem = styled.li`
@@ -66,13 +87,6 @@ const MenuItem = styled.li`
   transform-origin: left;
   &:hover {
     transform: scale(1.01);
-  }
-`;
-
-const HomepageLink = styled(NavLink)<ColorProps>`
-  ${color};
-  &:hover {
-    color: ${theme.colors.copyOne};
   }
 `;
 
@@ -84,14 +98,17 @@ const MenuLink = styled(NavLink)<ColorProps & TypographyProps>`
   }
 `;
 
-const BuyLink = styled.button<TypographyProps & ColorProps>`
-  border: none;
-  background: transparent;
-  &:hover {
-    color: ${theme.colors.copyOne};
-  }
+const GoToBuyPage = styled.button<TypographyProps & ColorProps>`
   ${typography};
   ${color};
+  border: none;
+  background: transparent;
+  transition: transform 0.4s;
+  transform-origin: left;
+  &:hover {
+    transform: scale(1.01);
+    color: ${theme.colors.copyOne};
+  }
 `;
 
 interface LinkProps {
@@ -101,11 +118,12 @@ interface LinkProps {
 
 const Link = ({ page, url, onClick }: LinkProps & { onClick: () => void }) => {
   return (
-    <MenuItem onClick={onClick}>
+    <MenuItem>
       <MenuLink
         to={url}
         fontSize={[5, 6, 7, 8]}
         color={`${theme.colors.copyTwo}`}
+        onClick={onClick}
       >
         {page}
       </MenuLink>
@@ -122,13 +140,13 @@ const StripeMenuLink: React.FC = () => {
     <Fragment>
       {error && <p>{error}</p>}
       <MenuItem>
-        <BuyLink
+        <GoToBuyPage
           onClick={redirectToCheckout(setError, pathname)}
           fontSize={[5, 6, 7, 8]}
           color={`${theme.colors.copyTwo}`}
         >
           {t("nav.buy")}
-        </BuyLink>
+        </GoToBuyPage>
       </MenuItem>
     </Fragment>
   );
@@ -170,33 +188,35 @@ const NavMenu = () => {
 
   return (
     <Fragment>
-      <MenuButton onClick={() => setIsOpen(!isOpen)} fontSize={fontSizes}>
+      <OpenNavMenuButton
+        onClick={() => setIsOpen(!isOpen)}
+        fontSize={fontSizes}
+      >
         MENU
-      </MenuButton>
-      <Overlay isOpen={isOpen}>
-        <MenuButton
-          fontSize={fontSizes}
+      </OpenNavMenuButton>
+      <Overlay isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+        <ReturnToHomePage
+          to={HOME_URL}
+          onClick={() => setIsOpen(!isOpen)}
           position="absolute"
           left={24}
           top={24}
-          color={`${theme.colors.copyTwo}`}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <HomepageLink color="black" to={HOME_URL}>
-            OXYMORE
-          </HomepageLink>
-        </MenuButton>
-        <MenuButton
-          onClick={() => setIsOpen(false)}
+          color="copyTwo"
           fontSize={fontSizes}
+        >
+          OXYMORE
+        </ReturnToHomePage>
+        <BackButton
+          onClick={() => setIsOpen(!isOpen)}
           position="absolute"
-          right={30}
+          right={24}
           top={24}
-          color={`${theme.colors.copyTwo}`}
+          color="copyTwo"
+          fontSize={fontSizes}
         >
           BACK
-        </MenuButton>
-        <Menu textAlign={["center", null, null, "start"]} p={4}>
+        </BackButton>
+        <Menu textAlign={["center", "center", "start"]} p={4}>
           {links.map(props => (
             <Link key={props.page} onClick={toggleMenuIsOpen} {...props} />
           ))}
