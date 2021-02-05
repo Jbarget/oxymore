@@ -1,5 +1,3 @@
-import { FlexboxProps, TypographyProps, typography } from "styled-system";
-
 import ConsciousShoppingContent from "./ConsciousShoppingContent";
 import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
 import Flex from "../../Flex";
