@@ -48,7 +48,7 @@ const OpenNavMenuButton = styled.button<ColorProps & TypographyProps>`
   ${typography};
   border: none;
   background: transparent;
-  transition: transform 1s;
+  transition: transform 0.4s;
   &:hover {
     transform: scale(1.01);
     color: white;
