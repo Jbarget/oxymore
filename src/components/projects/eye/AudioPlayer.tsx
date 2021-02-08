@@ -1,14 +1,23 @@
+import { PositionProps, SpaceProps, position, space } from "styled-system";
 import React, { useCallback } from "react";
+
+import Flex from "../../Flex";
+import { ReactComponent as Pause } from "../../../assets/project-page/eye/pause.svg";
+import { ReactComponent as Play } from "../../../assets/project-page/eye/play.svg";
 import styled from "styled-components";
 
-import { ReactComponent as Pause } from "../../../assets/pause.svg";
-import { ReactComponent as Play } from "../../../assets/play.svg";
+const Container = styled(Flex)<PositionProps>`
+  ${position};
+`;
 
-const Button = styled.button`
+const Button = styled.button<SpaceProps>`
   background: none;
   border: none;
-  cursor: pointer;
-  margin-right: 8px;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  ${space};
 `;
 
 const AudioPlayer = () => {
@@ -24,14 +33,14 @@ const AudioPlayer = () => {
   }, [audio]);
 
   return (
-    <div>
-      <Button type="button" onClick={play} aria-label="Play">
+    <Container flexDirection="row" position="absolute" bottom={0} left={15}>
+      <Button type="button" onClick={play} aria-label="Play" mr={1}>
         <Play />
       </Button>
-      <Button type="button" onClick={pause} aria-label="Pause">
+      <Button type="button" onClick={pause} aria-label="Pause" ml={1}>
         <Pause />
       </Button>
-    </div>
+    </Container>
   );
 };
 

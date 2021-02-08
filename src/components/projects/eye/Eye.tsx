@@ -15,6 +15,7 @@ import React, { Fragment, useCallback, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 import AudioPlayer from "./AudioPlayer";
+import CountryData from "./CountryData";
 import EyePreview from "./EyePreview";
 import Flex from "../../Flex";
 import Grid from "../../Grid";
@@ -28,23 +29,6 @@ import eyeBlue from "../../../assets/project-page/eye/eye_blue.png";
 import eyeBrown from "../../../assets/project-page/eye/eye_brown.png";
 import theme from "../../theme";
 import { useTranslation } from "react-i18next";
-
-const P = styled.p<TypographyProps>`
-  text-transform: uppercase;
-  font-family: ${theme.fonts.secondary};
-  line-height: 28px;
-  ${typography};
-`;
-
-const itemStyles: React.CSSProperties = {
-  color: `${theme.colors.copyOne}`,
-  fontFamily: `${theme.fonts.secondary}`,
-  textTransform: "uppercase",
-};
-
-const style: React.CSSProperties = {
-  height: "200px",
-};
 
 const defaultMaximumValues = {
   population: 0,
@@ -82,44 +66,14 @@ const getRelativeValues = ({
   return values;
 };
 
-const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
-  const { t } = useTranslation();
-
-  if (!countryData) return null;
-
-  return (
-    <Flex
-      position="fixed"
-      flexDirection="column"
-      width="auto"
-      top={100}
-      left={["50%", "50%", "50%", "60%", "75%"]}
-      zIndex={theme.zIndexes.behind}
-    >
-      <Flex borderBottom="offWhiteThin" width="fit-content">
-        <P fontSize={3}>{countryData.name}</P>
-      </Flex>
-      <P fontSize={[1, 1, 2]}>
-        {t("eye.population")}:{" "}
-        {countryData.data.population.toLocaleString(["en-GB"])}
-      </P>
-      <P fontSize={[1, 1, 2]}>
-        {t("eye.populationAffected")}:{" "}
-        {countryData.data.populationAffected.toLocaleString("en-GB")}
-      </P>
-      <P fontSize={[1, 1, 2]}>
-        {t("eye.percentage")}:{" "}
-        {countryData.data.percentageAffected.toLocaleString("en-GB")}%
-      </P>
-      {countryData.data.casesTreated ? (
-        <P fontSize={[1, 1, 2]}>
-          {t("eye.recovered")}:{" "}
-          {countryData.data.casesTreated.toLocaleString("en-GB")}
-        </P>
-      ) : null}
-    </Flex>
-  );
-};
+const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
+  ${layout};
+  ${position};
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
 
 const bounce = keyframes`
   0%, 100% {
@@ -131,7 +85,7 @@ const bounce = keyframes`
 `;
 
 const GridImg = styled.img<GridProps & LayoutProps>`
-  max-width: 100%;
+  min-width: 100%;
   transition: transform 0.5s;
   &:hover {
     transform: scale(1.2);
@@ -149,14 +103,21 @@ const GridItem = styled.div<GridProps & LayoutProps>`
   ${layout};
 `;
 
-const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
-  ${layout};
-  ${position};
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.02);
-  }
+const P = styled.p<TypographyProps>`
+  font-family: ${theme.fonts.secondary};
+  ${typography};
 `;
+
+const itemStyles: React.CSSProperties = {
+  color: `${theme.colors.copyOne}`,
+  fontFamily: `${theme.fonts.secondary}`,
+  textTransform: "uppercase",
+  zIndex: 1,
+};
+
+const style: React.CSSProperties = {
+  height: 200,
+};
 
 const calculateSpanValue = ({
   relativeValues,
@@ -204,8 +165,9 @@ const EyeContent = () => {
     selectedCountryData,
     setSelectedCountryData,
   ] = useState<EyeData | null>(null);
-  const [selectedDataSet, setSelectedDataSet] = useState<DataSet>("population");
-
+  const [selectedDataSet, setSelectedDataSet] = useState<DataSet>(
+    "populationAffected"
+  );
   const setCountryDetails = useCallback(
     countryData => () => setSelectedCountryData(countryData),
     []
@@ -242,17 +204,18 @@ const EyeContent = () => {
               {...datum}
               selectedDataSet={selectedDataSet}
               onClick={setCountryDetails(datum)}
+              z-index={theme.zIndexes.secondInFront}
             />
           ))}
         </Grid>
         <CountryData countryData={selectedCountryData} />
-        <Flex position="fixed" bottom={0} left={50}>
+        <Flex position="fixed" bottom={0} left={40}>
           <Picker
             onChange={setSelectedDataSet}
             itemStyle={itemStyles}
+            value={selectedDataSet}
             style={style}
             mask={false}
-            value={selectedDataSet}
           >
             <Picker.Item value="population">{t("eye.population")}</Picker.Item>
             <Picker.Item value="populationAffected">
@@ -263,7 +226,34 @@ const EyeContent = () => {
             </Picker.Item>
           </Picker>
         </Flex>
-        <Flex position="fixed" bottom={50} right={80}>
+        <Flex
+          position="fixed"
+          bottom={40}
+          right={100}
+          display={["none", "none", "none", "block"]}
+          px={2}
+        >
+          <P
+            dangerouslySetInnerHTML={{ __html: t("eye.intro") }}
+            fontSize={[0, 1]}
+          ></P>
+        </Flex>
+        <Flex
+          display={["none", "none", "none", "none", "block"]}
+          position="fixed"
+          bottom={40}
+          left={400}
+          width={320}
+          px={2}
+          zIndex={theme.zIndexes.behind}
+        >
+          <P
+            dangerouslySetInnerHTML={{ __html: t("eye.footnote") }}
+            fontSize={[0, 1]}
+            textAlign="justify"
+          ></P>
+        </Flex>
+        <Flex position="fixed" bottom={40} right={80} px={2}>
           <AudioPlayer />
         </Flex>
       </Flex>

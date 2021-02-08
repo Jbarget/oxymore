@@ -2,11 +2,13 @@ import {
   BorderProps,
   FlexboxProps,
   LayoutProps,
+  LineHeightProps,
   PositionProps,
   SpaceProps,
   border,
   flexbox,
   layout,
+  lineHeight,
   position,
   space,
 } from "styled-system";
@@ -14,7 +16,12 @@ import {
 import styled from "styled-components";
 
 const Flex = styled.div<
-  FlexboxProps & SpaceProps & LayoutProps & PositionProps & BorderProps
+  FlexboxProps &
+    SpaceProps &
+    LayoutProps &
+    PositionProps &
+    BorderProps &
+    LineHeightProps
 >`
   display: flex;
   ${flexbox};
@@ -22,6 +29,7 @@ const Flex = styled.div<
   ${layout};
   ${position};
   ${border};
+  ${lineHeight};
 `;
 
 export default Flex;

@@ -1,18 +1,22 @@
-import styled from "styled-components";
 import {
-  grid,
   GridProps,
-  layout,
   LayoutProps,
-  space,
+  PositionProps,
   SpaceProps,
+  grid,
+  layout,
+  position,
+  space,
 } from "styled-system";
 
-const Grid = styled.div<GridProps & SpaceProps & LayoutProps>`
+import styled from "styled-components";
+
+const Grid = styled.div<GridProps & SpaceProps & LayoutProps & PositionProps>`
   display: grid;
   ${grid};
   ${space};
   ${layout};
+  ${position};
 `;
 
 export default Grid;

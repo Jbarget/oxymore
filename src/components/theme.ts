@@ -12,6 +12,7 @@ export type Colors =
 const zIndexes = {
   behind: -1,
   inFront: 1,
+  secondInFront: 2,
   overlay: 1300,
 };
 

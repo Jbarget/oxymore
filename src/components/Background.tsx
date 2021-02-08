@@ -33,7 +33,7 @@ const BackgroundElement = styled.div<{ background: Background }>`
   right: 0;
   bottom: 0;
   left: 0;
-  background-repeat: no-repeat;
+  background-repeat: none;
   background-size: cover;
   height: 100%;
   width: 100%;
