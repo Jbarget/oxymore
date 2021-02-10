@@ -6,6 +6,7 @@ import styled, { keyframes } from "styled-components";
 import { EyeData } from "../../../fixtures/eye-data";
 import Flex from "../../Flex";
 import React from "react";
+import i18n from "../../../i18n";
 import theme from "../../theme";
 import { useTranslation } from "react-i18next";
 
@@ -28,8 +29,19 @@ const P = styled.p<TypographyProps>`
   ${typography};
 `;
 
+interface LocaleProps {
+  es: string;
+  gb: string;
+}
+
 const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
   const { t } = useTranslation();
+
+  const locales: LocaleProps = {
+    es: "es-ES",
+    gb: "gb-GB",
+  };
+
   if (!countryData) return null;
   return (
     <Container
@@ -46,20 +58,29 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
       </Flex>
       <P fontSize={[1, 1, 2]}>
         {t("eye.population")}:{" "}
-        {countryData.data.population.toLocaleString(["en-GB"])}
+        {i18n.language === "en"
+          ? countryData.data.population.toLocaleString([locales.gb])
+          : countryData.data.population.toLocaleString([locales.es])}
       </P>
       <P fontSize={[1, 1, 2]}>
         {t("eye.populationAffected")}:{" "}
-        {countryData.data.populationAffected.toLocaleString("en-GB")}
+        {i18n.language === "en"
+          ? countryData.data.populationAffected.toLocaleString([locales.gb])
+          : countryData.data.populationAffected.toLocaleString([locales.es])}
       </P>
       <P fontSize={[1, 1, 2]}>
         {t("eye.percentage")}:{" "}
-        {countryData.data.percentageAffected.toLocaleString("en-GB")}%
+        {i18n.language === "en"
+          ? countryData.data.percentageAffected.toLocaleString([locales.gb])
+          : countryData.data.percentageAffected.toLocaleString([locales.es])}
+        %
       </P>
       {countryData.data.casesTreated ? (
         <P fontSize={[1, 1, 2]}>
           {t("eye.recovered")}:{" "}
-          {countryData.data.casesTreated.toLocaleString("en-GB")}
+          {i18n.language === "en"
+            ? countryData.data.casesTreated.toLocaleString([locales.gb])
+            : countryData.data.casesTreated.toLocaleString([locales.es])}
         </P>
       ) : null}
     </Container>

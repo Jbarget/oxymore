@@ -11,7 +11,7 @@ import {
   position,
   typography,
 } from "styled-system";
-import React, { Fragment, useCallback, useState } from "react";
+import React, { Fragment, useCallback, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 import AudioPlayer from "./AudioPlayer";
@@ -174,6 +174,20 @@ const EyeContent = () => {
   );
   const { t } = useTranslation();
 
+  useEffect(() => {
+    const close = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedCountryData(null);
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
+  const hideCountryData = () => {
+    setSelectedCountryData(null);
+  };
+
   return (
     <Fragment>
       <ReturnToProjectsPage
@@ -192,6 +206,7 @@ const EyeContent = () => {
         position="relative"
         justifyContent="center"
         width="100%"
+        onMouseDown={hideCountryData}
       >
         <Grid
           width={[320, 320, 400, 540]}
@@ -209,23 +224,6 @@ const EyeContent = () => {
           ))}
         </Grid>
         <CountryData countryData={selectedCountryData} />
-        <Flex position="fixed" bottom={0} left={40}>
-          <Picker
-            onChange={setSelectedDataSet}
-            itemStyle={itemStyles}
-            value={selectedDataSet}
-            style={style}
-            mask={false}
-          >
-            <Picker.Item value="population">{t("eye.population")}</Picker.Item>
-            <Picker.Item value="populationAffected">
-              {t("eye.populationAffected")}
-            </Picker.Item>
-            <Picker.Item value="percentageAffected">
-              {t("eye.percentage")}
-            </Picker.Item>
-          </Picker>
-        </Flex>
         <Flex
           position="fixed"
           bottom={40}
@@ -256,6 +254,24 @@ const EyeContent = () => {
         <Flex position="fixed" bottom={40} right={80} px={2}>
           <AudioPlayer />
         </Flex>
+      </Flex>
+      <Flex position="fixed" bottom={0} left={40}>
+        <Picker
+          onChange={setSelectedDataSet}
+          onScrollChange={hideCountryData}
+          itemStyle={itemStyles}
+          value={selectedDataSet}
+          style={style}
+          mask={false}
+        >
+          <Picker.Item value="population">{t("eye.population")}</Picker.Item>
+          <Picker.Item value="populationAffected">
+            {t("eye.populationAffected")}
+          </Picker.Item>
+          <Picker.Item value="percentageAffected">
+            {t("eye.percentage")}
+          </Picker.Item>
+        </Picker>
       </Flex>
     </Fragment>
   );
