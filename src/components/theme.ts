@@ -12,6 +12,7 @@ export type Colors =
 const zIndexes = {
   behind: -1,
   inFront: 1,
+  secondInFront: 2,
   overlay: 1300,
 };
 
@@ -61,7 +62,7 @@ const fonts = {
 };
 
 const borders = {
-  whiteThin: "1px solid white",
+  offWhiteThin: `1px solid ${colors.copyOne}`,
 };
 
 const theme = {
