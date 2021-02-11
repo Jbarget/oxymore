@@ -48,12 +48,13 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
       position="fixed"
       flexDirection="column"
       width="auto"
+      p={2}
       top={100}
-      left={["50%", "50%", "50%", "60%", "75%"]}
+      left={["50%", "50%", "50%", "60%", "72%"]}
       zIndex={theme.zIndexes.behind}
       lineHeight="28px"
     >
-      <Flex borderBottom="offWhiteThin" width="fit-content">
+      <Flex borderBottom="offWhiteThin" width="fit-content" maxWidth={[400]}>
         <P fontSize={3}>{countryData.name}</P>
       </Flex>
       <P fontSize={[1, 1, 2]}>

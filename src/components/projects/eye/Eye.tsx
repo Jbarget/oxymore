@@ -223,7 +223,9 @@ const EyeContent = () => {
             />
           ))}
         </Grid>
-        <CountryData countryData={selectedCountryData} />
+        <Flex display={["none", "none", "none", "none", "block"]}>
+          <CountryData countryData={selectedCountryData} />
+        </Flex>
         <Flex
           position="fixed"
           bottom={40}
