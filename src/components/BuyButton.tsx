@@ -26,6 +26,7 @@ const Button = styled.button<
   z-index: ${theme.zIndexes.inFront};
   text-transform: uppercase;
   transition: transform 0.5s;
+  box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
   &:hover {
     transform: scale(1.01);
     color: white;
