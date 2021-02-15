@@ -48,9 +48,9 @@ const OpenNavMenuButton = styled.button<ColorProps & TypographyProps>`
   ${typography};
   border: none;
   background: transparent;
-  transition: transform 0.4s;
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
     color: white;
   }
 `;
@@ -83,7 +83,7 @@ const Menu = styled.ul<TypographyProps & SpaceProps>`
 `;
 
 const MenuItem = styled.li`
-  transition: transform 0.4s;
+  transition: transform 0.4s ease-in-out;
   transform-origin: left;
   &:hover {
     transform: scale(1.01);

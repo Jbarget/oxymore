@@ -23,9 +23,9 @@ import wingsBeatingImg from "../../../assets/project-page/erotic-stories/wings-b
 
 const ReturnToProjectsPage = styled(Link)<LayoutProps>`
   ${layout};
-  transition: transform 0.5s;
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 `;
 

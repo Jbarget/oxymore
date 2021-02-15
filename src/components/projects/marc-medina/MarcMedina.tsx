@@ -223,7 +223,7 @@ const MarcMedinaContent: React.FC = () => {
   );
 };
 
-const launchDate = "2020-02-19";
+const launchDate = "2021-02-19";
 const MarcMedina: React.FC = () => {
   return (
     <Flex flex="auto">
