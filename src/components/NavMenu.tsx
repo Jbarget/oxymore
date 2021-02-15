@@ -73,7 +73,7 @@ const ReturnToHomePage = styled(NavLink)<
   ${color};
   ${position};
   ${typography};
-  transition: all 0.4s ease;
+  transition: all 0.1s ease;
   &:hover {
     color: ${theme.colors.copyOne};
   }
