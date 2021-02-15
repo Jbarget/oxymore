@@ -61,6 +61,7 @@ const BackButton = styled(OpenNavMenuButton)<
   ${color};
   ${position};
   ${typography};
+  transition: all 0.1s ease;
   &:hover {
     color: ${theme.colors.copyOne};
   }
@@ -72,6 +73,7 @@ const ReturnToHomePage = styled(NavLink)<
   ${color};
   ${position};
   ${typography};
+  transition: all 0.1s ease;
   &:hover {
     color: ${theme.colors.copyOne};
   }
