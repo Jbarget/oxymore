@@ -105,7 +105,7 @@ const GoToBuyPage = styled.button<TypographyProps & ColorProps>`
   ${color};
   border: none;
   background: transparent;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
   transform-origin: left;
   &:hover {
     transform: scale(1.01);
