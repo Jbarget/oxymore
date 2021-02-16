@@ -48,9 +48,9 @@ const OpenNavMenuButton = styled.button<ColorProps & TypographyProps>`
   ${typography};
   border: none;
   background: transparent;
-  transition: transform 0.4s;
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
     color: white;
   }
 `;
@@ -61,6 +61,7 @@ const BackButton = styled(OpenNavMenuButton)<
   ${color};
   ${position};
   ${typography};
+  transition: all 0.1s ease;
   &:hover {
     color: ${theme.colors.copyOne};
   }
@@ -72,6 +73,7 @@ const ReturnToHomePage = styled(NavLink)<
   ${color};
   ${position};
   ${typography};
+  transition: all 0.1s ease;
   &:hover {
     color: ${theme.colors.copyOne};
   }
@@ -83,7 +85,7 @@ const Menu = styled.ul<TypographyProps & SpaceProps>`
 `;
 
 const MenuItem = styled.li`
-  transition: transform 0.4s;
+  transition: all 0.4s ease;
   transform-origin: left;
   &:hover {
     transform: scale(1.01);
@@ -103,7 +105,7 @@ const GoToBuyPage = styled.button<TypographyProps & ColorProps>`
   ${color};
   border: none;
   background: transparent;
-  transition: transform 0.4s;
+  transition: all 0.2s ease;
   transform-origin: left;
   &:hover {
     transform: scale(1.01);

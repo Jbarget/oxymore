@@ -14,9 +14,9 @@ import theme from "../../theme";
 const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
   ${layout};
   ${position};
-  transition: transform 0.5s;
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 `;
 

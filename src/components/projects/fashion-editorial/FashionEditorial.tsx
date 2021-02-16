@@ -1,7 +1,16 @@
-import { GridProps, LayoutProps, grid, layout } from "styled-system";
+import {
+  GridProps,
+  LayoutProps,
+  PositionProps,
+  grid,
+  layout,
+  position,
+} from "styled-system";
 
 import FashionEditorialPreview from "./FashionEditorialPreview";
 import Flex from "../../Flex";
+import { Link } from "react-router-dom";
+import { PROJECTS_URL } from "../../../constants/router-urls";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 import image1 from "../../../assets/project-page/fashion-editorial/001-awewave-oxymore.jpg";
@@ -26,7 +35,9 @@ import image6 from "../../../assets/project-page/fashion-editorial/006-awewave-o
 import image7 from "../../../assets/project-page/fashion-editorial/007-awewave-oxymore.jpg";
 import image8 from "../../../assets/project-page/fashion-editorial/008-awewave-oxymore.jpg";
 import image9 from "../../../assets/project-page/fashion-editorial/009-awewave-oxymore.jpg";
+import stairs from "../../../assets/project-page/project-icons/stairs.png";
 import styled from "styled-components";
+import theme from "../../theme";
 
 const editorialImages: EditorialImageProps[] = [
   {
@@ -158,6 +169,15 @@ const Img = styled.img`
   width: 100%;
 `;
 
+const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
+  ${layout};
+  ${position};
+  transition: all 1s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
 interface EditorialImageProps {
   img: string;
   alt: string;
@@ -174,19 +194,32 @@ const EditorialImage = ({ img, alt, gridColumn }: EditorialImageProps) => {
 
 const FashionEditorialContent: React.FC = () => {
   return (
-    <Div
-      display={["inline-table", "inline-table", "inline-table", "grid"]}
-      gridRowGap={3}
-      gridColumnGap={3}
-      gridTemplateColumns={[
-        "repeat(1, 1fr)",
-        "repeat(1, 1fr)",
-        "repeat(1, 1fr)",
-        "repeat(2, 1fr)",
-      ]}
-    >
-      {editorialImages.map(EditorialImage)}
-    </Div>
+    <Flex flexDirection="column">
+      <ReturnToProjectsPage
+        to={PROJECTS_URL}
+        width={80}
+        position="absolute"
+        left={40}
+        top={80}
+        zIndex={theme.zIndexes.inFront}
+        display={["none", "none", "block"]}
+      >
+        <img src={stairs} alt="mask icon" />
+      </ReturnToProjectsPage>
+      <Div
+        display={["inline-table", "inline-table", "inline-table", "grid"]}
+        gridRowGap={1}
+        gridColumnGap={1}
+        gridTemplateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+        ]}
+      >
+        {editorialImages.map(EditorialImage)}
+      </Div>
+    </Flex>
   );
 };
 

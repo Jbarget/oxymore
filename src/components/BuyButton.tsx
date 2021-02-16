@@ -27,8 +27,9 @@ const Button = styled.button<
   text-transform: uppercase;
   transition: transform 0.5s;
   box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.03);
     color: white;
   }
   ${space};

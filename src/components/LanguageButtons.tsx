@@ -27,9 +27,9 @@ const LangButton = styled.button<
   ${props => props.isActive && ActiveLang}
   background: transparent;
   border: none;
-  transition: transform 0.3s;
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     color: white;
   }
 `;
