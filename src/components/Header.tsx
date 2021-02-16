@@ -15,9 +15,9 @@ import styled from "styled-components";
 
 const H1 = styled.h1<SpaceProps & TypographyProps & GridProps>`
   ${typography};
-  transition: transform 0.3s;
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
     color: white;
   }
 `;

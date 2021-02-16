@@ -13,11 +13,9 @@ import {
   FlexboxProps,
   GridProps,
   LayoutProps,
-  SpaceProps,
   flexbox,
   grid,
   layout,
-  space,
 } from "styled-system";
 
 import Grid from "./Grid";
@@ -34,23 +32,19 @@ import stairs from "../assets/project-page/project-icons/stairs.png";
 import statue from "../assets/project-page/project-icons/statue.png";
 import styled from "styled-components";
 
-const ProjectLinkWrapper = styled.div<
-  LayoutProps & GridProps & FlexboxProps & SpaceProps
->`
+const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
   ${layout};
   ${grid};
   ${flexbox};
-  ${space};
   display: flex;
   align-items: center;
-  transition: 1s;
 `;
 
-const Img = styled.img<LayoutProps>`
-  ${layout};
-  transition: transform 0.3s;
+const Img = styled.img`
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+  }
 `;
 
 const ProjectsGrid = () => {
