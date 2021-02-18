@@ -32,7 +32,9 @@ import trexImg from "../../../assets/project-page/conscious-shopping/t-rex.jpg";
 import { useTranslation } from "react-i18next";
 
 const ColumnOne = styled(Flex)``;
-const ColumnTwo = styled(Flex)``;
+const ColumnTwo = styled(Flex)`
+  text-align: center;
+`;
 const ColumnThree = styled(Flex)``;
 
 const H1 = styled.h1<SpaceProps & TypographyProps>`
@@ -47,6 +49,7 @@ const H2 = styled.h2<SpaceProps & TypographyProps>`
 `;
 
 const BigImage = styled.img<SpaceProps & LayoutProps & PositionProps>`
+  transition: all 1s ease-out;
   ${space};
   ${layout};
   ${position};
@@ -276,7 +279,6 @@ const ConsciousShoppingCarousel = () => {
               <ScrollableText
                 fontFamily="secondary"
                 mb={6}
-                mr={1}
                 dangerouslySetInnerHTML={{ __html: interviewTextLeftCol }}
               ></ScrollableText>
             </TextContainer>
@@ -287,7 +289,12 @@ const ConsciousShoppingCarousel = () => {
             flexDirection={["column", "column", "column", "column", "row"]}
           >
             <ImageContainer width="100%">
-              <BigImage src={mainImage} alt={altTags} minWidth="100%" p={4} />
+              <BigImage
+                src={mainImage}
+                alt={altTags}
+                minWidth={[320, 320, 320, 420, 420]}
+                p={4}
+              />
             </ImageContainer>
             <Flex
               flexDirection={["column", "column", "column", "column", "row"]}
@@ -313,7 +320,6 @@ const ConsciousShoppingCarousel = () => {
             <ScrollableText
               fontFamily="secondary"
               mb={6}
-              mr={1}
               dangerouslySetInnerHTML={{ __html: interviewTextRightCol }}
             ></ScrollableText>
           </TextContainer>
