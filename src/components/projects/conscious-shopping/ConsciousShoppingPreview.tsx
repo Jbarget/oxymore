@@ -35,15 +35,19 @@ const TimerContainer = styled.div<GridProps & LayoutProps>`
   z-index: ${theme.zIndexes.inFront};
 `;
 
+const ReturnToProjectsPage = styled(Link)<FlexboxProps>`
+  ${flexbox};
+`;
+
 const ProjectIcon = styled.img<GridProps & LayoutProps & PositionProps>`
   ${layout};
   ${grid};
   ${position};
   z-index: ${theme.zIndexes.inFront};
-  transition: transform 0.4s;
-  transform-origin: left;
+  transition: all 1s ease;
   &:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+  }
 `;
 
 const Illustration = styled.img<LayoutProps & FlexboxProps & GridProps>`
@@ -51,10 +55,6 @@ const Illustration = styled.img<LayoutProps & FlexboxProps & GridProps>`
   ${flexbox};
   ${grid};
   opacity: 0.5;
-`;
-
-const ReturnToProjectsPage = styled(Link)<FlexboxProps>`
-  ${flexbox};
 `;
 
 const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
@@ -68,7 +68,8 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
         gridTemplateColumns="3, 1fr"
         gridTemplateRows="140px 140px 140px 140px"
         alignItems="center"
-        width="80%"
+        justifyContent="center"
+        width="100%"
       >
         <ReturnToProjectsPage to={PROJECTS_URL}>
           <ProjectIcon
@@ -137,8 +138,8 @@ const ConsciousShoppingPreview: React.FC<{ launchDate: string }> = ({
           width={240}
           minWidth={240}
           gridColumn={3}
-          gridRow="1/3"
-          alignSelf="start"
+          gridRow={2}
+          alignSelf="center"
         />
       </Div>
     </Flex>

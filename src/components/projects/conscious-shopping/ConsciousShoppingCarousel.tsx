@@ -10,12 +10,13 @@ import {
   space,
   typography,
 } from "styled-system";
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Flex from "../../Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import arrow from "../../../assets/project-page/conscious-shopping/arrow.png";
+import bagImg from "../../../assets/project-page/conscious-shopping/bag.jpg";
 import bootsImg from "../../../assets/project-page/conscious-shopping/boots.jpg";
 import conchaImg from "../../../assets/project-page/conscious-shopping/concha.jpg";
 import laiaImg from "../../../assets/project-page/conscious-shopping/laia.jpg";
@@ -30,13 +31,19 @@ import theme from "../../theme";
 import trexImg from "../../../assets/project-page/conscious-shopping/t-rex.jpg";
 import { useTranslation } from "react-i18next";
 
-const H1 = styled.h1<SpaceProps>`
+const ColumnOne = styled(Flex)``;
+const ColumnTwo = styled(Flex)``;
+const ColumnThree = styled(Flex)``;
+
+const H1 = styled.h1<SpaceProps & TypographyProps>`
   text-transform: uppercase;
   ${space};
+  ${typography};
 `;
 
-const H2 = styled.h2<SpaceProps>`
+const H2 = styled.h2<SpaceProps & TypographyProps>`
   ${space};
+  ${typography};
 `;
 
 const BigImage = styled.img<SpaceProps & LayoutProps & PositionProps>`
@@ -51,24 +58,46 @@ const SmallImage = styled.img<LayoutProps & FlexboxProps & SpaceProps>`
   ${space};
 `;
 
-const Arrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
+const RightArrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
   ${layout};
   ${space};
   ${position};
   z-index: ${theme.zIndexes.inFront};
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 1s ease-in-out;
   transform-origin: left;
+  transform: scale(1);
   &:hover {
     transform: scale(1.05);
+    -webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    -o-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+`;
+
+const LeftArrow = styled(RightArrow)`
+  transform: scaleX(-1);
+  &:hover {
+    transform: scaleX(-1.05);
   }
 `;
 
 const TextContainer = styled.div`
   overflow-y: scroll;
   ::-webkit-scrollbar {
-    scrollbar-color: ${theme.colors.copyTwo} transparent;
+    scrollbar-color: ${theme.colors.black};
+    background-color: transparent;
   }
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: none !important;
+    background-color: transparent;
+  }
+`;
+
+const ImageContainer = styled.div<LayoutProps>`
+  ${layout};
 `;
 
 const ScrollableText = styled.p<TypographyProps & SpaceProps>`
@@ -76,9 +105,13 @@ const ScrollableText = styled.p<TypographyProps & SpaceProps>`
   ${space};
 `;
 
-const ProjectIcon = styled.img<LayoutProps & FlexboxProps>`
+const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
   ${layout};
-  ${flexbox};
+  ${position};
+  transition: all 1s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 interface CarouselProps {
@@ -90,7 +123,7 @@ interface CarouselProps {
   alt: string;
 }
 
-const ConsciousShoppingContent = () => {
+const ConsciousShoppingCarousel = () => {
   const { t } = useTranslation();
   const carousel: CarouselProps[] = [
     {
@@ -128,16 +161,15 @@ const ConsciousShoppingContent = () => {
     {
       title: t("conscious-shopping.nadia.title"),
       bigImage: nadiaImg,
-      smallImage: conchaImg,
+      smallImage: bagImg,
       interviewTextLeftCol: t("conscious-shopping.nadia.interviewP1"),
       interviewTextRightCol: t("conscious-shopping.nadia.interviewP2"),
       alt: "Nadia image",
     },
   ];
 
-  const [current, setCurrent] = useState(0);
-  const next = (current + 1) % carousel.length;
-  const currentCarouselItem = carousel[current];
+  let [currentPosition, setCurrentPosition] = useState(0);
+  let currentCarouselItem = carousel[currentPosition];
 
   const title = currentCarouselItem.title;
   const mainImage = currentCarouselItem.bigImage;
@@ -146,73 +178,141 @@ const ConsciousShoppingContent = () => {
   const interviewTextRightCol = currentCarouselItem.interviewTextRightCol;
   const altTags = currentCarouselItem.alt;
 
-  const handleClick = useCallback(() => setCurrent(next), [next]);
+  const arrowRightClick = () => {
+    currentPosition !== carousel.length - 1 // Check index length
+      ? setCurrentPosition(currentPosition + 1)
+      : setCurrentPosition((currentPosition = 0));
+    return false;
+  };
+
+  const arrowLeftClick = () => {
+    currentPosition !== 0 // Check index length
+      ? setCurrentPosition(currentPosition - 1)
+      : setCurrentPosition((currentPosition = carousel.length - 1));
+    return false;
+  };
+
+  useEffect(() => {
+    const right = (e: KeyboardEvent) => {
+      if (currentPosition !== carousel.length - 1 && e.key === "ArrowRight") {
+        setCurrentPosition(currentPosition + 1);
+      } else if (
+        currentPosition === carousel.length - 1 &&
+        e.key === "ArrowRight"
+      ) {
+        setCurrentPosition(0);
+      }
+    };
+    window.addEventListener("keydown", right);
+    return () => window.removeEventListener("keydown", right);
+  }, [currentPosition, carousel]);
+
+  useEffect(() => {
+    const left = (e: KeyboardEvent) => {
+      if (currentPosition !== 0 && e.key === "ArrowLeft") {
+        setCurrentPosition(currentPosition - 1);
+      } else if (currentPosition === 0 && e.key === "ArrowLeft") {
+        setCurrentPosition(carousel.length - 1);
+      }
+    };
+    window.addEventListener("keydown", left);
+    return () => window.removeEventListener("keydown", left);
+  }, [currentPosition, carousel]);
+
+  const MoveRight = ({ onClick }: { onClick: () => void }) => {
+    return (
+      <RightArrow
+        src={arrow}
+        alt="arrow"
+        position="relative"
+        right={2}
+        height={40}
+        minHeight={40}
+        onClick={onClick}
+      ></RightArrow>
+    );
+  };
+
+  const MoveLeft = ({ onClick }: { onClick: () => void }) => {
+    return (
+      <LeftArrow
+        src={arrow}
+        alt="arrow"
+        position="relative"
+        left={48}
+        height={40}
+        minHeight={40}
+        onClick={onClick}
+      ></LeftArrow>
+    );
+  };
 
   return (
     <Flex
       flexDirection={["column", "column", "column", "column", "row"]}
-      height={["unset", "unset", "unset", "100vh"]}
+      height={["unset", "unset", "unset", "unset", "100vh"]}
       alignItems={["center", "center", "center", "center", "unset"]}
-      width="100%"
       overflowX="hidden"
+      width="100%"
+      justifyContent="center"
     >
-      <Flex
+      <ColumnOne
         width={["100%", "100%", "100%", "100%", "40%"]}
         flexDirection="column"
       >
-        <Link to={PROJECTS_URL}>
-          <ProjectIcon
-            alt="shell icon"
-            src={shellIcon}
-            maxWidth={80}
-            alignSelf="center"
-          ></ProjectIcon>
-        </Link>
-        <H1 my={4}>Conscious Shopping</H1>
-        <H2 mb={4}>{title}</H2>
+        <ReturnToProjectsPage
+          to={PROJECTS_URL}
+          width={60}
+          zIndex={theme.zIndexes.inFront}
+        >
+          <img src={shellIcon} alt="shell icon" />
+        </ReturnToProjectsPage>
+        <H1 my={4} fontFamily="secondary">
+          Conscious Shopping
+        </H1>
+        <H2 mb={4} fontFamily="secondary">
+          {title}
+        </H2>
         <TextContainer>
           <ScrollableText
-            textAlign="justify"
+            fontFamily="secondary"
             mb={6}
             mr={2}
             dangerouslySetInnerHTML={{ __html: interviewTextLeftCol }}
           ></ScrollableText>
         </TextContainer>
-      </Flex>
+      </ColumnOne>
 
-      <BigImage src={mainImage} alt={altTags} maxWidth={500} p={4} />
-      <Arrow
-        src={arrow}
-        alt="arrow"
-        maxHeight={[80, 80, 80, 80, 40]}
-        maxWidth={[80, 80, 80, 80, 40]}
-        position={["unset", "unset", "unset", "unset", "relative"]}
-        right={72}
-        top={280}
-        onClick={handleClick}
-      ></Arrow>
+      <ColumnTwo
+        alignItems="center"
+        width={["100%", "100%", "100%", "100%", "50%"]}
+        flexDirection={["column", "column", "column", "row"]}
+      >
+        <MoveLeft onClick={arrowLeftClick} />
+        <ImageContainer width="100%">
+          <BigImage src={mainImage} alt={altTags} minWidth="100%" p={4} />
+        </ImageContainer>
+        <MoveRight onClick={arrowRightClick} />
+      </ColumnTwo>
 
-      <Flex
+      <ColumnThree
         width={["100%", "100%", "100%", "100%", "40%"]}
         flexDirection="column"
         alignItems="center"
+        ml={[0, 0, 0, 5]}
       >
-        <SmallImage
-          src={secondaryImage}
-          alt={altTags}
-          maxWidth={[400, 400, 200]}
-        />
+        <SmallImage src={secondaryImage} alt={altTags} maxWidth="50%" />
         <TextContainer>
           <ScrollableText
-            textAlign="justify"
+            fontFamily="secondary"
             mb={6}
             mr={2}
             dangerouslySetInnerHTML={{ __html: interviewTextRightCol }}
           ></ScrollableText>
         </TextContainer>
-      </Flex>
+      </ColumnThree>
     </Flex>
   );
 };
 
-export default ConsciousShoppingContent;
+export default ConsciousShoppingCarousel;
