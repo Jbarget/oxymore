@@ -64,23 +64,18 @@ const RightArrow = styled.img<LayoutProps & SpaceProps & PositionProps>`
   ${position};
   z-index: ${theme.zIndexes.inFront};
   cursor: pointer;
-  transition: all 1s ease-in-out;
+  transition: all 1s ease-out;
   transform-origin: left;
-  transform: scale(1);
+  transform: scaleX(1);
   &:hover {
-    transform: scale(1.05);
-    -webkit-transform: translateX(5px);
-    -moz-transform: translateX(5px);
-    -ms-transform: translateX(5px);
-    -o-transform: translateX(5px);
-    transform: translateX(5px);
+    transform: scaleX(1.2);
   }
 `;
 
 const LeftArrow = styled(RightArrow)`
   transform: scaleX(-1);
   &:hover {
-    transform: scaleX(-1.05);
+    transform: scaleX(-1.2);
   }
 `;
 
@@ -224,8 +219,8 @@ const ConsciousShoppingCarousel = () => {
       <RightArrow
         src={arrow}
         alt="arrow"
-        position="relative"
-        right={2}
+        position={["unset", "unset", "unset", "unset", "relative"]}
+        right={50}
         height={40}
         minHeight={40}
         onClick={onClick}
@@ -238,8 +233,8 @@ const ConsciousShoppingCarousel = () => {
       <LeftArrow
         src={arrow}
         alt="arrow"
-        position="relative"
-        left={48}
+        position={["unset", "unset", "unset", "unset", "relative"]}
+        left={-440}
         height={40}
         minHeight={40}
         onClick={onClick}
@@ -253,64 +248,77 @@ const ConsciousShoppingCarousel = () => {
       height={["unset", "unset", "unset", "unset", "100vh"]}
       alignItems={["center", "center", "center", "center", "unset"]}
       overflowX="hidden"
-      width="100%"
       justifyContent="center"
     >
-      <ColumnOne
-        width={["100%", "100%", "100%", "100%", "40%"]}
-        flexDirection="column"
-      >
-        <ReturnToProjectsPage
-          to={PROJECTS_URL}
-          width={60}
-          zIndex={theme.zIndexes.inFront}
+      <Flex flexDirection={["column", "column", "column", "column", "row"]}>
+        <Flex
+          flexDirection={["column", "column", "column", "row", "row"]}
+          width="100%"
         >
-          <img src={shellIcon} alt="shell icon" />
-        </ReturnToProjectsPage>
-        <H1 my={4} fontFamily="secondary">
-          Conscious Shopping
-        </H1>
-        <H2 mb={4} fontFamily="secondary">
-          {title}
-        </H2>
-        <TextContainer>
-          <ScrollableText
-            fontFamily="secondary"
-            mb={6}
-            mr={2}
-            dangerouslySetInnerHTML={{ __html: interviewTextLeftCol }}
-          ></ScrollableText>
-        </TextContainer>
-      </ColumnOne>
-
-      <ColumnTwo
-        alignItems="center"
-        width={["100%", "100%", "100%", "100%", "50%"]}
-        flexDirection={["column", "column", "column", "row"]}
-      >
-        <MoveLeft onClick={arrowLeftClick} />
-        <ImageContainer width="100%">
-          <BigImage src={mainImage} alt={altTags} minWidth="100%" p={4} />
-        </ImageContainer>
-        <MoveRight onClick={arrowRightClick} />
-      </ColumnTwo>
-
-      <ColumnThree
-        width={["100%", "100%", "100%", "100%", "40%"]}
-        flexDirection="column"
-        alignItems="center"
-        ml={[0, 0, 0, 5]}
-      >
-        <SmallImage src={secondaryImage} alt={altTags} maxWidth="50%" />
-        <TextContainer>
-          <ScrollableText
-            fontFamily="secondary"
-            mb={6}
-            mr={2}
-            dangerouslySetInnerHTML={{ __html: interviewTextRightCol }}
-          ></ScrollableText>
-        </TextContainer>
-      </ColumnThree>
+          <ColumnOne
+            width={["100%", "100%", "100%", "100%", "40%"]}
+            flexDirection="column"
+          >
+            <ReturnToProjectsPage
+              to={PROJECTS_URL}
+              width={60}
+              zIndex={theme.zIndexes.inFront}
+            >
+              <img src={shellIcon} alt="shell icon" />
+            </ReturnToProjectsPage>
+            <H1 my={4} fontFamily="secondary">
+              Conscious Shopping
+            </H1>
+            <H2 mb={4} fontFamily="secondary">
+              {title}
+            </H2>
+            <TextContainer>
+              <ScrollableText
+                fontFamily="secondary"
+                mb={6}
+                mr={1}
+                dangerouslySetInnerHTML={{ __html: interviewTextLeftCol }}
+              ></ScrollableText>
+            </TextContainer>
+          </ColumnOne>
+          <ColumnTwo
+            alignItems="center"
+            width={["100%", "100%", "100%", "100%", "60%"]}
+            flexDirection={["column", "column", "column", "column", "row"]}
+          >
+            <ImageContainer width="100%">
+              <BigImage src={mainImage} alt={altTags} minWidth="100%" p={4} />
+            </ImageContainer>
+            <Flex
+              flexDirection={["column", "column", "column", "column", "row"]}
+            >
+              <MoveLeft onClick={arrowLeftClick} />
+              <MoveRight onClick={arrowRightClick} />
+            </Flex>
+          </ColumnTwo>
+        </Flex>
+        <ColumnThree
+          width={["100%", "100%", "100%", "100%", "40%"]}
+          flexDirection="column"
+          alignItems="center"
+          ml={[0, 0, 0, 5]}
+        >
+          <SmallImage
+            src={secondaryImage}
+            alt={altTags}
+            minWidth={240}
+            width={240}
+          />
+          <TextContainer>
+            <ScrollableText
+              fontFamily="secondary"
+              mb={6}
+              mr={1}
+              dangerouslySetInnerHTML={{ __html: interviewTextRightCol }}
+            ></ScrollableText>
+          </TextContainer>
+        </ColumnThree>
+      </Flex>
     </Flex>
   );
 };
