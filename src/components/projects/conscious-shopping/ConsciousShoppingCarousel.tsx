@@ -248,15 +248,18 @@ const ConsciousShoppingCarousel = () => {
   return (
     <Flex
       flexDirection={["column", "column", "column", "column", "row"]}
-      height={["unset", "unset", "unset", "unset", "100vh"]}
+      height={["unset", "unset", "unset", "80vh", "100vh"]}
       alignItems={["center", "center", "center", "center", "unset"]}
-      overflowX="hidden"
       justifyContent="center"
     >
-      <Flex flexDirection={["column", "column", "column", "column", "row"]}>
+      <Flex
+        flexDirection={["column", "column", "column", "column", "row"]}
+        height={["unset", "unset", "unset", "80vh", "100vh"]}
+      >
         <Flex
           flexDirection={["column", "column", "column", "row", "row"]}
           width="100%"
+          height={["unset", "unset", "unset", "80vh", "100vh"]}
         >
           <ColumnOne
             width={["100%", "100%", "100%", "100%", "40%"]}
@@ -279,6 +282,7 @@ const ConsciousShoppingCarousel = () => {
               <ScrollableText
                 fontFamily="secondary"
                 mb={6}
+                mr={2}
                 dangerouslySetInnerHTML={{ __html: interviewTextLeftCol }}
               ></ScrollableText>
             </TextContainer>
@@ -320,6 +324,7 @@ const ConsciousShoppingCarousel = () => {
             <ScrollableText
               fontFamily="secondary"
               mb={6}
+              mr={2}
               dangerouslySetInnerHTML={{ __html: interviewTextRightCol }}
             ></ScrollableText>
           </TextContainer>
