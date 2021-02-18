@@ -13,7 +13,7 @@ const ConsciousShoppingContent = () => {
   );
 };
 
-const launchDate = "2020-02-19";
+const launchDate = "2021-02-19";
 const ConsciousShopping = () => {
   return (
     <Flex flex="auto">
