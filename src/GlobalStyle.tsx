@@ -13,11 +13,11 @@ const GlobalStyle = createGlobalStyle`
   * {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: ${theme.colors.copyOne} transparent;
+    scrollbar-color: ${theme.colors.copyTwo} transparent;
    
     &::-webkit-scrollbar-thumb {
       border-radius: 0;
-      background-color: ${theme.colors.copyOne};
+      background-color: ${theme.colors.copyTwo};
     }
   }
   html {

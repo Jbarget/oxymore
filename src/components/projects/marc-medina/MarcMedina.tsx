@@ -39,7 +39,7 @@ import mask from "../../../assets/project-page/project-icons/mask.png";
 import styled from "styled-components";
 import theme from "../../theme";
 
-const Images: ImageProps[] = [
+const images: ImageProps[] = [
   {
     img: image1,
     alt: "Photograh image",
@@ -217,7 +217,7 @@ const MarcMedinaContent: React.FC = () => {
           "repeat(2, 1fr)",
         ]}
       >
-        {Images.map(Image)}
+        {images.map(Image)}
       </Div>
     </Flex>
   );

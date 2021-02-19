@@ -54,7 +54,7 @@ const AlphaLogo = styled.img<LayoutProps & SpaceProps>`
   ${space};
   max-width: 40vw;
   max-height: 60vh;
-  transition: 1.5s;
+  transition: all 1.5s ease;
 `;
 
 const HomeContent = () => {
