@@ -1,8 +1,17 @@
-import ConsciousShoppingContent from "./ConsciousShoppingContent";
+import React, { Fragment } from "react";
+
+import ConsciousShoppingCarousel from "./ConsciousShoppingCarousel";
 import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
 import Flex from "../../Flex";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
-import React from "react";
+
+const ConsciousShoppingContent = () => {
+  return (
+    <Fragment>
+      <ConsciousShoppingCarousel />
+    </Fragment>
+  );
+};
 
 const launchDate = "2021-02-19";
 const ConsciousShopping = () => {

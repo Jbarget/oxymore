@@ -38,6 +38,7 @@ const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
   ${flexbox};
   display: flex;
   align-items: center;
+  transition: all 1.5s ease;
 `;
 
 const Img = styled.img`

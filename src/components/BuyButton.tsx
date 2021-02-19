@@ -53,7 +53,7 @@ const BuyButton: React.FC = () => {
         fontSize={[0, 1, 3]}
         background="transparent"
         fontStyle="uppercase"
-        border={1}
+        border="0.5px"
         borderRadius={3}
         borderStyle="solid"
         height="fit-content"
