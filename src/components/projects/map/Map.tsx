@@ -1,27 +1,28 @@
+import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
+
 import Flex from "../../Flex";
-import Icon from "../Icon";
-import MapContent from "./MapContent";
+// @ts-ignore
+import InnerImageZoom from "react-inner-image-zoom";
+import MapPreview from "./MapPreview";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
-import Timer from "../../Timer";
-import magnify from "../../../assets/project-page/project-icons/magnify.png";
+import mapSmall from "../../../assets/project-page/map/mapa-barcelona-small.jpg";
 
-const PreviewPage: React.FC<{ launchDate: string }> = ({ launchDate }) => {
+const MapContent = () => {
   return (
-    <Flex
-      flex="auto"
-      overflow="hidden"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Icon icon={magnify}></Icon>
-      <Timer launchDate={launchDate} />
+    <Flex>
+      <InnerImageZoom
+        src={mapSmall}
+        alt="David Macho's map of Barcelona"
+        zoomScale={0.4}
+        fullscreenOnMobile
+        moveType="drag"
+      />
     </Flex>
   );
 };
 
-const launchDate = "2021-02-26";
+const launchDate = "2020-02-26";
 const Map = () => {
   return (
     <Flex
@@ -33,7 +34,7 @@ const Map = () => {
     >
       <PreviewOrProjectPage
         launchDate={launchDate}
-        PreviewPage={PreviewPage}
+        PreviewPage={MapPreview}
         ProjectPage={MapContent}
       />
     </Flex>
