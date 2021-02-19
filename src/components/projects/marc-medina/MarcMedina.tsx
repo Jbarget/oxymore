@@ -8,6 +8,7 @@ import {
 } from "styled-system";
 
 import Flex from "../../Flex";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import MarcMedinaPreview from "./MarcMedinaPreview";
 import { PROJECTS_URL } from "../../../constants/router-urls";
@@ -158,7 +159,7 @@ const Div = styled.div<GridProps & LayoutProps>`
   ${grid};
 `;
 
-const ImgContainer = styled.div<GridProps>`
+const ImgContainer = styled(LazyLoad)<GridProps>`
   object-fit: contain;
   height: 100%;
   ${grid};

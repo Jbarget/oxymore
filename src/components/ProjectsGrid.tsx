@@ -19,6 +19,7 @@ import {
 } from "styled-system";
 
 import Grid from "./Grid";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import React from "react";
 import dragon from "../assets/project-page/project-icons/dragon.png";
@@ -32,7 +33,9 @@ import stairs from "../assets/project-page/project-icons/stairs.png";
 import statue from "../assets/project-page/project-icons/statue.png";
 import styled from "styled-components";
 
-const ProjectLinkWrapper = styled.div<LayoutProps & GridProps & FlexboxProps>`
+const ProjectLinkWrapper = styled(LazyLoad)<
+  LayoutProps & GridProps & FlexboxProps
+>`
   ${layout};
   ${grid};
   ${flexbox};
