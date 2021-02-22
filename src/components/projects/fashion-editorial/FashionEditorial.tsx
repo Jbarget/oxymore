@@ -9,6 +9,7 @@ import {
 
 import FashionEditorialPreview from "./FashionEditorialPreview";
 import Flex from "../../Flex";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
@@ -158,7 +159,7 @@ const Div = styled.div<GridProps & LayoutProps>`
   ${grid};
 `;
 
-const ImgContainer = styled.div<GridProps>`
+const ImgContainer = styled(LazyLoad)<GridProps>`
   object-fit: contain;
   height: 100%;
   ${grid};
