@@ -211,14 +211,12 @@ const EyeContent = () => {
         width="100%"
         onMouseDown={hideCountryData}
       >
-        {" "}
         <LazyLoad once>
           <Grid
             width={[320, 320, 400, 540]}
             gridTemplateRows="repeat(180, minmax(0, auto))"
             gridTemplateColumns="repeat(120, minmax(0, auto))"
           >
-            {" "}
             {data.map(datum => (
               <DataPoint
                 key={datum.name}
