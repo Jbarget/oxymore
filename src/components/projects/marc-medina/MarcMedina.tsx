@@ -173,6 +173,7 @@ const Img = styled.img`
 const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
   ${layout};
   ${position};
+  z-index: ${theme.zIndexes.inFront};
   transition: all 1s ease;
   &:hover {
     transform: scale(1.05);
@@ -202,7 +203,6 @@ const MarcMedinaContent: React.FC = () => {
         position="absolute"
         left={40}
         top={80}
-        zIndex={theme.zIndexes.inFront}
         display={["none", "none", "block"]}
       >
         <img src={mask} alt="mask icon" />

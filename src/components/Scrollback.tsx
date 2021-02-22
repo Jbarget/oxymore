@@ -20,6 +20,7 @@ const Button = styled.button<
   ${typography};
   ${background};
   ${layout};
+  z-index: ${theme.zIndexes.inFront}
   border: none;
 `;
 
@@ -44,7 +45,6 @@ const Scrollback: React.FC<ButtonProps> = props => {
       fontSize={[3, 4]}
       background="transparent"
       onClick={scrollToTop}
-      zIndex={theme.zIndexes.inFront}
     >
       UP
     </Button>

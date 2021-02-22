@@ -14,6 +14,7 @@ import theme from "../../theme";
 const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
   ${layout};
   ${position};
+  z-index: ${theme.zIndexes.inFront};
   transition: all 1s ease;
   &:hover {
     transform: scale(1.05);
@@ -32,7 +33,6 @@ const KaiLandreContent = () => {
         height="100%"
         controls
         playing
-        zindex={theme.zIndexes.behind}
       ></ReactPlayer>
       <ReturnToProjectsPage
         to={PROJECTS_URL}
