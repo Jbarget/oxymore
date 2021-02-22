@@ -11,6 +11,7 @@ import {
 
 import Flex from "./Flex";
 import Grid from "./Grid";
+import LazyLoad from "react-lazyload";
 import React from "react";
 import aitor from "../assets/about-page/aitor.jpg";
 import gloria from "../assets/about-page/gloria.jpg";
@@ -78,7 +79,7 @@ const TeamMemberImg = styled.img`
   width: 100%;
 `;
 
-const TeamMemberContainer = styled.div`
+const TeamMemberContainer = styled(LazyLoad)`
   object-fit: contain;
   height: 100%;
 `;
