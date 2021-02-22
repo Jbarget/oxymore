@@ -95,7 +95,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled(LazyLoad)<LayoutProps>`
+const ImageContainer = styled.div<LayoutProps>`
   ${layout};
 `;
 
