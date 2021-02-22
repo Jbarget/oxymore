@@ -106,6 +106,7 @@ const ScrollableText = styled.p<TypographyProps & SpaceProps>`
 const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
   ${layout};
   ${position};
+  z-index: ${theme.zIndexes.inFront};
   transition: all 1s ease;
   &:hover {
     transform: scale(1.05);
@@ -265,11 +266,7 @@ const ConsciousShoppingCarousel = () => {
             width={["100%", "100%", "100%", "100%", "40%"]}
             flexDirection="column"
           >
-            <ReturnToProjectsPage
-              to={PROJECTS_URL}
-              width={60}
-              zIndex={theme.zIndexes.inFront}
-            >
+            <ReturnToProjectsPage to={PROJECTS_URL} width={60}>
               <img src={shellIcon} alt="shell icon" />
             </ReturnToProjectsPage>
             <H1 my={4} fontFamily="secondary">
