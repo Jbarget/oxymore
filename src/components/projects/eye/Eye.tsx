@@ -19,6 +19,7 @@ import CountryData from "./CountryData";
 import EyePreview from "./EyePreview";
 import Flex from "../../Flex";
 import Grid from "../../Grid";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import { Picker } from "react-mobile-style-picker";
@@ -88,7 +89,7 @@ const GridImg = styled.img<GridProps & LayoutProps>`
   min-width: 100%;
   transition: transform 0.5s;
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   ${layout};
   ${grid};
@@ -155,7 +156,9 @@ const DataPoint: React.FC<DataPointProps> = ({
       gridColumn={`${coords[1]} / span ${spanValue}`}
       onClick={onClick}
     >
-      <GridImg src={eyeImage} alt={name} />
+      <LazyLoad once>
+        <GridImg src={eyeImage} alt={name} />
+      </LazyLoad>
     </GridItem>
   );
 };
@@ -208,21 +211,23 @@ const EyeContent = () => {
         width="100%"
         onMouseDown={hideCountryData}
       >
-        <Grid
-          width={[320, 320, 400, 540]}
-          gridTemplateRows="repeat(180, minmax(0, auto))"
-          gridTemplateColumns="repeat(120, minmax(0, auto))"
-        >
-          {data.map(datum => (
-            <DataPoint
-              key={datum.name}
-              {...datum}
-              selectedDataSet={selectedDataSet}
-              onClick={setCountryDetails(datum)}
-              z-index={theme.zIndexes.secondInFront}
-            />
-          ))}
-        </Grid>
+        <LazyLoad once>
+          <Grid
+            width={[320, 320, 400, 540]}
+            gridTemplateRows="repeat(180, minmax(0, auto))"
+            gridTemplateColumns="repeat(120, minmax(0, auto))"
+          >
+            {data.map(datum => (
+              <DataPoint
+                key={datum.name}
+                {...datum}
+                selectedDataSet={selectedDataSet}
+                onClick={setCountryDetails(datum)}
+                z-index={theme.zIndexes.secondInFront}
+              />
+            ))}
+          </Grid>
+        </LazyLoad>
         <Flex display={["none", "none", "none", "none", "block"]}>
           <CountryData countryData={selectedCountryData} />
         </Flex>

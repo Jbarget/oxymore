@@ -11,6 +11,7 @@ import {
 
 import EroticStoriesPreview from "./EroticStoriesPreview";
 import Flex from "../../Flex";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
@@ -108,7 +109,9 @@ const EroticStoriesContent: React.FC = () => {
           top={0}
           mb={[4, 4, 4, 4, 0]}
         >
-          <EroticImg src={wingsBeating.img} alt={wingsBeating.alt} />
+          <LazyLoad once>
+            <EroticImg src={wingsBeating.img} alt={wingsBeating.alt} />
+          </LazyLoad>
         </Flex>
       </Flex>
       <Flex
@@ -136,7 +139,9 @@ const EroticStoriesContent: React.FC = () => {
           height={heights}
           top={0}
         >
-          <EroticImg src={bellyButtons.img} alt={bellyButtons.alt} />
+          <LazyLoad once>
+            <EroticImg src={bellyButtons.img} alt={bellyButtons.alt} />
+          </LazyLoad>
         </Flex>
       </Flex>
     </Flex>

@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components";
 
 import { EyeData } from "../../../fixtures/eye-data";
 import Flex from "../../Flex";
+import LazyLoad from "react-lazyload";
 import React from "react";
 import i18n from "../../../i18n";
 import theme from "../../theme";
@@ -15,7 +16,7 @@ const bounce = keyframes`
     -webkit-transform: translateY(0);
   }
   50% {
-    -webkit-transform: translateY(-5px);
+    -webkit-transform: translateY(+5px);
   }
 `;
 
@@ -44,47 +45,50 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
 
   if (!countryData) return null;
   return (
-    <Container
-      position="fixed"
-      flexDirection="column"
-      width="auto"
-      p={2}
-      top={100}
-      left={["50%", "50%", "50%", "60%", "72%"]}
-      zIndex={theme.zIndexes.behind}
-      lineHeight="28px"
-    >
-      <Flex borderBottom="offWhiteThin" width="fit-content" maxWidth={[400]}>
-        <P fontSize={3}>{countryData.name}</P>
-      </Flex>
-      <P fontSize={[1, 1, 2]}>
-        {t("eye.population")}:{" "}
-        {i18n.language === "en"
-          ? countryData.data.population.toLocaleString([locales.gb])
-          : countryData.data.population.toLocaleString([locales.es])}
-      </P>
-      <P fontSize={[1, 1, 2]}>
-        {t("eye.populationAffected")}:{" "}
-        {i18n.language === "en"
-          ? countryData.data.populationAffected.toLocaleString([locales.gb])
-          : countryData.data.populationAffected.toLocaleString([locales.es])}
-      </P>
-      <P fontSize={[1, 1, 2]}>
-        {t("eye.percentage")}:{" "}
-        {i18n.language === "en"
-          ? countryData.data.percentageAffected.toLocaleString([locales.gb])
-          : countryData.data.percentageAffected.toLocaleString([locales.es])}
-        %
-      </P>
-      {countryData.data.casesTreated ? (
-        <P fontSize={[1, 1, 2]}>
-          {t("eye.recovered")}:{" "}
+    <LazyLoad once>
+      <Container
+        position="fixed"
+        flexDirection="column"
+        width="auto"
+        maxWidth={400}
+        p={2}
+        top={100}
+        left={["50%", "50%", "50%", "60%", "75%"]}
+        zIndex={theme.zIndexes.behind}
+        lineHeight="28px"
+      >
+        <Flex borderBottom="offWhiteThin" width="fit-content" maxWidth={250}>
+          <P fontSize={4}>{countryData.name}</P>
+        </Flex>
+        <P fontSize={[1, 1, 2, 2]}>
+          {t("eye.population")}:{" "}
           {i18n.language === "en"
-            ? countryData.data.casesTreated.toLocaleString([locales.gb])
-            : countryData.data.casesTreated.toLocaleString([locales.es])}
+            ? countryData.data.population.toLocaleString([locales.gb])
+            : countryData.data.population.toLocaleString([locales.es])}
         </P>
-      ) : null}
-    </Container>
+        <P fontSize={[1, 1, 2, 2]}>
+          {t("eye.populationAffected")}:{" "}
+          {i18n.language === "en"
+            ? countryData.data.populationAffected.toLocaleString([locales.gb])
+            : countryData.data.populationAffected.toLocaleString([locales.es])}
+        </P>
+        <P fontSize={[1, 1, 2, 2]}>
+          {t("eye.percentage")}:{" "}
+          {i18n.language === "en"
+            ? countryData.data.percentageAffected.toLocaleString([locales.gb])
+            : countryData.data.percentageAffected.toLocaleString([locales.es])}
+          %
+        </P>
+        {countryData.data.casesTreated ? (
+          <P fontSize={[1, 1, 2, 2]}>
+            {t("eye.recovered")}:{" "}
+            {i18n.language === "en"
+              ? countryData.data.casesTreated.toLocaleString([locales.gb])
+              : countryData.data.casesTreated.toLocaleString([locales.es])}
+          </P>
+        ) : null}
+      </Container>
+    </LazyLoad>
   );
 };
 
