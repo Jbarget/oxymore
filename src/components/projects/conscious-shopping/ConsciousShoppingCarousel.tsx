@@ -13,7 +13,6 @@ import {
 import React, { useEffect, useState } from "react";
 
 import Flex from "../../Flex";
-import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import arrow from "../../../assets/project-page/conscious-shopping/arrow.png";
@@ -95,7 +94,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const ImageContainer = styled(LazyLoad)<LayoutProps>`
+const ImageContainer = styled.div<LayoutProps>`
   ${layout};
 `;
 
