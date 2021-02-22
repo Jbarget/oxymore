@@ -11,6 +11,7 @@ import theme from "./theme";
 const BuyButtonContainer = styled.div<PositionProps & SpaceProps>`
   ${position};
   ${space};
+  z-index: ${theme.zIndexes.inFront};
 `;
 
 const Projects = () => {
@@ -20,7 +21,6 @@ const Projects = () => {
       <BuyButtonContainer
         position="fixed"
         bottom={["40%", "40%", "40%", "15%"]}
-        zIndex={theme.zIndexes.inFront}
       >
         <BuyButton />
       </BuyButtonContainer>

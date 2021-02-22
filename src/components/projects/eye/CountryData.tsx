@@ -22,6 +22,7 @@ const bounce = keyframes`
 
 const Container = styled(Flex)`
   animation: ${bounce} 2s linear infinite;
+  z-index: ${theme.zIndexes.behind};
 `;
 
 const P = styled.p<TypographyProps>`
@@ -50,29 +51,33 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
         position="fixed"
         flexDirection="column"
         width="auto"
-        maxWidth={400}
+        maxWidth={[300, 300, 320, 400, 400]}
         p={2}
         top={100}
-        left={["50%", "50%", "50%", "60%", "75%"]}
-        zIndex={theme.zIndexes.behind}
-        lineHeight="28px"
+        left={["40%", "40%", "45%", "60%", "70%"]}
+        lineHeight="25px"
       >
-        <Flex borderBottom="offWhiteThin" width="fit-content" maxWidth={250}>
+        <Flex
+          borderBottom="offWhiteThin"
+          width="fit-content"
+          maxWidth={[150, 150, 250, 250, 250]}
+          mb={1}
+        >
           <P fontSize={4}>{countryData.name}</P>
         </Flex>
-        <P fontSize={[1, 1, 2, 2]}>
+        <P fontSize={[1, 1, 1, 2]}>
           {t("eye.population")}:{" "}
           {i18n.language === "en"
             ? countryData.data.population.toLocaleString([locales.gb])
             : countryData.data.population.toLocaleString([locales.es])}
         </P>
-        <P fontSize={[1, 1, 2, 2]}>
+        <P fontSize={[1, 1, 1, 2]}>
           {t("eye.populationAffected")}:{" "}
           {i18n.language === "en"
             ? countryData.data.populationAffected.toLocaleString([locales.gb])
             : countryData.data.populationAffected.toLocaleString([locales.es])}
         </P>
-        <P fontSize={[1, 1, 2, 2]}>
+        <P fontSize={[1, 1, 1, 2]}>
           {t("eye.percentage")}:{" "}
           {i18n.language === "en"
             ? countryData.data.percentageAffected.toLocaleString([locales.gb])
@@ -80,7 +85,7 @@ const CountryData = ({ countryData }: { countryData: EyeData | null }) => {
           %
         </P>
         {countryData.data.casesTreated ? (
-          <P fontSize={[1, 1, 2, 2]}>
+          <P fontSize={[1, 1, 1, 2]}>
             {t("eye.recovered")}:{" "}
             {i18n.language === "en"
               ? countryData.data.casesTreated.toLocaleString([locales.gb])

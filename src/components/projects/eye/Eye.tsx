@@ -70,6 +70,7 @@ const getRelativeValues = ({
 const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
   ${layout};
   ${position};
+  z-index: ${theme.zIndexes.inFront};
   transition: all 1s ease;
   &:hover {
     transform: scale(1.05);
@@ -199,7 +200,6 @@ const EyeContent = () => {
         position="fixed"
         left={40}
         top={80}
-        zIndex={theme.zIndexes.inFront}
       >
         <img src={eye} alt="eye icon" />
       </ReturnToProjectsPage>
@@ -228,7 +228,7 @@ const EyeContent = () => {
             ))}
           </Grid>
         </LazyLoad>
-        <Flex display={["none", "none", "none", "none", "block"]}>
+        <Flex>
           <CountryData countryData={selectedCountryData} />
         </Flex>
         <Flex
@@ -250,7 +250,6 @@ const EyeContent = () => {
           left={400}
           width={320}
           px={2}
-          zIndex={theme.zIndexes.behind}
         >
           <P
             dangerouslySetInnerHTML={{ __html: t("eye.footnote") }}
