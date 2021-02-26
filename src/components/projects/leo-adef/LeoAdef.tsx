@@ -2,7 +2,6 @@ import { LayoutProps, PositionProps, layout, position } from "styled-system";
 
 import Flex from "../../Flex";
 import Grid from "../../Grid";
-import LazyLoad from "react-lazyload";
 import LeoAdefPreview from "./LeoAdefPreview";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
@@ -114,11 +113,9 @@ const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
 
 const CalendarImage = ({ img, alt }: CalendarImageProps) => {
   return (
-    <LazyLoad once>
-      <Container key={img}>
-        <Image alt={alt} src={img} />
-      </Container>
-    </LazyLoad>
+    <Container key={img}>
+      <Image alt={alt} src={img} />
+    </Container>
   );
 };
 

@@ -17,7 +17,6 @@ import {
 import styled, { css } from "styled-components";
 
 import Flex from "./Flex";
-import LazyLoad from "react-lazyload";
 import React from "react";
 import eyeProjectBackground from "../assets/backgrounds/eye-bg.png";
 import marbleBackground from "../assets/backgrounds/background.png";
@@ -28,7 +27,7 @@ const black = `${theme.colors.copyTwo}`;
 
 type Background = typeof black | typeof marbleBackground;
 
-const BackgroundElement = styled(LazyLoad)<{ background: Background }>`
+const BackgroundElement = styled.div<{ background: Background }>`
   position: fixed;
   top: 0;
   right: 0;
