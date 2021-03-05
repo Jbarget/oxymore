@@ -1,8 +1,10 @@
-import { LayoutProps, layout } from "styled-system";
+import { LayoutProps, PositionProps, layout, position } from "styled-system";
 
 import BelledejourPreview from "./BelledejourPreview";
 import Flex from "../../Flex";
 import Grid from "../../Grid";
+import { Link } from "react-router-dom";
+import { PROJECTS_URL } from "../../../constants/router-urls";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
 import React from "react";
 import image1 from "../../../assets/project-page/belledejour/belledejour-1.jpg";
@@ -21,19 +23,9 @@ import image6 from "../../../assets/project-page/belledejour/belledejour-6.jpg";
 import image7 from "../../../assets/project-page/belledejour/belledejour-7.jpg";
 import image8 from "../../../assets/project-page/belledejour/belledejour-8.jpg";
 import image9 from "../../../assets/project-page/belledejour/belledejour-9.jpg";
+import spider from "../../../assets/project-page/project-icons/spider.png";
 import styled from "styled-components";
-
-const BelledejourImageContainer = styled.div<LayoutProps>`
-  object-fit: contain;
-  height: 100%;
-  ${layout};
-`;
-
-const BelledejourImg = styled.img<LayoutProps>`
-  height: 100%;
-  width: 100%;
-  ${layout};
-`;
+import theme from "../../theme";
 
 const alt = "Belledejour x Grupo Amás photography";
 
@@ -104,6 +96,28 @@ const belledejourImages: BelledejourImageProps[] = [
   },
 ];
 
+const BelledejourImageContainer = styled.div<LayoutProps>`
+  object-fit: contain;
+  height: 100%;
+  ${layout};
+`;
+
+const BelledejourImg = styled.img<LayoutProps>`
+  height: 100%;
+  width: 100%;
+  ${layout};
+`;
+
+const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
+  ${layout};
+  ${position};
+  z-index: ${theme.zIndexes.inFront};
+  transition: all 1s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
 interface BelledejourImageProps {
   img: string;
   alt: string;
@@ -119,19 +133,31 @@ const BelledejourImage = ({ img, alt }: BelledejourImageProps) => {
 
 const BelledejourContent: React.FC = () => {
   return (
-    <Grid
-      overflow="scroll"
-      gridRowGap={1}
-      gridColumnGap={1}
-      gridTemplateColumns={[
-        "repeat(1, 1fr)",
-        "repeat(1, 1fr)",
-        "repeat(1, 1fr)",
-        "repeat(2, 1fr)",
-      ]}
-    >
-      {belledejourImages.map(BelledejourImage)}
-    </Grid>
+    <Flex flexDirection="column">
+      <ReturnToProjectsPage
+        to={PROJECTS_URL}
+        width={80}
+        position="absolute"
+        left={40}
+        top={80}
+        display={["none", "none", "block"]}
+      >
+        <img src={spider} alt="spider icon" />
+      </ReturnToProjectsPage>
+      <Grid
+        overflow="scroll"
+        gridRowGap={1}
+        gridColumnGap={1}
+        gridTemplateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+        ]}
+      >
+        {belledejourImages.map(BelledejourImage)}
+      </Grid>
+    </Flex>
   );
 };
 
