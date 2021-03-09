@@ -38,7 +38,7 @@ const KaiLandreContent = () => {
         to={PROJECTS_URL}
         width={80}
         position="absolute"
-        right={75}
+        right={77}
         bottom={0}
         display={["none", "none", "none", "block"]}
       >
