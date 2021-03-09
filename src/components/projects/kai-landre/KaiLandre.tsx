@@ -25,7 +25,7 @@ const KaiLandreContent = () => {
   const url = "https://youtu.be/fjnXLRrHscM";
 
   return (
-    <Flex flex="auto" height={["76vh", "76vh", "76vh", "80vh", "80vh"]}>
+    <Flex flex="auto">
       <ReactPlayer
         url={url}
         position="relative"
@@ -38,8 +38,8 @@ const KaiLandreContent = () => {
         to={PROJECTS_URL}
         width={80}
         position="absolute"
-        right={60}
-        bottom={100}
+        right={75}
+        bottom={0}
         display={["none", "none", "none", "block"]}
       >
         <img src={dragon} alt="dragon icon" />
