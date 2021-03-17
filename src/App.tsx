@@ -48,7 +48,7 @@ const App = () => {
     <Router>
       <ThemeProvider theme={theme}>
         <Background>
-          <Flex flexDirection="column" flex="auto" p={6}>
+          <Flex flexDirection="column" flex="auto" py={6} px={[3, 3, 3, 6]}>
             <Suspense fallback={<div>Loading</div>}>
               <Header />
               <Switch>
