@@ -32,7 +32,7 @@ const MapContent = () => {
         to={PROJECTS_URL}
         width={80}
         position="absolute"
-        left={[20, 20, 40, 40]}
+        left={[20, 20, 20, 40]}
         top={80}
       >
         <img src={magnify} alt="magnify icon" />
