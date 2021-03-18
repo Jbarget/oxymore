@@ -1,6 +1,6 @@
 import { SpaceProps, TypographyProps, space, typography } from "styled-system";
 
-import Flex from "./Flex";
+import Flex from "./styles/Flex";
 import React from "react";
 import styled from "styled-components";
 

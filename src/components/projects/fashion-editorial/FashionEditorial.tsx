@@ -8,7 +8,7 @@ import {
 } from "styled-system";
 
 import FashionEditorialPreview from "./FashionEditorialPreview";
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
@@ -42,112 +42,90 @@ import theme from "../../theme";
 const editorialImages: EditorialImageProps[] = [
   {
     img: image1,
-    alt: "Photograh image",
     gridColumn: "1/3",
   },
   {
     img: image2,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image3,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image4,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image5,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image7,
-    alt: "Photograh image",
     gridColumn: "1/3",
   },
   {
     img: image6,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image8,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image9,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image10,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image11,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image13,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image12,
-    alt: "Photograh image",
     gridColumn: "1/3",
   },
   {
     img: image14,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image15,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image16,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image17,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image18,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image19,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image20,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image21,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image22,
-    alt: "Photograh image",
     gridColumn: "1",
   },
 ];
@@ -181,11 +159,11 @@ const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
 
 interface EditorialImageProps {
   img: string;
-  alt: string;
   gridColumn: string | string[];
 }
 
-const EditorialImage = ({ img, alt, gridColumn }: EditorialImageProps) => {
+const EditorialImage = ({ img, gridColumn }: EditorialImageProps) => {
+  const alt = "Oxymore: Claire de Lune Fashion Editoral";
   return (
     <ImgContainer key={img} gridColumn={gridColumn}>
       <Img alt={alt} src={img} />

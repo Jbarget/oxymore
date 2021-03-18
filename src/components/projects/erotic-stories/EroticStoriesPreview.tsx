@@ -1,4 +1,4 @@
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import Icon from "../Icon";
 import React from "react";
 import Timer from "../../Timer";

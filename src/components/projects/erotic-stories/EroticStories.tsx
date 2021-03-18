@@ -10,7 +10,7 @@ import {
 } from "styled-system";
 
 import EroticStoriesPreview from "./EroticStoriesPreview";
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
@@ -63,12 +63,12 @@ const EroticStoriesContent: React.FC = () => {
     {
       img: wingsBeatingImg,
       text: t("erotic-stories.wings"),
-      alt: "Erotic story image",
+      alt: "Erotic story: Wings Beating",
     },
     {
       img: bellyButtonsImg,
       text: t("erotic-stories.bellyButtons"),
-      alt: "Erotic story image",
+      alt: "Erotic story: Belly Buttons",
     },
   ];
 

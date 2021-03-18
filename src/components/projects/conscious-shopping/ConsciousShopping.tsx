@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import ConsciousShoppingCarousel from "./ConsciousShoppingCarousel";
 import ConsciousShoppingPreview from "./ConsciousShoppingPreview";
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
 
 const ConsciousShoppingContent = () => {

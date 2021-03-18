@@ -1,7 +1,7 @@
 import { LayoutProps, PositionProps, layout, position } from "styled-system";
 
-import Flex from "../../Flex";
-import Grid from "../../Grid";
+import Flex from "../../styles/Flex";
+import Grid from "../../styles/Grid";
 import LeoAdefPreview from "./LeoAdefPreview";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
@@ -28,59 +28,59 @@ import theme from "../../theme";
 const calendarImages: CalendarImageProps[] = [
   {
     img: january,
-    alt: "January photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: January",
   },
   {
     img: february,
-    alt: "February photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: February",
   },
   {
     img: march,
-    alt: "February photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: March",
   },
   {
     img: april,
-    alt: "April photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: April",
   },
   {
     img: may,
-    alt: "May photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: May",
   },
   {
     img: june,
-    alt: "June photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: June",
   },
   {
     img: july,
-    alt: "July photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: July",
   },
   {
     img: august,
-    alt: "August photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: August",
   },
   {
     img: september,
-    alt: "September photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: September",
   },
   {
     img: october,
-    alt: "October photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: October",
   },
   {
     img: november,
-    alt: "November photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: November",
   },
   {
     img: december,
-    alt: "December photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: December",
   },
   {
     img: extra1,
-    alt: "December photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: Bonus",
   },
   {
     img: extra2,
-    alt: "December photograph",
+    alt: "Oxymore 2021 Calendar by Leo Adef: Bonus",
   },
 ];
 

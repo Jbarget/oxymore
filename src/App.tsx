@@ -30,7 +30,7 @@ import EroticStories from "./components/projects/erotic-stories/EroticStories";
 import Error404 from "./components/Error404";
 import Eye from "./components/projects/eye/Eye";
 import FashionEditorial from "./components/projects/fashion-editorial/FashionEditorial";
-import Flex from "./components/Flex";
+import Flex from "./components/styles/Flex";
 import GlobalStyle from "./GlobalStyle";
 import Header from "./components/Header";
 import Home from "./components/Home";
