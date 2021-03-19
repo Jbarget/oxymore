@@ -1,8 +1,9 @@
+import { TypographyProps, typography } from "styled-system";
+
+import Flex from "./styles/Flex";
 import React from "react";
 import styled from "styled-components";
-import { TypographyProps, typography } from "styled-system";
 import { useTranslation } from "react-i18next";
-import Flex from "./Flex";
 
 const P = styled.p<TypographyProps>`
   ${typography}

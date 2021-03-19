@@ -4,7 +4,7 @@ import { TypographyProps, typography } from "styled-system";
 import styled, { keyframes } from "styled-components";
 
 import { EyeData } from "../../../fixtures/eye-data";
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import LazyLoad from "react-lazyload";
 import React from "react";
 import i18n from "../../../i18n";

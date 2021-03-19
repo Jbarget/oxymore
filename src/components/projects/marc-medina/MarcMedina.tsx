@@ -7,7 +7,7 @@ import {
   position,
 } from "styled-system";
 
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import { Link } from "react-router-dom";
 import MarcMedinaPreview from "./MarcMedinaPreview";
 import { PROJECTS_URL } from "../../../constants/router-urls";
@@ -42,112 +42,90 @@ import theme from "../../theme";
 const images: ImageProps[] = [
   {
     img: image1,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image2,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image3,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image7,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image4,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "1/3"],
   },
   {
     img: image5,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image8,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image6,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "1/3"],
   },
   {
     img: image10,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image11,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image9,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "1/3"],
   },
   {
     img: image12,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image13,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image14,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image15,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image16,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image18,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image19,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image20,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image21,
-    alt: "Photograh image",
     gridColumn: "1",
   },
   {
     img: image17,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
   {
     img: image22,
-    alt: "Photograh image",
     gridColumn: ["1", "1", "1", "2"],
   },
 ];
@@ -181,11 +159,11 @@ const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
 
 interface ImageProps {
   img: string;
-  alt: string;
   gridColumn: string | string[];
 }
 
-const Image = ({ img, alt, gridColumn }: ImageProps) => {
+const Image = ({ img, gridColumn }: ImageProps) => {
+  const alt = "Manifestación AntiVox #23M by Marc Medina";
   return (
     <ImgContainer key={img} gridColumn={gridColumn}>
       <Img alt={alt} src={img} />

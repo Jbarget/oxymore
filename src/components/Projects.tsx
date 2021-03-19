@@ -1,7 +1,7 @@
 import { PositionProps, SpaceProps, position, space } from "styled-system";
 
 import BuyButton from "./BuyButton";
-import Flex from "./Flex";
+import Flex from "./styles/Flex";
 import ProjectsGrid from "./ProjectsGrid";
 import React from "react";
 import Scrollback from "./Scrollback";

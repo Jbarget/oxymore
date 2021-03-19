@@ -9,8 +9,8 @@ import {
   typography,
 } from "styled-system";
 
-import Flex from "./Flex";
-import Grid from "./Grid";
+import Flex from "./styles/Flex";
+import Grid from "./styles/Grid";
 import React from "react";
 import aitor from "../assets/about-page/aitor.jpg";
 import gloria from "../assets/about-page/gloria.jpg";
@@ -26,37 +26,37 @@ const teamMembers: TeamMemberProps[] = [
   {
     name: "Aitor",
     img: aitor,
-    alt: "Aitor image",
+    alt: "Aitor",
   },
   {
     name: "Micaela",
     img: micaela,
-    alt: "Micaela image",
+    alt: "Micaela",
   },
   {
     name: "Rodri",
     img: rodri,
-    alt: "Rodri image",
+    alt: "Rodri",
   },
   {
     name: "Olga",
     img: olga,
-    alt: "Olga image",
+    alt: "Olga",
   },
   {
     name: "Gloria",
     img: gloria,
-    alt: "Gloria image",
+    alt: "Gloria",
   },
   {
     name: "Juancamilo",
     img: juancamilo,
-    alt: "Juancamilo image",
+    alt: "Juancamilo",
   },
   {
     name: "Nil",
     img: nil,
-    alt: "Nil image",
+    alt: "Nil",
   },
 ];
 

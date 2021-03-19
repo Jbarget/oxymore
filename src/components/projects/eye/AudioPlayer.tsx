@@ -1,7 +1,7 @@
 import { PositionProps, SpaceProps, position, space } from "styled-system";
 import React, { useCallback } from "react";
 
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import { ReactComponent as Pause } from "../../../assets/project-page/eye/pause.svg";
 import { ReactComponent as Play } from "../../../assets/project-page/eye/play.svg";
 import styled from "styled-components";

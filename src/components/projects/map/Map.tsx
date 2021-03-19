@@ -3,7 +3,7 @@ import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 import { LayoutProps, PositionProps, layout, position } from "styled-system";
 import React, { Fragment } from "react";
 
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 // @ts-ignore
 import InnerImageZoom from "react-inner-image-zoom";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ const MapContent = () => {
       </ReturnToProjectsPage>
       <InnerImageZoom
         src={mapSmall}
-        alt="David Macho's map of Barcelona"
+        alt="David Macho's Map of Barcelona"
         zoomScale={0.4}
         fullscreenOnMobile
       />

@@ -18,7 +18,7 @@ import {
   layout,
 } from "styled-system";
 
-import Grid from "./Grid";
+import Grid from "./styles/Grid";
 import { Link } from "react-router-dom";
 import React from "react";
 import dragon from "../assets/project-page/project-icons/dragon.png";

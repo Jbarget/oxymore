@@ -1,6 +1,6 @@
 import { LayoutProps, PositionProps, layout, position } from "styled-system";
 
-import Flex from "../../Flex";
+import Flex from "../../styles/Flex";
 import KaiLandrePreview from "./KaiLandrePreview";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
