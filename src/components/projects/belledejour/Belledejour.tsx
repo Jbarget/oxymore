@@ -1,8 +1,8 @@
 import { LayoutProps, PositionProps, layout, position } from "styled-system";
 
 import BelledejourPreview from "./BelledejourPreview";
-import Flex from "../../Flex";
-import Grid from "../../Grid";
+import Flex from "../../styles/Flex";
+import Grid from "../../styles/Grid";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
@@ -27,72 +27,54 @@ import spider from "../../../assets/project-page/project-icons/spider.png";
 import styled from "styled-components";
 import theme from "../../theme";
 
-const alt = "Belledejour x Grupo Amás photography";
-
 const belledejourImages: BelledejourImageProps[] = [
   {
     img: image1,
-    alt: `${alt}`,
   },
   {
     img: image2,
-    alt: `${alt}`,
   },
   {
     img: image3,
-    alt: `${alt}`,
   },
   {
     img: image4,
-    alt: `${alt}`,
   },
   {
     img: image5,
-    alt: `${alt}`,
   },
   {
     img: image6,
-    alt: `${alt}`,
   },
   {
     img: image7,
-    alt: `${alt}`,
   },
   {
     img: image8,
-    alt: `${alt}`,
   },
   {
     img: image9,
-    alt: `${alt}`,
   },
   {
     img: image10,
-    alt: `${alt}`,
   },
   {
     img: image11,
-    alt: `${alt}`,
   },
   {
     img: image12,
-    alt: `${alt}`,
   },
   {
     img: image13,
-    alt: `${alt}`,
   },
   {
     img: image14,
-    alt: `${alt}`,
   },
   {
     img: image15,
-    alt: `${alt}`,
   },
   {
     img: image16,
-    alt: `${alt}`,
   },
 ];
 
@@ -120,10 +102,10 @@ const ReturnToProjectsPage = styled(Link)<LayoutProps & PositionProps>`
 
 interface BelledejourImageProps {
   img: string;
-  alt: string;
 }
 
-const BelledejourImage = ({ img, alt }: BelledejourImageProps) => {
+const BelledejourImage = ({ img }: BelledejourImageProps) => {
+  const alt = "Belledejour x Grupo Amás";
   return (
     <BelledejourImageContainer key={img}>
       <BelledejourImg alt={alt} src={img} />

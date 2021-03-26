@@ -10,7 +10,7 @@ import {
 } from "styled-system";
 
 import BuyButton from "./BuyButton";
-import Flex from "./Flex";
+import Flex from "./styles/Flex";
 import LanguageButtons from "./LanguageButtons";
 import Loading from "./Loading";
 import { NavLink } from "react-router-dom";
@@ -61,22 +61,25 @@ const HomeContent = () => {
   return (
     <Flex flex="auto" flexDirection="column" justifyContent="space-between">
       <Flex justifyContent="space-between" alignItems="flex-start">
-        <DoubleLineTextImage src={oxymore} alt="oxymore image" />
+        <DoubleLineTextImage src={oxymore} alt="Oxymore text logo" />
         <Flex justifyContent="space-between">
           <LanguageButtons />
           <NavMenu />
         </Flex>
       </Flex>
       <ProjectPageLink to={PROJECTS_URL}>
-        <AlphaLogo src={alpha} alt="alpha logo" />
+        <AlphaLogo src={alpha} alt="Oxymore animation logo" />
       </ProjectPageLink>
       <Flex justifyContent="space-between" alignItems="flex-end">
         <Flex flexDirection="column" alignItems="flex-start">
-          <SingleLineTextImage src={number} mb={3} />
+          <SingleLineTextImage src={number} alt="Number one" mb={3} />
           <BuyButton />
         </Flex>
         <ManifestoLink to="/manifesto">
-          <DoubleLineTextImage src={manifesto} alt="manifesto image" />
+          <DoubleLineTextImage
+            src={manifesto}
+            alt="Oxymore issue logo: Manifesto"
+          />
         </ManifestoLink>
       </Flex>
     </Flex>

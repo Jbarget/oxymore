@@ -1,7 +1,7 @@
 import { SpaceProps, TypographyProps, space, typography } from "styled-system";
 
-import Flex from "./Flex";
-import Grid from "./Grid";
+import Flex from "./styles/Flex";
+import Grid from "./styles/Grid";
 import React from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";

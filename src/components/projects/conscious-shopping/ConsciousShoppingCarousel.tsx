@@ -12,8 +12,7 @@ import {
 } from "styled-system";
 import React, { useEffect, useState } from "react";
 
-import Flex from "../../Flex";
-import LazyLoad from "react-lazyload";
+import Flex from "../../styles/Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import arrow from "../../../assets/project-page/conscious-shopping/arrow.png";
@@ -120,7 +119,8 @@ interface CarouselProps {
   smallImage: string;
   interviewTextLeftCol: string;
   interviewTextRightCol: string;
-  alt: string;
+  altBigImage: string;
+  altSmallImage: string;
 }
 
 const ConsciousShoppingCarousel = () => {
@@ -132,7 +132,8 @@ const ConsciousShoppingCarousel = () => {
       smallImage: trexImg,
       interviewTextLeftCol: t("conscious-shopping.mijal.interviewP1"),
       interviewTextRightCol: t("conscious-shopping.mijal.interviewP2"),
-      alt: "Mijal image",
+      altBigImage: "Mijal",
+      altSmallImage: "Trex",
     },
     {
       title: t("conscious-shopping.lydia.title"),
@@ -140,7 +141,8 @@ const ConsciousShoppingCarousel = () => {
       smallImage: bootsImg,
       interviewTextLeftCol: t("conscious-shopping.lydia.interviewP1"),
       interviewTextRightCol: t("conscious-shopping.lydia.interviewP2"),
-      alt: "Lydia image",
+      altBigImage: "Lydia",
+      altSmallImage: "Boots",
     },
     {
       title: t("conscious-shopping.le-swing.title"),
@@ -148,7 +150,8 @@ const ConsciousShoppingCarousel = () => {
       smallImage: sunglassesImg,
       interviewTextLeftCol: t("conscious-shopping.le-swing.interviewP1"),
       interviewTextRightCol: t("conscious-shopping.le-swing.interviewP2"),
-      alt: "Le Swing image",
+      altBigImage: "Le Swing",
+      altSmallImage: "Sunglasses",
     },
     {
       title: t("conscious-shopping.laia.title"),
@@ -156,7 +159,8 @@ const ConsciousShoppingCarousel = () => {
       smallImage: conchaImg,
       interviewTextLeftCol: t("conscious-shopping.laia.interviewP1"),
       interviewTextRightCol: t("conscious-shopping.laia.interviewP2"),
-      alt: "Laia image",
+      altBigImage: "Laia",
+      altSmallImage: "Shell",
     },
     {
       title: t("conscious-shopping.nadia.title"),
@@ -164,7 +168,8 @@ const ConsciousShoppingCarousel = () => {
       smallImage: bagImg,
       interviewTextLeftCol: t("conscious-shopping.nadia.interviewP1"),
       interviewTextRightCol: t("conscious-shopping.nadia.interviewP2"),
-      alt: "Nadia image",
+      altBigImage: "Nadia",
+      altSmallImage: "Bag",
     },
   ];
 
@@ -176,7 +181,8 @@ const ConsciousShoppingCarousel = () => {
   const secondaryImage = currentCarouselItem.smallImage;
   const interviewTextLeftCol = currentCarouselItem.interviewTextLeftCol;
   const interviewTextRightCol = currentCarouselItem.interviewTextRightCol;
-  const altTags = currentCarouselItem.alt;
+  const altTagsBig = currentCarouselItem.altBigImage;
+  const altTagsSmall = currentCarouselItem.altSmallImage;
 
   const arrowRightClick = () => {
     currentPosition !== carousel.length - 1 // Check index length
@@ -293,7 +299,7 @@ const ConsciousShoppingCarousel = () => {
             <ImageContainer width="100%">
               <BigImage
                 src={mainImage}
-                alt={altTags}
+                alt={altTagsBig}
                 minWidth={[320, 320, 320, 420, 420]}
                 p={4}
               />
@@ -314,7 +320,7 @@ const ConsciousShoppingCarousel = () => {
         >
           <SmallImage
             src={secondaryImage}
-            alt={altTags}
+            alt={altTagsSmall}
             minWidth={240}
             width={240}
           />

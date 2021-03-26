@@ -1,7 +1,7 @@
 import { LayoutProps, layout } from "styled-system";
 import React, { Fragment } from "react";
 
-import Flex from "../Flex";
+import Flex from "../styles/Flex";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../constants/router-urls";
 import styled from "styled-components";

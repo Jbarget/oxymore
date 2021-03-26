@@ -6,7 +6,7 @@ import {
 } from "styled-system";
 import { NavLink, useLocation } from "react-router-dom";
 
-import Flex from "./Flex";
+import Flex from "./styles/Flex";
 import { HOME_URL } from "../constants/router-urls";
 import LanguageButtons from "./LanguageButtons";
 import NavMenu from "./NavMenu";

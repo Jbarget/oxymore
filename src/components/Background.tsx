@@ -16,7 +16,7 @@ import {
 } from "../constants/router-urls";
 import styled, { css } from "styled-components";
 
-import Flex from "./Flex";
+import Flex from "./styles/Flex";
 import React from "react";
 import eyeProjectBackground from "../assets/backgrounds/eye-bg.png";
 import marbleBackground from "../assets/backgrounds/background.png";

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { TypographyProps, typography } from "styled-system";
 
-import Flex from "./Flex";
+import Flex from "./styles/Flex";
 import calculateTimeLeft from "../helpers/calculateTimeLeft";
 import styled from "styled-components";
 
