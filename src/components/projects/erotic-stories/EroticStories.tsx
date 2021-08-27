@@ -109,9 +109,7 @@ const EroticStoriesContent: React.FC = () => {
           top={0}
           mb={[4, 4, 4, 4, 0]}
         >
-          <LazyLoad once>
-            <EroticImg src={wingsBeating.img} alt={wingsBeating.alt} />
-          </LazyLoad>
+          <EroticImg src={wingsBeating.img} alt={wingsBeating.alt} />
         </Flex>
       </Flex>
       <Flex
@@ -139,9 +137,7 @@ const EroticStoriesContent: React.FC = () => {
           height={heights}
           top={0}
         >
-          <LazyLoad once>
-            <EroticImg src={bellyButtons.img} alt={bellyButtons.alt} />
-          </LazyLoad>
+          <EroticImg src={bellyButtons.img} alt={bellyButtons.alt} />
         </Flex>
       </Flex>
     </Flex>
