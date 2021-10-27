@@ -127,7 +127,7 @@ const BelledejourContent: React.FC = () => {
         <img src={spider} alt="spider icon" />
       </ReturnToProjectsPage>
       <Grid
-        overflow="scroll"
+        overflowY="auto"
         gridRowGap={1}
         gridColumnGap={1}
         gridTemplateColumns={[

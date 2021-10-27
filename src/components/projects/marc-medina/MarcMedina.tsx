@@ -131,7 +131,7 @@ const images: ImageProps[] = [
 ];
 
 const Div = styled.div<GridProps & LayoutProps>`
-  overflow-y: scroll;
+  overflow-y: auto;
   ${layout};
   ${grid};
 `;
