@@ -131,7 +131,7 @@ const editorialImages: EditorialImageProps[] = [
 ];
 
 const Div = styled.div<GridProps & LayoutProps>`
-  overflow-y: scroll;
+  overflow-y: auto;
   ${layout};
   ${grid};
 `;
