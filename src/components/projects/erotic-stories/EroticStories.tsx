@@ -11,7 +11,6 @@ import {
 
 import EroticStoriesPreview from "./EroticStoriesPreview";
 import Flex from "../../styles/Flex";
-import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import { PROJECTS_URL } from "../../../constants/router-urls";
 import PreviewOrProjectPage from "../PreviewOrProjectPage";
